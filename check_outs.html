@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check-Out - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+</head>
+<body>
+  <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+       
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-sign-out-alt me-2"></i>Check-Out Management
+                                </h1>
+                                <p class="card-text text-muted mb-0">Process guest check-outs and manage departures</p>
+                                <small class="text-muted" id="lastUpdated">Pending Check-outs: <span class="fw-bold text-warning">8</span> • Today's Check-outs: <span class="fw-bold">12</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-success" id="refreshDataBtn">
+                                    <i class="fas fa-sync-alt me-1"></i> Refresh
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Check-Out Information Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-search me-2"></i>Check-Out Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Last Name:</label>
+                                    <input type="text" class="form-control" id="lastNameSearch" placeholder="Enter last name">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Room No:</label>
+                                    <input type="text" class="form-control" id="roomNoSearch" placeholder="Enter room number">
+                                </div>
+                            </div>
+                            <div class="col-md-4 d-flex align-items-end">
+                                <button class="btn btn-primary w-100" id="searchCheckoutBtn">
+                                    <i class="fas fa-search me-1"></i> Search
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Guests Table -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Res. No.</th>
+                                        <th>K</th>
+                                        <th>Last Name</th>
+                                        <th>First Name</th>
+                                        <th>No of Rooms</th>
+                                        <th>Check-In</th>
+                                        <th>Check-Out</th>
+                                        <th>Total</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="checkoutTableBody">
+                                    <!-- Row 1 -->
+                                    <tr class="checkout-row" data-res-no="RES20241215001" data-last-name="Smith" data-first-name="John" data-room="101">
+                                        <td><span class="badge bg-info">RES20241215001</span></td>
+                                        <td><input type="checkbox" class="form-check-input select-checkout" checked></td>
+                                        <td>Smith</td>
+                                        <td>John</td>
+                                        <td>1</td>
+                                        <td>Dec 15, 2024</td>
+                                        <td>Dec 20, 2024</td>
+                                        <td><strong>$1,250.00</strong></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary select-guest-btn">
+                                                <i class="fas fa-check me-1"></i> Select
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Row 2 -->
+                                    <tr class="checkout-row" data-res-no="RES20241216002" data-last-name="Johnson" data-first-name="Sarah" data-room="102">
+                                        <td><span class="badge bg-info">RES20241216002</span></td>
+                                        <td><input type="checkbox" class="form-check-input select-checkout"></td>
+                                        <td>Johnson</td>
+                                        <td>Sarah</td>
+                                        <td>1</td>
+                                        <td>Dec 16, 2024</td>
+                                        <td>Dec 22, 2024</td>
+                                        <td><strong>$900.00</strong></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary select-guest-btn">
+                                                <i class="fas fa-check me-1"></i> Select
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Row 3 -->
+                                    <tr class="checkout-row" data-res-no="RES20241214003" data-last-name="Williams" data-first-name="Robert" data-room="201">
+                                        <td><span class="badge bg-info">RES20241214003</span></td>
+                                        <td><input type="checkbox" class="form-check-input select-checkout"></td>
+                                        <td>Williams</td>
+                                        <td>Robert</td>
+                                        <td>1</td>
+                                        <td>Dec 14, 2024</td>
+                                        <td>Dec 21, 2024</td>
+                                        <td><strong>$2,100.00</strong></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary select-guest-btn">
+                                                <i class="fas fa-check me-1"></i> Select
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Row 4 -->
+                                    <tr class="checkout-row" data-res-no="RES20241217004" data-last-name="Brown" data-first-name="Emily" data-room="205">
+                                        <td><span class="badge bg-info">RES20241217004</span></td>
+                                        <td><input type="checkbox" class="form-check-input select-checkout"></td>
+                                        <td>Brown</td>
+                                        <td>Emily</td>
+                                        <td>1</td>
+                                        <td>Dec 17, 2024</td>
+                                        <td>Dec 19, 2024</td>
+                                        <td><strong>$280.00</strong></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary select-guest-btn">
+                                                <i class="fas fa-check me-1"></i> Select
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Row 5 -->
+                                    <tr class="checkout-row" data-res-no="RES20241212005" data-last-name="Davis" data-first-name="Michael" data-room="304">
+                                        <td><span class="badge bg-info">RES20241212005</span></td>
+                                        <td><input type="checkbox" class="form-check-input select-checkout"></td>
+                                        <td>Davis</td>
+                                        <td>Michael</td>
+                                        <td>2</td>
+                                        <td>Dec 12, 2024</td>
+                                        <td>Dec 20, 2024</td>
+                                        <td><strong>$1,800.00</strong></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary select-guest-btn">
+                                                <i class="fas fa-check me-1"></i> Select
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Details Section -->
+        <div class="row">
+            <!-- Left Column: Reservation Details -->
+            <div class="col-lg-6">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Reservation Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstNameDetail" value="John" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastNameDetail" value="Smith" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Adults</label>
+                                <input type="number" class="form-control" id="adultsDetail" value="2" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Children</label>
+                                <input type="number" class="form-control" id="childrenDetail" value="0" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Room Category</label>
+                                <input type="text" class="form-control" id="roomCategoryDetail" value="Deluxe Suite" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Number of Rooms</label>
+                                <input type="number" class="form-control" id="numRoomsDetail" value="1" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Number of Nights</label>
+                                <input type="number" class="form-control" id="numNightsDetail" value="5" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Status</label>
+                                <input type="text" class="form-control" id="statusDetail" value="Checked In" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Sub Total</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" class="form-control" id="subTotalDetail" value="1,250.00" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Advance Paid</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" class="form-control" id="advancePaidDetail" value="750.00" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Extra Charges</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" class="form-control" id="extraChargesDetail" value="125.00" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Total</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" class="form-control" id="totalDetail" value="1,375.00" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label class="form-label">Balance Due</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" class="form-control" id="balanceDueDetail" value="625.00" readonly style="font-weight: bold; color: #dc3545;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column: Billing & Check-out -->
+            <div class="col-lg-6">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-calculator me-2"></i>Billing Details & Check-out</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Billing Details -->
+                        <div class="mb-4">
+                            <h6 class="mb-3 text-primary">Billing Details</h6>
+                            <div class="table-responsive">
+                                <table class="table table-sm table-bordered">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Room Charges (5 nights @ $200)</td>
+                                            <td>$1,000.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Service Charges</td>
+                                            <td>$250.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tax (10%)</td>
+                                            <td>$125.00</td>
+                                        </tr>
+                                        <tr class="table-active">
+                                            <td><strong>Total Amount</strong></td>
+                                            <td><strong>$1,375.00</strong></td>
+                                        </tr>
+                                        <tr class="table-success">
+                                            <td><strong>Amount Paid</strong></td>
+                                            <td><strong>$750.00</strong></td>
+                                        </tr>
+                                        <tr class="table-danger">
+                                            <td><strong>Balance Due</strong></td>
+                                            <td><strong>$625.00</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Check-out Verification -->
+                        <div class="mb-4">
+                            <h6 class="mb-3 text-primary">Check-out Verification</h6>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="roomKeyReturned">
+                                        <label class="form-check-label" for="roomKeyReturned">
+                                            <i class="fas fa-key me-2 text-success"></i>Room Key Returned
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="minibarChecked">
+                                        <label class="form-check-label" for="minibarChecked">
+                                            <i class="fas fa-wine-bottle me-2 text-success"></i>Mini bar Checked
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Check-out Date & Time -->
+                        <div class="mb-4">
+                            <h6 class="mb-3 text-primary">Check-out Date & Time</h6>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Check-Out Date</label>
+                                    <input type="date" class="form-control" id="checkoutDate" value="2024-12-20">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Time</label>
+                                    <input type="time" class="form-control" id="checkoutTime" value="11:00">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" id="printInvoiceBtn">
+                                <i class="fas fa-print me-1"></i> Print Invoice
+                            </button>
+                            <button class="btn btn-success" id="processPaymentBtn">
+                                <i class="fas fa-credit-card me-1"></i> Process Payment
+                            </button>
+                            <button class="btn btn-danger btn-lg" id="checkoutBtn">
+                                <i class="fas fa-sign-out-alt me-1"></i> Check-Out
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Process Payment Modal -->
+    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="paymentModalLabel">
+                        <i class="fas fa-credit-card me-2"></i>Process Payment
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Guest Name</label>
+                            <input type="text" class="form-control" value="John Smith" readonly>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Room Number</label>
+                            <input type="text" class="form-control" value="101" readonly>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Total Amount</label>
+                            <input type="text" class="form-control" value="$1,375.00" readonly>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Amount Paid</label>
+                            <input type="text" class="form-control" value="$750.00" readonly>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Balance Due</label>
+                            <input type="text" class="form-control" value="$625.00" readonly style="font-weight: bold; color: #dc3545;">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Payment Amount</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="paymentAmount" value="625.00" step="0.01" min="0">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Payment Method</label>
+                            <select class="form-select" id="paymentMethod">
+                                <option value="cash">Cash</option>
+                                <option value="creditcard">Credit Card</option>
+                                <option value="debitcard">Debit Card</option>
+                                <option value="banktransfer">Bank Transfer</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Receipt Number</label>
+                            <input type="text" class="form-control" id="receiptNumber" value="RCPT20241220001" readonly>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Payment Date</label>
+                            <input type="date" class="form-control" id="paymentDate" value="2024-12-20">
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Notes</label>
+                            <textarea class="form-control" id="paymentNotes" rows="2" placeholder="Add any notes about the payment..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" id="confirmPaymentBtn">Confirm Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Check-out Confirmation Modal -->
+    <div class="modal fade" id="checkoutConfirmModal" tabindex="-1" aria-labelledby="checkoutConfirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="checkoutConfirmModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Confirm Check-out
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to check out <strong>John Smith</strong> from <strong>Room 101</strong>?</p>
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        <strong>Important:</strong> Please ensure all verifications are completed before proceeding.
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="verifyRoomKey">
+                        <label class="form-check-label" for="verifyRoomKey">
+                            Room key has been returned
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="verifyMinibar">
+                        <label class="form-check-label" for="verifyMinibar">
+                            Mini-bar has been checked
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="verifyPayment">
+                        <label class="form-check-label" for="verifyPayment">
+                            All payments have been settled
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="verifyLuggage">
+                        <label class="form-check-label" for="verifyLuggage">
+                            Guest luggage has been collected
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmCheckoutBtn">Confirm Check-out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Check-Out Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current date and time
+            const now = new Date();
+            document.getElementById('checkoutDate').value = now.toISOString().split('T')[0];
+            document.getElementById('checkoutTime').value = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+            
+            // Refresh data button
+            document.getElementById('refreshDataBtn').addEventListener('click', function() {
+                refreshCheckoutData();
+            });
+            
+            // Search button
+            document.getElementById('searchCheckoutBtn').addEventListener('click', function() {
+                searchCheckoutGuest();
+            });
+            
+            // Select guest buttons
+            document.querySelectorAll('.select-guest-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    selectGuestForCheckout(row);
+                });
+            });
+            
+            // Checkbox selection
+            document.querySelectorAll('.select-checkout').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        const row = this.closest('tr');
+                        selectGuestForCheckout(row);
+                    }
+                });
+            });
+            
+            // Print invoice button
+            document.getElementById('printInvoiceBtn').addEventListener('click', function() {
+                printInvoice();
+            });
+            
+            // Process payment button
+            document.getElementById('processPaymentBtn').addEventListener('click', function() {
+                processPayment();
+            });
+            
+            // Check-out button
+            document.getElementById('checkoutBtn').addEventListener('click', function() {
+                confirmCheckout();
+            });
+            
+            // Confirm payment button
+            document.getElementById('confirmPaymentBtn').addEventListener('click', function() {
+                confirmPayment();
+            });
+            
+            // Confirm check-out button
+            document.getElementById('confirmCheckoutBtn').addEventListener('click', function() {
+                finalizeCheckout();
+            });
+            
+            // Room key and minibar checkboxes
+            document.getElementById('roomKeyReturned').addEventListener('change', updateCheckoutStatus);
+            document.getElementById('minibarChecked').addEventListener('change', updateCheckoutStatus);
+            
+            // Verification checkboxes in modal
+            document.getElementById('verifyRoomKey').addEventListener('change', updateCheckoutVerification);
+            document.getElementById('verifyMinibar').addEventListener('change', updateCheckoutVerification);
+            document.getElementById('verifyPayment').addEventListener('change', updateCheckoutVerification);
+            document.getElementById('verifyLuggage').addEventListener('change', updateCheckoutVerification);
+            
+            // Search inputs (trigger search on Enter)
+            document.getElementById('lastNameSearch').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') searchCheckoutGuest();
+            });
+            
+            document.getElementById('roomNoSearch').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') searchCheckoutGuest();
+            });
+            
+            // Initialize with first guest selected
+            const firstRow = document.querySelector('#checkoutTableBody tr:first-child');
+            if (firstRow) {
+                selectGuestForCheckout(firstRow);
+            }
+        });
+        
+        function refreshCheckoutData() {
+            const refreshBtn = document.getElementById('refreshDataBtn');
+            const originalText = refreshBtn.innerHTML;
+            refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Refreshing...';
+            refreshBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Update pending check-outs count
+                const pendingCount = document.querySelectorAll('.checkout-row .select-checkout:not(:checked)').length;
+                document.querySelector('#lastUpdated span.text-warning').textContent = pendingCount;
+                
+                // Show success message
+                showAlert('Check-out data refreshed successfully', 'success');
+                
+                // Restore button
+                refreshBtn.innerHTML = originalText;
+                refreshBtn.disabled = false;
+            }, 1500);
+        }
+        
+        function searchCheckoutGuest() {
+            const lastName = document.getElementById('lastNameSearch').value.trim();
+            const roomNo = document.getElementById('roomNoSearch').value.trim();
+            
+            if (!lastName && !roomNo) {
+                showAlert('Please enter last name or room number to search', 'warning');
+                return;
+            }
+            
+            const rows = document.querySelectorAll('.checkout-row');
+            let found = false;
+            
+            rows.forEach(row => {
+                const rowLastName = row.dataset.lastName.toLowerCase();
+                const rowRoom = row.dataset.room;
+                
+                const matchesLastName = lastName && rowLastName.includes(lastName.toLowerCase());
+                const matchesRoom = roomNo && rowRoom.includes(roomNo);
+                
+                if ((lastName && matchesLastName) || (roomNo && matchesRoom)) {
+                    row.classList.add('table-info');
+                    found = true;
+                    
+                    // Auto-select the found guest
+                    setTimeout(() => {
+                        selectGuestForCheckout(row);
+                    }, 500);
+                    
+                    // Remove highlight after 3 seconds
+                    setTimeout(() => {
+                        row.classList.remove('table-info');
+                    }, 3000);
+                } else {
+                    row.style.opacity = '0.5';
+                    setTimeout(() => {
+                        row.style.opacity = '';
+                    }, 3000);
+                }
+            });
+            
+            if (!found) {
+                showAlert('No guest found with the search criteria', 'warning');
+            } else {
+                showAlert('Guest found and selected', 'success');
+            }
+        }
+        
+        function selectGuestForCheckout(row) {
+            // Reset all selections
+            document.querySelectorAll('.checkout-row').forEach(r => {
+                r.classList.remove('table-primary');
+                r.querySelector('.select-checkout').checked = false;
+            });
+            
+            // Highlight selected row
+            row.classList.add('table-primary');
+            row.querySelector('.select-checkout').checked = true;
+            
+            // Get guest data from row
+            const resNo = row.dataset.resNo;
+            const lastName = row.dataset.lastName;
+            const firstName = row.dataset.firstName;
+            const roomNo = row.dataset.room;
+            
+            // Update guest details based on reservation number
+            updateGuestDetails(resNo, lastName, firstName, roomNo);
+            
+            // Update check-out button text
+            document.getElementById('checkoutBtn').innerHTML = `<i class="fas fa-sign-out-alt me-1"></i> Check-Out ${firstName} ${lastName}`;
+            
+            showAlert(`Selected guest: ${firstName} ${lastName} (Room ${roomNo})`, 'info');
+        }
+        
+        function updateGuestDetails(resNo, lastName, firstName, roomNo) {
+            // Sample data for different guests
+            const guestData = {
+                'RES20241215001': {
+                    firstName: 'John',
+                    lastName: 'Smith',
+                    adults: 2,
+                    children: 0,
+                    roomCategory: 'Deluxe Suite',
+                    numRooms: 1,
+                    numNights: 5,
+                    status: 'Checked In',
+                    subTotal: '1,250.00',
+                    advancePaid: '750.00',
+                    extraCharges: '125.00',
+                    total: '1,375.00',
+                    balanceDue: '625.00'
+                },
+                'RES20241216002': {
+                    firstName: 'Sarah',
+                    lastName: 'Johnson',
+                    adults: 1,
+                    children: 1,
+                    roomCategory: 'Standard Room',
+                    numRooms: 1,
+                    numNights: 6,
+                    status: 'Checked In',
+                    subTotal: '900.00',
+                    advancePaid: '500.00',
+                    extraCharges: '90.00',
+                    total: '990.00',
+                    balanceDue: '490.00'
+                },
+                'RES20241214003': {
+                    firstName: 'Robert',
+                    lastName: 'Williams',
+                    adults: 2,
+                    children: 2,
+                    roomCategory: 'Executive Suite',
+                    numRooms: 1,
+                    numNights: 7,
+                    status: 'Checked In',
+                    subTotal: '2,100.00',
+                    advancePaid: '1,500.00',
+                    extraCharges: '210.00',
+                    total: '2,310.00',
+                    balanceDue: '810.00'
+                },
+                'RES20241217004': {
+                    firstName: 'Emily',
+                    lastName: 'Brown',
+                    adults: 1,
+                    children: 0,
+                    roomCategory: 'Standard Room',
+                    numRooms: 1,
+                    numNights: 2,
+                    status: 'Checked In',
+                    subTotal: '280.00',
+                    advancePaid: '150.00',
+                    extraCharges: '28.00',
+                    total: '308.00',
+                    balanceDue: '158.00'
+                },
+                'RES20241212005': {
+                    firstName: 'Michael',
+                    lastName: 'Davis',
+                    adults: 2,
+                    children: 0,
+                    roomCategory: 'Deluxe Room',
+                    numRooms: 2,
+                    numNights: 8,
+                    status: 'Checked In',
+                    subTotal: '1,800.00',
+                    advancePaid: '1,000.00',
+                    extraCharges: '180.00',
+                    total: '1,980.00',
+                    balanceDue: '980.00'
+                }
+            };
+            
+            const data = guestData[resNo] || guestData['RES20241215001'];
+            
+            // Update form fields
+            document.getElementById('firstNameDetail').value = data.firstName;
+            document.getElementById('lastNameDetail').value = data.lastName;
+            document.getElementById('adultsDetail').value = data.adults;
+            document.getElementById('childrenDetail').value = data.children;
+            document.getElementById('roomCategoryDetail').value = data.roomCategory;
+            document.getElementById('numRoomsDetail').value = data.numRooms;
+            document.getElementById('numNightsDetail').value = data.numNights;
+            document.getElementById('statusDetail').value = data.status;
+            document.getElementById('subTotalDetail').value = data.subTotal;
+            document.getElementById('advancePaidDetail').value = data.advancePaid;
+            document.getElementById('extraChargesDetail').value = data.extraCharges;
+            document.getElementById('totalDetail').value = data.total;
+            document.getElementById('balanceDueDetail').value = data.balanceDue;
+            
+            // Update billing table
+            updateBillingTable(data);
+            
+            // Update payment modal
+            document.querySelector('#paymentModal input[readonly]').value = `${data.firstName} ${data.lastName}`;
+            document.querySelector('#paymentModal input[readonly]').nextElementSibling.value = roomNo;
+            document.getElementById('paymentAmount').value = parseFloat(data.balanceDue.replace(',', ''));
+            
+            // Update check-out confirmation modal
+            document.querySelector('#checkoutConfirmModal strong').textContent = `${data.firstName} ${data.lastName}`;
+            document.querySelector('#checkoutConfirmModal strong').nextElementSibling.nextElementSibling.textContent = `Room ${roomNo}`;
+        }
+        
+        function updateBillingTable(data) {
+            // Calculate room charges (simplified)
+            const roomRate = parseFloat(data.subTotal.replace(',', '')) / parseInt(data.numNights);
+            const roomCharges = roomRate * parseInt(data.numNights);
+            const serviceCharges = parseFloat(data.extraCharges.replace(',', ''));
+            const tax = roomCharges * 0.1; // 10% tax
+            const total = roomCharges + serviceCharges + tax;
+            const paid = parseFloat(data.advancePaid.replace(',', ''));
+            const balance = total - paid;
+            
+            // Update billing table (in a real app, you would update the actual table)
+            console.log('Billing updated:', { roomCharges, serviceCharges, tax, total, paid, balance });
+        }
+        
+        function printInvoice() {
+            const guestName = document.getElementById('firstNameDetail').value + ' ' + document.getElementById('lastNameDetail').value;
+            const roomNo = document.querySelector('.checkout-row.table-primary').dataset.room;
+            
+            showAlert(`Printing invoice for ${guestName} (Room ${roomNo})...`, 'info');
+            
+            // Simulate print dialog
+            setTimeout(() => {
+                // Create a print-friendly version
+                const printContent = `
+                    <html>
+                    <head>
+                        <title>Invoice - ${guestName}</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; margin: 20px; }
+                            .header { text-align: center; margin-bottom: 30px; }
+                            .hotel-name { font-size: 24px; font-weight: bold; }
+                            .invoice-title { font-size: 20px; margin: 20px 0; }
+                            .details { margin: 20px 0; }
+                            table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+                            th, td { border: 1px solid #000; padding: 8px; text-align: left; }
+                            th { background-color: #f2f2f2; }
+                            .total-row { font-weight: bold; }
+                            .footer { margin-top: 50px; text-align: center; font-size: 12px; }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="header">
+                            <div class="hotel-name">Grand Horizon Hotel</div>
+                            <div>123 Hotel Street, Kalpitiya</div>
+                            <div>Phone: (123) 456-7890 | Email: info@grandhorizon.com</div>
+                        </div>
+                        
+                        <div class="invoice-title">INVOICE</div>
+                        
+                        <div class="details">
+                            <div><strong>Guest:</strong> ${guestName}</div>
+                            <div><strong>Room:</strong> ${roomNo}</div>
+                            <div><strong>Check-in:</strong> Dec 15, 2024</div>
+                            <div><strong>Check-out:</strong> Dec 20, 2024</div>
+                            <div><strong>Invoice Date:</strong> ${new Date().toLocaleDateString()}</div>
+                        </div>
+                        
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Room Charges (5 nights)</td>
+                                    <td>$1,000.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Service Charges</td>
+                                    <td>$250.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Tax (10%)</td>
+                                    <td>$125.00</td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td>Total Amount</td>
+                                    <td>$1,375.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Amount Paid</td>
+                                    <td>$750.00</td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td>Balance Due</td>
+                                    <td>$625.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="footer">
+                            <div>Thank you for staying with us!</div>
+                            <div>We hope to see you again soon.</div>
+                            <div>Grand Horizon Hotel Management</div>
+                        </div>
+                    </body>
+                    </html>
+                `;
+                
+                const printWindow = window.open('', '_blank');
+                printWindow.document.write(printContent);
+                printWindow.document.close();
+                printWindow.print();
+            }, 1000);
+        }
+        
+        function processPayment() {
+            const balanceDue = parseFloat(document.getElementById('balanceDueDetail').value.replace(',', ''));
+            
+            if (balanceDue <= 0) {
+                showAlert('No balance due. Payment already settled.', 'info');
+                return;
+            }
+            
+            // Show payment modal
+            const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+            paymentModal.show();
+        }
+        
+        function confirmPayment() {
+            const paymentAmount = parseFloat(document.getElementById('paymentAmount').value);
+            const balanceDue = parseFloat(document.getElementById('balanceDueDetail').value.replace(',', ''));
+            const paymentMethod = document.getElementById('paymentMethod').value;
+            
+            if (!paymentAmount || paymentAmount <= 0) {
+                showAlert('Please enter a valid payment amount', 'warning');
+                return;
+            }
+            
+            if (paymentAmount > balanceDue) {
+                showAlert('Payment amount cannot exceed balance due', 'warning');
+                return;
+            }
+            
+            // Calculate new balance
+            const newBalance = balanceDue - paymentAmount;
+            
+            // Update balance due
+            document.getElementById('balanceDueDetail').value = newBalance.toFixed(2);
+            
+            // Show success message
+            showAlert(`Payment of $${paymentAmount.toFixed(2)} processed successfully (${paymentMethod})`, 'success');
+            
+            // Update verification checkbox
+            if (newBalance <= 0) {
+                document.getElementById('verifyPayment').checked = true;
+            }
+            
+            // Close modal
+            const paymentModal = bootstrap.Modal.getInstance(document.getElementById('paymentModal'));
+            paymentModal.hide();
+            
+            // Reset payment form
+            document.getElementById('paymentAmount').value = '';
+            document.getElementById('paymentNotes').value = '';
+            
+            // Generate new receipt number
+            const newReceiptNo = `RCPT${new Date().getFullYear()}${String(new Date().getMonth()+1).padStart(2, '0')}${String(new Date().getDate()).padStart(2, '0')}${String(Math.floor(Math.random()*900)+100)}`;
+            document.getElementById('receiptNumber').value = newReceiptNo;
+        }
+        
+        function confirmCheckout() {
+            // Check if room key is returned
+            if (!document.getElementById('roomKeyReturned').checked) {
+                showAlert('Please confirm room key has been returned', 'warning');
+                return;
+            }
+            
+            // Check if minibar is checked
+            if (!document.getElementById('minibarChecked').checked) {
+                showAlert('Please confirm mini-bar has been checked', 'warning');
+                return;
+            }
+            
+            // Check if balance is settled
+            const balanceDue = parseFloat(document.getElementById('balanceDueDetail').value.replace(',', ''));
+            if (balanceDue > 0) {
+                const proceed = confirm(`Balance of $${balanceDue.toFixed(2)} is still due. Do you want to proceed with check-out anyway?`);
+                if (!proceed) return;
+            }
+            
+            // Show confirmation modal
+            const checkoutModal = new bootstrap.Modal(document.getElementById('checkoutConfirmModal'));
+            checkoutModal.show();
+        }
+        
+        function finalizeCheckout() {
+            // Check all verifications
+            const verifications = [
+                document.getElementById('verifyRoomKey').checked,
+                document.getElementById('verifyMinibar').checked,
+                document.getElementById('verifyPayment').checked,
+                document.getElementById('verifyLuggage').checked
+            ];
+            
+            if (!verifications.every(v => v)) {
+                showAlert('Please complete all verifications before check-out', 'warning');
+                return;
+            }
+            
+            const guestName = document.getElementById('firstNameDetail').value + ' ' + document.getElementById('lastNameDetail').value;
+            const roomNo = document.querySelector('.checkout-row.table-primary').dataset.room;
+            const checkoutDate = document.getElementById('checkoutDate').value;
+            const checkoutTime = document.getElementById('checkoutTime').value;
+            
+            // Show processing message
+            showAlert(`Processing check-out for ${guestName}...`, 'info');
+            
+            // Simulate check-out process
+            setTimeout(() => {
+                // Remove guest from table
+                const selectedRow = document.querySelector('.checkout-row.table-primary');
+                if (selectedRow) {
+                    selectedRow.remove();
+                    
+                    // Update pending count
+                    const pendingCount = document.querySelectorAll('.checkout-row').length;
+                    document.querySelector('#lastUpdated span.text-warning').textContent = pendingCount;
+                }
+                
+                // Reset form
+                resetCheckoutForm();
+                
+                // Show success message
+                showAlert(`Check-out completed for ${guestName} (Room ${roomNo}) at ${checkoutTime} on ${formatDate(checkoutDate)}`, 'success');
+                
+                // Close modal
+                const checkoutModal = bootstrap.Modal.getInstance(document.getElementById('checkoutConfirmModal'));
+                checkoutModal.hide();
+                
+                // Reset verification checkboxes
+                document.getElementById('verifyRoomKey').checked = false;
+                document.getElementById('verifyMinibar').checked = false;
+                document.getElementById('verifyPayment').checked = false;
+                document.getElementById('verifyLuggage').checked = false;
+                
+                // Auto-select next guest if available
+                const nextRow = document.querySelector('.checkout-row');
+                if (nextRow) {
+                    setTimeout(() => {
+                        selectGuestForCheckout(nextRow);
+                    }, 1000);
+                }
+            }, 2000);
+        }
+        
+        function updateCheckoutStatus() {
+            const roomKeyReturned = document.getElementById('roomKeyReturned').checked;
+            const minibarChecked = document.getElementById('minibarChecked').checked;
+            
+            // Update modal checkboxes
+            document.getElementById('verifyRoomKey').checked = roomKeyReturned;
+            document.getElementById('verifyMinibar').checked = minibarChecked;
+            
+            // Enable/disable check-out button based on basic verifications
+            const checkOutBtn = document.getElementById('checkoutBtn');
+            if (roomKeyReturned && minibarChecked) {
+                checkOutBtn.disabled = false;
+            } else {
+                checkOutBtn.disabled = true;
+            }
+        }
+        
+        function updateCheckoutVerification() {
+            // This function ensures modal checkboxes sync with main checkboxes
+            const verifyRoomKey = document.getElementById('verifyRoomKey').checked;
+            const verifyMinibar = document.getElementById('verifyMinibar').checked;
+            
+            document.getElementById('roomKeyReturned').checked = verifyRoomKey;
+            document.getElementById('minibarChecked').checked = verifyMinibar;
+        }
+        
+        function resetCheckoutForm() {
+            // Reset form fields to default
+            document.getElementById('firstNameDetail').value = '';
+            document.getElementById('lastNameDetail').value = '';
+            document.getElementById('adultsDetail').value = '';
+            document.getElementById('childrenDetail').value = '';
+            document.getElementById('roomCategoryDetail').value = '';
+            document.getElementById('numRoomsDetail').value = '';
+            document.getElementById('numNightsDetail').value = '';
+            document.getElementById('statusDetail').value = '';
+            document.getElementById('subTotalDetail').value = '';
+            document.getElementById('advancePaidDetail').value = '';
+            document.getElementById('extraChargesDetail').value = '';
+            document.getElementById('totalDetail').value = '';
+            document.getElementById('balanceDueDetail').value = '';
+            
+            // Reset checkboxes
+            document.getElementById('roomKeyReturned').checked = false;
+            document.getElementById('minibarChecked').checked = false;
+            
+            // Reset check-out button
+            document.getElementById('checkoutBtn').innerHTML = '<i class="fas fa-sign-out-alt me-1"></i> Check-Out';
+            document.getElementById('checkoutBtn').disabled = true;
+            
+            // Clear search fields
+            document.getElementById('lastNameSearch').value = '';
+            document.getElementById('roomNoSearch').value = '';
+        }
+        
+        // Utility functions
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+        
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return date.toLocaleDateString('en-US', options);
+        }
+    </script>
+<!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+
+    <!-- Include JavaScript -->
+    <script src="js/include.js"></script>
+     <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Details - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+
+     
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-university me-2"></i>Bank Details
+                                </h1>
+                                <p class="card-text text-muted mb-0">Manage and view all bank account details for the hotel</p>
+                                <small class="text-muted">Total Bank Accounts: <span class="fw-bold">6</span> • Active: <span class="text-success fw-bold">5</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBankModal">
+                                    <i class="fas fa-plus me-1"></i> Add New Bank
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bank Summary Cards -->
+        <div class="row mb-4">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Total Balance</h6>
+                                <h3 class="fw-bold text-success">$124,850.75</h3>
+                                <small class="text-muted">Across all accounts</small>
+                            </div>
+                            <div class="bg-success bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-money-bill-wave fa-2x text-success"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Active Accounts</h6>
+                                <h3 class="fw-bold text-primary">5</h3>
+                                <small class="text-muted">Out of 6 total</small>
+                            </div>
+                            <div class="bg-primary bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-university fa-2x text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Primary Account</h6>
+                                <h3 class="fw-bold text-info">$68,420.50</h3>
+                                <small class="text-muted">Commercial Bank</small>
+                            </div>
+                            <div class="bg-info bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-star fa-2x text-info"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Last Updated</h6>
+                                <h3 class="fw-bold text-warning">Today</h3>
+                                <small class="text-muted">10:30 AM</small>
+                            </div>
+                            <div class="bg-warning bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-sync-alt fa-2x text-warning"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label class="form-label">Bank Name</label>
+                                <input type="text" class="form-control" placeholder="Search by bank name" id="bankNameSearch">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Account Number</label>
+                                <input type="text" class="form-control" placeholder="Search by account number" id="accountNumberSearch">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Status</label>
+                                <select class="form-select" id="statusFilter">
+                                    <option value="">All Status</option>
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Currency</label>
+                                <select class="form-select" id="currencyFilter">
+                                    <option value="">All Currencies</option>
+                                    <option value="USD">USD</option>
+                                    <option value="LKR">LKR</option>
+                                    <option value="EUR">EUR</option>
+                                    <option value="GBP">GBP</option>
+                                </select>
+                            </div>
+                            <div class="col-md-9">
+                                <label class="form-label">Search</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search banks by name, branch, or account holder...">
+                                    <button class="btn btn-primary" type="button" id="searchBtn">
+                                        <i class="fas fa-search"></i> Search
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-flex align-items-end">
+                                <button class="btn btn-outline-secondary w-100" id="resetFiltersBtn">
+                                    <i class="fas fa-redo me-1"></i> Reset Filters
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bank List Table -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-list me-2"></i>Bank Accounts List</h5>
+                            <div class="d-flex">
+                                <div class="btn-group me-2" role="group">
+                                    <button type="button" class="btn btn-sm btn-outline-primary active" data-filter="all">All</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="active">Active</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="inactive">Inactive</button>
+                                </div>
+                                <button class="btn btn-sm btn-success" id="exportBtn">
+                                    <i class="fas fa-download me-1"></i> Export
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th width="50">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="selectAllBanks">
+                                            </div>
+                                        </th>
+                                        <th>Bank</th>
+                                        <th>Account Number</th>
+                                        <th>Account Holder</th>
+                                        <th>Branch</th>
+                                        <th>Currency</th>
+                                        <th>Current Balance</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bankTableBody">
+                                    <!-- Bank Row 1 -->
+                                    <tr class="bank-item">
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input bank-checkbox" type="checkbox" data-id="BANK001">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="bank-logo bg-primary">
+                                                    <i class="fas fa-university"></i>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold">Commercial Bank</h6>
+                                                    <small class="text-muted">Primary Account</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="fw-bold">123456789012</span><br>
+                                            <small class="text-muted">Savings Account</small>
+                                        </td>
+                                        <td>
+                                            Ovia Hotel Pvt Ltd<br>
+                                            <small class="text-muted">Business Account</small>
+                                        </td>
+                                        <td>
+                                            Colombo 03<br>
+                                            <small class="text-muted">Main Branch</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">USD</span><br>
+                                            <small class="text-muted">US Dollar</small>
+                                        </td>
+                                        <td>
+                                            <span class="balance-badge text-success">$68,420.50</span><br>
+                                            <small class="text-muted">Last updated: Today</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-status status-active"></span>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-bank" data-id="BANK001">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-bank" data-id="BANK001">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-bank" data-id="BANK001">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Bank Row 2 -->
+                                    <tr class="bank-item">
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input bank-checkbox" type="checkbox" data-id="BANK002">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="bank-logo bg-info">
+                                                    <i class="fas fa-landmark"></i>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold">Bank of Ceylon</h6>
+                                                    <small class="text-muted">Local Transactions</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="fw-bold">987654321098</span><br>
+                                            <small class="text-muted">Current Account</small>
+                                        </td>
+                                        <td>
+                                            Ovia Hotel Pvt Ltd<br>
+                                            <small class="text-muted">Business Account</small>
+                                        </td>
+                                        <td>
+                                            Kalpitiya<br>
+                                            <small class="text-muted">Local Branch</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-warning">LKR</span><br>
+                                            <small class="text-muted">Sri Lankan Rupee</small>
+                                        </td>
+                                        <td>
+                                            <span class="balance-badge text-warning">LKR 15,250,750.00</span><br>
+                                            <small class="text-muted">Last updated: Yesterday</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-status status-active"></span>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-bank" data-id="BANK002">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-bank" data-id="BANK002">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-bank" data-id="BANK002">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Bank Row 3 -->
+                                    <tr class="bank-item">
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input bank-checkbox" type="checkbox" data-id="BANK003">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="bank-logo bg-success">
+                                                    <i class="fas fa-piggy-bank"></i>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold">HSBC Bank</h6>
+                                                    <small class="text-muted">International</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="fw-bold">456789012345</span><br>
+                                            <small class="text-muted">Foreign Currency Account</small>
+                                        </td>
+                                        <td>
+                                            Ovia Hotel Pvt Ltd<br>
+                                            <small class="text-muted">Business Account</small>
+                                        </td>
+                                        <td>
+                                            Singapore<br>
+                                            <small class="text-muted">Regional Office</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-primary">EUR</span><br>
+                                            <small class="text-muted">Euro</small>
+                                        </td>
+                                        <td>
+                                            <span class="balance-badge text-primary">€42,580.25</span><br>
+                                            <small class="text-muted">Last updated: 2 days ago</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-status status-active"></span>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-bank" data-id="BANK003">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-bank" data-id="BANK003">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-bank" data-id="BANK003">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Bank Row 4 -->
+                                    <tr class="bank-item">
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input bank-checkbox" type="checkbox" data-id="BANK004">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="bank-logo bg-warning">
+                                                    <i class="fas fa-hand-holding-usd"></i>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold">Peoples Bank</h6>
+                                                    <small class="text-muted">Payroll Account</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="fw-bold">789012345678</span><br>
+                                            <small class="text-muted">Current Account</small>
+                                        </td>
+                                        <td>
+                                            Ovia Hotel Pvt Ltd<br>
+                                            <small class="text-muted">Business Account</small>
+                                        </td>
+                                        <td>
+                                            Negombo<br>
+                                            <small class="text-muted">City Branch</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-warning">LKR</span><br>
+                                            <small class="text-muted">Sri Lankan Rupee</small>
+                                        </td>
+                                        <td>
+                                            <span class="balance-badge text-warning">LKR 8,750,000.00</span><br>
+                                            <small class="text-muted">Last updated: Today</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-status status-active"></span>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-bank" data-id="BANK004">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-bank" data-id="BANK004">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-bank" data-id="BANK004">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Bank Row 5 -->
+                                    <tr class="bank-item">
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input bank-checkbox" type="checkbox" data-id="BANK005">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="bank-logo bg-danger">
+                                                    <i class="fas fa-credit-card"></i>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold">Standard Chartered</h6>
+                                                    <small class="text-muted">Credit Card Account</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="fw-bold">234567890123</span><br>
+                                            <small class="text-muted">Credit Card</small>
+                                        </td>
+                                        <td>
+                                            Ovia Hotel Pvt Ltd<br>
+                                            <small class="text-muted">Corporate Card</small>
+                                        </td>
+                                        <td>
+                                            Colombo 01<br>
+                                            <small class="text-muted">Head Office</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">USD</span><br>
+                                            <small class="text-muted">US Dollar</small>
+                                        </td>
+                                        <td>
+                                            <span class="balance-badge text-success">$0.00</span><br>
+                                            <small class="text-muted">Paid in full</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-status status-active"></span>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-bank" data-id="BANK005">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-bank" data-id="BANK005">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-bank" data-id="BANK005">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Bank Row 6 -->
+                                    <tr class="bank-item">
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input bank-checkbox" type="checkbox" data-id="BANK006">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="bank-logo bg-secondary">
+                                                    <i class="fas fa-university"></i>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold">Sampath Bank</h6>
+                                                    <small class="text-muted">Old Account</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="fw-bold">345678901234</span><br>
+                                            <small class="text-muted">Savings Account</small>
+                                        </td>
+                                        <td>
+                                            Ovia Hotel Pvt Ltd<br>
+                                            <small class="text-muted">Business Account</small>
+                                        </td>
+                                        <td>
+                                            Kalpitiya<br>
+                                            <small class="text-muted">Local Branch</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-warning">LKR</span><br>
+                                            <small class="text-muted">Sri Lankan Rupee</small>
+                                        </td>
+                                        <td>
+                                            <span class="balance-badge text-warning">LKR 500.00</span><br>
+                                            <small class="text-muted">Last updated: 3 months ago</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-status status-inactive"></span>
+                                            <span class="badge bg-danger">Inactive</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-bank" data-id="BANK006">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-bank" data-id="BANK006">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-bank" data-id="BANK006">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted">Showing 6 bank accounts</span>
+                            </div>
+                            <nav aria-label="Bank pagination">
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bank Details Form -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-edit me-2"></i>Bank Account Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h6 class="mb-3 text-primary">Bank Information</h6>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="bankName" class="form-label">Bank Name *</label>
+                                        <input type="text" class="form-control" id="bankName" value="Commercial Bank">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="bankCode" class="form-label">Bank Code/SWIFT</label>
+                                        <input type="text" class="form-control" id="bankCode" value="CBCYLKLX">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="accountType" class="form-label">Account Type *</label>
+                                        <select class="form-select" id="accountType">
+                                            <option value="savings" selected>Savings Account</option>
+                                            <option value="current">Current Account</option>
+                                            <option value="credit_card">Credit Card</option>
+                                            <option value="fixed_deposit">Fixed Deposit</option>
+                                            <option value="foreign_currency">Foreign Currency Account</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="accountNumber" class="form-label">Account Number *</label>
+                                        <input type="text" class="form-control" id="accountNumber" value="123456789012">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="accountHolder" class="form-label">Account Holder Name *</label>
+                                        <input type="text" class="form-control" id="accountHolder" value="Ovia Hotel Pvt Ltd">
+                                    </div>
+                                </div>
+                                
+                                <h6 class="mb-3 mt-4 text-primary">Branch Information</h6>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="branchName" class="form-label">Branch Name</label>
+                                        <input type="text" class="form-control" id="branchName" value="Colombo 03">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="branchCode" class="form-label">Branch Code</label>
+                                        <input type="text" class="form-control" id="branchCode" value="001">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="branchAddress" class="form-label">Branch Address</label>
+                                        <input type="text" class="form-control" id="branchAddress" value="123 Galle Road, Colombo 03">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="city" class="form-label">City</label>
+                                        <input type="text" class="form-control" id="city" value="Colombo">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="country" class="form-label">Country</label>
+                                        <input type="text" class="form-control" id="country" value="Sri Lanka">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <h6 class="mb-3 text-primary">Account Details</h6>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="currency" class="form-label">Currency *</label>
+                                        <select class="form-select" id="currency">
+                                            <option value="USD" selected>USD - US Dollar</option>
+                                            <option value="LKR">LKR - Sri Lankan Rupee</option>
+                                            <option value="EUR">EUR - Euro</option>
+                                            <option value="GBP">GBP - British Pound</option>
+                                            <option value="AUD">AUD - Australian Dollar</option>
+                                            <option value="CAD">CAD - Canadian Dollar</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="currentBalance" class="form-label">Current Balance *</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="number" class="form-control" id="currentBalance" value="68420.50" step="0.01">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="openingDate" class="form-label">Opening Date</label>
+                                        <input type="date" class="form-control" id="openingDate" value="2020-01-15">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="status" class="form-label">Status *</label>
+                                        <select class="form-select" id="status">
+                                            <option value="active" selected>Active</option>
+                                            <option value="inactive">Inactive</option>
+                                            <option value="closed">Closed</option>
+                                            <option value="dormant">Dormant</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="isPrimary" class="form-label">Primary Account</label>
+                                        <select class="form-select" id="isPrimary">
+                                            <option value="yes" selected>Yes</option>
+                                            <option value="no">No</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="overdraftLimit" class="form-label">Overdraft Limit</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="number" class="form-control" id="overdraftLimit" value="10000.00" step="0.01">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h6 class="mb-3 mt-4 text-primary">Contact Information</h6>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="contactPerson" class="form-label">Contact Person</label>
+                                        <input type="text" class="form-control" id="contactPerson" value="Mr. Ravi Perera">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="contactPhone" class="form-label">Contact Phone</label>
+                                        <input type="text" class="form-control" id="contactPhone" value="+94 11 2345678">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="contactEmail" class="form-label">Contact Email</label>
+                                        <input type="email" class="form-control" id="contactEmail" value="ravi@commercialbank.lk">
+                                    </div>
+                                </div>
+                                
+                                <h6 class="mb-3 mt-4 text-primary">Additional Information</h6>
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <label for="notes" class="form-label">Notes</label>
+                                        <textarea class="form-control" id="notes" rows="3" placeholder="Any additional notes or information...">Primary account for all hotel transactions. Use for vendor payments and major expenses.</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <!-- Transaction History -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h6 class="mb-3 text-primary">Recent Transactions</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Description</th>
+                                                <th>Reference</th>
+                                                <th>Debit</th>
+                                                <th>Credit</th>
+                                                <th>Balance</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>2024-12-15</td>
+                                                <td>Vendor Payment - Food Supplies</td>
+                                                <td><span class="badge bg-info">VP20241215001</span></td>
+                                                <td class="text-danger">$1,250.00</td>
+                                                <td class="text-success">-</td>
+                                                <td class="fw-bold">$68,420.50</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2024-12-14</td>
+                                                <td>Guest Refund - Cancellation</td>
+                                                <td><span class="badge bg-info">GR20241214005</span></td>
+                                                <td class="text-danger">$450.00</td>
+                                                <td class="text-success">-</td>
+                                                <td class="fw-bold">$69,670.50</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2024-12-13</td>
+                                                <td>Hotel Revenue Deposit</td>
+                                                <td><span class="badge bg-info">HR20241213012</span></td>
+                                                <td class="text-danger">-</td>
+                                                <td class="text-success">$8,750.00</td>
+                                                <td class="fw-bold">$70,120.50</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2024-12-12</td>
+                                                <td>Utility Payment - Electricity</td>
+                                                <td><span class="badge bg-info">UP20241212008</span></td>
+                                                <td class="text-danger">$1,850.00</td>
+                                                <td class="text-success">-</td>
+                                                <td class="fw-bold">$61,370.50</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2024-12-11</td>
+                                                <td>Online Booking Commission</td>
+                                                <td><span class="badge bg-info">OC20241211015</span></td>
+                                                <td class="text-danger">$750.00</td>
+                                                <td class="text-success">-</td>
+                                                <td class="fw-bold">$63,220.50</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-end gap-2">
+                                    <button class="btn btn-outline-secondary" id="resetFormBtn">
+                                        <i class="fas fa-redo me-1"></i> Reset
+                                    </button>
+                                    <button class="btn btn-danger" id="removeBankBtn">
+                                        <i class="fas fa-trash me-1"></i> Remove
+                                    </button>
+                                    <button class="btn btn-success" id="updateBankBtn">
+                                        <i class="fas fa-save me-1"></i> Update
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Add Bank Modal -->
+    <div class="modal fade" id="addBankModal" tabindex="-1" aria-labelledby="addBankModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="addBankModalLabel">
+                        <i class="fas fa-plus-circle me-2"></i>Add New Bank Account
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="newBankName" class="form-label">Bank Name *</label>
+                            <input type="text" class="form-control" id="newBankName" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newAccountNumber" class="form-label">Account Number *</label>
+                            <input type="text" class="form-control" id="newAccountNumber" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newAccountHolder" class="form-label">Account Holder *</label>
+                            <input type="text" class="form-control" id="newAccountHolder" value="Ovia Hotel Pvt Ltd" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newAccountType" class="form-label">Account Type *</label>
+                            <select class="form-select" id="newAccountType" required>
+                                <option value="">Select Type</option>
+                                <option value="savings">Savings Account</option>
+                                <option value="current">Current Account</option>
+                                <option value="credit_card">Credit Card</option>
+                                <option value="fixed_deposit">Fixed Deposit</option>
+                                <option value="foreign_currency">Foreign Currency Account</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newCurrency" class="form-label">Currency *</label>
+                            <select class="form-select" id="newCurrency" required>
+                                <option value="">Select Currency</option>
+                                <option value="USD">USD - US Dollar</option>
+                                <option value="LKR">LKR - Sri Lankan Rupee</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="GBP">GBP - British Pound</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newOpeningBalance" class="form-label">Opening Balance *</label>
+                            <input type="number" class="form-control" id="newOpeningBalance" value="0.00" step="0.01" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newBranchName" class="form-label">Branch Name</label>
+                            <input type="text" class="form-control" id="newBranchName">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newStatus" class="form-label">Status</label>
+                            <select class="form-select" id="newStatus">
+                                <option value="active" selected>Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="newBranchAddress" class="form-label">Branch Address</label>
+                            <input type="text" class="form-control" id="newBranchAddress">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveNewBank">Save Bank Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteBankModal" tabindex="-1" aria-labelledby="deleteBankModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteBankModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Confirm Delete
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this bank account?</p>
+                    <p class="text-danger"><strong>This action cannot be undone.</strong></p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="confirmDeleteBank">
+                        <label class="form-check-label" for="confirmDeleteBank">
+                            I understand that this will permanently delete the bank account record
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBankBtn" disabled>Delete Bank Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    
+    <script>
+        // Bank Details Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select all banks checkbox
+            document.getElementById('selectAllBanks').addEventListener('change', function() {
+                const checkboxes = document.querySelectorAll('.bank-checkbox');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+            
+            // Filter buttons
+            document.querySelectorAll('[data-filter]').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('[data-filter]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    filterBanks(filter);
+                });
+            });
+            
+            // View bank details
+            document.querySelectorAll('.view-bank').forEach(button => {
+                button.addEventListener('click', function() {
+                    const bankId = this.dataset.id;
+                    loadBankDetails(bankId);
+                });
+            });
+            
+            // Edit bank
+            document.querySelectorAll('.edit-bank').forEach(button => {
+                button.addEventListener('click', function() {
+                    const bankId = this.dataset.id;
+                    editBank(bankId);
+                });
+            });
+            
+            // Delete bank
+            document.querySelectorAll('.delete-bank').forEach(button => {
+                button.addEventListener('click', function() {
+                    const bankId = this.dataset.id;
+                    showDeleteBankModal(bankId);
+                });
+            });
+            
+            // Reset filters
+            document.getElementById('resetFiltersBtn').addEventListener('click', function() {
+                document.getElementById('bankNameSearch').value = '';
+                document.getElementById('accountNumberSearch').value = '';
+                document.getElementById('statusFilter').value = '';
+                document.getElementById('currencyFilter').value = '';
+                filterBanks('all');
+            });
+            
+            // Update bank button
+            document.getElementById('updateBankBtn').addEventListener('click', function() {
+                updateBank();
+            });
+            
+            // Remove bank button
+            document.getElementById('removeBankBtn').addEventListener('click', function() {
+                const bankId = document.querySelector('.bank-checkbox:checked')?.dataset.id;
+                if (bankId) {
+                    showDeleteBankModal(bankId);
+                } else {
+                    showAlert('Please select a bank account first', 'warning');
+                }
+            });
+            
+            // Reset form button
+            document.getElementById('resetFormBtn').addEventListener('click', function() {
+                resetBankForm();
+            });
+            
+            // Save new bank
+            document.getElementById('saveNewBank').addEventListener('click', function() {
+                saveNewBank();
+            });
+            
+            // Confirm delete checkbox
+            document.getElementById('confirmDeleteBank').addEventListener('change', function() {
+                document.getElementById('confirmDeleteBankBtn').disabled = !this.checked;
+            });
+            
+            // Confirm delete button
+            document.getElementById('confirmDeleteBankBtn').addEventListener('click', function() {
+                deleteBank();
+            });
+            
+            // Search functionality
+            document.getElementById('bankNameSearch').addEventListener('input', filterBanks);
+            document.getElementById('accountNumberSearch').addEventListener('input', filterBanks);
+            document.getElementById('statusFilter').addEventListener('change', filterBanks);
+            document.getElementById('currencyFilter').addEventListener('change', filterBanks);
+            document.getElementById('searchBtn').addEventListener('click', filterBanks);
+            
+            // Export button
+            document.getElementById('exportBtn').addEventListener('click', function() {
+                exportBankData();
+            });
+            
+            // Load default bank details
+            loadBankDetails('BANK001');
+        });
+        
+        function filterBanks(filter = 'all') {
+            const bankName = document.getElementById('bankNameSearch').value.toLowerCase();
+            const accountNumber = document.getElementById('accountNumberSearch').value.toLowerCase();
+            const status = document.getElementById('statusFilter').value;
+            const currency = document.getElementById('currencyFilter').value;
+            
+            const rows = document.querySelectorAll('#bankTableBody tr');
+            
+            rows.forEach(row => {
+                const rowBankName = row.querySelector('td:nth-child(2) h6').textContent.toLowerCase();
+                const rowAccountNumber = row.querySelector('td:nth-child(3) .fw-bold').textContent.toLowerCase();
+                const rowStatus = row.querySelector('td:nth-child(8) .badge').textContent.toLowerCase();
+                const rowCurrency = row.querySelector('td:nth-child(6) .badge').textContent.toLowerCase();
+                
+                let show = true;
+                
+                // Apply search filters
+                if (bankName && !rowBankName.includes(bankName)) show = false;
+                if (accountNumber && !rowAccountNumber.includes(accountNumber)) show = false;
+                if (status && rowStatus !== status.toLowerCase()) show = false;
+                if (currency && rowCurrency !== currency.toLowerCase()) show = false;
+                
+                // Apply status filter
+                if (filter !== 'all') {
+                    const rowStatusActive = row.querySelector('.account-status').classList.contains('status-active');
+                    if (filter === 'active' && !rowStatusActive) show = false;
+                    if (filter === 'inactive' && rowStatusActive) show = false;
+                }
+                
+                row.style.display = show ? '' : 'none';
+            });
+        }
+        
+        function loadBankDetails(bankId) {
+            // Bank data
+            const bankData = {
+                'BANK001': {
+                    bankName: 'Commercial Bank',
+                    bankCode: 'CBCYLKLX',
+                    accountType: 'savings',
+                    accountNumber: '123456789012',
+                    accountHolder: 'Ovia Hotel Pvt Ltd',
+                    branchName: 'Colombo 03',
+                    branchCode: '001',
+                    branchAddress: '123 Galle Road, Colombo 03',
+                    city: 'Colombo',
+                    country: 'Sri Lanka',
+                    currency: 'USD',
+                    currentBalance: '68420.50',
+                    openingDate: '2020-01-15',
+                    status: 'active',
+                    isPrimary: 'yes',
+                    overdraftLimit: '10000.00',
+                    contactPerson: 'Mr. Ravi Perera',
+                    contactPhone: '+94 11 2345678',
+                    contactEmail: 'ravi@commercialbank.lk',
+                    notes: 'Primary account for all hotel transactions. Use for vendor payments and major expenses.'
+                },
+                'BANK002': {
+                    bankName: 'Bank of Ceylon',
+                    bankCode: 'BOCYLKLX',
+                    accountType: 'current',
+                    accountNumber: '987654321098',
+                    accountHolder: 'Ovia Hotel Pvt Ltd',
+                    branchName: 'Kalpitiya',
+                    branchCode: '045',
+                    branchAddress: 'Main Street, Kalpitiya',
+                    city: 'Kalpitiya',
+                    country: 'Sri Lanka',
+                    currency: 'LKR',
+                    currentBalance: '15250750.00',
+                    openingDate: '2019-03-20',
+                    status: 'active',
+                    isPrimary: 'no',
+                    overdraftLimit: '500000.00',
+                    contactPerson: 'Ms. Anusha Silva',
+                    contactPhone: '+94 77 3456789',
+                    contactEmail: 'anusha@boc.lk',
+                    notes: 'Local account for Sri Lankan transactions and payroll.'
+                },
+                'BANK003': {
+                    bankName: 'HSBC Bank',
+                    bankCode: 'HSBCSGSG',
+                    accountType: 'foreign_currency',
+                    accountNumber: '456789012345',
+                    accountHolder: 'Ovia Hotel Pvt Ltd',
+                    branchName: 'Singapore',
+                    branchCode: 'SG001',
+                    branchAddress: 'Marina Bay Financial Centre, Singapore',
+                    city: 'Singapore',
+                    country: 'Singapore',
+                    currency: 'EUR',
+                    currentBalance: '42580.25',
+                    openingDate: '2021-06-10',
+                    status: 'active',
+                    isPrimary: 'no',
+                    overdraftLimit: '20000.00',
+                    contactPerson: 'Mr. David Chen',
+                    contactPhone: '+65 6789 0123',
+                    contactEmail: 'david.chen@hsbc.com.sg',
+                    notes: 'International account for foreign currency transactions.'
+                }
+            };
+            
+            const data = bankData[bankId] || bankData['BANK001'];
+            
+            // Populate the form with bank data
+            document.getElementById('bankName').value = data.bankName;
+            document.getElementById('bankCode').value = data.bankCode;
+            document.getElementById('accountType').value = data.accountType;
+            document.getElementById('accountNumber').value = data.accountNumber;
+            document.getElementById('accountHolder').value = data.accountHolder;
+            document.getElementById('branchName').value = data.branchName;
+            document.getElementById('branchCode').value = data.branchCode;
+            document.getElementById('branchAddress').value = data.branchAddress;
+            document.getElementById('city').value = data.city;
+            document.getElementById('country').value = data.country;
+            document.getElementById('currency').value = data.currency;
+            document.getElementById('currentBalance').value = data.currentBalance;
+            document.getElementById('openingDate').value = data.openingDate;
+            document.getElementById('status').value = data.status;
+            document.getElementById('isPrimary').value = data.isPrimary;
+            document.getElementById('overdraftLimit').value = data.overdraftLimit;
+            document.getElementById('contactPerson').value = data.contactPerson;
+            document.getElementById('contactPhone').value = data.contactPhone;
+            document.getElementById('contactEmail').value = data.contactEmail;
+            document.getElementById('notes').value = data.notes;
+            
+            // Update currency symbol based on selection
+            updateCurrencySymbol();
+            
+            // Show success message
+            showAlert(`Loaded ${data.bankName} details`, 'success');
+        }
+        
+        function editBank(bankId) {
+            loadBankDetails(bankId);
+            showAlert(`Editing bank account ${bankId}`, 'info');
+        }
+        
+        function showDeleteBankModal(bankId) {
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteBankModal'));
+            document.getElementById('confirmDeleteBankBtn').dataset.bankId = bankId;
+            deleteModal.show();
+        }
+        
+        function deleteBank() {
+            const bankId = document.getElementById('confirmDeleteBankBtn').dataset.bankId;
+            
+            // In a real application, you would send a delete request to your API
+            // For now, we'll just show a message
+            showAlert(`Bank account ${bankId} has been deleted`, 'danger');
+            
+            // Close the modal
+            const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteBankModal'));
+            deleteModal.hide();
+            
+            // Reset the checkbox
+            document.getElementById('confirmDeleteBank').checked = false;
+            document.getElementById('confirmDeleteBankBtn').disabled = true;
+            
+            // Remove the row from the table
+            const row = document.querySelector(`.bank-checkbox[data-id="${bankId}"]`)?.closest('tr');
+            if (row) {
+                row.remove();
+            }
+            
+            // Reset the form
+            resetBankForm();
+        }
+        
+        function updateBank() {
+            const bankName = document.getElementById('bankName').value;
+            const accountNumber = document.getElementById('accountNumber').value;
+            
+            // In a real application, you would send an update request to your API
+            // For now, we'll just show a message
+            showAlert(`Bank account ${accountNumber} (${bankName}) updated successfully`, 'success');
+            
+            // Update the table row (find by account number)
+            const rows = document.querySelectorAll('#bankTableBody tr');
+            rows.forEach(row => {
+                const rowAccountNumber = row.querySelector('td:nth-child(3) .fw-bold').textContent;
+                if (rowAccountNumber === accountNumber) {
+                    // Update bank name
+                    row.querySelector('td:nth-child(2) h6').textContent = bankName;
+                    
+                    // Update account number
+                    row.querySelector('td:nth-child(3) .fw-bold').textContent = accountNumber;
+                    
+                    // Update account holder
+                    row.querySelector('td:nth-child(4)').innerHTML = `
+                        ${document.getElementById('accountHolder').value}<br>
+                        <small class="text-muted">Business Account</small>
+                    `;
+                    
+                    // Update branch
+                    row.querySelector('td:nth-child(5)').innerHTML = `
+                        ${document.getElementById('branchName').value}<br>
+                        <small class="text-muted">${document.getElementById('city').value}</small>
+                    `;
+                    
+                    // Update currency
+                    const currency = document.getElementById('currency').value;
+                    const currencyNames = {
+                        'USD': 'US Dollar',
+                        'LKR': 'Sri Lankan Rupee',
+                        'EUR': 'Euro',
+                        'GBP': 'British Pound'
+                    };
+                    row.querySelector('td:nth-child(6)').innerHTML = `
+                        <span class="badge ${getCurrencyBadgeClass(currency)}">${currency}</span><br>
+                        <small class="text-muted">${currencyNames[currency] || currency}</small>
+                    `;
+                    
+                    // Update balance
+                    const balance = document.getElementById('currentBalance').value;
+                    const currencySymbol = getCurrencySymbol(currency);
+                    row.querySelector('td:nth-child(7)').innerHTML = `
+                        <span class="balance-badge ${getBalanceColorClass(currency)}">${currencySymbol}${parseFloat(balance).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span><br>
+                        <small class="text-muted">Last updated: Today</small>
+                    `;
+                    
+                    // Update status
+                    const status = document.getElementById('status').value;
+                    const statusActive = status === 'active';
+                    row.querySelector('.account-status').className = `account-status ${statusActive ? 'status-active' : 'status-inactive'}`;
+                    row.querySelector('td:nth-child(8) .badge').textContent = statusActive ? 'Active' : 'Inactive';
+                    row.querySelector('td:nth-child(8) .badge').className = `badge bg-${statusActive ? 'success' : 'danger'}`;
+                }
+            });
+        }
+        
+        function saveNewBank() {
+            const bankName = document.getElementById('newBankName').value;
+            const accountNumber = document.getElementById('newAccountNumber').value;
+            const accountHolder = document.getElementById('newAccountHolder').value;
+            const currency = document.getElementById('newCurrency').value;
+            
+            if (!bankName || !accountNumber || !accountHolder || !currency) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            // Generate a new bank ID
+            const newBankId = 'BANK' + (100 + Math.floor(Math.random() * 900));
+            
+            // Get other form values
+            const accountType = document.getElementById('newAccountType').value;
+            const openingBalance = document.getElementById('newOpeningBalance').value;
+            const branchName = document.getElementById('newBranchName').value;
+            const status = document.getElementById('newStatus').value;
+            
+            // In a real application, you would send this to your API
+            // For now, we'll add it to the table
+            const tableBody = document.getElementById('bankTableBody');
+            const newRow = document.createElement('tr');
+            newRow.className = 'bank-item';
+            
+            // Create bank logo based on bank name
+            const bankLogo = getBankLogo(bankName);
+            const currencySymbol = getCurrencySymbol(currency);
+            const statusActive = status === 'active';
+            const accountTypeText = getAccountTypeText(accountType);
+            
+            newRow.innerHTML = `
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input bank-checkbox" type="checkbox" data-id="${newBankId}">
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="bank-logo ${bankLogo.color}">
+                            <i class="fas ${bankLogo.icon}"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0 fw-bold">${bankName}</h6>
+                            <small class="text-muted">${accountTypeText}</small>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <span class="fw-bold">${accountNumber}</span><br>
+                    <small class="text-muted">${accountTypeText}</small>
+                </td>
+                <td>
+                    ${accountHolder}<br>
+                    <small class="text-muted">Business Account</small>
+                </td>
+                <td>
+                    ${branchName || 'Main Branch'}<br>
+                    <small class="text-muted">${branchName ? 'City Branch' : 'Main Branch'}</small>
+                </td>
+                <td>
+                    <span class="badge ${getCurrencyBadgeClass(currency)}">${currency}</span><br>
+                    <small class="text-muted">${getCurrencyName(currency)}</small>
+                </td>
+                <td>
+                    <span class="balance-badge ${getBalanceColorClass(currency)}">${currencySymbol}${parseFloat(openingBalance).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</span><br>
+                    <small class="text-muted">Last updated: Today</small>
+                </td>
+                <td>
+                    <span class="account-status ${statusActive ? 'status-active' : 'status-inactive'}"></span>
+                    <span class="badge bg-${statusActive ? 'success' : 'danger'}">${statusActive ? 'Active' : 'Inactive'}</span>
+                </td>
+                <td>
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-outline-primary view-bank" data-id="${newBankId}">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-outline-warning edit-bank" data-id="${newBankId}">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-outline-danger delete-bank" data-id="${newBankId}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Add event listeners to new buttons
+            newRow.querySelector('.view-bank').addEventListener('click', function() {
+                loadBankDetails(this.dataset.id);
+            });
+            
+            newRow.querySelector('.edit-bank').addEventListener('click', function() {
+                editBank(this.dataset.id);
+            });
+            
+            newRow.querySelector('.delete-bank').addEventListener('click', function() {
+                showDeleteBankModal(this.dataset.id);
+            });
+            
+            // Close the modal
+            const addModal = bootstrap.Modal.getInstance(document.getElementById('addBankModal'));
+            addModal.hide();
+            
+            // Reset the form
+            document.getElementById('newBankName').value = '';
+            document.getElementById('newAccountNumber').value = '';
+            document.getElementById('newAccountHolder').value = 'Ovia Hotel Pvt Ltd';
+            document.getElementById('newAccountType').value = '';
+            document.getElementById('newCurrency').value = '';
+            document.getElementById('newOpeningBalance').value = '0.00';
+            document.getElementById('newBranchName').value = '';
+            document.getElementById('newStatus').value = 'active';
+            document.getElementById('newBranchAddress').value = '';
+            
+            showAlert(`New bank account ${bankName} added successfully`, 'success');
+        }
+        
+        function resetBankForm() {
+            document.getElementById('bankName').value = '';
+            document.getElementById('bankCode').value = '';
+            document.getElementById('accountType').value = 'savings';
+            document.getElementById('accountNumber').value = '';
+            document.getElementById('accountHolder').value = '';
+            document.getElementById('branchName').value = '';
+            document.getElementById('branchCode').value = '';
+            document.getElementById('branchAddress').value = '';
+            document.getElementById('city').value = '';
+            document.getElementById('country').value = '';
+            document.getElementById('currency').value = 'USD';
+            document.getElementById('currentBalance').value = '0.00';
+            document.getElementById('openingDate').value = '';
+            document.getElementById('status').value = 'active';
+            document.getElementById('isPrimary').value = 'no';
+            document.getElementById('overdraftLimit').value = '0.00';
+            document.getElementById('contactPerson').value = '';
+            document.getElementById('contactPhone').value = '';
+            document.getElementById('contactEmail').value = '';
+            document.getElementById('notes').value = '';
+            
+            updateCurrencySymbol();
+            showAlert('Form has been reset', 'info');
+        }
+        
+        function exportBankData() {
+            // In a real application, this would generate and download a CSV or PDF
+            showAlert('Bank data export started. Your download will begin shortly.', 'info');
+            
+            // Simulate download
+            setTimeout(() => {
+                showAlert('Bank data exported successfully!', 'success');
+            }, 1000);
+        }
+        
+        function updateCurrencySymbol() {
+            const currency = document.getElementById('currency').value;
+            const symbol = getCurrencySymbol(currency);
+            document.querySelector('#currentBalance .input-group-text').textContent = symbol;
+            document.querySelector('#overdraftLimit .input-group-text').textContent = symbol;
+        }
+        
+        function getCurrencySymbol(currency) {
+            const symbols = {
+                'USD': '$',
+                'LKR': 'LKR ',
+                'EUR': '€',
+                'GBP': '£',
+                'AUD': 'A$',
+                'CAD': 'C$'
+            };
+            return symbols[currency] || '$';
+        }
+        
+        function getCurrencyName(currency) {
+            const names = {
+                'USD': 'US Dollar',
+                'LKR': 'Sri Lankan Rupee',
+                'EUR': 'Euro',
+                'GBP': 'British Pound',
+                'AUD': 'Australian Dollar',
+                'CAD': 'Canadian Dollar'
+            };
+            return names[currency] || currency;
+        }
+        
+        function getCurrencyBadgeClass(currency) {
+            const classes = {
+                'USD': 'bg-success',
+                'LKR': 'bg-warning',
+                'EUR': 'bg-primary',
+                'GBP': 'bg-info'
+            };
+            return classes[currency] || 'bg-secondary';
+        }
+        
+        function getBalanceColorClass(currency) {
+            const classes = {
+                'USD': 'text-success',
+                'LKR': 'text-warning',
+                'EUR': 'text-primary',
+                'GBP': 'text-info'
+            };
+            return classes[currency] || 'text-dark';
+        }
+        
+        function getBankLogo(bankName) {
+            // Simple mapping of bank names to logos
+            const lowerName = bankName.toLowerCase();
+            if (lowerName.includes('commercial') || lowerName.includes('standard')) {
+                return { color: 'bg-primary', icon: 'fa-university' };
+            } else if (lowerName.includes('ceylon') || lowerName.includes('boc')) {
+                return { color: 'bg-info', icon: 'fa-landmark' };
+            } else if (lowerName.includes('hsbc') || lowerName.includes('foreign')) {
+                return { color: 'bg-success', icon: 'fa-piggy-bank' };
+            } else if (lowerName.includes('people') || lowerName.includes('sampath')) {
+                return { color: 'bg-warning', icon: 'fa-hand-holding-usd' };
+            } else if (lowerName.includes('credit') || lowerName.includes('card')) {
+                return { color: 'bg-danger', icon: 'fa-credit-card' };
+            } else {
+                return { color: 'bg-secondary', icon: 'fa-university' };
+            }
+        }
+        
+        function getAccountTypeText(type) {
+            const types = {
+                'savings': 'Savings Account',
+                'current': 'Current Account',
+                'credit_card': 'Credit Card',
+                'fixed_deposit': 'Fixed Deposit',
+                'foreign_currency': 'Foreign Currency Account'
+            };
+            return types[type] || 'Account';
+        }
+        
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+    </script>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+
+    <!-- Include JavaScript -->
+    <script src="js/include.js"></script>
+     <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

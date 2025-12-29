@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal Entries - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+
+     
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-book me-2"></i>Journal Entries
+                                </h1>
+                                <p class="card-text text-muted mb-0">Create and manage accounting journal entries</p>
+                                <small class="text-muted">Total Entries: <span class="fw-bold">124</span> • Today: <span class="fw-bold">3</span> • Balanced: <span class="text-success fw-bold">121</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-success" id="postAllBtn">
+                                    <i class="fas fa-check-circle me-1"></i> Post All
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="row mb-4">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card total-entries-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Total Entries</h6>
+                                <h3 class="fw-bold text-primary">124</h3>
+                                <small class="text-muted">All time</small>
+                            </div>
+                            <div class="bg-primary bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-book fa-2x text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card posted-entries-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Posted</h6>
+                                <h3 class="fw-bold text-success">98</h3>
+                                <small class="text-muted">To general ledger</small>
+                            </div>
+                            <div class="bg-success bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-check-circle fa-2x text-success"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card draft-entries-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Drafts</h6>
+                                <h3 class="fw-bold text-warning">23</h3>
+                                <small class="text-muted">Pending review</small>
+                            </div>
+                            <div class="bg-warning bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-edit fa-2x text-warning"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card today-entries-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Today</h6>
+                                <h3 class="fw-bold text-info">3</h3>
+                                <small class="text-muted">New entries</small>
+                            </div>
+                            <div class="bg-info bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-calendar-day fa-2x text-info"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Journal Entry Form -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card journal-form-card">
+                    <div class="card-header bg-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">
+                                <i class="fas fa-plus-circle me-2 text-primary"></i>New Journal Entry
+                            </h5>
+                            <div class="d-flex">
+                                <span class="balance-check me-3" id="balanceStatus">
+                                    <i class="fas fa-balance-scale me-1"></i>
+                                    <span>Balance: <strong class="balance-unbalanced">$0.00</strong></span>
+                                </span>
+                                <button class="btn btn-sm btn-outline-secondary me-2" id="clearEntryBtn">
+                                    <i class="fas fa-times me-1"></i> Clear
+                                </button>
+                                <button class="btn btn-sm btn-success" id="saveDraftBtn">
+                                    <i class="fas fa-save me-1"></i> Save Draft
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form id="journalEntryForm">
+                            <div class="row mb-4">
+                                <div class="col-md-3 mb-3">
+                                    <label for="entryDate" class="form-label">Date *</label>
+                                    <input type="date" class="form-control" id="entryDate" value="2025-12-24" required>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="entryNumber" class="form-label">Entry Number</label>
+                                    <input type="text" class="form-control" id="entryNumber" value="JE20251224001" readonly>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="entryDescription" class="form-label">Description *</label>
+                                    <input type="text" class="form-control" id="entryDescription" placeholder="Enter journal entry description..." required>
+                                </div>
+                                
+                                <div class="col-md-4 mb-3">
+                                    <label for="entryType" class="form-label">Entry Type</label>
+                                    <select class="form-select" id="entryType">
+                                        <option value="regular" selected>Regular Entry</option>
+                                        <option value="adjusting">Adjusting Entry</option>
+                                        <option value="closing">Closing Entry</option>
+                                        <option value="reversing">Reversing Entry</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="entryStatus" class="form-label">Status</label>
+                                    <select class="form-select" id="entryStatus">
+                                        <option value="draft" selected>Draft</option>
+                                        <option value="posted">Posted</option>
+                                        <option value="review">Under Review</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="entryCurrency" class="form-label">Currency</label>
+                                    <select class="form-select" id="entryCurrency">
+                                        <option value="USD" selected>USD - US Dollar</option>
+                                        <option value="LKR">LKR - Sri Lankan Rupee</option>
+                                        <option value="EUR">EUR - Euro</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <!-- Entry Lines Section -->
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h6 class="mb-0">
+                                        <i class="fas fa-list me-2 text-primary"></i>Entry Lines
+                                    </h6>
+                                    <button type="button" class="btn btn-sm btn-primary" id="addEntryLineBtn">
+                                        <i class="fas fa-plus me-1"></i> Add Line
+                                    </button>
+                                </div>
+                                
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="entryLinesTable">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th width="40">#</th>
+                                                <th width="150">Account</th>
+                                                <th>Account Name</th>
+                                                <th width="150">Debit</th>
+                                                <th width="150">Credit</th>
+                                                <th width="200">Description</th>
+                                                <th width="80">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="entryLinesBody">
+                                            <!-- Entry Line 1 -->
+                                            <tr class="entry-line debit-line">
+                                                <td>1</td>
+                                                <td>
+                                                    <div class="account-select-wrapper">
+                                                        <select class="form-select form-select-sm account-select" data-line="1">
+                                                            <option value="">Select Account</option>
+                                                            <option value="1001" selected>1001 - Cash In Hand</option>
+                                                            <option value="1002">1002 - Bank Accounts</option>
+                                                            <option value="1003">1003 - Accounts Receivable</option>
+                                                            <option value="1004">1004 - Inventory</option>
+                                                            <option value="4001">4001 - Standard Room Sales</option>
+                                                            <option value="4002">4002 - Suite Sales</option>
+                                                            <option value="5001">5001 - Salary Expense</option>
+                                                            <option value="5002">5002 - Utility Expense</option>
+                                                            <option value="5003">5003 - Food & Beverage Cost</option>
+                                                        </select>
+                                                        <div class="account-search-results"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="account-name">Cash In Hand</span>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-group-sm">
+                                                        <span class="input-group-text">$</span>
+                                                        <input type="number" class="form-control debit-amount-input" data-line="1" placeholder="0.00" step="0.01" min="0" value="0.00">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-group-sm">
+                                                        <span class="input-group-text">$</span>
+                                                        <input type="number" class="form-control credit-amount-input" data-line="1" placeholder="0.00" step="0.01" min="0" value="0.00">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control form-control-sm line-description" data-line="1" placeholder="Line description...">
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-sm btn-outline-danger remove-line" data-line="1">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            
+                                            <!-- Entry Line 2 -->
+                                            <tr class="entry-line credit-line">
+                                                <td>2</td>
+                                                <td>
+                                                    <div class="account-select-wrapper">
+                                                        <select class="form-select form-select-sm account-select" data-line="2">
+                                                            <option value="">Select Account</option>
+                                                            <option value="1001">1001 - Cash In Hand</option>
+                                                            <option value="1002">1002 - Bank Accounts</option>
+                                                            <option value="1003">1003 - Accounts Receivable</option>
+                                                            <option value="1004">1004 - Inventory</option>
+                                                            <option value="4001" selected>4001 - Standard Room Sales</option>
+                                                            <option value="4002">4002 - Suite Sales</option>
+                                                            <option value="5001">5001 - Salary Expense</option>
+                                                            <option value="5002">5002 - Utility Expense</option>
+                                                            <option value="5003">5003 - Food & Beverage Cost</option>
+                                                        </select>
+                                                        <div class="account-search-results"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="account-name">Standard Room Sales</span>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-group-sm">
+                                                        <span class="input-group-text">$</span>
+                                                        <input type="number" class="form-control debit-amount-input" data-line="2" placeholder="0.00" step="0.01" min="0" value="0.00">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="input-group input-group-sm">
+                                                        <span class="input-group-text">$</span>
+                                                        <input type="number" class="form-control credit-amount-input" data-line="2" placeholder="0.00" step="0.01" min="0" value="0.00">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control form-control-sm line-description" data-line="2" placeholder="Line description...">
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-sm btn-outline-danger remove-line" data-line="2">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot class="table-light">
+                                            <tr>
+                                                <th colspan="3" class="text-end">Totals:</th>
+                                                <th id="totalDebit" class="debit-amount">$0.00</th>
+                                                <th id="totalCredit" class="credit-amount">$0.00</th>
+                                                <th colspan="2" id="balanceDifference" class="balance-check">
+                                                    Difference: <span class="balance-unbalanced">$0.00</span>
+                                                </th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                
+                                <div class="alert alert-info mt-3">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-info-circle me-2"></i>
+                                        <div>
+                                            <small><strong>Double Entry Accounting:</strong> Total debits must equal total credits. Add at least one debit and one credit line.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Additional Information -->
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <label for="entryNotes" class="form-label">Notes</label>
+                                    <textarea class="form-control" id="entryNotes" rows="3" placeholder="Any additional notes or references..."></textarea>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-end gap-2">
+                                        <button type="button" class="btn btn-outline-secondary" id="cancelEntryBtn">
+                                            <i class="fas fa-times me-1"></i> Cancel
+                                        </button>
+                                        <button type="submit" class="btn btn-success" id="postEntryBtn">
+                                            <i class="fas fa-check-circle me-1"></i> Post Entry
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label class="form-label">Date From</label>
+                                <input type="date" class="form-control" id="dateFrom" value="2025-12-01">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Date To</label>
+                                <input type="date" class="form-control" id="dateTo" value="2025-12-24">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Status</label>
+                                <select class="form-select" id="filterStatus">
+                                    <option value="">All Status</option>
+                                    <option value="posted">Posted</option>
+                                    <option value="draft">Draft</option>
+                                    <option value="review">Under Review</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Entry Type</label>
+                                <select class="form-select" id="filterType">
+                                    <option value="">All Types</option>
+                                    <option value="regular">Regular</option>
+                                    <option value="adjusting">Adjusting</option>
+                                    <option value="closing">Closing</option>
+                                    <option value="reversing">Reversing</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Search</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search by entry number or description...">
+                                    <button class="btn btn-primary" type="button" id="searchEntriesBtn">
+                                        <i class="fas fa-search"></i> Search
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Account</label>
+                                <select class="form-select" id="filterAccount">
+                                    <option value="">All Accounts</option>
+                                    <option value="1001">1001 - Cash In Hand</option>
+                                    <option value="1002">1002 - Bank Accounts</option>
+                                    <option value="4001">4001 - Standard Room Sales</option>
+                                    <option value="5001">5001 - Salary Expense</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 d-flex align-items-end">
+                                <button class="btn btn-outline-secondary w-100" id="resetFiltersBtn">
+                                    <i class="fas fa-redo me-1"></i> Reset Filters
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Journal Entries List -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-list me-2"></i>Recent Journal Entries</h5>
+                            <div class="d-flex">
+                                <div class="btn-group me-2" role="group">
+                                    <button type="button" class="btn btn-sm btn-outline-primary active" data-filter="all">All</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="today">Today</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="week">This Week</button>
+                                </div>
+                                <button class="btn btn-sm btn-success" id="exportEntriesBtn">
+                                    <i class="fas fa-download me-1"></i> Export
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th width="50">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="selectAllEntries">
+                                            </div>
+                                        </th>
+                                        <th>Date</th>
+                                        <th>Entry #</th>
+                                        <th>Description</th>
+                                        <th>Type</th>
+                                        <th>Debit Total</th>
+                                        <th>Credit Total</th>
+                                        <th>Status</th>
+                                        <th>Created By</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="entriesTableBody">
+                                    <!-- Entry 1 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input entry-checkbox" type="checkbox" data-id="JE20251224001">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="fw-bold">2025-12-24</span><br>
+                                            <small class="text-muted">Today</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-code">JE20251224001</span>
+                                        </td>
+                                        <td>
+                                            <span>Daily revenue recording</span><br>
+                                            <small class="text-muted">Room sales for Dec 23</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info journal-status-badge">Regular</span>
+                                        </td>
+                                        <td>
+                                            <span class="debit-amount">$2,850.00</span>
+                                        </td>
+                                        <td>
+                                            <span class="credit-amount">$2,850.00</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Posted</span>
+                                        </td>
+                                        <td>
+                                            <small>Admin Johnson</small><br>
+                                            <small class="text-muted">10:30 AM</small>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm entry-actions">
+                                                <button class="btn btn-outline-primary view-entry" data-id="JE20251224001">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-entry" data-id="JE20251224001">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-entry" data-id="JE20251224001">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Entry 2 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input entry-checkbox" type="checkbox" data-id="JE20251223005">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="fw-bold">2025-12-23</span><br>
+                                            <small class="text-muted">Yesterday</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-code">JE20251223005</span>
+                                        </td>
+                                        <td>
+                                            <span>Expense accrual - December utilities</span><br>
+                                            <small class="text-muted">Monthly accrual entry</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-warning journal-status-badge">Adjusting</span>
+                                        </td>
+                                        <td>
+                                            <span class="debit-amount">$1,250.00</span>
+                                        </td>
+                                        <td>
+                                            <span class="credit-amount">$1,250.00</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Posted</span>
+                                        </td>
+                                        <td>
+                                            <small>Finance Dept</small><br>
+                                            <small class="text-muted">Yesterday, 3:45 PM</small>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm entry-actions">
+                                                <button class="btn btn-outline-primary view-entry" data-id="JE20251223005">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-entry" data-id="JE20251223005">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-entry" data-id="JE20251223005">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Entry 3 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input entry-checkbox" type="checkbox" data-id="JE20251222003">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="fw-bold">2025-12-22</span><br>
+                                            <small class="text-muted">2 days ago</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-code">JE20251222003</span>
+                                        </td>
+                                        <td>
+                                            <span>Bank deposit reconciliation</span><br>
+                                            <small class="text-muted">Cash to bank transfer</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info journal-status-badge">Regular</span>
+                                        </td>
+                                        <td>
+                                            <span class="debit-amount">$5,000.00</span>
+                                        </td>
+                                        <td>
+                                            <span class="credit-amount">$5,000.00</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Posted</span>
+                                        </td>
+                                        <td>
+                                            <small>Cashier</small><br>
+                                            <small class="text-muted">Dec 22, 5:30 PM</small>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm entry-actions">
+                                                <button class="btn btn-outline-primary view-entry" data-id="JE20251222003">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-entry" data-id="JE20251222003">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-entry" data-id="JE20251222003">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Entry 4 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input entry-checkbox" type="checkbox" data-id="JE20251221002">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="fw-bold">2025-12-21</span><br>
+                                            <small class="text-muted">3 days ago</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-code">JE20251221002</span>
+                                        </td>
+                                        <td>
+                                            <span>Depreciation expense - Furniture</span><br>
+                                            <small class="text-muted">Monthly depreciation</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-warning journal-status-badge">Adjusting</span>
+                                        </td>
+                                        <td>
+                                            <span class="debit-amount">$850.00</span>
+                                        </td>
+                                        <td>
+                                            <span class="credit-amount">$850.00</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-warning">Draft</span>
+                                        </td>
+                                        <td>
+                                            <small>Accounts Dept</small><br>
+                                            <small class="text-muted">Dec 21, 11:15 AM</small>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm entry-actions">
+                                                <button class="btn btn-outline-primary view-entry" data-id="JE20251221002">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-entry" data-id="JE20251221002">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-entry" data-id="JE20251221002">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Entry 5 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input entry-checkbox" type="checkbox" data-id="JE20251220001">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="fw-bold">2025-12-20</span><br>
+                                            <small class="text-muted">4 days ago</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-code">JE20251220001</span>
+                                        </td>
+                                        <td>
+                                            <span>Salary payment - December</span><br>
+                                            <small class="text-muted">Monthly payroll</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info journal-status-badge">Regular</span>
+                                        </td>
+                                        <td>
+                                            <span class="debit-amount">$15,250.00</span>
+                                        </td>
+                                        <td>
+                                            <span class="credit-amount">$15,250.00</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Posted</span>
+                                        </td>
+                                        <td>
+                                            <small>Payroll Dept</small><br>
+                                            <small class="text-muted">Dec 20, 9:00 AM</small>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm entry-actions">
+                                                <button class="btn btn-outline-primary view-entry" data-id="JE20251220001">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-entry" data-id="JE20251220001">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-entry" data-id="JE20251220001">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted">Showing 5 of 124 entries</span>
+                            </div>
+                            <nav aria-label="Entries pagination">
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Entry Details Modal -->
+    <div class="modal fade" id="entryDetailsModal" tabindex="-1" aria-labelledby="entryDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="entryDetailsModalLabel">
+                        <i class="fas fa-info-circle me-2"></i>Journal Entry Details
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-4">
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label fw-bold">Entry Number</label>
+                            <p id="modalEntryNumber">JE20251224001</p>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label fw-bold">Date</label>
+                            <p id="modalEntryDate">2025-12-24</p>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label fw-bold">Type</label>
+                            <p id="modalEntryType"><span class="badge bg-info">Regular</span></p>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label fw-bold">Status</label>
+                            <p id="modalEntryStatus"><span class="badge bg-success">Posted</span></p>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label class="form-label fw-bold">Description</label>
+                            <p id="modalEntryDescription">Daily revenue recording</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Created By</label>
+                            <p id="modalEntryCreatedBy">Admin Johnson</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Created At</label>
+                            <p id="modalEntryCreatedAt">2025-12-24 10:30 AM</p>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label class="form-label fw-bold">Notes</label>
+                            <p id="modalEntryNotes" class="text-muted">Room sales for December 23, 2025</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <h6 class="mb-3 text-primary">Entry Lines</h6>
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Account</th>
+                                            <th>Account Name</th>
+                                            <th class="text-end">Debit</th>
+                                            <th class="text-end">Credit</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="modalEntryLines">
+                                        <!-- Lines will be populated by JavaScript -->
+                                    </tbody>
+                                    <tfoot class="table-light">
+                                        <tr>
+                                            <th colspan="3" class="text-end">Totals:</th>
+                                            <th class="text-end debit-amount">$2,850.00</th>
+                                            <th class="text-end credit-amount">$2,850.00</th>
+                                            <th class="text-center">
+                                                <span class="balance-check balance-balanced">
+                                                    <i class="fas fa-check-circle me-1"></i> Balanced
+                                                </span>
+                                            </th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="printEntryBtn">
+                        <i class="fas fa-print me-1"></i> Print Entry
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteEntryModal" tabindex="-1" aria-labelledby="deleteEntryModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteEntryModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Confirm Delete
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this journal entry?</p>
+                    <p class="text-danger"><strong>This action cannot be undone.</strong></p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="confirmDeleteEntry">
+                        <label class="form-check-label" for="confirmDeleteEntry">
+                            I understand that this will permanently delete the journal entry
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteEntryBtn" disabled>Delete Entry</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    
+    <script>
+        // Journal Entries Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize date pickers
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('entryDate').value = today;
+            document.getElementById('dateTo').value = today;
+            
+            // Set default date from to start of month
+            const firstDayOfMonth = today.substring(0, 8) + '01';
+            document.getElementById('dateFrom').value = firstDayOfMonth;
+            
+            // Generate entry number
+            generateEntryNumber();
+            
+            // Select all entries checkbox
+            document.getElementById('selectAllEntries').addEventListener('change', function() {
+                const checkboxes = document.querySelectorAll('.entry-checkbox');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+            
+            // Filter buttons
+            document.querySelectorAll('[data-filter]').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('[data-filter]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    filterEntries(filter);
+                });
+            });
+            
+            // View entry details
+            document.querySelectorAll('.view-entry').forEach(button => {
+                button.addEventListener('click', function() {
+                    const entryId = this.dataset.id;
+                    showEntryDetails(entryId);
+                });
+            });
+            
+            // Edit entry
+            document.querySelectorAll('.edit-entry').forEach(button => {
+                button.addEventListener('click', function() {
+                    const entryId = this.dataset.id;
+                    editEntry(entryId);
+                });
+            });
+            
+            // Delete entry
+            document.querySelectorAll('.delete-entry').forEach(button => {
+                button.addEventListener('click', function() {
+                    const entryId = this.dataset.id;
+                    showDeleteEntryModal(entryId);
+                });
+            });
+            
+            // Add entry line button
+            document.getElementById('addEntryLineBtn').addEventListener('click', function() {
+                addEntryLine();
+            });
+            
+            // Remove entry line buttons (existing and future)
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('remove-line') || e.target.closest('.remove-line')) {
+                    const button = e.target.classList.contains('remove-line') ? e.target : e.target.closest('.remove-line');
+                    const lineNumber = button.dataset.line;
+                    removeEntryLine(lineNumber);
+                }
+            });
+            
+            // Account select change handlers
+            document.addEventListener('change', function(e) {
+                if (e.target.classList.contains('account-select')) {
+                    updateAccountName(e.target);
+                }
+                
+                // Update totals when amount inputs change
+                if (e.target.classList.contains('debit-amount-input') || e.target.classList.contains('credit-amount-input')) {
+                    updateEntryTotals();
+                }
+            });
+            
+            // Clear entry button
+            document.getElementById('clearEntryBtn').addEventListener('click', function() {
+                clearEntryForm();
+            });
+            
+            // Cancel entry button
+            document.getElementById('cancelEntryBtn').addEventListener('click', function() {
+                clearEntryForm();
+            });
+            
+            // Save draft button
+            document.getElementById('saveDraftBtn').addEventListener('click', function() {
+                saveAsDraft();
+            });
+            
+            // Post entry button
+            document.getElementById('postEntryBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                postEntry();
+            });
+            
+            // Post all button
+            document.getElementById('postAllBtn').addEventListener('click', function() {
+                postAllEntries();
+            });
+            
+            // Reset filters button
+            document.getElementById('resetFiltersBtn').addEventListener('click', function() {
+                resetFilters();
+            });
+            
+            // Search entries button
+            document.getElementById('searchEntriesBtn').addEventListener('click', function() {
+                searchEntries();
+            });
+            
+            // Export entries button
+            document.getElementById('exportEntriesBtn').addEventListener('click', function() {
+                exportEntries();
+            });
+            
+            // Confirm delete checkbox
+            document.getElementById('confirmDeleteEntry').addEventListener('change', function() {
+                document.getElementById('confirmDeleteEntryBtn').disabled = !this.checked;
+            });
+            
+            // Confirm delete button
+            document.getElementById('confirmDeleteEntryBtn').addEventListener('click', function() {
+                deleteEntry();
+            });
+            
+            // Print entry button
+            document.getElementById('printEntryBtn').addEventListener('click', function() {
+                printEntryDetails();
+            });
+            
+            // Initialize with sample data
+            updateEntryTotals();
+            populateAccountSearch();
+            
+            // Set focus to description field
+            document.getElementById('entryDescription').focus();
+        });
+        
+        let lineCounter = 2; // Start from 2 since we have 2 initial lines
+        
+        function addEntryLine() {
+            lineCounter++;
+            const tbody = document.getElementById('entryLinesBody');
+            const newRow = document.createElement('tr');
+            newRow.className = 'entry-line';
+            newRow.innerHTML = `
+                <td>${lineCounter}</td>
+                <td>
+                    <div class="account-select-wrapper">
+                        <select class="form-select form-select-sm account-select" data-line="${lineCounter}">
+                            <option value="">Select Account</option>
+                            <option value="1001">1001 - Cash In Hand</option>
+                            <option value="1002">1002 - Bank Accounts</option>
+                            <option value="1003">1003 - Accounts Receivable</option>
+                            <option value="1004">1004 - Inventory</option>
+                            <option value="4001">4001 - Standard Room Sales</option>
+                            <option value="4002">4002 - Suite Sales</option>
+                            <option value="5001">5001 - Salary Expense</option>
+                            <option value="5002">5002 - Utility Expense</option>
+                            <option value="5003">5003 - Food & Beverage Cost</option>
+                        </select>
+                        <div class="account-search-results"></div>
+                    </div>
+                </td>
+                <td>
+                    <span class="account-name">-</span>
+                </td>
+                <td>
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-text">$</span>
+                        <input type="number" class="form-control debit-amount-input" data-line="${lineCounter}" placeholder="0.00" step="0.01" min="0" value="0.00">
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-text">$</span>
+                        <input type="number" class="form-control credit-amount-input" data-line="${lineCounter}" placeholder="0.00" step="0.01" min="0" value="0.00">
+                    </div>
+                </td>
+                <td>
+                    <input type="text" class="form-control form-control-sm line-description" data-line="${lineCounter}" placeholder="Line description...">
+                </td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-outline-danger remove-line" data-line="${lineCounter}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            `;
+            
+            tbody.appendChild(newRow);
+            
+            // Add event listener to the new account select
+            newRow.querySelector('.account-select').addEventListener('change', function() {
+                updateAccountName(this);
+            });
+            
+            // Add event listeners to amount inputs
+            newRow.querySelector('.debit-amount-input').addEventListener('input', updateEntryTotals);
+            newRow.querySelector('.credit-amount-input').addEventListener('input', updateEntryTotals);
+            
+            showAlert('New entry line added', 'info');
+        }
+        
+        function removeEntryLine(lineNumber) {
+            const row = document.querySelector(`tr[class*="entry-line"] td:nth-child(1):contains("${lineNumber}")`)?.closest('tr');
+            if (row) {
+                row.remove();
+                updateLineNumbers();
+                updateEntryTotals();
+                showAlert('Entry line removed', 'warning');
+            }
+        }
+        
+        function updateLineNumbers() {
+            const rows = document.querySelectorAll('#entryLinesBody tr');
+            rows.forEach((row, index) => {
+                row.querySelector('td:first-child').textContent = index + 1;
+                // Update data-line attributes
+                const newLineNumber = index + 1;
+                row.querySelector('.account-select').dataset.line = newLineNumber;
+                row.querySelector('.debit-amount-input').dataset.line = newLineNumber;
+                row.querySelector('.credit-amount-input').dataset.line = newLineNumber;
+                row.querySelector('.line-description').dataset.line = newLineNumber;
+                row.querySelector('.remove-line').dataset.line = newLineNumber;
+            });
+            lineCounter = rows.length;
+        }
+        
+        function updateAccountName(selectElement) {
+            const selectedOption = selectElement.options[selectElement.selectedIndex];
+            const accountName = selectedOption.textContent.split(' - ')[1] || '-';
+            const row = selectElement.closest('tr');
+            row.querySelector('.account-name').textContent = accountName;
+            
+            // Update row class based on account type
+            const accountCode = selectedOption.value;
+            if (accountCode) {
+                const accountType = getAccountType(accountCode);
+                row.className = 'entry-line ' + (accountType === 'asset' || accountType === 'expense' ? 'debit-line' : 'credit-line');
+            }
+        }
+        
+        function updateEntryTotals() {
+            let totalDebit = 0;
+            let totalCredit = 0;
+            
+            // Calculate totals
+            document.querySelectorAll('.debit-amount-input').forEach(input => {
+                totalDebit += parseFloat(input.value) || 0;
+            });
+            
+            document.querySelectorAll('.credit-amount-input').forEach(input => {
+                totalCredit += parseFloat(input.value) || 0;
+            });
+            
+            // Update display
+            document.getElementById('totalDebit').textContent = '$' + totalDebit.toFixed(2);
+            document.getElementById('totalCredit').textContent = '$' + totalCredit.toFixed(2);
+            
+            // Calculate difference
+            const difference = totalDebit - totalCredit;
+            const differenceElement = document.getElementById('balanceDifference');
+            const balanceStatusElement = document.getElementById('balanceStatus');
+            
+            if (Math.abs(difference) < 0.01) { // Accounts for floating point errors
+                // Balanced
+                differenceElement.innerHTML = 'Difference: <span class="balance-balanced">$0.00</span>';
+                balanceStatusElement.innerHTML = '<i class="fas fa-balance-scale me-1"></i><span>Balance: <strong class="balance-balanced">$0.00</strong></span>';
+                document.getElementById('postEntryBtn').disabled = false;
+            } else {
+                // Unbalanced
+                const diffText = difference > 0 ? 
+                    `Debit exceeds by $${Math.abs(difference).toFixed(2)}` : 
+                    `Credit exceeds by $${Math.abs(difference).toFixed(2)}`;
+                differenceElement.innerHTML = `Difference: <span class="balance-unbalanced">${diffText}</span>`;
+                balanceStatusElement.innerHTML = '<i class="fas fa-balance-scale me-1"></i><span>Balance: <strong class="balance-unbalanced">$' + Math.abs(difference).toFixed(2) + '</strong></span>';
+                document.getElementById('postEntryBtn').disabled = true;
+            }
+        }
+        
+        function clearEntryForm() {
+            // Clear form fields
+            document.getElementById('entryDate').value = new Date().toISOString().split('T')[0];
+            document.getElementById('entryDescription').value = '';
+            document.getElementById('entryType').value = 'regular';
+            document.getElementById('entryStatus').value = 'draft';
+            document.getElementById('entryNotes').value = '';
+            
+            // Clear all entry lines except the first two
+            const tbody = document.getElementById('entryLinesBody');
+            while (tbody.children.length > 2) {
+                tbody.removeChild(tbody.lastChild);
+            }
+            
+            // Reset first two lines
+            const line1 = tbody.children[0];
+            const line2 = tbody.children[1];
+            
+            line1.querySelector('.account-select').value = '1001';
+            line1.querySelector('.debit-amount-input').value = '0.00';
+            line1.querySelector('.credit-amount-input').value = '0.00';
+            line1.querySelector('.line-description').value = '';
+            updateAccountName(line1.querySelector('.account-select'));
+            
+            line2.querySelector('.account-select').value = '4001';
+            line2.querySelector('.debit-amount-input').value = '0.00';
+            line2.querySelector('.credit-amount-input').value = '0.00';
+            line2.querySelector('.line-description').value = '';
+            updateAccountName(line2.querySelector('.account-select'));
+            
+            // Generate new entry number
+            generateEntryNumber();
+            
+            // Update totals
+            updateEntryTotals();
+            
+            showAlert('Form cleared. Ready for new entry.', 'info');
+        }
+        
+        function generateEntryNumber() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            const randomNum = Math.floor(Math.random() * 900) + 100; // 100-999
+            
+            const entryNumber = `JE${year}${month}${day}${randomNum}`;
+            document.getElementById('entryNumber').value = entryNumber;
+        }
+        
+        function saveAsDraft() {
+            const entryData = getEntryData();
+            
+            if (!validateEntryData(entryData)) {
+                return;
+            }
+            
+            // In a real application, you would send this data to your API
+            // For now, we'll just show a message
+            showAlert(`Journal entry ${entryData.entryNumber} saved as draft`, 'success');
+            
+            // Add to entries table
+            addEntryToTable(entryData, 'draft');
+            
+            // Clear form for next entry
+            clearEntryForm();
+        }
+        
+        function postEntry() {
+            const entryData = getEntryData();
+            
+            if (!validateEntryData(entryData)) {
+                return;
+            }
+            
+            // Check if entry is balanced
+            if (Math.abs(entryData.totalDebit - entryData.totalCredit) >= 0.01) {
+                showAlert('Entry is not balanced. Total debits must equal total credits.', 'warning');
+                return;
+            }
+            
+            // In a real application, you would send this data to your API
+            // For now, we'll just show a message
+            showAlert(`Journal entry ${entryData.entryNumber} posted successfully`, 'success');
+            
+            // Add to entries table
+            addEntryToTable(entryData, 'posted');
+            
+            // Clear form for next entry
+            clearEntryForm();
+            
+            // Update summary cards
+            updateSummaryCards();
+        }
+        
+        function postAllEntries() {
+            const selectedEntries = document.querySelectorAll('.entry-checkbox:checked');
+            
+            if (selectedEntries.length === 0) {
+                showAlert('Please select at least one entry to post', 'warning');
+                return;
+            }
+            
+            // In a real application, you would send batch post request to your API
+            // For now, we'll just show a message
+            showAlert(`Posted ${selectedEntries.length} journal entries`, 'success');
+            
+            // Update status in table
+            selectedEntries.forEach(checkbox => {
+                const row = checkbox.closest('tr');
+                const statusBadge = row.querySelector('td:nth-child(8) .badge');
+                statusBadge.className = 'badge bg-success';
+                statusBadge.textContent = 'Posted';
+            });
+            
+            // Update summary cards
+            updateSummaryCards();
+        }
+        
+        function getEntryData() {
+            const entryData = {
+                entryNumber: document.getElementById('entryNumber').value,
+                date: document.getElementById('entryDate').value,
+                description: document.getElementById('entryDescription').value,
+                type: document.getElementById('entryType').value,
+                status: document.getElementById('entryStatus').value,
+                currency: document.getElementById('entryCurrency').value,
+                notes: document.getElementById('entryNotes').value,
+                lines: [],
+                totalDebit: 0,
+                totalCredit: 0
+            };
+            
+            // Get entry lines
+            document.querySelectorAll('#entryLinesBody tr').forEach(row => {
+                const accountSelect = row.querySelector('.account-select');
+                const debitInput = row.querySelector('.debit-amount-input');
+                const creditInput = row.querySelector('.credit-amount-input');
+                const descriptionInput = row.querySelector('.line-description');
+                
+                const lineData = {
+                    accountCode: accountSelect.value,
+                    accountName: row.querySelector('.account-name').textContent,
+                    debit: parseFloat(debitInput.value) || 0,
+                    credit: parseFloat(creditInput.value) || 0,
+                    description: descriptionInput.value
+                };
+                
+                entryData.lines.push(lineData);
+                entryData.totalDebit += lineData.debit;
+                entryData.totalCredit += lineData.credit;
+            });
+            
+            return entryData;
+        }
+        
+        function validateEntryData(entryData) {
+            if (!entryData.description.trim()) {
+                showAlert('Please enter a description for the journal entry', 'warning');
+                return false;
+            }
+            
+            if (entryData.lines.length < 2) {
+                showAlert('Please add at least two entry lines (one debit and one credit)', 'warning');
+                return false;
+            }
+            
+            // Check if at least one line has account selected
+            const hasAccounts = entryData.lines.some(line => line.accountCode);
+            if (!hasAccounts) {
+                showAlert('Please select accounts for entry lines', 'warning');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        function addEntryToTable(entryData, status) {
+            const tableBody = document.getElementById('entriesTableBody');
+            const newRow = document.createElement('tr');
+            
+            const statusBadgeClass = status === 'posted' ? 'bg-success' : 
+                                   status === 'draft' ? 'bg-warning' : 'bg-info';
+            const statusText = status === 'posted' ? 'Posted' : 
+                             status === 'draft' ? 'Draft' : 'Review';
+            
+            const typeBadgeClass = entryData.type === 'regular' ? 'bg-info' :
+                                 entryData.type === 'adjusting' ? 'bg-warning' :
+                                 entryData.type === 'closing' ? 'bg-danger' : 'bg-secondary';
+            const typeText = entryData.type.charAt(0).toUpperCase() + entryData.type.slice(1);
+            
+            newRow.innerHTML = `
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input entry-checkbox" type="checkbox" data-id="${entryData.entryNumber}">
+                    </div>
+                </td>
+                <td>
+                    <span class="fw-bold">${entryData.date}</span><br>
+                    <small class="text-muted">Today</small>
+                </td>
+                <td>
+                    <span class="account-code">${entryData.entryNumber}</span>
+                </td>
+                <td>
+                    <span>${entryData.description}</span><br>
+                    <small class="text-muted">${entryData.notes || 'No additional notes'}</small>
+                </td>
+                <td>
+                    <span class="badge ${typeBadgeClass} journal-status-badge">${typeText}</span>
+                </td>
+                <td>
+                    <span class="debit-amount">$${entryData.totalDebit.toFixed(2)}</span>
+                </td>
+                <td>
+                    <span class="credit-amount">$${entryData.totalCredit.toFixed(2)}</span>
+                </td>
+                <td>
+                    <span class="badge ${statusBadgeClass}">${statusText}</span>
+                </td>
+                <td>
+                    <small>Admin Johnson</small><br>
+                    <small class="text-muted">Just now</small>
+                </td>
+                <td>
+                    <div class="btn-group btn-group-sm entry-actions">
+                        <button class="btn btn-outline-primary view-entry" data-id="${entryData.entryNumber}">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-outline-warning edit-entry" data-id="${entryData.entryNumber}">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-outline-danger delete-entry" data-id="${entryData.entryNumber}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            `;
+            
+            // Insert at the beginning of the table
+            tableBody.insertBefore(newRow, tableBody.firstChild);
+            
+            // Add event listeners to new buttons
+            newRow.querySelector('.view-entry').addEventListener('click', function() {
+                showEntryDetails(this.dataset.id);
+            });
+            
+            newRow.querySelector('.edit-entry').addEventListener('click', function() {
+                editEntry(this.dataset.id);
+            });
+            
+            newRow.querySelector('.delete-entry').addEventListener('click', function() {
+                showDeleteEntryModal(this.dataset.id);
+            });
+        }
+        
+        function showEntryDetails(entryId) {
+            // Entry data (in a real app, this would come from an API)
+            const entryData = {
+                'JE20251224001': {
+                    entryNumber: 'JE20251224001',
+                    date: '2025-12-24',
+                    description: 'Daily revenue recording',
+                    type: 'regular',
+                    status: 'posted',
+                    createdBy: 'Admin Johnson',
+                    createdAt: '2025-12-24 10:30 AM',
+                    notes: 'Room sales for December 23, 2025',
+                    lines: [
+                        { accountCode: '1001', accountName: 'Cash In Hand', debit: 2850.00, credit: 0, description: 'Cash received' },
+                        { accountCode: '4001', accountName: 'Standard Room Sales', debit: 0, credit: 2850.00, description: 'Room revenue' }
+                    ]
+                },
+                'JE20251223005': {
+                    entryNumber: 'JE20251223005',
+                    date: '2025-12-23',
+                    description: 'Expense accrual - December utilities',
+                    type: 'adjusting',
+                    status: 'posted',
+                    createdBy: 'Finance Dept',
+                    createdAt: '2025-12-23 15:45 PM',
+                    notes: 'Monthly utility expense accrual',
+                    lines: [
+                        { accountCode: '5002', accountName: 'Utility Expense', debit: 1250.00, credit: 0, description: 'December utilities' },
+                        { accountCode: '2001', accountName: 'Accounts Payable', debit: 0, credit: 1250.00, description: 'Accrued liability' }
+                    ]
+                }
+            };
+            
+            const data = entryData[entryId] || entryData['JE20251224001'];
+            
+            // Populate modal
+            document.getElementById('modalEntryNumber').textContent = data.entryNumber;
+            document.getElementById('modalEntryDate').textContent = data.date;
+            document.getElementById('modalEntryDescription').textContent = data.description;
+            document.getElementById('modalEntryCreatedBy').textContent = data.createdBy;
+            document.getElementById('modalEntryCreatedAt').textContent = data.createdAt;
+            document.getElementById('modalEntryNotes').textContent = data.notes;
+            
+            // Update type badge
+            const typeBadge = document.getElementById('modalEntryType');
+            typeBadge.innerHTML = '';
+            const typeBadgeClass = data.type === 'regular' ? 'bg-info' :
+                                 data.type === 'adjusting' ? 'bg-warning' :
+                                 data.type === 'closing' ? 'bg-danger' : 'bg-secondary';
+            const typeText = data.type.charAt(0).toUpperCase() + data.type.slice(1);
+            typeBadge.innerHTML = `<span class="badge ${typeBadgeClass}">${typeText}</span>`;
+            
+            // Update status badge
+            const statusBadge = document.getElementById('modalEntryStatus');
+            statusBadge.innerHTML = '';
+            const statusBadgeClass = data.status === 'posted' ? 'bg-success' : 
+                                   data.status === 'draft' ? 'bg-warning' : 'bg-info';
+            const statusText = data.status.charAt(0).toUpperCase() + data.status.slice(1);
+            statusBadge.innerHTML = `<span class="badge ${statusBadgeClass}">${statusText}</span>`;
+            
+            // Populate entry lines
+            const linesContainer = document.getElementById('modalEntryLines');
+            linesContainer.innerHTML = '';
+            
+            let totalDebit = 0;
+            let totalCredit = 0;
+            
+            data.lines.forEach((line, index) => {
+                totalDebit += line.debit;
+                totalCredit += line.credit;
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td><span class="account-code">${line.accountCode}</span></td>
+                    <td>${line.accountName}</td>
+                    <td class="text-end">${line.debit > 0 ? '$' + line.debit.toFixed(2) : '-'}</td>
+                    <td class="text-end">${line.credit > 0 ? '$' + line.credit.toFixed(2) : '-'}</td>
+                    <td>${line.description}</td>
+                `;
+                linesContainer.appendChild(row);
+            });
+            
+            // Update totals
+            document.querySelector('#modalEntryLines + tfoot .debit-amount').textContent = '$' + totalDebit.toFixed(2);
+            document.querySelector('#modalEntryLines + tfoot .credit-amount').textContent = '$' + totalCredit.toFixed(2);
+            
+            // Show modal
+            const modal = new bootstrap.Modal(document.getElementById('entryDetailsModal'));
+            modal.show();
+        }
+        
+        function editEntry(entryId) {
+            // In a real application, you would load entry data into the form
+            // For now, we'll just show a message
+            showAlert(`Editing journal entry ${entryId}`, 'info');
+            
+            // Load sample data into form
+            const sampleData = {
+                entryNumber: entryId,
+                date: '2025-12-24',
+                description: 'Daily revenue recording',
+                type: 'regular',
+                status: 'draft',
+                notes: 'Room sales for December 23, 2025'
+            };
+            
+            // Populate form
+            document.getElementById('entryDate').value = sampleData.date;
+            document.getElementById('entryNumber').value = sampleData.entryNumber;
+            document.getElementById('entryDescription').value = sampleData.description;
+            document.getElementById('entryType').value = sampleData.type;
+            document.getElementById('entryStatus').value = sampleData.status;
+            document.getElementById('entryNotes').value = sampleData.notes;
+            
+            // Scroll to form
+            document.getElementById('journalEntryForm').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function showDeleteEntryModal(entryId) {
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteEntryModal'));
+            document.getElementById('confirmDeleteEntryBtn').dataset.entryId = entryId;
+            deleteModal.show();
+        }
+        
+        function deleteEntry() {
+            const entryId = document.getElementById('confirmDeleteEntryBtn').dataset.entryId;
+            
+            // In a real application, you would send a delete request to your API
+            // For now, we'll just show a message
+            showAlert(`Journal entry ${entryId} has been deleted`, 'danger');
+            
+            // Close the modal
+            const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteEntryModal'));
+            deleteModal.hide();
+            
+            // Reset the checkbox
+            document.getElementById('confirmDeleteEntry').checked = false;
+            document.getElementById('confirmDeleteEntryBtn').disabled = true;
+            
+            // Remove the row from the table
+            const row = document.querySelector(`.entry-checkbox[data-id="${entryId}"]`)?.closest('tr');
+            if (row) {
+                row.remove();
+            }
+            
+            // Update summary cards
+            updateSummaryCards();
+        }
+        
+        function filterEntries(filter = 'all') {
+            const rows = document.querySelectorAll('#entriesTableBody tr');
+            let visibleCount = 0;
+            
+            rows.forEach(row => {
+                const rowDate = row.querySelector('td:nth-child(2) .fw-bold').textContent;
+                const rowDay = row.querySelector('td:nth-child(2) small').textContent.toLowerCase();
+                
+                let show = true;
+                
+                // Apply time filter
+                if (filter === 'today' && rowDay !== 'today') show = false;
+                if (filter === 'week') {
+                    const rowDateObj = new Date(rowDate);
+                    const today = new Date();
+                    const weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+                    if (rowDateObj < weekAgo) show = false;
+                }
+                
+                row.style.display = show ? '' : 'none';
+                if (show) visibleCount++;
+            });
+            
+            // Update showing count
+            document.querySelector('.card-footer span').textContent = `Showing ${visibleCount} of ${rows.length} entries`;
+        }
+        
+        function resetFilters() {
+            const today = new Date().toISOString().split('T')[0];
+            const firstDayOfMonth = today.substring(0, 8) + '01';
+            
+            document.getElementById('dateFrom').value = firstDayOfMonth;
+            document.getElementById('dateTo').value = today;
+            document.getElementById('filterStatus').value = '';
+            document.getElementById('filterType').value = '';
+            document.getElementById('filterAccount').value = '';
+            
+            filterEntries('all');
+            
+            // Reset filter buttons
+            document.querySelectorAll('[data-filter]').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector('[data-filter="all"]').classList.add('active');
+            
+            showAlert('Filters reset to default values', 'info');
+        }
+        
+        function searchEntries() {
+            // In a real application, you would send search criteria to API
+            // For now, we'll simulate searching
+            showAlert('Searching journal entries...', 'info');
+        }
+        
+        function exportEntries() {
+            // In a real application, this would generate and download a CSV or PDF
+            showAlert('Exporting journal entries...', 'info');
+            
+            // Simulate export process
+            setTimeout(() => {
+                showAlert('Journal entries exported successfully!', 'success');
+            }, 1500);
+        }
+        
+        function printEntryDetails() {
+            // In a real application, this would open a print dialog with formatted entry
+            showAlert('Opening print preview for journal entry...', 'info');
+            
+            // Simulate print
+            setTimeout(() => {
+                window.print();
+            }, 500);
+        }
+        
+        function updateSummaryCards() {
+            // Update counts based on current data
+            const rows = document.querySelectorAll('#entriesTableBody tr');
+            const todayRows = document.querySelectorAll('#entriesTableBody tr td:nth-child(2) small:contains("Today")').length;
+            const postedRows = document.querySelectorAll('#entriesTableBody tr td:nth-child(8) .badge.bg-success').length;
+            const draftRows = document.querySelectorAll('#entriesTableBody tr td:nth-child(8) .badge.bg-warning').length;
+            
+            // Update card values
+            document.querySelector('.total-entries-card h3').textContent = rows.length;
+            document.querySelector('.posted-entries-card h3').textContent = postedRows;
+            document.querySelector('.draft-entries-card h3').textContent = draftRows;
+            document.querySelector('.today-entries-card h3').textContent = todayRows;
+            
+            // Update header summary
+            document.querySelector('.card-text + small').innerHTML = `
+                Total Entries: <span class="fw-bold">${rows.length}</span> • 
+                Today: <span class="fw-bold">${todayRows}</span> • 
+                Balanced: <span class="text-success fw-bold">${postedRows}</span>
+            `;
+        }
+        
+        function populateAccountSearch() {
+            // Account data for search functionality
+            const accounts = [
+                { code: '1001', name: 'Cash In Hand', type: 'asset' },
+                { code: '1002', name: 'Bank Accounts', type: 'asset' },
+                { code: '1003', name: 'Accounts Receivable', type: 'asset' },
+                { code: '1004', name: 'Inventory', type: 'asset' },
+                { code: '1101', name: 'Property & Buildings', type: 'asset' },
+                { code: '1102', name: 'Furniture & Equipment', type: 'asset' },
+                { code: '2001', name: 'Accounts Payable', type: 'liability' },
+                { code: '2002', name: 'Loans Payable', type: 'liability' },
+                { code: '3001', name: 'Owner\'s Equity', type: 'equity' },
+                { code: '4001', name: 'Standard Room Sales', type: 'revenue' },
+                { code: '4002', name: 'Suite Sales', type: 'revenue' },
+                { code: '4003', name: 'Service Charges', type: 'revenue' },
+                { code: '5001', name: 'Salary Expense', type: 'expense' },
+                { code: '5002', name: 'Utility Expense', type: 'expense' },
+                { code: '5003', name: 'Food & Beverage Cost', type: 'expense' }
+            ];
+            
+            // Store accounts globally for search functionality
+            window.accountData = accounts;
+        }
+        
+        function getAccountType(accountCode) {
+            const account = window.accountData?.find(acc => acc.code === accountCode);
+            return account ? account.type : 'unknown';
+        }
+        
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+    </script>
+    
+<!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+
+    <!-- Include JavaScript -->
+    <script src="js/include.js"></script>
+     <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

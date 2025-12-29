@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Groups Management - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/ad_group.css">
+     
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-users-cog me-2"></i>User Groups Management
+                                </h1>
+                                <p class="card-text text-muted mb-0">Manage user groups and permissions</p>
+                                <small class="text-muted">Total Groups: <span class="fw-bold">8</span> • Active: <span class="text-success fw-bold">6</span> • Users in Groups: <span class="text-info fw-bold">42</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addGroupModal">
+                                    <i class="fas fa-plus-circle me-1"></i> Add New Group
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Groups Search -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-search me-2"></i>User Groups</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-end">
+                            <div class="col-md-5">
+                                <label for="groupNameSearch" class="form-label">Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                                    <input type="text" class="form-control" id="groupNameSearch" placeholder="Search by group name...">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <label for="groupDescriptionSearch" class="form-label">Description</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-align-left"></i></span>
+                                    <input type="text" class="form-control" id="groupDescriptionSearch" placeholder="Search by description...">
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex align-items-end">
+                                <div class="d-flex gap-2 w-100">
+                                    <button class="btn btn-primary flex-fill" id="searchGroupsBtn">
+                                        <i class="fas fa-search me-1"></i> Search
+                                    </button>
+                                    <button class="btn btn-outline-secondary flex-fill" id="resetGroupSearchBtn">
+                                        <i class="fas fa-redo me-1"></i> All
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Groups and Information -->
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-list me-2"></i>User Groups List</h5>
+                            <div class="d-flex">
+                                <div class="btn-group me-2" role="group">
+                                    <button type="button" class="btn btn-sm btn-outline-primary active" data-filter="all">All</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="active">Active</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="inactive">Inactive</button>
+                                </div>
+                                <button class="btn btn-sm btn-success" id="exportGroupsBtn">
+                                    <i class="fas fa-download me-1"></i> Export
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th width="50">#</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>Updated By</th>
+                                        <th>Members</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="groupsTableBody">
+                                    <!-- Groups rows will be populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted">Showing 5 of 8 groups</span>
+                            </div>
+                            <nav aria-label="Groups pagination">
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User Group Information -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>User Group Information</h5>
+                            <button class="btn btn-sm btn-primary" id="addNewGroupBtn">
+                                <i class="fas fa-plus me-1"></i> New Group
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="group-section">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <label for="groupName" class="form-label required-field">Group Name</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                                        <input type="text" class="form-control" id="groupName" placeholder="Enter group name">
+                                    </div>
+                                    <small class="text-muted">Name of the user group</small>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="groupDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="groupDescription" rows="3" placeholder="Enter group description..."></textarea>
+                                    <small class="text-muted">Detailed description of the group</small>
+                                </div>
+                            </div>
+                            
+                            <!-- Permissions Section -->
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <h6 class="text-primary mb-3">Permissions</h6>
+                                    
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label for="permissionModule" class="form-label">Module</label>
+                                            <select class="form-select" id="permissionModule">
+                                                <option value="">Select Module</option>
+                                                <option value="dashboard">Dashboard</option>
+                                                <option value="reservations">Reservations</option>
+                                                <option value="rooms">Rooms</option>
+                                                <option value="housekeeping">Housekeeping</option>
+                                                <option value="billing">Billing</option>
+                                                <option value="reports">Reports</option>
+                                                <option value="inventory">Inventory</option>
+                                                <option value="admin">Admin</option>
+                                                <option value="settings">Settings</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="permissionSubModule" class="form-label">Sub Module</label>
+                                            <select class="form-select" id="permissionSubModule">
+                                                <option value="">Select Sub Module</option>
+                                                <option value="view">View</option>
+                                                <option value="create">Create</option>
+                                                <option value="edit">Edit</option>
+                                                <option value="delete">Delete</option>
+                                                <option value="approve">Approve</option>
+                                                <option value="export">Export</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-grid mb-4">
+                                        <button class="btn btn-outline-primary" id="addPermissionBtn">
+                                            <i class="fas fa-plus me-1"></i> Add Permission
+                                        </button>
+                                    </div>
+                                    
+                                    <!-- Added Permissions -->
+                                    <div class="mb-4">
+                                        <h6 class="text-primary mb-3">Added Permissions:</h6>
+                                        <div class="table-responsive">
+                                            <table class="table table-sm permission-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Module</th>
+                                                        <th>Sub Module</th>
+                                                        <th>Read</th>
+                                                        <th>Write</th>
+                                                        <th>Delete</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="addedPermissionsTable">
+                                                    <!-- Permissions will be added here dynamically -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div id="noPermissionsMessage" class="text-center text-muted py-3">
+                                            <i class="fas fa-lock fa-2x mb-2"></i>
+                                            <p class="mb-0">No permissions added yet</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Action Buttons -->
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-between gap-2">
+                                        <button class="btn btn-success w-50" id="saveGroupBtn">
+                                            <i class="fas fa-save me-1"></i> Save
+                                        </button>
+                                        <button class="btn btn-danger w-50" id="deleteGroupBtn">
+                                            <i class="fas fa-trash me-1"></i> Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Group Statistics -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h6 class="text-primary mb-3">Group Statistics</h6>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <div class="card bg-light">
+                                            <div class="card-body p-3 text-center">
+                                                <h4 class="text-primary mb-1">8</h4>
+                                                <small class="text-muted">Total Groups</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <div class="card bg-light">
+                                            <div class="card-body p-3 text-center">
+                                                <h4 class="text-success mb-1">6</h4>
+                                                <small class="text-muted">Active Groups</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card bg-light">
+                                            <div class="card-body p-3 text-center">
+                                                <h4 class="text-info mb-1">42</h4>
+                                                <small class="text-muted">Total Users</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card bg-light">
+                                            <div class="card-body p-3 text-center">
+                                                <h4 class="text-warning mb-1">28</h4>
+                                                <small class="text-muted">Permissions</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Group Permissions Overview -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-shield-alt me-2"></i>Group Permissions Overview</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Admin Group -->
+                            <div class="col-md-4 mb-4">
+                                <div class="module-card">
+                                    <div class="module-card-header">
+                                        <h6 class="mb-0">
+                                            <i class="fas fa-user-shield text-primary me-2"></i>
+                                            Administrators
+                                        </h6>
+                                        <span class="member-count-badge">12 Users</span>
+                                    </div>
+                                    <p class="small text-muted mb-3">Full system access with all permissions</p>
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block mb-1">Permissions:</small>
+                                        <div class="d-flex flex-wrap gap-1">
+                                            <span class="badge bg-primary">All Modules</span>
+                                            <span class="badge bg-success">Read</span>
+                                            <span class="badge bg-warning">Write</span>
+                                            <span class="badge bg-danger">Delete</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">Last Updated: Today</small>
+                                        <button class="btn btn-sm btn-outline-primary view-group-details" data-group="admin">
+                                            View Details
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Managers Group -->
+                            <div class="col-md-4 mb-4">
+                                <div class="module-card">
+                                    <div class="module-card-header">
+                                        <h6 class="mb-0">
+                                            <i class="fas fa-user-tie text-success me-2"></i>
+                                            Managers
+                                        </h6>
+                                        <span class="member-count-badge">8 Users</span>
+                                    </div>
+                                    <p class="small text-muted mb-3">Management access with limited admin rights</p>
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block mb-1">Permissions:</small>
+                                        <div class="d-flex flex-wrap gap-1">
+                                            <span class="badge bg-primary">Dashboard</span>
+                                            <span class="badge bg-primary">Reservations</span>
+                                            <span class="badge bg-primary">Rooms</span>
+                                            <span class="badge bg-primary">Reports</span>
+                                            <span class="badge bg-success">Read</span>
+                                            <span class="badge bg-warning">Write</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">Last Updated: 2 days ago</small>
+                                        <button class="btn btn-sm btn-outline-primary view-group-details" data-group="managers">
+                                            View Details
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Front Desk Group -->
+                            <div class="col-md-4 mb-4">
+                                <div class="module-card">
+                                    <div class="module-card-header">
+                                        <h6 class="mb-0">
+                                            <i class="fas fa-concierge-bell text-info me-2"></i>
+                                            Front Desk
+                                        </h6>
+                                        <span class="member-count-badge">15 Users</span>
+                                    </div>
+                                    <p class="small text-muted mb-3">Front desk operations and guest services</p>
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block mb-1">Permissions:</small>
+                                        <div class="d-flex flex-wrap gap-1">
+                                            <span class="badge bg-primary">Reservations</span>
+                                            <span class="badge bg-primary">Rooms</span>
+                                            <span class="badge bg-primary">Check-in/out</span>
+                                            <span class="badge bg-success">Read</span>
+                                            <span class="badge bg-warning">Write</span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">Last Updated: 1 week ago</small>
+                                        <button class="btn btn-sm btn-outline-primary view-group-details" data-group="front-desk">
+                                            View Details
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Permissions Matrix -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-table me-2"></i>Permissions Matrix</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Module</th>
+                                        <th>Administrators</th>
+                                        <th>Managers</th>
+                                        <th>Front Desk</th>
+                                        <th>Housekeeping</th>
+                                        <th>Accounting</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Dashboard</strong></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-success">View Only</span></td>
+                                        <td class="text-center"><span class="badge bg-success">View Only</span></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Reservations</strong></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-secondary">No Access</span></td>
+                                        <td class="text-center"><span class="badge bg-success">View Only</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Rooms</strong></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-success">View Only</span></td>
+                                        <td class="text-center"><span class="badge bg-secondary">No Access</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Housekeeping</strong></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-success">View Only</span></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-secondary">No Access</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Billing & POS</strong></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-secondary">No Access</span></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Reports</strong></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-secondary">No Access</span></td>
+                                        <td class="text-center"><span class="badge bg-secondary">No Access</span></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Admin Settings</strong></td>
+                                        <td class="text-center"><span class="badge bg-success">Full Access</span></td>
+                                        <td class="text-center"><span class="badge bg-warning">Limited</span></td>
+                                        <td class="text-center"><span class="badge bg-secondary">No Access</span></td>
+                                        <td class="text-center"><span class="badge bg-secondary">No Access</span></td>
+                                        <td class="text-center"><span class="badge bg-secondary">No Access</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-3">
+                            <small class="text-muted"><i class="fas fa-info-circle me-1"></i> 
+                                <span class="badge bg-success me-2">Full Access</span> = Read, Write, Delete | 
+                                <span class="badge bg-warning me-2">Limited</span> = Read, Write | 
+                                <span class="badge bg-success me-2">View Only</span> = Read Only | 
+                                <span class="badge bg-secondary">No Access</span> = No Permissions
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Add Group Modal -->
+    <div class="modal fade" id="addGroupModal" tabindex="-1" aria-labelledby="addGroupModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="addGroupModalLabel">
+                        <i class="fas fa-plus-circle me-2"></i>Add New User Group
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label for="modalGroupName" class="form-label required-field">Group Name</label>
+                            <input type="text" class="form-control" id="modalGroupName" placeholder="Enter group name" required>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="modalGroupDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="modalGroupDescription" rows="3" placeholder="Enter group description..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveModalGroupBtn">Save Group</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteGroupModal" tabindex="-1" aria-labelledby="deleteGroupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteGroupModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Confirm Delete
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this user group?</p>
+                    <p class="text-danger"><strong>This action cannot be undone. Users in this group will lose their permissions.</strong></p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="confirmGroupDelete">
+                        <label class="form-check-label" for="confirmGroupDelete">
+                            I understand the consequences
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmGroupDeleteBtn" disabled>Delete Group</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+     <script src="js/include.js"></script>
+    
+    <script>
+        // User Groups Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize groups data
+            const groupsData = [
+                {
+                    id: 1,
+                    name: 'Administrators',
+                    description: 'Full system access with all permissions',
+                    updatedBy: 'Admin Johnson',
+                    updatedDate: '2024-12-25 10:30:00',
+                    members: 12,
+                    status: 'active',
+                    permissions: [
+                        { module: 'dashboard', subModule: 'all', read: true, write: true, delete: true },
+                        { module: 'reservations', subModule: 'all', read: true, write: true, delete: true },
+                        { module: 'rooms', subModule: 'all', read: true, write: true, delete: true },
+                        { module: 'admin', subModule: 'all', read: true, write: true, delete: true }
+                    ]
+                },
+                {
+                    id: 2,
+                    name: 'Managers',
+                    description: 'Management access with limited admin rights',
+                    updatedBy: 'Admin Johnson',
+                    updatedDate: '2024-12-24 14:15:00',
+                    members: 8,
+                    status: 'active',
+                    permissions: [
+                        { module: 'dashboard', subModule: 'all', read: true, write: true, delete: false },
+                        { module: 'reservations', subModule: 'all', read: true, write: true, delete: true },
+                        { module: 'rooms', subModule: 'all', read: true, write: true, delete: false },
+                        { module: 'reports', subModule: 'all', read: true, write: false, delete: false }
+                    ]
+                },
+                {
+                    id: 3,
+                    name: 'Front Desk',
+                    description: 'Front desk operations and guest services',
+                    updatedBy: 'Admin Johnson',
+                    updatedDate: '2024-12-23 16:45:00',
+                    members: 15,
+                    status: 'active',
+                    permissions: [
+                        { module: 'reservations', subModule: 'create', read: true, write: true, delete: false },
+                        { module: 'reservations', subModule: 'view', read: true, write: false, delete: false },
+                        { module: 'rooms', subModule: 'view', read: true, write: false, delete: false },
+                        { module: 'billing', subModule: 'create', read: true, write: true, delete: false }
+                    ]
+                },
+                {
+                    id: 4,
+                    name: 'Housekeeping',
+                    description: 'Housekeeping staff and room maintenance',
+                    updatedBy: 'Manager Smith',
+                    updatedDate: '2024-12-22 13:10:00',
+                    members: 5,
+                    status: 'active',
+                    permissions: [
+                        { module: 'rooms', subModule: 'view', read: true, write: false, delete: false },
+                        { module: 'housekeeping', subModule: 'all', read: true, write: true, delete: false }
+                    ]
+                },
+                {
+                    id: 5,
+                    name: 'Accounting',
+                    description: 'Financial operations and billing management',
+                    updatedBy: 'Admin Johnson',
+                    updatedDate: '2024-12-21 09:20:00',
+                    members: 3,
+                    status: 'inactive',
+                    permissions: [
+                        { module: 'billing', subModule: 'all', read: true, write: true, delete: true },
+                        { module: 'reports', subModule: 'financial', read: true, write: false, delete: false }
+                    ]
+                }
+            ];
+
+            let currentGroupId = null;
+            let currentPermissions = [];
+            
+            // Populate groups table
+            populateGroupsTable(groupsData);
+            
+            // Search functionality
+            document.getElementById('searchGroupsBtn').addEventListener('click', searchGroups);
+            document.getElementById('resetGroupSearchBtn').addEventListener('click', resetGroupSearch);
+            
+            // Filter buttons
+            document.querySelectorAll('[data-filter]').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('[data-filter]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    filterGroups(filter);
+                });
+            });
+            
+            // Add new group button
+            document.getElementById('addNewGroupBtn').addEventListener('click', function() {
+                clearGroupForm();
+                const modal = new bootstrap.Modal(document.getElementById('addGroupModal'));
+                modal.show();
+            });
+            
+            // Save new group in modal
+            document.getElementById('saveModalGroupBtn').addEventListener('click', saveNewGroup);
+            
+            // Add permission button
+            document.getElementById('addPermissionBtn').addEventListener('click', addPermission);
+            
+            // Save group button
+            document.getElementById('saveGroupBtn').addEventListener('click', saveGroup);
+            
+            // Delete group button
+            document.getElementById('deleteGroupBtn').addEventListener('click', function() {
+                if (currentGroupId) {
+                    showDeleteGroupModal(currentGroupId);
+                } else {
+                    showAlert('Please select a group first', 'warning');
+                }
+            });
+            
+            // Confirm delete checkbox
+            document.getElementById('confirmGroupDelete').addEventListener('change', function() {
+                document.getElementById('confirmGroupDeleteBtn').disabled = !this.checked;
+            });
+            
+            // Confirm delete button
+            document.getElementById('confirmGroupDeleteBtn').addEventListener('click', deleteGroup);
+            
+            // Export button
+            document.getElementById('exportGroupsBtn').addEventListener('click', exportGroups);
+            
+            // View group details buttons
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.view-group-details')) {
+                    const groupName = e.target.closest('.view-group-details').dataset.group;
+                    viewGroupDetails(groupName);
+                }
+            });
+        });
+        
+        function populateGroupsTable(groups) {
+            const tableBody = document.getElementById('groupsTableBody');
+            tableBody.innerHTML = '';
+            
+            groups.forEach((group, index) => {
+                const statusColor = group.status === 'active' ? 'success' : 'warning';
+                
+                const row = document.createElement('tr');
+                row.className = 'group-row';
+                row.dataset.status = group.status;
+                row.dataset.id = group.id;
+                
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <div class="group-icon me-2">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <strong>${group.name}</strong>
+                                <div class="small text-muted">ID: GRP${group.id.toString().padStart(3, '0')}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>${group.description}</td>
+                    <td>
+                        <div class="small">${group.updatedBy}</div>
+                        <div class="small text-muted">${formatDate(group.updatedDate)}</div>
+                    </td>
+                    <td>
+                        <span class="member-count-badge">${group.members} Users</span>
+                    </td>
+                    <td>
+                        <span class="currency-status-badge bg-${statusColor}">${group.status.charAt(0).toUpperCase() + group.status.slice(1)}</span>
+                    </td>
+                    <td>
+                        <div class="btn-group btn-group-sm table-actions">
+                            <button class="btn btn-outline-primary view-group" data-id="${group.id}">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn btn-outline-warning edit-group" data-id="${group.id}">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-outline-danger delete-group" data-id="${group.id}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+            
+            // Add event listeners to buttons
+            document.querySelectorAll('.view-group').forEach(button => {
+                button.addEventListener('click', function() {
+                    const groupId = parseInt(this.dataset.id);
+                    viewGroupDetailsById(groupId);
+                });
+            });
+            
+            document.querySelectorAll('.edit-group').forEach(button => {
+                button.addEventListener('click', function() {
+                    const groupId = parseInt(this.dataset.id);
+                    editGroup(groupId);
+                });
+            });
+            
+            document.querySelectorAll('.delete-group').forEach(button => {
+                button.addEventListener('click', function() {
+                    const groupId = parseInt(this.dataset.id);
+                    showDeleteGroupModal(groupId);
+                });
+            });
+        }
+        
+        function searchGroups() {
+            const nameSearch = document.getElementById('groupNameSearch').value.toLowerCase();
+            const descriptionSearch = document.getElementById('groupDescriptionSearch').value.toLowerCase();
+            
+            const rows = document.querySelectorAll('.group-row');
+            
+            rows.forEach(row => {
+                const name = row.querySelector('td:nth-child(2) strong').textContent.toLowerCase();
+                const description = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+                
+                let show = true;
+                
+                if (nameSearch && !name.includes(nameSearch)) show = false;
+                if (descriptionSearch && !description.includes(descriptionSearch)) show = false;
+                
+                row.style.display = show ? '' : 'none';
+            });
+        }
+        
+        function resetGroupSearch() {
+            document.getElementById('groupNameSearch').value = '';
+            document.getElementById('groupDescriptionSearch').value = '';
+            
+            const rows = document.querySelectorAll('.group-row');
+            rows.forEach(row => {
+                row.style.display = '';
+            });
+        }
+        
+        function filterGroups(filter) {
+            const rows = document.querySelectorAll('.group-row');
+            
+            rows.forEach(row => {
+                const status = row.dataset.status;
+                
+                let show = true;
+                
+                if (filter === 'active' && status !== 'active') show = false;
+                if (filter === 'inactive' && status !== 'inactive') show = false;
+                
+                row.style.display = show ? '' : 'none';
+            });
+        }
+        
+        function viewGroupDetailsById(groupId) {
+            const group = getGroupById(groupId);
+            if (!group) return;
+            
+            // Populate the form with group data
+            document.getElementById('groupName').value = group.name;
+            document.getElementById('groupDescription').value = group.description;
+            
+            // Set current permissions
+            currentPermissions = [...group.permissions];
+            currentGroupId = groupId;
+            
+            // Update permissions table
+            updatePermissionsTable();
+            
+            showAlert(`Viewing group: ${group.name}`, 'info');
+        }
+        
+        function editGroup(groupId) {
+            viewGroupDetailsById(groupId);
+            showAlert(`Editing group: ${getGroupById(groupId).name}`, 'warning');
+        }
+        
+        function addPermission() {
+            const module = document.getElementById('permissionModule').value;
+            const subModule = document.getElementById('permissionSubModule').value;
+            
+            if (!module || !subModule) {
+                showAlert('Please select both Module and Sub Module', 'warning');
+                return;
+            }
+            
+            // Check if permission already exists
+            const existingPermission = currentPermissions.find(p => 
+                p.module === module && p.subModule === subModule
+            );
+            
+            if (existingPermission) {
+                showAlert('This permission already exists', 'info');
+                return;
+            }
+            
+            // Add new permission with default values
+            const newPermission = {
+                module: module,
+                subModule: subModule,
+                read: false,
+                write: false,
+                delete: false
+            };
+            
+            currentPermissions.push(newPermission);
+            updatePermissionsTable();
+            
+            // Clear selection
+            document.getElementById('permissionModule').value = '';
+            document.getElementById('permissionSubModule').value = '';
+            
+            showAlert('Permission added. Please set access levels.', 'success');
+        }
+        
+        function updatePermissionsTable() {
+            const tableBody = document.getElementById('addedPermissionsTable');
+            const noPermissionsMessage = document.getElementById('noPermissionsMessage');
+            
+            tableBody.innerHTML = '';
+            
+            if (currentPermissions.length === 0) {
+                noPermissionsMessage.style.display = 'block';
+                return;
+            }
+            
+            noPermissionsMessage.style.display = 'none';
+            
+            currentPermissions.forEach((permission, index) => {
+                const row = document.createElement('tr');
+                row.dataset.index = index;
+                
+                row.innerHTML = `
+                    <td>${permission.module}</td>
+                    <td>${permission.subModule}</td>
+                    <td class="text-center">
+                        <div class="form-check d-inline-block">
+                            <input class="form-check-input permission-read" type="checkbox" ${permission.read ? 'checked' : ''}>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <div class="form-check d-inline-block">
+                            <input class="form-check-input permission-write" type="checkbox" ${permission.write ? 'checked' : ''}>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <div class="form-check d-inline-block">
+                            <input class="form-check-input permission-delete" type="checkbox" ${permission.delete ? 'checked' : ''}>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-outline-danger remove-permission">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+            
+            // Add event listeners to checkboxes
+            document.querySelectorAll('.permission-read').forEach((checkbox, index) => {
+                checkbox.addEventListener('change', function() {
+                    currentPermissions[index].read = this.checked;
+                });
+            });
+            
+            document.querySelectorAll('.permission-write').forEach((checkbox, index) => {
+                checkbox.addEventListener('change', function() {
+                    currentPermissions[index].write = this.checked;
+                });
+            });
+            
+            document.querySelectorAll('.permission-delete').forEach((checkbox, index) => {
+                checkbox.addEventListener('change', function() {
+                    currentPermissions[index].delete = this.checked;
+                });
+            });
+            
+            // Add event listeners to remove buttons
+            document.querySelectorAll('.remove-permission').forEach((button, index) => {
+                button.addEventListener('click', function() {
+                    currentPermissions.splice(index, 1);
+                    updatePermissionsTable();
+                    showAlert('Permission removed', 'info');
+                });
+            });
+        }
+        
+        function saveGroup() {
+            if (!currentGroupId) {
+                showAlert('Please select a group to update', 'warning');
+                return;
+            }
+            
+            const group = getGroupById(currentGroupId);
+            if (!group) return;
+            
+            // Get form values
+            const name = document.getElementById('groupName').value;
+            const description = document.getElementById('groupDescription').value;
+            
+            // Validate
+            if (!name) {
+                showAlert('Group Name is required', 'danger');
+                return;
+            }
+            
+            // Check if name already exists (different ID, same name)
+            const duplicate = groupsData.find(g => 
+                g.id !== currentGroupId && 
+                g.name.toLowerCase() === name.toLowerCase()
+            );
+            
+            if (duplicate) {
+                showAlert(`Group "${name}" already exists`, 'warning');
+                return;
+            }
+            
+            // Update group object
+            group.name = name;
+            group.description = description;
+            group.permissions = [...currentPermissions];
+            group.updatedBy = 'Admin Johnson';
+            group.updatedDate = new Date().toISOString().replace('T', ' ').substring(0, 19);
+            
+            // Update table
+            populateGroupsTable(groupsData);
+            
+            showAlert(`Group "${name}" updated successfully`, 'success');
+        }
+        
+        function saveNewGroup() {
+            // Get form values from modal
+            const name = document.getElementById('modalGroupName').value;
+            const description = document.getElementById('modalGroupDescription').value;
+            
+            // Validate
+            if (!name) {
+                showAlert('Group Name is required', 'danger');
+                return;
+            }
+            
+            // Check if group already exists
+            const duplicate = groupsData.find(g => 
+                g.name.toLowerCase() === name.toLowerCase()
+            );
+            
+            if (duplicate) {
+                showAlert(`Group "${name}" already exists`, 'warning');
+                return;
+            }
+            
+            // Create new group object
+            const newGroup = {
+                id: groupsData.length + 1,
+                name: name,
+                description: description,
+                updatedBy: 'Admin Johnson',
+                updatedDate: new Date().toISOString().replace('T', ' ').substring(0, 19),
+                members: 0,
+                status: 'active',
+                permissions: []
+            };
+            
+            // Add to data array
+            groupsData.push(newGroup);
+            
+            // Update table
+            populateGroupsTable(groupsData);
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('addGroupModal'));
+            modal.hide();
+            
+            // Clear modal form
+            document.getElementById('modalGroupName').value = '';
+            document.getElementById('modalGroupDescription').value = '';
+            
+            // Load the new group for editing
+            viewGroupDetailsById(newGroup.id);
+            
+            showAlert(`Group "${name}" created successfully`, 'success');
+        }
+        
+        function clearGroupForm() {
+            document.getElementById('groupName').value = '';
+            document.getElementById('groupDescription').value = '';
+            document.getElementById('permissionModule').value = '';
+            document.getElementById('permissionSubModule').value = '';
+            
+            currentPermissions = [];
+            currentGroupId = null;
+            
+            updatePermissionsTable();
+            
+            showAlert('Form cleared', 'info');
+        }
+        
+        function showDeleteGroupModal(groupId) {
+            const group = getGroupById(groupId);
+            if (!group) return;
+            
+            currentGroupId = groupId;
+            
+            // Update modal text
+            document.querySelector('#deleteGroupModal .modal-body p').textContent = 
+                `Are you sure you want to delete group "${group.name}"?`;
+            
+            // Reset checkbox
+            document.getElementById('confirmGroupDelete').checked = false;
+            document.getElementById('confirmGroupDeleteBtn').disabled = true;
+            
+            // Show modal
+            const modal = new bootstrap.Modal(document.getElementById('deleteGroupModal'));
+            modal.show();
+        }
+        
+        function deleteGroup() {
+            if (!currentGroupId) return;
+            
+            const group = getGroupById(currentGroupId);
+            if (!group) return;
+            
+            // Remove from data array
+            const index = groupsData.findIndex(g => g.id === currentGroupId);
+            if (index !== -1) {
+                groupsData.splice(index, 1);
+            }
+            
+            // Update table
+            populateGroupsTable(groupsData);
+            
+            // Clear form
+            clearGroupForm();
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('deleteGroupModal'));
+            modal.hide();
+            
+            showAlert(`Group "${group.name}" deleted successfully`, 'success');
+        }
+        
+        function exportGroups() {
+            // In a real application, this would generate a CSV or Excel file
+            const dataStr = JSON.stringify(groupsData, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = `user_groups_export_${new Date().toISOString().split('T')[0]}.json`;
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            showAlert('User groups exported successfully', 'success');
+        }
+        
+        function viewGroupDetails(groupName) {
+            const group = groupsData.find(g => g.name.toLowerCase() === groupName.toLowerCase());
+            if (group) {
+                viewGroupDetailsById(group.id);
+            } else {
+                showAlert(`Group "${groupName}" not found`, 'warning');
+            }
+        }
+        
+        function getGroupById(id) {
+            return groupsData.find(g => g.id === id);
+        }
+        
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+            }) + ' ' + date.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+        
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

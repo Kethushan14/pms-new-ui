@@ -1,0 +1,627 @@
+ /* Clean Minimal Header Styles */
+        .main-header {
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .brand-section {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+        
+        .brand-logo {
+            margin-right: 15px;
+        }
+        
+        .brand-logo i {
+            font-size: 32px;
+            color: white;
+        }
+        
+        .brand-text {
+            line-height: 1.2;
+        }
+        
+        .brand-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0;
+            color: white;
+            letter-spacing: 0.5px;
+        }
+        
+        .brand-subtitle {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            margin: 0;
+            font-weight: 400;
+        }
+        
+        /* User Actions Section */
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Header Icon Buttons */
+        .header-icon-btn {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .header-icon-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4081;
+            color: white;
+            font-size: 11px;
+            min-width: 18px;
+            height: 18px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        
+        /* User Profile Dropdown */
+        .user-profile {
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,0.1);
+            padding: 6px 12px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+            min-width: 150px;
+        }
+        
+        .user-profile:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        
+        .user-info {
+            flex: 1;
+        }
+        
+        .user-name {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0;
+            color: white;
+        }
+        
+        .user-role {
+            font-size: 12px;
+            color: rgba(255,255,255,0.8);
+            margin: 0;
+        }
+        
+        .dropdown-arrow {
+            color: rgba(255,255,255,0.7);
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        
+        /* Sidebar Toggle */
+        .sidebar-toggle-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sidebar-toggle-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        /* Dropdown Menu Customization */
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .dropdown-item {
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-item:hover {
+            background: #f8f9fa;
+        }
+        
+        .dropdown-item i {
+            width: 20px;
+            margin-right: 10px;
+            text-align: center;
+        }
+        
+        /* Main Content Adjustments */
+        .main-content {
+            padding-top: 20px;
+        }
+        
+        /* Channel Management Specific Styles */
+        .channel-management-card {
+            border: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .channel-management-header {
+            background: linear-gradient(135deg, #6f42c1 0%, #6610f2 100%);
+            color: white;
+        }
+        
+        .channel-badge {
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .badge-walkin {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+            border: 1px solid rgba(40, 167, 69, 0.3);
+        }
+        
+        .badge-website {
+            background: rgba(0, 123, 255, 0.1);
+            color: #007bff;
+            border: 1px solid rgba(0, 123, 255, 0.3);
+        }
+        
+        .badge-ota {
+            background: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+            border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+        
+        .badge-agent {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+            border: 1px solid rgba(220, 53, 69, 0.3);
+        }
+        
+        .badge-phone {
+            background: rgba(111, 66, 193, 0.1);
+            color: #6f42c1;
+            border: 1px solid rgba(111, 66, 193, 0.3);
+        }
+        
+        .badge-email {
+            background: rgba(23, 162, 184, 0.1);
+            color: #17a2b8;
+            border: 1px solid rgba(23, 162, 184, 0.3);
+        }
+        
+        .badge-gds {
+            background: rgba(108, 117, 125, 0.1);
+            color: #6c757d;
+            border: 1px solid rgba(108, 117, 125, 0.3);
+        }
+        
+        .availability-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        
+        .indicator-available {
+            background-color: #28a745;
+        }
+        
+        .indicator-limited {
+            background-color: #ffc107;
+        }
+        
+        .indicator-soldout {
+            background-color: #dc3545;
+        }
+        
+        .indicator-closed {
+            background-color: #6c757d;
+        }
+        
+        .status-badge {
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        
+        .status-active {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+        }
+        
+        .status-inactive {
+            background: rgba(108, 117, 125, 0.1);
+            color: #6c757d;
+        }
+        
+        .status-pending {
+            background: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+        }
+        
+        .status-error {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+        
+        .summary-card {
+            border-left: 4px solid;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .summary-walkin {
+            border-left-color: #28a745;
+        }
+        
+        .summary-website {
+            border-left-color: #007bff;
+        }
+        
+        .summary-ota {
+            border-left-color: #ffc107;
+        }
+        
+        .summary-agent {
+            border-left-color: #dc3545;
+        }
+        
+        .summary-total {
+            border-left-color: #6f42c1;
+        }
+        
+        .channel-meter {
+            height: 10px;
+            border-radius: 5px;
+            background: #e9ecef;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+        
+        .meter-fill {
+            height: 100%;
+            border-radius: 5px;
+        }
+        
+        .fill-walkin {
+            background: linear-gradient(90deg, #28a745, #20c997);
+        }
+        
+        .fill-website {
+            background: linear-gradient(90deg, #007bff, #6610f2);
+        }
+        
+        .fill-ota {
+            background: linear-gradient(90deg, #ffc107, #fd7e14);
+        }
+        
+        .fill-agent {
+            background: linear-gradient(90deg, #dc3545, #e83e8c);
+        }
+        
+        .fill-phone {
+            background: linear-gradient(90deg, #6f42c1, #6610f2);
+        }
+        
+        .fill-email {
+            background: linear-gradient(90deg, #17a2b8, #20c997);
+        }
+        
+        .fill-gds {
+            background: linear-gradient(90deg, #6c757d, #343a40);
+        }
+        
+        .sync-badge {
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        
+        .sync-success {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+        }
+        
+        .sync-pending {
+            background: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+        }
+        
+        .sync-failed {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+        
+        .sync-queued {
+            background: rgba(23, 162, 184, 0.1);
+            color: #17a2b8;
+        }
+        
+        /* Summary KPI Cards */
+        .summary-kpi-card {
+            border-radius: 10px;
+            padding: 20px;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .kpi-total {
+            background: linear-gradient(135deg, #6f42c1 0%, #6610f2 100%);
+        }
+        
+        .kpi-walkin {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+        
+        .kpi-website {
+            background: linear-gradient(135deg, #007bff 0%, #6610f2 100%);
+        }
+        
+        .kpi-ota {
+            background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+        }
+        
+        .kpi-agent {
+            background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%);
+        }
+        
+        /* Channel Specific Colors */
+        .channel-walkin {
+            color: #28a745;
+            font-weight: 600;
+        }
+        
+        .channel-website {
+            color: #007bff;
+            font-weight: 600;
+        }
+        
+        .channel-ota {
+            color: #ffc107;
+            font-weight: 600;
+        }
+        
+        .channel-agent {
+            color: #dc3545;
+            font-weight: 600;
+        }
+        
+        .channel-phone {
+            color: #6f42c1;
+            font-weight: 600;
+        }
+        
+        .channel-email {
+            color: #17a2b8;
+            font-weight: 600;
+        }
+        
+        .channel-gds {
+            color: #6c757d;
+            font-weight: 600;
+        }
+        
+        /* Room Category Badges */
+        .room-category-badge {
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+        
+        /* Price Display */
+        .price-display {
+            font-weight: 600;
+            color: #28a745;
+        }
+        
+        .discount-price {
+            color: #dc3545;
+            text-decoration: line-through;
+            font-size: 0.9em;
+        }
+        
+        /* Sync Status */
+        .sync-status {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            .brand-section {
+                margin-bottom: 10px;
+            }
+            
+            .user-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .user-profile {
+                min-width: auto;
+                padding: 6px 8px;
+            }
+            
+            .user-name {
+                display: none;
+            }
+            
+            .user-role {
+                display: none;
+            }
+            
+            .user-avatar {
+                margin-right: 0;
+            }
+            
+            .table-responsive {
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .brand-title {
+                font-size: 20px;
+            }
+            
+            .brand-subtitle {
+                font-size: 12px;
+            }
+            
+            .header-icon-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+            
+            .search-form .col-md-3 {
+                margin-bottom: 10px;
+            }
+        }
+        
+        /* Search Form Styles */
+        .search-form {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .search-form label {
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #495057;
+        }
+        
+        /* Rate Rules */
+        .rate-rule {
+            border-left: 3px solid;
+            padding-left: 10px;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+        
+        .rule-restriction {
+            border-left-color: #dc3545;
+        }
+        
+        .rule-discount {
+            border-left-color: #28a745;
+        }
+        
+        .rule-promotion {
+            border-left-color: #007bff;
+        }
+        
+        .rule-blackout {
+            border-left-color: #6c757d;
+        }
+        
+        /* Channel Connection Status */
+        .connection-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .connection-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        
+        .connected {
+            background-color: #28a745;
+            animation: pulse 2s infinite;
+        }
+        
+        .disconnected {
+            background-color: #dc3545;
+        }
+        
+        .connecting {
+            background-color: #ffc107;
+            animation: pulse 1s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }

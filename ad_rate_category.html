@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Category - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+     <link rel="stylesheet" href="css/header.css">
+
+      
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-layer-group me-2"></i>Rate Category Management
+                                </h1>
+                                <p class="card-text text-muted mb-0">Manage room categories and their pricing rates</p>
+                                <small class="text-muted">Total Categories: <span class="fw-bold">8</span> • Active: <span class="text-success fw-bold">8</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+                                    <i class="fas fa-plus-circle me-1"></i> Add New Category
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Current Room Category Information Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Current Room Category Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="room-category-form-section">
+                            <div class="row g-3">
+                                <div class="col-md-8">
+                                    <label for="categoryNameSearch" class="form-label">Name</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="categoryNameSearch" placeholder="Enter category name to search...">
+                                        <button class="btn btn-primary" type="button" id="searchCategoryBtn">
+                                            <i class="fas fa-search"></i> Search
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Filter</label>
+                                    <select class="form-select" id="categoryFilter">
+                                        <option value="all" selected>All</option>
+                                        <option value="standard">Standard</option>
+                                        <option value="deluxe">Deluxe</option>
+                                        <option value="suite">Suite</option>
+                                        <option value="premium">Premium</option>
+                                        <option value="family">Family</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Room Category Table -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-list me-2"></i>Room Categories</h5>
+                            <div class="d-flex align-items-center">
+                                <div class="pagination-container me-3">
+                                    <span class="text-muted"><strong>1</strong> of <strong>1</strong></span>
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-sm btn-outline-primary active" data-filter="all">All</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="active">Active</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0 category-table">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th width="50">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="selectAllCategories">
+                                            </div>
+                                        </th>
+                                        <th>Category Name</th>
+                                        <th>Description</th>
+                                        <th>Rate</th>
+                                        <th>Tot.Rooms</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="categoryTableBody">
+                                    <!-- Category 1 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input category-checkbox" type="checkbox" data-id="STD001">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong>Standard Room</strong>
+                                            <small class="d-block text-muted">Category Code: STD001</small>
+                                        </td>
+                                        <td>
+                                            Basic comfortable room with essential amenities
+                                        </td>
+                                        <td>
+                                            <span class="text-success fw-bold">$120</span>
+                                            <small class="d-block text-muted">per night</small>
+                                        </td>
+                                        <td>
+                                            <span class="room-count-badge badge bg-primary">25</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary edit-category" data-id="STD001">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-category" data-id="STD001">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                                <button class="btn btn-outline-info view-category" data-id="STD001">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Category 2 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input category-checkbox" type="checkbox" data-id="DLX002">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong>Deluxe Room</strong>
+                                            <small class="d-block text-muted">Category Code: DLX002</small>
+                                        </td>
+                                        <td>
+                                            Spacious room with additional amenities and city view
+                                        </td>
+                                        <td>
+                                            <span class="text-success fw-bold">$180</span>
+                                            <small class="d-block text-muted">per night</small>
+                                        </td>
+                                        <td>
+                                            <span class="room-count-badge badge bg-primary">15</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary edit-category" data-id="DLX002">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-category" data-id="DLX002">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                                <button class="btn btn-outline-info view-category" data-id="DLX002">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Category 3 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input category-checkbox" type="checkbox" data-id="SUI003">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong>Suite</strong>
+                                            <small class="d-block text-muted">Category Code: SUI003</small>
+                                        </td>
+                                        <td>
+                                            Luxury suite with separate living area and premium amenities
+                                        </td>
+                                        <td>
+                                            <span class="text-success fw-bold">$350</span>
+                                            <small class="d-block text-muted">per night</small>
+                                        </td>
+                                        <td>
+                                            <span class="room-count-badge badge bg-primary">8</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary edit-category" data-id="SUI003">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-category" data-id="SUI003">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                                <button class="btn btn-outline-info view-category" data-id="SUI003">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Category 4 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input category-checkbox" type="checkbox" data-id="FAM004">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong>Family Room</strong>
+                                            <small class="d-block text-muted">Category Code: FAM004</small>
+                                        </td>
+                                        <td>
+                                            Large room suitable for families with children
+                                        </td>
+                                        <td>
+                                            <span class="text-success fw-bold">$220</span>
+                                            <small class="d-block text-muted">per night</small>
+                                        </td>
+                                        <td>
+                                            <span class="room-count-badge badge bg-primary">12</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary edit-category" data-id="FAM004">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-category" data-id="FAM004">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                                <button class="btn btn-outline-info view-category" data-id="FAM004">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted">Showing 4 of 8 categories</span>
+                            </div>
+                            <nav aria-label="Category pagination">
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Room Category Details Section -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-file-alt me-2"></i>Room Category Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Base Rate Section -->
+                            <div class="col-lg-4">
+                                <div class="room-category-form-section">
+                                    <h6 class="mb-3 text-primary">
+                                        <i class="fas fa-dollar-sign me-2"></i>Base Rate Management
+                                    </h6>
+                                    
+                                    <div class="base-rate-display mb-4">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <small class="text-muted">Current Base Rate</small>
+                                                <h3 class="mb-0 fw-bold">$120</h3>
+                                            </div>
+                                            <div class="text-end">
+                                                <small class="text-muted">Standard Room</small>
+                                                <div class="text-success">Active</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="editBaseRate" class="form-label">Update Base Rate</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="number" class="form-control" id="editBaseRate" value="120" min="0" step="1">
+                                            <button class="btn btn-primary" type="button" id="updateBaseRateBtn">
+                                                <i class="fas fa-sync-alt"></i> Update
+                                            </button>
+                                        </div>
+                                        <small class="text-muted">Enter new base rate and click Update</small>
+                                    </div>
+                                    
+                                    <div class="d-grid">
+                                        <button class="btn btn-warning" id="editBaseRateBtn">
+                                            <i class="fas fa-edit me-1"></i> EDIT
+                                        </button>
+                                    </div>
+                                    
+                                    <hr class="my-4">
+                                    
+                                    <!-- Quick Stats -->
+                                    <div class="mt-4">
+                                        <h6 class="mb-3 text-primary">
+                                            <i class="fas fa-chart-bar me-2"></i>Rate Statistics
+                                        </h6>
+                                        <div class="row">
+                                            <div class="col-6 mb-3">
+                                                <div class="text-center">
+                                                    <h5 class="fw-bold mb-0">$120</h5>
+                                                    <small class="text-muted">Min Rate</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <div class="text-center">
+                                                    <h5 class="fw-bold mb-0">$350</h5>
+                                                    <small class="text-muted">Max Rate</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="text-center">
+                                                    <h5 class="fw-bold mb-0">$217.50</h5>
+                                                    <small class="text-muted">Avg Rate</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="text-center">
+                                                    <h5 class="fw-bold mb-0">60</h5>
+                                                    <small class="text-muted">Total Rooms</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Add New Category Section -->
+                            <div class="col-lg-8">
+                                <div class="room-category-form-section">
+                                    <h6 class="mb-3 text-primary">
+                                        <i class="fas fa-plus-circle me-2"></i>Add New Category
+                                    </h6>
+                                    
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="newCategoryName" class="form-label">Name *</label>
+                                            <input type="text" class="form-control" id="newCategoryName" placeholder="Enter category name" required>
+                                            <small class="text-muted">e.g., Premium Suite, Ocean View Room</small>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="categoryCode" class="form-label">Category Code</label>
+                                            <input type="text" class="form-control" id="categoryCode" placeholder="Auto-generated" readonly>
+                                            <small class="text-muted">Auto-generated unique code</small>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="categoryDescription" class="form-label">Description</label>
+                                            <textarea class="form-control" id="categoryDescription" rows="3" placeholder="Enter category description..."></textarea>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="currencyType" class="form-label">Currency Type *</label>
+                                            <select class="form-select" id="currencyType" required>
+                                                <option value="">Select</option>
+                                                <option value="USD" selected>USD ($)</option>
+                                                <option value="EUR">EUR (€)</option>
+                                                <option value="GBP">GBP (£)</option>
+                                                <option value="LKR">LKR (Rs)</option>
+                                                <option value="INR">INR (₹)</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="categoryRate" class="form-label">Rate *</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">$</span>
+                                                <input type="number" class="form-control" id="categoryRate" placeholder="0.00" min="0" step="0.01" required>
+                                            </div>
+                                            <small class="text-muted">Nightly rate for this category</small>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="totalRooms" class="form-label">Total Rooms</label>
+                                            <input type="number" class="form-control" id="totalRooms" placeholder="0" min="0" value="0">
+                                            <small class="text-muted">Number of rooms in this category</small>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="maxOccupancy" class="form-label">Max Occupancy</label>
+                                            <select class="form-select" id="maxOccupancy">
+                                                <option value="1">1 Person</option>
+                                                <option value="2" selected>2 Persons</option>
+                                                <option value="3">3 Persons</option>
+                                                <option value="4">4 Persons</option>
+                                                <option value="5">5 Persons</option>
+                                                <option value="6">6 Persons</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <!-- Upload Room Image Section -->
+                                        <div class="col-12">
+                                            <label class="form-label">Upload Room Image</label>
+                                            <div class="upload-image-container" id="uploadImageContainer">
+                                                <label for="roomImage" class="file-input-label">
+                                                    <i class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"></i>
+                                                    <h5 class="mb-2">Choose File</h5>
+                                                    <p class="text-muted mb-2">Drag & drop or click to browse</p>
+                                                    <p class="text-muted small" id="fileNameDisplay">No file chosen</p>
+                                                    <input type="file" class="d-none" id="roomImage" accept="image/*">
+                                                </label>
+                                            </div>
+                                            <small class="text-muted">Recommended: 1200x800px, JPG or PNG format</small>
+                                        </div>
+                                        
+                                        <div class="col-12">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="breakfastIncluded" checked>
+                                                <label class="form-check-label" for="breakfastIncluded">
+                                                    Breakfast Included
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="wifiIncluded" checked>
+                                                <label class="form-check-label" for="wifiIncluded">
+                                                    Free WiFi Included
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="airConditioning">
+                                                <label class="form-check-label" for="airConditioning">
+                                                    Air Conditioning
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="roomService">
+                                                <label class="form-check-label" for="roomService">
+                                                    24/7 Room Service
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-12">
+                                            <div class="d-flex justify-content-end gap-2">
+                                                <button class="btn btn-outline-secondary" id="clearCategoryFormBtn">
+                                                    <i class="fas fa-redo me-1"></i> Clear Form
+                                                </button>
+                                                <button class="btn btn-success" id="saveCategoryBtn">
+                                                    <i class="fas fa-save me-1"></i> Save Category
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Category Summary -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h6 class="mb-0"><i class="fas fa-chart-pie me-2"></i>Category Summary</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-3 col-6 mb-3">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-primary p-2 rounded me-3">
+                                                        <i class="fas fa-layer-group text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="mb-0 fw-bold">8</h5>
+                                                        <small class="text-muted">Total Categories</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-6 mb-3">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-success p-2 rounded me-3">
+                                                        <i class="fas fa-bed text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="mb-0 fw-bold">60</h5>
+                                                        <small class="text-muted">Total Rooms</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-6">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-info p-2 rounded me-3">
+                                                        <i class="fas fa-dollar-sign text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="mb-0 fw-bold">$120</h5>
+                                                        <small class="text-muted">Lowest Rate</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-6">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-warning p-2 rounded me-3">
+                                                        <i class="fas fa-chart-line text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="mb-0 fw-bold">$217.50</h5>
+                                                        <small class="text-muted">Average Rate</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <button class="btn btn-outline-primary">
+                                            <i class="fas fa-question-circle me-1"></i> Help
+                                        </button>
+                                        <button class="btn btn-outline-secondary ms-2">
+                                            <i class="fas fa-print me-1"></i> Print Report
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-danger" id="deleteSelectedCategoriesBtn" data-bs-toggle="modal" data-bs-target="#deleteCategoriesModal">
+                                            <i class="fas fa-trash me-1"></i> Delete Selected
+                                        </button>
+                                        <button class="btn btn-success ms-2" id="saveAllCategoryChangesBtn">
+                                            <i class="fas fa-save me-1"></i> Save All Changes
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Add Category Modal -->
+    <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="addCategoryModalLabel">
+                        <i class="fas fa-plus-circle me-2"></i>Add New Room Category
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="modalCategoryName" class="form-label">Name *</label>
+                            <input type="text" class="form-control" id="modalCategoryName" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="modalCategoryCode" class="form-label">Category Code</label>
+                            <input type="text" class="form-control" id="modalCategoryCode" readonly>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="modalCategoryDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="modalCategoryDescription" rows="3"></textarea>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="modalCurrencyType" class="form-label">Currency Type *</label>
+                            <select class="form-select" id="modalCurrencyType" required>
+                                <option value="">Select</option>
+                                <option value="USD">USD ($)</option>
+                                <option value="EUR">EUR (€)</option>
+                                <option value="GBP">GBP (£)</option>
+                                <option value="LKR">LKR (Rs)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="modalCategoryRate" class="form-label">Rate *</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="modalCategoryRate" required min="0" step="0.01">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="modalTotalRooms" class="form-label">Total Rooms</label>
+                            <input type="number" class="form-control" id="modalTotalRooms" min="0" value="0">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="modalMaxOccupancy" class="form-label">Max Occupancy</label>
+                            <select class="form-select" id="modalMaxOccupancy">
+                                <option value="1">1 Person</option>
+                                <option value="2">2 Persons</option>
+                                <option value="3">3 Persons</option>
+                                <option value="4">4 Persons</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveModalCategory">Save Category</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Categories Modal -->
+    <div class="modal fade" id="deleteCategoriesModal" tabindex="-1" aria-labelledby="deleteCategoriesModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteCategoriesModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Delete Categories
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete the selected categories?</p>
+                    <p class="text-danger"><strong>This action cannot be undone. Rooms in these categories will be affected.</strong></p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="confirmDeleteCategories">
+                        <label class="form-check-label" for="confirmDeleteCategories">
+                            I understand that this will permanently delete the selected categories
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteCategoriesBtn" disabled>Delete Selected</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/include.js"></script>
+    
+    <script>
+        // Rate Category Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select all categories checkbox
+            document.getElementById('selectAllCategories').addEventListener('change', function() {
+                const checkboxes = document.querySelectorAll('.category-checkbox');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+            
+            // Filter buttons
+            document.querySelectorAll('[data-filter]').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('[data-filter]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    filterCategories(filter);
+                });
+            });
+            
+            // Edit category
+            document.querySelectorAll('.edit-category').forEach(button => {
+                button.addEventListener('click', function() {
+                    const categoryId = this.dataset.id;
+                    editCategory(categoryId);
+                });
+            });
+            
+            // Delete category
+            document.querySelectorAll('.delete-category').forEach(button => {
+                button.addEventListener('click', function() {
+                    const categoryId = this.dataset.id;
+                    showDeleteCategoryModal(categoryId);
+                });
+            });
+            
+            // View category
+            document.querySelectorAll('.view-category').forEach(button => {
+                button.addEventListener('click', function() {
+                    const categoryId = this.dataset.id;
+                    viewCategory(categoryId);
+                });
+            });
+            
+            // Search functionality
+            document.getElementById('categoryNameSearch').addEventListener('input', filterCategories);
+            document.getElementById('categoryFilter').addEventListener('change', filterCategories);
+            document.getElementById('searchCategoryBtn').addEventListener('click', filterCategories);
+            
+            // File upload handling
+            const roomImageInput = document.getElementById('roomImage');
+            const fileNameDisplay = document.getElementById('fileNameDisplay');
+            const uploadImageContainer = document.getElementById('uploadImageContainer');
+            
+            roomImageInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    fileNameDisplay.textContent = this.files[0].name;
+                    uploadImageContainer.style.borderColor = '#0d6efd';
+                    uploadImageContainer.style.backgroundColor = '#e8f4fd';
+                } else {
+                    fileNameDisplay.textContent = 'No file chosen';
+                    uploadImageContainer.style.borderColor = '#dee2e6';
+                    uploadImageContainer.style.backgroundColor = '#f8f9fa';
+                }
+            });
+            
+            uploadImageContainer.addEventListener('click', function() {
+                roomImageInput.click();
+            });
+            
+            uploadImageContainer.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.style.borderColor = '#0d6efd';
+                this.style.backgroundColor = '#e8f4fd';
+            });
+            
+            uploadImageContainer.addEventListener('dragleave', function() {
+                if (!roomImageInput.files.length) {
+                    this.style.borderColor = '#dee2e6';
+                    this.style.backgroundColor = '#f8f9fa';
+                }
+            });
+            
+            uploadImageContainer.addEventListener('drop', function(e) {
+                e.preventDefault();
+                roomImageInput.files = e.dataTransfer.files;
+                if (roomImageInput.files.length > 0) {
+                    fileNameDisplay.textContent = roomImageInput.files[0].name;
+                    this.style.borderColor = '#0d6efd';
+                    this.style.backgroundColor = '#e8f4fd';
+                }
+            });
+            
+            // Generate category code based on name
+            document.getElementById('newCategoryName').addEventListener('input', function() {
+                const name = this.value.trim();
+                if (name) {
+                    // Generate code: First 3 letters of each word, uppercase
+                    const words = name.split(' ').filter(word => word.length > 0);
+                    let code = '';
+                    words.forEach(word => {
+                        code += word.substring(0, 3).toUpperCase();
+                    });
+                    
+                    // Add numbers if code is too short
+                    if (code.length < 6) {
+                        code += '001';
+                    }
+                    
+                    document.getElementById('categoryCode').value = code;
+                } else {
+                    document.getElementById('categoryCode').value = '';
+                }
+            });
+            
+            // Update base rate button
+            document.getElementById('updateBaseRateBtn').addEventListener('click', function() {
+                updateBaseRate();
+            });
+            
+            // Edit base rate button
+            document.getElementById('editBaseRateBtn').addEventListener('click', function() {
+                editBaseRate();
+            });
+            
+            // Clear category form button
+            document.getElementById('clearCategoryFormBtn').addEventListener('click', function() {
+                clearCategoryForm();
+            });
+            
+            // Save category button
+            document.getElementById('saveCategoryBtn').addEventListener('click', function() {
+                saveCategory();
+            });
+            
+            // Save modal category
+            document.getElementById('saveModalCategory').addEventListener('click', function() {
+                saveModalCategory();
+            });
+            
+            // Confirm delete categories checkbox
+            document.getElementById('confirmDeleteCategories').addEventListener('change', function() {
+                document.getElementById('confirmDeleteCategoriesBtn').disabled = !this.checked;
+            });
+            
+            // Confirm delete categories button
+            document.getElementById('confirmDeleteCategoriesBtn').addEventListener('click', function() {
+                deleteSelectedCategories();
+            });
+            
+            // Delete selected categories button
+            document.getElementById('deleteSelectedCategoriesBtn').addEventListener('click', function() {
+                const selectedCount = document.querySelectorAll('.category-checkbox:checked').length;
+                if (selectedCount === 0) {
+                    showAlert('Please select at least one category to delete', 'warning');
+                    return;
+                }
+            });
+            
+            // Save all changes button
+            document.getElementById('saveAllCategoryChangesBtn').addEventListener('click', function() {
+                saveAllCategoryChanges();
+            });
+        });
+        
+        function filterCategories(filter = 'all') {
+            const searchTerm = document.getElementById('categoryNameSearch').value.toLowerCase();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            
+            const rows = document.querySelectorAll('#categoryTableBody tr');
+            let visibleCount = 0;
+            
+            rows.forEach(row => {
+                const rowName = row.querySelector('td:nth-child(2) strong').textContent.toLowerCase();
+                const rowDescription = row.querySelector('td:nth-child(3)').textContent.toLowerCase();
+                const rowCode = row.querySelector('td:nth-child(2) small').textContent.toLowerCase();
+                const rowStatus = row.querySelector('td:nth-child(6) .badge').textContent.toLowerCase();
+                
+                let show = true;
+                
+                // Apply search filters
+                if (searchTerm && !rowName.includes(searchTerm) && !rowDescription.includes(searchTerm) && !rowCode.includes(searchTerm)) {
+                    show = false;
+                }
+                
+                // Apply category filter
+                if (categoryFilter !== 'all') {
+                    if (!rowName.includes(categoryFilter)) show = false;
+                }
+                
+                // Apply status filter from buttons
+                if (filter !== 'all') {
+                    if (filter === 'active' && rowStatus !== 'active') show = false;
+                }
+                
+                row.style.display = show ? '' : 'none';
+                if (show) visibleCount++;
+            });
+            
+            // Update showing count
+            const footer = document.querySelector('.card-footer span');
+            if (footer) {
+                footer.textContent = `Showing ${visibleCount} of ${rows.length} categories`;
+            }
+        }
+        
+        function editCategory(categoryId) {
+            // In a real application, you would fetch category data from an API
+            // For now, we'll use sample data based on categoryId
+            
+            const categoryData = {
+                'STD001': {
+                    name: 'Standard Room',
+                    description: 'Basic comfortable room with essential amenities',
+                    rate: '120',
+                    totalRooms: '25',
+                    currency: 'USD',
+                    maxOccupancy: '2'
+                },
+                'DLX002': {
+                    name: 'Deluxe Room',
+                    description: 'Spacious room with additional amenities and city view',
+                    rate: '180',
+                    totalRooms: '15',
+                    currency: 'USD',
+                    maxOccupancy: '2'
+                },
+                'SUI003': {
+                    name: 'Suite',
+                    description: 'Luxury suite with separate living area and premium amenities',
+                    rate: '350',
+                    totalRooms: '8',
+                    currency: 'USD',
+                    maxOccupancy: '4'
+                },
+                'FAM004': {
+                    name: 'Family Room',
+                    description: 'Large room suitable for families with children',
+                    rate: '220',
+                    totalRooms: '12',
+                    currency: 'USD',
+                    maxOccupancy: '4'
+                }
+            };
+            
+            const data = categoryData[categoryId] || categoryData['STD001'];
+            
+            // Populate the form with category data
+            document.getElementById('newCategoryName').value = data.name;
+            document.getElementById('categoryCode').value = categoryId;
+            document.getElementById('categoryDescription').value = data.description;
+            document.getElementById('currencyType').value = data.currency;
+            document.getElementById('categoryRate').value = data.rate;
+            document.getElementById('totalRooms').value = data.totalRooms;
+            document.getElementById('maxOccupancy').value = data.maxOccupancy;
+            
+            // Update base rate display
+            document.querySelector('.base-rate-display h3').textContent = `$${data.rate}`;
+            document.getElementById('editBaseRate').value = data.rate;
+            
+            showAlert(`Editing category ${categoryId}`, 'info');
+        }
+        
+        function viewCategory(categoryId) {
+            // Find the row with this category
+            const row = document.querySelector(`.category-checkbox[data-id="${categoryId}"]`)?.closest('tr');
+            if (row) {
+                const name = row.querySelector('td:nth-child(2) strong').textContent;
+                const description = row.querySelector('td:nth-child(3)').textContent;
+                const rate = row.querySelector('td:nth-child(4) span').textContent;
+                const totalRooms = row.querySelector('td:nth-child(5) .badge').textContent;
+                
+                // Show view modal or details
+                showAlert(`Viewing category ${categoryId}: ${name} - ${description} | Rate: ${rate} | Rooms: ${totalRooms}`, 'info');
+            }
+        }
+        
+        function showDeleteCategoryModal(categoryId) {
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteCategoriesModal'));
+            document.getElementById('confirmDeleteCategoriesBtn').dataset.categoryId = categoryId;
+            deleteModal.show();
+        }
+        
+        function deleteSelectedCategories() {
+            const categoryId = document.getElementById('confirmDeleteCategoriesBtn').dataset.categoryId;
+            
+            // Get all selected checkboxes
+            const selectedCheckboxes = document.querySelectorAll('.category-checkbox:checked');
+            
+            if (selectedCheckboxes.length === 0 && !categoryId) {
+                showAlert('Please select at least one category to delete', 'warning');
+                return;
+            }
+            
+            let categoryIds = [];
+            
+            if (categoryId) {
+                categoryIds.push(categoryId);
+            } else {
+                selectedCheckboxes.forEach(checkbox => {
+                    categoryIds.push(checkbox.dataset.id);
+                });
+            }
+            
+            // In a real application, you would send a delete request to your API
+            // For now, we'll just show a message and remove from table
+            categoryIds.forEach(id => {
+                const row = document.querySelector(`.category-checkbox[data-id="${id}"]`)?.closest('tr');
+                if (row) {
+                    row.remove();
+                }
+            });
+            
+            showAlert(`Deleted ${categoryIds.length} categor(ies)`, 'danger');
+            
+            // Close the modal
+            const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteCategoriesModal'));
+            deleteModal.hide();
+            
+            // Reset the checkbox
+            document.getElementById('confirmDeleteCategories').checked = false;
+            document.getElementById('confirmDeleteCategoriesBtn').disabled = true;
+        }
+        
+        function updateBaseRate() {
+            const newRate = document.getElementById('editBaseRate').value;
+            
+            if (!newRate || newRate <= 0) {
+                showAlert('Please enter a valid base rate', 'warning');
+                return;
+            }
+            
+            // Update display
+            document.querySelector('.base-rate-display h3').textContent = `$${newRate}`;
+            
+            showAlert(`Base rate updated to $${newRate}`, 'success');
+        }
+        
+        function editBaseRate() {
+            const currentRate = document.getElementById('editBaseRate').value;
+            
+            // Enable editing
+            document.getElementById('editBaseRate').focus();
+            document.getElementById('editBaseRate').select();
+            
+            showAlert(`Editing base rate: Current rate is $${currentRate}`, 'info');
+        }
+        
+        function clearCategoryForm() {
+            document.getElementById('newCategoryName').value = '';
+            document.getElementById('categoryCode').value = '';
+            document.getElementById('categoryDescription').value = '';
+            document.getElementById('currencyType').value = '';
+            document.getElementById('categoryRate').value = '';
+            document.getElementById('totalRooms').value = '0';
+            document.getElementById('maxOccupancy').value = '2';
+            document.getElementById('roomImage').value = '';
+            document.getElementById('fileNameDisplay').textContent = 'No file chosen';
+            document.getElementById('uploadImageContainer').style.borderColor = '#dee2e6';
+            document.getElementById('uploadImageContainer').style.backgroundColor = '#f8f9fa';
+            
+            // Reset checkboxes
+            document.getElementById('breakfastIncluded').checked = true;
+            document.getElementById('wifiIncluded').checked = true;
+            document.getElementById('airConditioning').checked = false;
+            document.getElementById('roomService').checked = false;
+            
+            showAlert('Form cleared', 'info');
+        }
+        
+        function saveCategory() {
+            const name = document.getElementById('newCategoryName').value;
+            const code = document.getElementById('categoryCode').value;
+            const description = document.getElementById('categoryDescription').value;
+            const currency = document.getElementById('currencyType').value;
+            const rate = document.getElementById('categoryRate').value;
+            const totalRooms = document.getElementById('totalRooms').value;
+            const maxOccupancy = document.getElementById('maxOccupancy').value;
+            
+            if (!name || !currency || !rate) {
+                showAlert('Please fill in all required fields (Name, Currency Type, Rate)', 'warning');
+                return;
+            }
+            
+            // Check if this is an edit or new entry
+            const existingRow = document.querySelector(`.category-checkbox[data-id="${code}"]`)?.closest('tr');
+            
+            if (existingRow) {
+                // Update existing row
+                existingRow.querySelector('td:nth-child(2) strong').textContent = name;
+                existingRow.querySelector('td:nth-child(3)').textContent = description;
+                existingRow.querySelector('td:nth-child(4) span').textContent = `$${rate}`;
+                existingRow.querySelector('td:nth-child(5) .badge').textContent = totalRooms;
+                
+                showAlert(`Category ${code} updated successfully`, 'success');
+            } else {
+                // Generate new code if not provided
+                const newCode = code || generateCategoryCode(name);
+                
+                // Add to table
+                const tableBody = document.getElementById('categoryTableBody');
+                const newRow = document.createElement('tr');
+                
+                newRow.innerHTML = `
+                    <td>
+                        <div class="form-check">
+                            <input class="form-check-input category-checkbox" type="checkbox" data-id="${newCode}">
+                        </div>
+                    </td>
+                    <td>
+                        <strong>${name}</strong>
+                        <small class="d-block text-muted">Category Code: ${newCode}</small>
+                    </td>
+                    <td>
+                        ${description}
+                    </td>
+                    <td>
+                        <span class="text-success fw-bold">$${rate}</span>
+                        <small class="d-block text-muted">per night</small>
+                    </td>
+                    <td>
+                        <span class="room-count-badge badge bg-primary">${totalRooms}</span>
+                    </td>
+                    <td>
+                        <span class="badge bg-success">Active</span>
+                    </td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <button class="btn btn-outline-primary edit-category" data-id="${newCode}">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-outline-danger delete-category" data-id="${newCode}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                            <button class="btn btn-outline-info view-category" data-id="${newCode}">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                
+                tableBody.appendChild(newRow);
+                
+                // Add event listeners to new buttons
+                newRow.querySelector('.edit-category').addEventListener('click', function() {
+                    editCategory(this.dataset.id);
+                });
+                
+                newRow.querySelector('.delete-category').addEventListener('click', function() {
+                    showDeleteCategoryModal(this.dataset.id);
+                });
+                
+                newRow.querySelector('.view-category').addEventListener('click', function() {
+                    viewCategory(this.dataset.id);
+                });
+                
+                showAlert(`New category ${newCode} added successfully`, 'success');
+            }
+            
+            // Clear form
+            clearCategoryForm();
+        }
+        
+        function generateCategoryCode(name) {
+            const words = name.split(' ').filter(word => word.length > 0);
+            let code = '';
+            words.forEach(word => {
+                code += word.substring(0, 3).toUpperCase();
+            });
+            
+            if (code.length < 6) {
+                code += '001';
+            }
+            
+            // Add random numbers to make unique
+            const randomNum = Math.floor(Math.random() * 900) + 100;
+            return code + randomNum;
+        }
+        
+        function saveModalCategory() {
+            const name = document.getElementById('modalCategoryName').value;
+            const code = document.getElementById('modalCategoryCode').value;
+            const description = document.getElementById('modalCategoryDescription').value;
+            const currency = document.getElementById('modalCurrencyType').value;
+            const rate = document.getElementById('modalCategoryRate').value;
+            const totalRooms = document.getElementById('modalTotalRooms').value;
+            
+            if (!name || !currency || !rate) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            // Generate code if not provided
+            const newCode = code || generateCategoryCode(name);
+            
+            // Add to table
+            const tableBody = document.getElementById('categoryTableBody');
+            const newRow = document.createElement('tr');
+            
+            newRow.innerHTML = `
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input category-checkbox" type="checkbox" data-id="${newCode}">
+                    </div>
+                </td>
+                <td>
+                    <strong>${name}</strong>
+                    <small class="d-block text-muted">Category Code: ${newCode}</small>
+                </td>
+                <td>
+                    ${description}
+                </td>
+                <td>
+                    <span class="text-success fw-bold">$${rate}</span>
+                    <small class="d-block text-muted">per night</small>
+                </td>
+                <td>
+                    <span class="room-count-badge badge bg-primary">${totalRooms}</span>
+                </td>
+                <td>
+                    <span class="badge bg-success">Active</span>
+                </td>
+                <td>
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-outline-primary edit-category" data-id="${newCode}">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-outline-danger delete-category" data-id="${newCode}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <button class="btn btn-outline-info view-category" data-id="${newCode}">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Add event listeners to new buttons
+            newRow.querySelector('.edit-category').addEventListener('click', function() {
+                editCategory(this.dataset.id);
+            });
+            
+            newRow.querySelector('.delete-category').addEventListener('click', function() {
+                showDeleteCategoryModal(this.dataset.id);
+            });
+            
+            newRow.querySelector('.view-category').addEventListener('click', function() {
+                viewCategory(this.dataset.id);
+            });
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('addCategoryModal'));
+            modal.hide();
+            
+            // Reset modal form
+            document.getElementById('modalCategoryName').value = '';
+            document.getElementById('modalCategoryCode').value = '';
+            document.getElementById('modalCategoryDescription').value = '';
+            document.getElementById('modalCurrencyType').value = '';
+            document.getElementById('modalCategoryRate').value = '';
+            document.getElementById('modalTotalRooms').value = '0';
+            document.getElementById('modalMaxOccupancy').value = '2';
+            
+            showAlert(`New category ${newCode} added successfully`, 'success');
+        }
+        
+        function saveAllCategoryChanges() {
+            showAlert('All category changes have been saved successfully', 'success');
+        }
+        
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

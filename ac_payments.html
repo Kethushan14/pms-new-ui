@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+     
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-credit-card me-2"></i>Payments Management
+                                </h1>
+                                <p class="card-text text-muted mb-0">Manage supplier payments and other payment transactions</p>
+                                <small class="text-muted">
+                                    Total Payments: <span class="fw-bold">$45,820</span> • 
+                                    Pending: <span class="text-warning fw-bold">$12,500</span> • 
+                                    This Month: <span class="text-success fw-bold">$18,750</span>
+                                </small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" type="button" id="addPaymentDropdown" data-bs-toggle="dropdown">
+                                        <i class="fas fa-plus-circle me-1"></i> Add Payment
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#supplierPaymentModal"><i class="fas fa-truck me-2"></i> Supplier Payment</a></li>
+                                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#otherPaymentModal"><i class="fas fa-money-bill-wave me-2"></i> Other Payment</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Summary Cards -->
+        <div class="row mb-4">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card payment-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h6 class="card-subtitle mb-2 text-muted">Supplier Payments</h6>
+                                <h2 class="metric-number text-primary">$28,450</h2>
+                                <p class="card-text text-muted small">Total this month</p>
+                            </div>
+                            <div class="payment-icon supplier-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <small class="text-success">
+                                <i class="fas fa-arrow-up me-1"></i> 12% from last month
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card payment-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h6 class="card-subtitle mb-2 text-muted">Other Payments</h6>
+                                <h2 class="metric-number text-warning">$17,370</h2>
+                                <p class="card-text text-muted small">Total this month</p>
+                            </div>
+                            <div class="payment-icon other-payment-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <small class="text-danger">
+                                <i class="fas fa-arrow-down me-1"></i> 5% from last month
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card payment-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h6 class="card-subtitle mb-2 text-muted">Pending Payments</h6>
+                                <h2 class="metric-number text-danger">$12,500</h2>
+                                <p class="card-text text-muted small">Due for payment</p>
+                            </div>
+                            <div class="bg-danger bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-clock fa-2x text-danger"></i>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <small class="text-muted">8 payments pending</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card payment-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h6 class="card-subtitle mb-2 text-muted">Payment Methods</h6>
+                                <h2 class="metric-number text-success">4</h2>
+                                <p class="card-text text-muted small">Active methods</p>
+                            </div>
+                            <div class="bg-success bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-credit-card fa-2x text-success"></i>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <small class="text-muted">Bank, Cash, Card, Online</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Type Tabs -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-white border-bottom-0 p-0">
+                        <ul class="nav nav-tabs payment-tabs" id="paymentTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="supplier-tab" data-bs-toggle="tab" data-bs-target="#supplier-payments" type="button" role="tab">
+                                    <i class="fas fa-truck me-2"></i> Supplier Payments
+                                    <span class="badge bg-primary ms-2">42</span>
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="other-tab" data-bs-toggle="tab" data-bs-target="#other-payments" type="button" role="tab">
+                                    <i class="fas fa-money-bill-wave me-2"></i> Other Payments
+                                    <span class="badge bg-warning ms-2">28</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="paymentTabsContent">
+                            <!-- Supplier Payments Tab -->
+                            <div class="tab-pane fade show active" id="supplier-payments" role="tabpanel">
+                                <!-- Search and Filter -->
+                                <div class="row mb-4">
+                                    <div class="col-md-3">
+                                        <label class="form-label">Supplier Name</label>
+                                        <input type="text" class="form-control" placeholder="Search supplier..." id="supplierSearch">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Payment Status</label>
+                                        <select class="form-select" id="supplierStatusFilter">
+                                            <option value="">All Status</option>
+                                            <option value="paid">Paid</option>
+                                            <option value="pending">Pending</option>
+                                            <option value="cancelled">Cancelled</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Date Range</label>
+                                        <input type="date" class="form-control" id="supplierDateFrom">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">&nbsp;</label>
+                                        <div class="d-flex">
+                                            <input type="date" class="form-control me-2" id="supplierDateTo">
+                                            <button class="btn btn-outline-secondary" id="resetSupplierFilters">
+                                                <i class="fas fa-redo"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Supplier Payments Table -->
+                                <div class="table-responsive">
+                                    <table class="table table-hover payment-table">
+                                        <thead>
+                                            <tr>
+                                                <th width="50">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="selectAllSupplier">
+                                                    </div>
+                                                </th>
+                                                <th>Payment ID</th>
+                                                <th>Supplier</th>
+                                                <th>Invoice No</th>
+                                                <th>Amount</th>
+                                                <th>Payment Date</th>
+                                                <th>Payment Method</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="supplierPaymentsTable">
+                                            <!-- Supplier Payment Row 1 -->
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input supplier-checkbox" type="checkbox" data-id="SPAY-001">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-primary">SPAY-2024-001</span>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="customer-avatar bg-primary text-white me-2">
+                                                            FS
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="mb-0">Food Supplies Co.</h6>
+                                                            <small class="text-muted">Supplies: Groceries & Kitchen</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-info">INV-FS-2024-045</span>
+                                                </td>
+                                                <td class="payment-amount text-primary">$2,500.00</td>
+                                                <td>2024-12-15</td>
+                                                <td>
+                                                    <span class="payment-method-badge method-bank">
+                                                        <i class="fas fa-university me-1"></i> Bank Transfer
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span class="payment-status status-paid">
+                                                        <i class="fas fa-check-circle me-1"></i> Paid
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button class="btn btn-outline-primary view-payment" data-id="SPAY-2024-001" data-type="supplier">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-outline-warning edit-payment" data-id="SPAY-2024-001" data-type="supplier">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-outline-danger delete-payment" data-id="SPAY-2024-001" data-type="supplier">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            
+                                            <!-- Supplier Payment Row 2 -->
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input supplier-checkbox" type="checkbox" data-id="SPAY-002">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-primary">SPAY-2024-002</span>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="customer-avatar bg-success text-white me-2">
+                                                            LC
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="mb-0">Linen Corporation</h6>
+                                                            <small class="text-muted">Supplies: Bed & Bath Linens</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-info">INV-LC-2024-112</span>
+                                                </td>
+                                                <td class="payment-amount text-primary">$1,850.00</td>
+                                                <td>2024-12-14</td>
+                                                <td>
+                                                    <span class="payment-method-badge method-cash">
+                                                        <i class="fas fa-money-bill me-1"></i> Cash
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span class="payment-status status-paid">
+                                                        <i class="fas fa-check-circle me-1"></i> Paid
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button class="btn btn-outline-primary view-payment" data-id="SPAY-2024-002" data-type="supplier">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-outline-warning edit-payment" data-id="SPAY-2024-002" data-type="supplier">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-outline-danger delete-payment" data-id="SPAY-2024-002" data-type="supplier">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            
+                                            <!-- Supplier Payment Row 3 -->
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input supplier-checkbox" type="checkbox" data-id="SPAY-003">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-primary">SPAY-2024-003</span>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="customer-avatar bg-warning text-dark me-2">
+                                                            BE
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="mb-0">Beverage Express</h6>
+                                                            <small class="text-muted">Supplies: Drinks & Beverages</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-info">INV-BE-2024-078</span>
+                                                </td>
+                                                <td class="payment-amount text-primary">$3,200.00</td>
+                                                <td>2024-12-10</td>
+                                                <td>
+                                                    <span class="payment-method-badge method-card">
+                                                        <i class="fas fa-credit-card me-1"></i> Credit Card
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span class="payment-status status-pending">
+                                                        <i class="fas fa-clock me-1"></i> Pending
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button class="btn btn-outline-primary view-payment" data-id="SPAY-2024-003" data-type="supplier">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-outline-success pay-now" data-id="SPAY-2024-003" data-type="supplier">
+                                                            <i class="fas fa-check-circle"></i>
+                                                        </button>
+                                                        <button class="btn btn-outline-danger delete-payment" data-id="SPAY-2024-003" data-type="supplier">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <!-- Pagination -->
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div>
+                                        <span class="text-muted">Showing 3 of 42 supplier payments</span>
+                                    </div>
+                                    <nav aria-label="Supplier payments pagination">
+                                        <ul class="pagination pagination-sm mb-0">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                            </li>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">Next</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            
+                            <!-- Other Payments Tab -->
+                            <div class="tab-pane fade" id="other-payments" role="tabpanel">
+                                <!-- Search and Filter -->
+                                <div class="row mb-4">
+                                    <div class="col-md-3">
+                                        <label class="form-label">Payment Type</label>
+                                        <select class="form-select" id="otherPaymentTypeFilter">
+                                            <option value="">All Types</option>
+                                            <option value="utility">Utility Bills</option>
+                                            <option value="salary">Salaries</option>
+                                            <option value="maintenance">Maintenance</option>
+                                            <option value="tax">Tax Payments</option>
+                                            <option value="misc">Miscellaneous</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Payment Status</label>
+                                        <select class="form-select" id="otherStatusFilter">
+                                            <option value="">All Status</option>
+                                            <option value="paid">Paid</option>
+                                            <option value="pending">Pending</option>
+                                            <option value="cancelled">Cancelled</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Date Range</label>
+                                        <input type="date" class="form-control" id="otherDateFrom">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">&nbsp;</label>
+                                        <div class="d-flex">
+                                            <input type="date" class="form-control me-2" id="otherDateTo">
+                                            <button class="btn btn-outline-secondary" id="resetOtherFilters">
+                                                <i class="fas fa-redo"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Other Payments Table -->
+                                <div class="table-responsive">
+                                    <table class="table table-hover payment-table">
+                                        <thead>
+                                            <tr>
+                                                <th width="50">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" id="selectAllOther">
+                                                    </div>
+                                                </th>
+                                                <th>Payment ID</th>
+                                                <th>Payment Type</th>
+                                                <th>Description</th>
+                                                <th>Amount</th>
+                                                <th>Payment Date</th>
+                                                <th>Payment Method</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="otherPaymentsTable">
+                                            <!-- Other Payment Row 1 -->
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input other-checkbox" type="checkbox" data-id="OPAY-001">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-warning">OPAY-2024-001</span>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="bg-primary bg-opacity-10 p-2 rounded me-2">
+                                                            <i class="fas fa-bolt text-primary"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="mb-0">Utility Bill</h6>
+                                                            <small class="text-muted">Electricity</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Monthly electricity bill - December 2024</td>
+                                                <td class="payment-amount text-warning">$1,250.00</td>
+                                                <td>2024-12-18</td>
+                                                <td>
+                                                    <span class="payment-method-badge method-bank">
+                                                        <i class="fas fa-university me-1"></i> Bank Transfer
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span class="payment-status status-paid">
+                                                        <i class="fas fa-check-circle me-1"></i> Paid
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button class="btn btn-outline-primary view-payment" data-id="OPAY-2024-001" data-type="other">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-outline-warning edit-payment" data-id="OPAY-2024-001" data-type="other">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-outline-danger delete-payment" data-id="OPAY-2024-001" data-type="other">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            
+                                            <!-- Other Payment Row 2 -->
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input other-checkbox" type="checkbox" data-id="OPAY-002">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-warning">OPAY-2024-002</span>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="bg-success bg-opacity-10 p-2 rounded me-2">
+                                                            <i class="fas fa-wrench text-success"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="mb-0">Maintenance</h6>
+                                                            <small class="text-muted">HVAC System</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Quarterly HVAC maintenance service</td>
+                                                <td class="payment-amount text-warning">$850.00</td>
+                                                <td>2024-12-15</td>
+                                                <td>
+                                                    <span class="payment-method-badge method-cash">
+                                                        <i class="fas fa-money-bill me-1"></i> Cash
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span class="payment-status status-paid">
+                                                        <i class="fas fa-check-circle me-1"></i> Paid
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button class="btn btn-outline-primary view-payment" data-id="OPAY-2024-002" data-type="other">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-outline-warning edit-payment" data-id="OPAY-2024-002" data-type="other">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-outline-danger delete-payment" data-id="OPAY-2024-002" data-type="other">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            
+                                            <!-- Other Payment Row 3 -->
+                                            <tr>
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input other-checkbox" type="checkbox" data-id="OPAY-003">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-warning">OPAY-2024-003</span>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="bg-info bg-opacity-10 p-2 rounded me-2">
+                                                            <i class="fas fa-money-check-alt text-info"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="mb-0">Tax Payment</h6>
+                                                            <small class="text-muted">Property Tax</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>Quarterly property tax payment</td>
+                                                <td class="payment-amount text-warning">$3,500.00</td>
+                                                <td>2024-12-20</td>
+                                                <td>
+                                                    <span class="payment-method-badge method-online">
+                                                        <i class="fas fa-globe me-1"></i> Online
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span class="payment-status status-pending">
+                                                        <i class="fas fa-clock me-1"></i> Pending
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm">
+                                                        <button class="btn btn-outline-primary view-payment" data-id="OPAY-2024-003" data-type="other">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                        <button class="btn btn-outline-success pay-now" data-id="OPAY-2024-003" data-type="other">
+                                                            <i class="fas fa-check-circle"></i>
+                                                        </button>
+                                                        <button class="btn btn-outline-danger delete-payment" data-id="OPAY-2024-003" data-type="other">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <!-- Pagination -->
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div>
+                                        <span class="text-muted">Showing 3 of 28 other payments</span>
+                                    </div>
+                                    <nav aria-label="Other payments pagination">
+                                        <ul class="pagination pagination-sm mb-0">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                            </li>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#">Next</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Details Form -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-file-invoice-dollar me-2"></i>Payment Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h6 class="mb-3 text-primary">Payment Information</h6>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="paymentType" class="form-label">Payment Type *</label>
+                                        <select class="form-select" id="paymentType">
+                                            <option value="">Select Payment Type</option>
+                                            <option value="supplier" selected>Supplier Payment</option>
+                                            <option value="utility">Utility Bill</option>
+                                            <option value="salary">Salary Payment</option>
+                                            <option value="maintenance">Maintenance</option>
+                                            <option value="tax">Tax Payment</option>
+                                            <option value="misc">Miscellaneous</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="paymentId" class="form-label">Payment ID</label>
+                                        <input type="text" class="form-control" id="paymentId" value="SPAY-2024-001" readonly>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="paymentDate" class="form-label">Payment Date *</label>
+                                        <input type="date" class="form-control" id="paymentDate" value="2024-12-15">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="dueDate" class="form-label">Due Date</label>
+                                        <input type="date" class="form-control" id="dueDate" value="2024-12-20">
+                                    </div>
+                                </div>
+                                
+                                <h6 class="mb-3 mt-4 text-primary">Supplier Information</h6>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="supplierId" class="form-label">Supplier *</label>
+                                        <select class="form-select" id="supplierId">
+                                            <option value="">Select Supplier</option>
+                                            <option value="SUP001" selected>Food Supplies Co.</option>
+                                            <option value="SUP002">Linen Corporation</option>
+                                            <option value="SUP003">Beverage Express</option>
+                                            <option value="SUP004">Cleaning Supplies Inc.</option>
+                                            <option value="SUP005">Furniture World</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="invoiceNo" class="form-label">Invoice No *</label>
+                                        <input type="text" class="form-control" id="invoiceNo" value="INV-FS-2024-045">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="supplierDescription" class="form-label">Description</label>
+                                        <textarea class="form-control" id="supplierDescription" rows="2">Monthly grocery supplies for December 2024</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <h6 class="mb-3 text-primary">Payment Details</h6>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="paymentAmount" class="form-label">Amount *</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="number" class="form-control" id="paymentAmount" value="2500.00" step="0.01">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="taxAmount" class="form-label">Tax Amount</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="number" class="form-control" id="taxAmount" value="375.00" step="0.01">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="totalAmount" class="form-label">Total Amount</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="number" class="form-control" id="totalAmount" value="2875.00" step="0.01" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="paymentStatus" class="form-label">Status</label>
+                                        <select class="form-select" id="paymentStatus">
+                                            <option value="paid" selected>Paid</option>
+                                            <option value="pending">Pending</option>
+                                            <option value="cancelled">Cancelled</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <h6 class="mb-3 mt-4 text-primary">Payment Method</h6>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="paymentMethod" class="form-label">Method *</label>
+                                        <select class="form-select" id="paymentMethod">
+                                            <option value="">Select Method</option>
+                                            <option value="bank" selected>Bank Transfer</option>
+                                            <option value="cash">Cash</option>
+                                            <option value="card">Credit Card</option>
+                                            <option value="online">Online Payment</option>
+                                            <option value="check">Check</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="referenceNo" class="form-label">Reference No</label>
+                                        <input type="text" class="form-control" id="referenceNo" value="TRX-789456123">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="paymentNotes" class="form-label">Payment Notes</label>
+                                        <textarea class="form-control" id="paymentNotes" rows="3" placeholder="Additional notes about this payment...">Payment made via online banking. Transaction completed successfully.</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <hr class="my-4">
+                        
+                        <!-- Transaction History -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h6 class="mb-3 text-primary">Recent Payment History</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Payment ID</th>
+                                                <th>Type</th>
+                                                <th>Description</th>
+                                                <th>Amount</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>2024-12-10</td>
+                                                <td><span class="badge bg-primary">SPAY-2024-003</span></td>
+                                                <td>Supplier Payment</td>
+                                                <td>Beverage Express - Drinks supplies</td>
+                                                <td>$3,200.00</td>
+                                                <td><span class="badge bg-warning">Pending</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary view-history">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2024-12-05</td>
+                                                <td><span class="badge bg-warning">OPAY-2024-004</span></td>
+                                                <td>Utility Bill</td>
+                                                <td>Water bill - November 2024</td>
+                                                <td>$450.00</td>
+                                                <td><span class="badge bg-success">Paid</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary view-history">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2024-11-28</td>
+                                                <td><span class="badge bg-primary">SPAY-2024-045</span></td>
+                                                <td>Supplier Payment</td>
+                                                <td>Linen Corporation - Bed linens</td>
+                                                <td>$1,250.00</td>
+                                                <td><span class="badge bg-success">Paid</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary view-history">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-end gap-2">
+                                    <button class="btn btn-outline-secondary" id="resetPaymentFormBtn">
+                                        <i class="fas fa-redo me-1"></i> Reset
+                                    </button>
+                                    <button class="btn btn-danger" id="removePaymentBtn">
+                                        <i class="fas fa-trash me-1"></i> Remove
+                                    </button>
+                                    <button class="btn btn-success" id="updatePaymentBtn">
+                                        <i class="fas fa-save me-1"></i> Update Payment
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Supplier Payment Modal -->
+    <div class="modal fade" id="supplierPaymentModal" tabindex="-1" aria-labelledby="supplierPaymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="supplierPaymentModalLabel">
+                        <i class="fas fa-truck me-2"></i>New Supplier Payment
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="newSupplier" class="form-label">Supplier *</label>
+                            <select class="form-select" id="newSupplier" required>
+                                <option value="">Select Supplier</option>
+                                <option value="SUP001">Food Supplies Co.</option>
+                                <option value="SUP002">Linen Corporation</option>
+                                <option value="SUP003">Beverage Express</option>
+                                <option value="SUP004">Cleaning Supplies Inc.</option>
+                                <option value="SUP005">Furniture World</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newInvoiceNo" class="form-label">Invoice No *</label>
+                            <input type="text" class="form-control" id="newInvoiceNo" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newPaymentDate" class="form-label">Payment Date *</label>
+                            <input type="date" class="form-control" id="newPaymentDate" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newDueDate" class="form-label">Due Date</label>
+                            <input type="date" class="form-control" id="newDueDate">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newAmount" class="form-label">Amount *</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="newAmount" required step="0.01">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newPaymentMethod" class="form-label">Payment Method *</label>
+                            <select class="form-select" id="newPaymentMethod" required>
+                                <option value="">Select Method</option>
+                                <option value="bank">Bank Transfer</option>
+                                <option value="cash">Cash</option>
+                                <option value="card">Credit Card</option>
+                                <option value="online">Online Payment</option>
+                            </select>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="newSupplierDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="newSupplierDescription" rows="2" placeholder="Enter payment description..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveSupplierPayment">Save Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Other Payment Modal -->
+    <div class="modal fade" id="otherPaymentModal" tabindex="-1" aria-labelledby="otherPaymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-white">
+                    <h5 class="modal-title" id="otherPaymentModalLabel">
+                        <i class="fas fa-money-bill-wave me-2"></i>New Other Payment
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="newPaymentType" class="form-label">Payment Type *</label>
+                            <select class="form-select" id="newPaymentType" required>
+                                <option value="">Select Type</option>
+                                <option value="utility">Utility Bill</option>
+                                <option value="salary">Salary Payment</option>
+                                <option value="maintenance">Maintenance</option>
+                                <option value="tax">Tax Payment</option>
+                                <option value="misc">Miscellaneous</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newOtherPaymentDate" class="form-label">Payment Date *</label>
+                            <input type="date" class="form-control" id="newOtherPaymentDate" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newOtherAmount" class="form-label">Amount *</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="newOtherAmount" required step="0.01">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newOtherPaymentMethod" class="form-label">Payment Method *</label>
+                            <select class="form-select" id="newOtherPaymentMethod" required>
+                                <option value="">Select Method</option>
+                                <option value="bank">Bank Transfer</option>
+                                <option value="cash">Cash</option>
+                                <option value="card">Credit Card</option>
+                                <option value="online">Online Payment</option>
+                            </select>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="newOtherDescription" class="form-label">Description *</label>
+                            <textarea class="form-control" id="newOtherDescription" rows="3" required placeholder="Enter payment description..."></textarea>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="newBeneficiary" class="form-label">Beneficiary / Payee</label>
+                            <input type="text" class="form-control" id="newBeneficiary" placeholder="Enter beneficiary name...">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-warning" id="saveOtherPayment">Save Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deletePaymentModal" tabindex="-1" aria-labelledby="deletePaymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deletePaymentModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Confirm Delete
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this payment?</p>
+                    <p class="text-danger"><strong>This action cannot be undone.</strong></p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="confirmPaymentDelete">
+                        <label class="form-check-label" for="confirmPaymentDelete">
+                            I understand that this will permanently delete the payment record
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmPaymentDeleteBtn" disabled>Delete Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    
+    <script>
+        // Payments Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize date fields
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('paymentDate').value = today;
+            document.getElementById('dueDate').value = new Date(new Date().setDate(new Date().getDate() + 7)).toISOString().split('T')[0];
+            document.getElementById('newPaymentDate').value = today;
+            document.getElementById('newOtherPaymentDate').value = today;
+            
+            // Calculate total amount
+            function calculateTotal() {
+                const amount = parseFloat(document.getElementById('paymentAmount').value) || 0;
+                const tax = parseFloat(document.getElementById('taxAmount').value) || 0;
+                document.getElementById('totalAmount').value = (amount + tax).toFixed(2);
+            }
+            
+            document.getElementById('paymentAmount').addEventListener('input', calculateTotal);
+            document.getElementById('taxAmount').addEventListener('input', calculateTotal);
+            
+            // Select all checkboxes
+            document.getElementById('selectAllSupplier')?.addEventListener('change', function() {
+                const checkboxes = document.querySelectorAll('.supplier-checkbox');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+            
+            document.getElementById('selectAllOther')?.addEventListener('change', function() {
+                const checkboxes = document.querySelectorAll('.other-checkbox');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+            
+            // View payment details
+            document.querySelectorAll('.view-payment').forEach(button => {
+                button.addEventListener('click', function() {
+                    const paymentId = this.dataset.id;
+                    const paymentType = this.dataset.type;
+                    loadPaymentDetails(paymentId, paymentType);
+                });
+            });
+            
+            // Edit payment
+            document.querySelectorAll('.edit-payment').forEach(button => {
+                button.addEventListener('click', function() {
+                    const paymentId = this.dataset.id;
+                    const paymentType = this.dataset.type;
+                    loadPaymentDetails(paymentId, paymentType);
+                    showAlert(`Editing payment ${paymentId}`, 'info');
+                });
+            });
+            
+            // Pay now button
+            document.querySelectorAll('.pay-now').forEach(button => {
+                button.addEventListener('click', function() {
+                    const paymentId = this.dataset.id;
+                    const paymentType = this.dataset.type;
+                    markAsPaid(paymentId, paymentType);
+                });
+            });
+            
+            // Delete payment
+            document.querySelectorAll('.delete-payment').forEach(button => {
+                button.addEventListener('click', function() {
+                    const paymentId = this.dataset.id;
+                    const paymentType = this.dataset.type;
+                    showDeletePaymentModal(paymentId, paymentType);
+                });
+            });
+            
+            // Reset filters
+            document.getElementById('resetSupplierFilters')?.addEventListener('click', function() {
+                document.getElementById('supplierSearch').value = '';
+                document.getElementById('supplierStatusFilter').value = '';
+                document.getElementById('supplierDateFrom').value = '';
+                document.getElementById('supplierDateTo').value = '';
+                filterPayments('supplier');
+            });
+            
+            document.getElementById('resetOtherFilters')?.addEventListener('click', function() {
+                document.getElementById('otherPaymentTypeFilter').value = '';
+                document.getElementById('otherStatusFilter').value = '';
+                document.getElementById('otherDateFrom').value = '';
+                document.getElementById('otherDateTo').value = '';
+                filterPayments('other');
+            });
+            
+            // Update payment button
+            document.getElementById('updatePaymentBtn').addEventListener('click', function() {
+                updatePayment();
+            });
+            
+            // Remove payment button
+            document.getElementById('removePaymentBtn').addEventListener('click', function() {
+                const paymentId = document.getElementById('paymentId').value;
+                const paymentType = document.getElementById('paymentType').value === 'supplier' ? 'supplier' : 'other';
+                showDeletePaymentModal(paymentId, paymentType);
+            });
+            
+            // Reset form button
+            document.getElementById('resetPaymentFormBtn').addEventListener('click', function() {
+                resetPaymentForm();
+            });
+            
+            // Save new supplier payment
+            document.getElementById('saveSupplierPayment').addEventListener('click', function() {
+                saveNewSupplierPayment();
+            });
+            
+            // Save new other payment
+            document.getElementById('saveOtherPayment').addEventListener('click', function() {
+                saveNewOtherPayment();
+            });
+            
+            // Confirm delete checkbox
+            document.getElementById('confirmPaymentDelete')?.addEventListener('change', function() {
+                document.getElementById('confirmPaymentDeleteBtn').disabled = !this.checked;
+            });
+            
+            // Confirm delete button
+            document.getElementById('confirmPaymentDeleteBtn')?.addEventListener('click', function() {
+                deletePayment();
+            });
+            
+            // Search and filter functionality
+            document.getElementById('supplierSearch')?.addEventListener('input', () => filterPayments('supplier'));
+            document.getElementById('supplierStatusFilter')?.addEventListener('change', () => filterPayments('supplier'));
+            document.getElementById('supplierDateFrom')?.addEventListener('change', () => filterPayments('supplier'));
+            document.getElementById('supplierDateTo')?.addEventListener('change', () => filterPayments('supplier'));
+            
+            document.getElementById('otherPaymentTypeFilter')?.addEventListener('change', () => filterPayments('other'));
+            document.getElementById('otherStatusFilter')?.addEventListener('change', () => filterPayments('other'));
+            document.getElementById('otherDateFrom')?.addEventListener('change', () => filterPayments('other'));
+            document.getElementById('otherDateTo')?.addEventListener('change', () => filterPayments('other'));
+            
+            // Initialize filters
+            filterPayments('supplier');
+            filterPayments('other');
+        });
+        
+        function filterPayments(type) {
+            let rows, searchField, statusField, dateFromField, dateToField;
+            
+            if (type === 'supplier') {
+                rows = document.querySelectorAll('#supplierPaymentsTable tr');
+                searchField = document.getElementById('supplierSearch')?.value.toLowerCase() || '';
+                statusField = document.getElementById('supplierStatusFilter')?.value || '';
+                dateFromField = document.getElementById('supplierDateFrom')?.value || '';
+                dateToField = document.getElementById('supplierDateTo')?.value || '';
+            } else {
+                rows = document.querySelectorAll('#otherPaymentsTable tr');
+                searchField = document.getElementById('otherPaymentTypeFilter')?.value || '';
+                statusField = document.getElementById('otherStatusFilter')?.value || '';
+                dateFromField = document.getElementById('otherDateFrom')?.value || '';
+                dateToField = document.getElementById('otherDateTo')?.value || '';
+            }
+            
+            rows.forEach(row => {
+                const paymentId = row.querySelector('td:nth-child(2) .badge').textContent.toLowerCase();
+                const supplierName = type === 'supplier' ? row.querySelector('td:nth-child(3) h6').textContent.toLowerCase() : '';
+                const paymentType = type === 'other' ? row.querySelector('td:nth-child(3) h6').textContent.toLowerCase() : '';
+                const status = row.querySelector('td:nth-child(8) .payment-status').textContent.toLowerCase().trim();
+                const paymentDate = row.querySelector('td:nth-child(6)').textContent;
+                
+                let show = true;
+                
+                // Apply search filters
+                if (type === 'supplier' && searchField && !supplierName.includes(searchField)) {
+                    show = false;
+                }
+                
+                if (type === 'other' && searchField && !paymentType.includes(searchField.toLowerCase())) {
+                    show = false;
+                }
+                
+                // Apply status filter
+                if (statusField && !status.includes(statusField)) {
+                    show = false;
+                }
+                
+                // Apply date filter
+                if (dateFromField && paymentDate < dateFromField) {
+                    show = false;
+                }
+                if (dateToField && paymentDate > dateToField) {
+                    show = false;
+                }
+                
+                row.style.display = show ? '' : 'none';
+            });
+        }
+        
+        function loadPaymentDetails(paymentId, type) {
+            // Sample payment data
+            const paymentData = {
+                'SPAY-2024-001': {
+                    type: 'supplier',
+                    paymentType: 'supplier',
+                    supplierId: 'SUP001',
+                    invoiceNo: 'INV-FS-2024-045',
+                    paymentDate: '2024-12-15',
+                    dueDate: '2024-12-20',
+                    amount: '2500.00',
+                    taxAmount: '375.00',
+                    totalAmount: '2875.00',
+                    paymentMethod: 'bank',
+                    referenceNo: 'TRX-789456123',
+                    status: 'paid',
+                    description: 'Monthly grocery supplies for December 2024',
+                    notes: 'Payment made via online banking. Transaction completed successfully.'
+                },
+                'SPAY-2024-002': {
+                    type: 'supplier',
+                    paymentType: 'supplier',
+                    supplierId: 'SUP002',
+                    invoiceNo: 'INV-LC-2024-112',
+                    paymentDate: '2024-12-14',
+                    dueDate: '2024-12-19',
+                    amount: '1850.00',
+                    taxAmount: '277.50',
+                    totalAmount: '2127.50',
+                    paymentMethod: 'cash',
+                    referenceNo: '',
+                    status: 'paid',
+                    description: 'Bed and bath linens supply',
+                    notes: 'Cash payment received'
+                },
+                'OPAY-2024-001': {
+                    type: 'other',
+                    paymentType: 'utility',
+                    supplierId: '',
+                    invoiceNo: '',
+                    paymentDate: '2024-12-18',
+                    dueDate: '2024-12-25',
+                    amount: '1250.00',
+                    taxAmount: '0.00',
+                    totalAmount: '1250.00',
+                    paymentMethod: 'bank',
+                    referenceNo: 'TRX-123456789',
+                    status: 'paid',
+                    description: 'Monthly electricity bill - December 2024',
+                    notes: 'Automatic bank transfer'
+                }
+            };
+            
+            const data = paymentData[paymentId] || paymentData['SPAY-2024-001'];
+            
+            // Populate the form with payment data
+            document.getElementById('paymentId').value = paymentId;
+            document.getElementById('paymentType').value = data.paymentType;
+            document.getElementById('supplierId').value = data.supplierId;
+            document.getElementById('invoiceNo').value = data.invoiceNo;
+            document.getElementById('paymentDate').value = data.paymentDate;
+            document.getElementById('dueDate').value = data.dueDate;
+            document.getElementById('paymentAmount').value = data.amount;
+            document.getElementById('taxAmount').value = data.taxAmount;
+            document.getElementById('totalAmount').value = data.totalAmount;
+            document.getElementById('paymentMethod').value = data.paymentMethod;
+            document.getElementById('referenceNo').value = data.referenceNo;
+            document.getElementById('paymentStatus').value = data.status;
+            document.getElementById('supplierDescription').value = data.description;
+            document.getElementById('paymentNotes').value = data.notes;
+            
+            // Scroll to details section
+            document.querySelector('.card-body').scrollIntoView({ behavior: 'smooth' });
+            
+            // Show success message
+            showAlert(`Loaded payment ${paymentId} details`, 'success');
+        }
+        
+        function markAsPaid(paymentId, type) {
+            const row = document.querySelector(`.${type}-checkbox[data-id="${paymentId.split('-').pop()}"]`)?.closest('tr');
+            if (row) {
+                const statusCell = row.querySelector('td:nth-child(8) .payment-status');
+                statusCell.className = 'payment-status status-paid';
+                statusCell.innerHTML = '<i class="fas fa-check-circle me-1"></i> Paid';
+                
+                // Change pay now button to edit button
+                const actionCell = row.querySelector('td:nth-child(9)');
+                const payNowBtn = actionCell.querySelector('.pay-now');
+                if (payNowBtn) {
+                    payNowBtn.outerHTML = '<button class="btn btn-outline-warning edit-payment" data-id="' + paymentId + '" data-type="' + type + '"><i class="fas fa-edit"></i></button>';
+                    
+                    // Reattach event listener
+                    actionCell.querySelector('.edit-payment').addEventListener('click', function() {
+                        const paymentId = this.dataset.id;
+                        const paymentType = this.dataset.type;
+                        loadPaymentDetails(paymentId, paymentType);
+                        showAlert(`Editing payment ${paymentId}`, 'info');
+                    });
+                }
+                
+                showAlert(`Payment ${paymentId} marked as paid`, 'success');
+            }
+        }
+        
+        function showDeletePaymentModal(paymentId, type) {
+            const deleteModal = new bootstrap.Modal(document.getElementById('deletePaymentModal'));
+            document.getElementById('confirmPaymentDeleteBtn').dataset.paymentId = paymentId;
+            document.getElementById('confirmPaymentDeleteBtn').dataset.paymentType = type;
+            deleteModal.show();
+        }
+        
+        function deletePayment() {
+            const paymentId = document.getElementById('confirmPaymentDeleteBtn').dataset.paymentId;
+            const paymentType = document.getElementById('confirmPaymentDeleteBtn').dataset.paymentType;
+            
+            // Remove the row from the table
+            const row = document.querySelector(`.${paymentType}-checkbox[data-id="${paymentId.split('-').pop()}"]`)?.closest('tr');
+            if (row) {
+                row.remove();
+            }
+            
+            // Show success message
+            showAlert(`Payment ${paymentId} has been deleted`, 'danger');
+            
+            // Close the modal
+            const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deletePaymentModal'));
+            deleteModal.hide();
+            
+            // Reset the checkbox
+            document.getElementById('confirmPaymentDelete').checked = false;
+            document.getElementById('confirmPaymentDeleteBtn').disabled = true;
+            
+            // Reset the form
+            resetPaymentForm();
+        }
+        
+        function updatePayment() {
+            const paymentId = document.getElementById('paymentId').value;
+            const amount = document.getElementById('totalAmount').value;
+            const status = document.getElementById('paymentStatus').value;
+            
+            // In a real application, you would send an update request to your API
+            // For now, we'll update the table row
+            const row = document.querySelector(`[data-id="${paymentId.split('-').pop()}"]`)?.closest('tr');
+            if (row) {
+                // Update amount
+                row.querySelector('.payment-amount').textContent = `$${parseFloat(amount).toFixed(2)}`;
+                
+                // Update status
+                const statusCell = row.querySelector('td:nth-child(8) .payment-status');
+                statusCell.className = `payment-status status-${status}`;
+                statusCell.innerHTML = `<i class="fas fa-${getStatusIcon(status)} me-1"></i> ${status.charAt(0).toUpperCase() + status.slice(1)}`;
+                
+                // Update other fields as needed
+            }
+            
+            showAlert(`Payment ${paymentId} updated successfully`, 'success');
+        }
+        
+        function saveNewSupplierPayment() {
+            const supplier = document.getElementById('newSupplier').value;
+            const invoiceNo = document.getElementById('newInvoiceNo').value;
+            const amount = document.getElementById('newAmount').value;
+            const paymentMethod = document.getElementById('newPaymentMethod').value;
+            const description = document.getElementById('newSupplierDescription').value;
+            
+            if (!supplier || !invoiceNo || !amount || !paymentMethod) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            // Generate new payment ID
+            const newPaymentId = 'SPAY-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+            
+            // Get supplier name
+            const supplierSelect = document.getElementById('newSupplier');
+            const supplierName = supplierSelect.options[supplierSelect.selectedIndex].text;
+            
+            // Add to table
+            const tableBody = document.getElementById('supplierPaymentsTable');
+            const newRow = document.createElement('tr');
+            
+            // Create supplier initials
+            const supplierInitials = supplierName.split(' ').map(word => word.charAt(0)).join('').toUpperCase();
+            
+            newRow.innerHTML = `
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input supplier-checkbox" type="checkbox" data-id="${newPaymentId.split('-').pop()}">
+                    </div>
+                </td>
+                <td><span class="badge bg-primary">${newPaymentId}</span></td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="customer-avatar bg-primary text-white me-2">
+                            ${supplierInitials}
+                        </div>
+                        <div>
+                            <h6 class="mb-0">${supplierName}</h6>
+                            <small class="text-muted">${description.substring(0, 30)}...</small>
+                        </div>
+                    </div>
+                </td>
+                <td><span class="badge bg-info">${invoiceNo}</span></td>
+                <td class="payment-amount text-primary">$${parseFloat(amount).toFixed(2)}</td>
+                <td>${document.getElementById('newPaymentDate').value}</td>
+                <td>
+                    <span class="payment-method-badge method-${paymentMethod}">
+                        <i class="fas ${getMethodIcon(paymentMethod)} me-1"></i> ${getMethodName(paymentMethod)}
+                    </span>
+                </td>
+                <td>
+                    <span class="payment-status status-pending">
+                        <i class="fas fa-clock me-1"></i> Pending
+                    </span>
+                </td>
+                <td>
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-outline-primary view-payment" data-id="${newPaymentId}" data-type="supplier">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-outline-success pay-now" data-id="${newPaymentId}" data-type="supplier">
+                            <i class="fas fa-check-circle"></i>
+                        </button>
+                        <button class="btn btn-outline-danger delete-payment" data-id="${newPaymentId}" data-type="supplier">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Add event listeners
+            addPaymentEventListeners(newRow, newPaymentId, 'supplier');
+            
+            // Close modal and reset form
+            const modal = bootstrap.Modal.getInstance(document.getElementById('supplierPaymentModal'));
+            modal.hide();
+            resetModalForm('supplier');
+            
+            showAlert(`Supplier payment ${newPaymentId} added successfully`, 'success');
+        }
+        
+        function saveNewOtherPayment() {
+            const paymentType = document.getElementById('newPaymentType').value;
+            const amount = document.getElementById('newOtherAmount').value;
+            const paymentMethod = document.getElementById('newOtherPaymentMethod').value;
+            const description = document.getElementById('newOtherDescription').value;
+            
+            if (!paymentType || !amount || !paymentMethod || !description) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            // Generate new payment ID
+            const newPaymentId = 'OPAY-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+            
+            // Add to table
+            const tableBody = document.getElementById('otherPaymentsTable');
+            const newRow = document.createElement('tr');
+            
+            newRow.innerHTML = `
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input other-checkbox" type="checkbox" data-id="${newPaymentId.split('-').pop()}">
+                    </div>
+                </td>
+                <td><span class="badge bg-warning">${newPaymentId}</span></td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="bg-primary bg-opacity-10 p-2 rounded me-2">
+                            <i class="fas ${getPaymentTypeIcon(paymentType)} text-primary"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0">${getPaymentTypeName(paymentType)}</h6>
+                            <small class="text-muted">${description.substring(0, 30)}...</small>
+                        </div>
+                    </div>
+                </td>
+                <td>${description}</td>
+                <td class="payment-amount text-warning">$${parseFloat(amount).toFixed(2)}</td>
+                <td>${document.getElementById('newOtherPaymentDate').value}</td>
+                <td>
+                    <span class="payment-method-badge method-${paymentMethod}">
+                        <i class="fas ${getMethodIcon(paymentMethod)} me-1"></i> ${getMethodName(paymentMethod)}
+                    </span>
+                </td>
+                <td>
+                    <span class="payment-status status-pending">
+                        <i class="fas fa-clock me-1"></i> Pending
+                    </span>
+                </td>
+                <td>
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-outline-primary view-payment" data-id="${newPaymentId}" data-type="other">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-outline-success pay-now" data-id="${newPaymentId}" data-type="other">
+                            <i class="fas fa-check-circle"></i>
+                        </button>
+                        <button class="btn btn-outline-danger delete-payment" data-id="${newPaymentId}" data-type="other">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Add event listeners
+            addPaymentEventListeners(newRow, newPaymentId, 'other');
+            
+            // Close modal and reset form
+            const modal = bootstrap.Modal.getInstance(document.getElementById('otherPaymentModal'));
+            modal.hide();
+            resetModalForm('other');
+            
+            showAlert(`Other payment ${newPaymentId} added successfully`, 'success');
+        }
+        
+        function addPaymentEventListeners(row, paymentId, type) {
+            row.querySelector('.view-payment').addEventListener('click', function() {
+                loadPaymentDetails(paymentId, type);
+            });
+            
+            row.querySelector('.pay-now')?.addEventListener('click', function() {
+                markAsPaid(paymentId, type);
+            });
+            
+            row.querySelector('.delete-payment').addEventListener('click', function() {
+                showDeletePaymentModal(paymentId, type);
+            });
+        }
+        
+        function resetPaymentForm() {
+            document.getElementById('paymentId').value = '';
+            document.getElementById('paymentType').value = '';
+            document.getElementById('supplierId').value = '';
+            document.getElementById('invoiceNo').value = '';
+            document.getElementById('paymentDate').value = new Date().toISOString().split('T')[0];
+            document.getElementById('dueDate').value = new Date(new Date().setDate(new Date().getDate() + 7)).toISOString().split('T')[0];
+            document.getElementById('paymentAmount').value = '';
+            document.getElementById('taxAmount').value = '';
+            document.getElementById('totalAmount').value = '';
+            document.getElementById('paymentMethod').value = '';
+            document.getElementById('referenceNo').value = '';
+            document.getElementById('paymentStatus').value = 'pending';
+            document.getElementById('supplierDescription').value = '';
+            document.getElementById('paymentNotes').value = '';
+            
+            showAlert('Payment form has been reset', 'info');
+        }
+        
+        function resetModalForm(type) {
+            if (type === 'supplier') {
+                document.getElementById('newSupplier').value = '';
+                document.getElementById('newInvoiceNo').value = '';
+                document.getElementById('newPaymentDate').value = new Date().toISOString().split('T')[0];
+                document.getElementById('newDueDate').value = '';
+                document.getElementById('newAmount').value = '';
+                document.getElementById('newPaymentMethod').value = '';
+                document.getElementById('newSupplierDescription').value = '';
+            } else {
+                document.getElementById('newPaymentType').value = '';
+                document.getElementById('newOtherPaymentDate').value = new Date().toISOString().split('T')[0];
+                document.getElementById('newOtherAmount').value = '';
+                document.getElementById('newOtherPaymentMethod').value = '';
+                document.getElementById('newOtherDescription').value = '';
+                document.getElementById('newBeneficiary').value = '';
+            }
+        }
+        
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+        
+        function getStatusIcon(status) {
+            const icons = {
+                'paid': 'check-circle',
+                'pending': 'clock',
+                'cancelled': 'times-circle'
+            };
+            return icons[status] || 'question-circle';
+        }
+        
+        function getMethodIcon(method) {
+            const icons = {
+                'bank': 'university',
+                'cash': 'money-bill',
+                'card': 'credit-card',
+                'online': 'globe',
+                'check': 'money-check'
+            };
+            return icons[method] || 'money-bill-wave';
+        }
+        
+        function getMethodName(method) {
+            const names = {
+                'bank': 'Bank Transfer',
+                'cash': 'Cash',
+                'card': 'Credit Card',
+                'online': 'Online Payment',
+                'check': 'Check'
+            };
+            return names[method] || 'Unknown';
+        }
+        
+        function getPaymentTypeIcon(type) {
+            const icons = {
+                'utility': 'bolt',
+                'salary': 'users',
+                'maintenance': 'wrench',
+                'tax': 'money-check-alt',
+                'misc': 'receipt'
+            };
+            return icons[type] || 'money-bill-wave';
+        }
+        
+        function getPaymentTypeName(type) {
+            const names = {
+                'utility': 'Utility Bill',
+                'salary': 'Salary Payment',
+                'maintenance': 'Maintenance',
+                'tax': 'Tax Payment',
+                'misc': 'Miscellaneous'
+            };
+            return names[type] || 'Other Payment';
+        }
+
+       
+
+    </script>
+      <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+
+    <!-- Include JavaScript -->
+    <script src="js/include.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

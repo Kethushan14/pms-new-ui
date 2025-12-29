@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Units Management - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/inv_units.css">
+
+     
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-balance-scale me-2"></i>Units Management
+                                </h1>
+                                <p class="card-text text-muted mb-0">Manage and maintain measurement units</p>
+                                <small class="text-muted">Total Units: <span class="fw-bold">28</span> • Active: <span class="text-success fw-bold">25</span> • System: <span class="text-info fw-bold">3</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addUnitModal">
+                                    <i class="fas fa-plus-circle me-1"></i> Add New Unit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Units Search Card -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-search me-2"></i>Units</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-end">
+                            <div class="col-md-5">
+                                <label for="unitCodeSearch" class="form-label">Code</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-code"></i></span>
+                                    <input type="text" class="form-control" id="unitCodeSearch" placeholder="Enter unit code...">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <label for="unitNameSearch" class="form-label">Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                                    <input type="text" class="form-control" id="unitNameSearch" placeholder="Enter unit name...">
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex align-items-end">
+                                <div class="d-flex gap-2 w-100">
+                                    <button class="btn btn-primary flex-fill" id="searchUnitsBtn">
+                                        <i class="fas fa-search me-1"></i> Search
+                                    </button>
+                                    <button class="btn btn-outline-secondary flex-fill" id="resetUnitSearchBtn">
+                                        <i class="fas fa-redo me-1"></i> All
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Units List and Information -->
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-list me-2"></i>Units List</h5>
+                            <div class="d-flex">
+                                <div class="btn-group me-2" role="group">
+                                    <button type="button" class="btn btn-sm btn-outline-primary active" data-filter="all">All</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="weight">Weight</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="length">Length</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="volume">Volume</button>
+                                </div>
+                                <button class="btn btn-sm btn-success" id="exportUnitsBtn">
+                                    <i class="fas fa-download me-1"></i> Export
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th width="50">#</th>
+                                        <th>Code</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>Category</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="unitsTableBody">
+                                    <!-- Unit 1 -->
+                                    <tr class="unit-row" data-category="weight" data-status="active">
+                                        <td>1</td>
+                                        <td>
+                                            <span class="badge bg-primary">kg</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="unit-icon unit-icon-weight me-2">
+                                                    <i class="fas fa-weight-hanging"></i>
+                                                </div>
+                                                <span class="fw-bold">Kilogram</span>
+                                            </div>
+                                        </td>
+                                        <td>Standard unit of mass in the metric system</td>
+                                        <td>
+                                            <span class="unit-category-badge bg-success">Weight</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-unit" data-id="kg">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-unit" data-id="kg">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-unit" data-id="kg">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Unit 2 -->
+                                    <tr class="unit-row" data-category="weight" data-status="active">
+                                        <td>2</td>
+                                        <td>
+                                            <span class="badge bg-primary">g</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="unit-icon unit-icon-weight me-2">
+                                                    <i class="fas fa-weight"></i>
+                                                </div>
+                                                <span class="fw-bold">Gram</span>
+                                            </div>
+                                        </td>
+                                        <td>Metric unit of mass equal to one thousandth of a kilogram</td>
+                                        <td>
+                                            <span class="unit-category-badge bg-success">Weight</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-unit" data-id="g">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-unit" data-id="g">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-unit" data-id="g">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Unit 3 -->
+                                    <tr class="unit-row" data-category="weight" data-status="active">
+                                        <td>3</td>
+                                        <td>
+                                            <span class="badge bg-primary">lb</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="unit-icon unit-icon-weight me-2">
+                                                    <i class="fas fa-weight"></i>
+                                                </div>
+                                                <span class="fw-bold">Pound</span>
+                                            </div>
+                                        </td>
+                                        <td>Imperial unit of mass equal to 0.453592 kilograms</td>
+                                        <td>
+                                            <span class="unit-category-badge bg-success">Weight</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-unit" data-id="lb">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-unit" data-id="lb">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-unit" data-id="lb">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Unit 4 -->
+                                    <tr class="unit-row" data-category="length" data-status="active">
+                                        <td>4</td>
+                                        <td>
+                                            <span class="badge bg-primary">m</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="unit-icon unit-icon-length me-2">
+                                                    <i class="fas fa-ruler"></i>
+                                                </div>
+                                                <span class="fw-bold">Meter</span>
+                                            </div>
+                                        </td>
+                                        <td>Base unit of length in the International System of Units</td>
+                                        <td>
+                                            <span class="unit-category-badge bg-primary">Length</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-unit" data-id="m">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-unit" data-id="m">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-unit" data-id="m">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Unit 5 -->
+                                    <tr class="unit-row" data-category="length" data-status="active">
+                                        <td>5</td>
+                                        <td>
+                                            <span class="badge bg-primary">cm</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="unit-icon unit-icon-length me-2">
+                                                    <i class="fas fa-ruler-combined"></i>
+                                                </div>
+                                                <span class="fw-bold">Centimeter</span>
+                                            </div>
+                                        </td>
+                                        <td>Metric unit of length equal to one hundredth of a meter</td>
+                                        <td>
+                                            <span class="unit-category-badge bg-primary">Length</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-unit" data-id="cm">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-unit" data-id="cm">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-unit" data-id="cm">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Unit 6 -->
+                                    <tr class="unit-row" data-category="length" data-status="active">
+                                        <td>6</td>
+                                        <td>
+                                            <span class="badge bg-primary">in</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="unit-icon unit-icon-length me-2">
+                                                    <i class="fas fa-ruler-vertical"></i>
+                                                </div>
+                                                <span class="fw-bold">Inch</span>
+                                            </div>
+                                        </td>
+                                        <td>Imperial unit of length equal to 2.54 centimeters</td>
+                                        <td>
+                                            <span class="unit-category-badge bg-primary">Length</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-unit" data-id="in">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-unit" data-id="in">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-unit" data-id="in">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Unit 7 -->
+                                    <tr class="unit-row" data-category="volume" data-status="active">
+                                        <td>7</td>
+                                        <td>
+                                            <span class="badge bg-primary">l</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="unit-icon unit-icon-volume me-2">
+                                                    <i class="fas fa-wine-bottle"></i>
+                                                </div>
+                                                <span class="fw-bold">Liter</span>
+                                            </div>
+                                        </td>
+                                        <td>Metric unit of volume equal to one cubic decimeter</td>
+                                        <td>
+                                            <span class="unit-category-badge bg-warning">Volume</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-unit" data-id="l">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-unit" data-id="l">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-unit" data-id="l">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Unit 8 -->
+                                    <tr class="unit-row" data-category="volume" data-status="system">
+                                        <td>8</td>
+                                        <td>
+                                            <span class="badge bg-primary">ml</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="unit-icon unit-icon-volume me-2">
+                                                    <i class="fas fa-flask"></i>
+                                                </div>
+                                                <span class="fw-bold">Milliliter</span>
+                                            </div>
+                                        </td>
+                                        <td>Metric unit of volume equal to one thousandth of a liter</td>
+                                        <td>
+                                            <span class="unit-category-badge bg-warning">Volume</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">System</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-unit" data-id="ml">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-secondary" disabled>
+                                                    <i class="fas fa-lock"></i>
+                                                </button>
+                                                <button class="btn btn-outline-secondary" disabled>
+                                                    <i class="fas fa-lock"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Unit 9 -->
+                                    <tr class="unit-row" data-category="count" data-status="active">
+                                        <td>9</td>
+                                        <td>
+                                            <span class="badge bg-primary">pcs</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="unit-icon unit-icon-count me-2">
+                                                    <i class="fas fa-cube"></i>
+                                                </div>
+                                                <span class="fw-bold">Piece</span>
+                                            </div>
+                                        </td>
+                                        <td>Unit for counting individual items</td>
+                                        <td>
+                                            <span class="unit-category-badge bg-purple">Count</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-unit" data-id="pcs">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-unit" data-id="pcs">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-unit" data-id="pcs">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Unit 10 -->
+                                    <tr class="unit-row" data-category="count" data-status="active">
+                                        <td>10</td>
+                                        <td>
+                                            <span class="badge bg-primary">dz</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="unit-icon unit-icon-count me-2">
+                                                    <i class="fas fa-boxes"></i>
+                                                </div>
+                                                <span class="fw-bold">Dozen</span>
+                                            </div>
+                                        </td>
+                                        <td>Unit for counting equal to 12 pieces</td>
+                                        <td>
+                                            <span class="unit-category-badge bg-purple">Count</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-unit" data-id="dz">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-unit" data-id="dz">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-unit" data-id="dz">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted">Showing 10 of 28 units</span>
+                            </div>
+                            <nav aria-label="Units pagination">
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Unit Information -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Unit Information</h5>
+                            <button class="btn btn-sm btn-primary" id="addNewUnitBtn">
+                                <i class="fas fa-plus me-1"></i> Add New Unit
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="unit-section">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <label for="unitCode" class="form-label required-field">Unit Code *</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-code"></i></span>
+                                        <input type="text" class="form-control" id="unitCode" placeholder="Enter unit code (e.g., kg, m, l)">
+                                    </div>
+                                    <small class="text-muted">Unique identifier for the unit (short code)</small>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="unitName" class="form-label required-field">Name *</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                                        <input type="text" class="form-control" id="unitName" placeholder="Enter unit name">
+                                    </div>
+                                    <small class="text-muted">Full name of the unit</small>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="unitDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="unitDescription" rows="3" placeholder="Enter unit description..."></textarea>
+                                    <small class="text-muted">Detailed description of the unit</small>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="unitCategory" class="form-label">Category</label>
+                                    <select class="form-select" id="unitCategory">
+                                        <option value="weight">Weight</option>
+                                        <option value="length">Length</option>
+                                        <option value="volume">Volume</option>
+                                        <option value="temperature">Temperature</option>
+                                        <option value="area">Area</option>
+                                        <option value="count">Count</option>
+                                        <option value="time">Time</option>
+                                        <option value="custom">Custom</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="unitStatus" class="form-label">Status</label>
+                                    <select class="form-select" id="unitStatus">
+                                        <option value="active" selected>Active</option>
+                                        <option value="inactive">Inactive</option>
+                                        <option value="system">System</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="unitSymbol" class="form-label">Symbol</label>
+                                    <input type="text" class="form-control" id="unitSymbol" placeholder="e.g., kg, m, °C">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="decimalPlaces" class="form-label">Decimal Places</label>
+                                    <select class="form-select" id="decimalPlaces">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2" selected>2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="isBaseUnit">
+                                        <label class="form-check-label" for="isBaseUnit">
+                                            Is Base Unit
+                                        </label>
+                                        <small class="text-muted d-block">Base unit for conversions (e.g., kg for weight, m for length)</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Action Buttons -->
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-between gap-2">
+                                        <button class="btn btn-secondary w-50" id="clearUnitFormBtn">
+                                            <i class="fas fa-broom me-1"></i> Clear
+                                        </button>
+                                        <div class="d-flex gap-2 w-50">
+                                            <button class="btn btn-danger flex-fill" id="deleteUnitBtn">
+                                                <i class="fas fa-trash me-1"></i> Delete
+                                            </button>
+                                            <button class="btn btn-success flex-fill" id="saveUnitBtn">
+                                                <i class="fas fa-save me-1"></i> Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Unit Statistics -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h6 class="text-primary mb-3">Unit Statistics</h6>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <div class="card bg-light">
+                                            <div class="card-body p-3 text-center">
+                                                <h4 class="text-primary mb-1">28</h4>
+                                                <small class="text-muted">Total Units</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <div class="card bg-light">
+                                            <div class="card-body p-3 text-center">
+                                                <h4 class="text-success mb-1">25</h4>
+                                                <small class="text-muted">Active Units</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card bg-light">
+                                            <div class="card-body p-3 text-center">
+                                                <h4 class="text-info mb-1">3</h4>
+                                                <small class="text-muted">System Units</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card bg-light">
+                                            <div class="card-body p-3 text-center">
+                                                <h4 class="text-warning mb-1">6</h4>
+                                                <small class="text-muted">Categories</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unit Categories Overview -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-layer-group me-2"></i>Unit Categories Overview</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Weight Category -->
+                            <div class="col-md-3 mb-4">
+                                <div class="card unit-card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="unit-icon unit-icon-weight me-3">
+                                                <i class="fas fa-weight-hanging"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1">Weight</h5>
+                                                <small class="text-muted">Mass measurements</small>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Units:</small>
+                                                <small class="text-primary">8</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Base Unit:</small>
+                                                <small class="text-success">Kilogram (kg)</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <small>Conversions:</small>
+                                                <small class="text-info">12</small>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-success">Active</span>
+                                            <button class="btn btn-sm btn-outline-primary">View Units</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Length Category -->
+                            <div class="col-md-3 mb-4">
+                                <div class="card unit-card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="unit-icon unit-icon-length me-3">
+                                                <i class="fas fa-ruler"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1">Length</h5>
+                                                <small class="text-muted">Distance measurements</small>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Units:</small>
+                                                <small class="text-primary">6</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Base Unit:</small>
+                                                <small class="text-success">Meter (m)</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <small>Conversions:</small>
+                                                <small class="text-info">8</small>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-success">Active</span>
+                                            <button class="btn btn-sm btn-outline-primary">View Units</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Volume Category -->
+                            <div class="col-md-3 mb-4">
+                                <div class="card unit-card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="unit-icon unit-icon-volume me-3">
+                                                <i class="fas fa-wine-bottle"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1">Volume</h5>
+                                                <small class="text-muted">Capacity measurements</small>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Units:</small>
+                                                <small class="text-primary">5</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Base Unit:</small>
+                                                <small class="text-success">Liter (l)</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <small>Conversions:</small>
+                                                <small class="text-info">6</small>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-success">Active</span>
+                                            <button class="btn btn-sm btn-outline-primary">View Units</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Count Category -->
+                            <div class="col-md-3 mb-4">
+                                <div class="card unit-card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="unit-icon unit-icon-count me-3">
+                                                <i class="fas fa-cube"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1">Count</h5>
+                                                <small class="text-muted">Item counting units</small>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Units:</small>
+                                                <small class="text-primary">4</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Base Unit:</small>
+                                                <small class="text-success">Piece (pcs)</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <small>Conversions:</small>
+                                                <small class="text-info">3</small>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-success">Active</span>
+                                            <button class="btn btn-sm btn-outline-primary">View Units</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Add Unit Modal -->
+    <div class="modal fade" id="addUnitModal" tabindex="-1" aria-labelledby="addUnitModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="addUnitModalLabel">
+                        <i class="fas fa-plus-circle me-2"></i>Add New Unit
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="newUnitCode" class="form-label required-field">Unit Code *</label>
+                            <input type="text" class="form-control" id="newUnitCode" placeholder="Enter unit code (e.g., kg, m, l)" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newUnitName" class="form-label required-field">Name *</label>
+                            <input type="text" class="form-control" id="newUnitName" placeholder="Enter unit name" required>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="newUnitDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="newUnitDescription" rows="3" placeholder="Enter unit description..."></textarea>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newUnitCategory" class="form-label">Category</label>
+                            <select class="form-select" id="newUnitCategory">
+                                <option value="weight">Weight</option>
+                                <option value="length">Length</option>
+                                <option value="volume">Volume</option>
+                                <option value="temperature">Temperature</option>
+                                <option value="area">Area</option>
+                                <option value="count">Count</option>
+                                <option value="time">Time</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newUnitSymbol" class="form-label">Symbol</label>
+                            <input type="text" class="form-control" id="newUnitSymbol" placeholder="e.g., kg, m, °C">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="newIsBaseUnit">
+                                <label class="form-check-label" for="newIsBaseUnit">
+                                    Is Base Unit
+                                </label>
+                                <small class="text-muted d-block">Base unit for conversions (e.g., kg for weight, m for length)</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveNewUnit">Save Unit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteUnitModal" tabindex="-1" aria-labelledby="deleteUnitModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteUnitModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Confirm Delete
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this unit?</p>
+                    <p class="text-danger"><strong>This action cannot be undone.</strong></p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="confirmDeleteUnit">
+                        <label class="form-check-label" for="confirmDeleteUnit">
+                            I understand that this will permanently delete the unit
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteUnitBtn" disabled>Delete Unit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+     <script src="js/include.js"></script>
+    
+    <script>
+        // Units Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Search functionality
+            document.getElementById('searchUnitsBtn').addEventListener('click', searchUnits);
+            document.getElementById('resetUnitSearchBtn').addEventListener('click', resetUnitSearch);
+            
+            // Filter buttons
+            document.querySelectorAll('[data-filter]').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('[data-filter]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    filterUnits(filter);
+                });
+            });
+            
+            // View unit details
+            document.querySelectorAll('.view-unit').forEach(button => {
+                button.addEventListener('click', function() {
+                    const unitCode = this.dataset.id;
+                    loadUnitDetails(unitCode);
+                });
+            });
+            
+            // Edit unit
+            document.querySelectorAll('.edit-unit').forEach(button => {
+                button.addEventListener('click', function() {
+                    const unitCode = this.dataset.id;
+                    editUnit(unitCode);
+                });
+            });
+            
+            // Delete unit
+            document.querySelectorAll('.delete-unit').forEach(button => {
+                button.addEventListener('click', function() {
+                    const unitCode = this.dataset.id;
+                    showDeleteUnitModal(unitCode);
+                });
+            });
+            
+            // Add new unit button
+            document.getElementById('addNewUnitBtn').addEventListener('click', function() {
+                const addUnitModal = new bootstrap.Modal(document.getElementById('addUnitModal'));
+                addUnitModal.show();
+            });
+            
+            // Save new unit
+            document.getElementById('saveNewUnit').addEventListener('click', saveNewUnit);
+            
+            // Clear form button
+            document.getElementById('clearUnitFormBtn').addEventListener('click', clearUnitForm);
+            
+            // Delete unit button
+            document.getElementById('deleteUnitBtn').addEventListener('click', function() {
+                const unitCode = document.getElementById('unitCode').value;
+                showDeleteUnitModal(unitCode);
+            });
+            
+            // Save unit button
+            document.getElementById('saveUnitBtn').addEventListener('click', saveUnit);
+            
+            // Confirm delete checkbox
+            document.getElementById('confirmDeleteUnit').addEventListener('change', function() {
+                document.getElementById('confirmDeleteUnitBtn').disabled = !this.checked;
+            });
+            
+            // Confirm delete button
+            document.getElementById('confirmDeleteUnitBtn').addEventListener('click', deleteUnit);
+            
+            // Export units
+            document.getElementById('exportUnitsBtn').addEventListener('click', exportUnits);
+        });
+        
+        function searchUnits() {
+            const unitCode = document.getElementById('unitCodeSearch').value.toLowerCase();
+            const unitName = document.getElementById('unitNameSearch').value.toLowerCase();
+            
+            const rows = document.querySelectorAll('.unit-row');
+            
+            rows.forEach(row => {
+                const rowUnitCode = row.querySelector('td:nth-child(2) .badge').textContent.toLowerCase();
+                const rowUnitName = row.querySelector('td:nth-child(3) .fw-bold').textContent.toLowerCase();
+                
+                let show = true;
+                
+                if (unitCode && !rowUnitCode.includes(unitCode)) show = false;
+                if (unitName && !rowUnitName.includes(unitName)) show = false;
+                
+                row.style.display = show ? '' : 'none';
+            });
+        }
+        
+        function resetUnitSearch() {
+            document.getElementById('unitCodeSearch').value = '';
+            document.getElementById('unitNameSearch').value = '';
+            
+            const rows = document.querySelectorAll('.unit-row');
+            rows.forEach(row => {
+                row.style.display = '';
+            });
+            
+            // Reset filter buttons
+            document.querySelectorAll('[data-filter]').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector('[data-filter="all"]').classList.add('active');
+        }
+        
+        function filterUnits(filter = 'all') {
+            const rows = document.querySelectorAll('.unit-row');
+            
+            rows.forEach(row => {
+                const category = row.dataset.category;
+                
+                if (filter === 'all') {
+                    row.style.display = '';
+                } else if (filter === category) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+        
+        function loadUnitDetails(unitCode) {
+            // In a real application, you would fetch unit data from an API
+            // For now, we'll use sample data based on unitCode
+            
+            const unitData = {
+                'kg': {
+                    code: 'kg',
+                    name: 'Kilogram',
+                    description: 'Standard unit of mass in the metric system',
+                    category: 'weight',
+                    status: 'active',
+                    symbol: 'kg',
+                    decimalPlaces: '2',
+                    isBaseUnit: true
+                },
+                'g': {
+                    code: 'g',
+                    name: 'Gram',
+                    description: 'Metric unit of mass equal to one thousandth of a kilogram',
+                    category: 'weight',
+                    status: 'active',
+                    symbol: 'g',
+                    decimalPlaces: '2',
+                    isBaseUnit: false
+                },
+                'm': {
+                    code: 'm',
+                    name: 'Meter',
+                    description: 'Base unit of length in the International System of Units',
+                    category: 'length',
+                    status: 'active',
+                    symbol: 'm',
+                    decimalPlaces: '2',
+                    isBaseUnit: true
+                },
+                'l': {
+                    code: 'l',
+                    name: 'Liter',
+                    description: 'Metric unit of volume equal to one cubic decimeter',
+                    category: 'volume',
+                    status: 'active',
+                    symbol: 'l',
+                    decimalPlaces: '2',
+                    isBaseUnit: true
+                },
+                'pcs': {
+                    code: 'pcs',
+                    name: 'Piece',
+                    description: 'Unit for counting individual items',
+                    category: 'count',
+                    status: 'active',
+                    symbol: 'pcs',
+                    decimalPlaces: '0',
+                    isBaseUnit: true
+                }
+            };
+            
+            const data = unitData[unitCode] || unitData['kg'];
+            
+            // Populate the form with unit data
+            document.getElementById('unitCode').value = data.code;
+            document.getElementById('unitName').value = data.name;
+            document.getElementById('unitDescription').value = data.description;
+            document.getElementById('unitCategory').value = data.category;
+            document.getElementById('unitStatus').value = data.status;
+            document.getElementById('unitSymbol').value = data.symbol;
+            document.getElementById('decimalPlaces').value = data.decimalPlaces;
+            document.getElementById('isBaseUnit').checked = data.isBaseUnit;
+            
+            // Show success message
+            showAlert(`Loaded unit ${unitCode} details`, 'success');
+        }
+        
+        function editUnit(unitCode) {
+            loadUnitDetails(unitCode);
+            showAlert(`Editing unit ${unitCode}`, 'info');
+        }
+        
+        function showDeleteUnitModal(unitCode) {
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteUnitModal'));
+            document.getElementById('confirmDeleteUnitBtn').dataset.unitCode = unitCode;
+            deleteModal.show();
+        }
+        
+        function deleteUnit() {
+            const unitCode = document.getElementById('confirmDeleteUnitBtn').dataset.unitCode;
+            
+            // In a real application, you would send a delete request to your API
+            // For now, we'll just show a message
+            showAlert(`Unit ${unitCode} has been deleted`, 'danger');
+            
+            // Close the modal
+            const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteUnitModal'));
+            deleteModal.hide();
+            
+            // Reset the checkbox
+            document.getElementById('confirmDeleteUnit').checked = false;
+            document.getElementById('confirmDeleteUnitBtn').disabled = true;
+            
+            // Remove the row from the table
+            const row = document.querySelector(`.delete-unit[data-id="${unitCode}"]`)?.closest('tr');
+            if (row) {
+                row.remove();
+            }
+            
+            // Reset the form
+            clearUnitForm();
+        }
+        
+        function saveUnit() {
+            const unitCode = document.getElementById('unitCode').value;
+            const unitName = document.getElementById('unitName').value;
+            
+            if (!unitCode || !unitName) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            // In a real application, you would send an update request to your API
+            // For now, we'll just show a message
+            showAlert(`Unit ${unitCode} (${unitName}) saved successfully`, 'success');
+            
+            // Update the table row if it exists
+            const row = document.querySelector(`.view-unit[data-id="${unitCode}"]`)?.closest('tr');
+            if (row) {
+                row.querySelector('td:nth-child(2) .badge').textContent = unitCode;
+                row.querySelector('td:nth-child(3) .fw-bold').textContent = unitName;
+                row.querySelector('td:nth-child(4)').textContent = document.getElementById('unitDescription').value;
+                
+                const categoryBadge = row.querySelector('.unit-category-badge');
+                categoryBadge.textContent = document.getElementById('unitCategory').value.charAt(0).toUpperCase() + 
+                                          document.getElementById('unitCategory').value.slice(1);
+                categoryBadge.className = `unit-category-badge ${getCategoryColor(document.getElementById('unitCategory').value)}`;
+                
+                row.dataset.category = document.getElementById('unitCategory').value;
+                row.dataset.status = document.getElementById('unitStatus').value;
+                
+                const statusBadge = row.querySelector('td:nth-child(6) .badge');
+                statusBadge.textContent = document.getElementById('unitStatus').value.charAt(0).toUpperCase() + 
+                                         document.getElementById('unitStatus').value.slice(1);
+                statusBadge.className = `badge ${getStatusColor(document.getElementById('unitStatus').value)}`;
+            }
+        }
+        
+        function saveNewUnit() {
+            const unitCode = document.getElementById('newUnitCode').value;
+            const unitName = document.getElementById('newUnitName').value;
+            
+            if (!unitCode || !unitName) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            // In a real application, you would send this to your API
+            // For now, we'll add it to the table
+            const tableBody = document.getElementById('unitsTableBody');
+            const newRow = document.createElement('tr');
+            
+            const category = document.getElementById('newUnitCategory').value;
+            const isBaseUnit = document.getElementById('newIsBaseUnit').checked;
+            const description = document.getElementById('newUnitDescription').value;
+            const symbol = document.getElementById('newUnitSymbol').value || unitCode;
+            
+            newRow.className = 'unit-row';
+            newRow.dataset.category = category;
+            newRow.dataset.status = 'active';
+            
+            // Determine the icon class based on category
+            const iconClass = getIconClassForCategory(category);
+            const icon = getIconForCategory(category);
+            
+            newRow.innerHTML = `
+                <td>${tableBody.children.length + 1}</td>
+                <td><span class="badge bg-primary">${unitCode}</span></td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="unit-icon ${iconClass} me-2">
+                            <i class="${icon}"></i>
+                        </div>
+                        <span class="fw-bold">${unitName}</span>
+                    </div>
+                </td>
+                <td>${description || 'No description provided'}</td>
+                <td>
+                    <span class="unit-category-badge ${getCategoryColor(category)}">
+                        ${category.charAt(0).toUpperCase() + category.slice(1)}
+                    </span>
+                </td>
+                <td><span class="badge bg-success">Active</span></td>
+                <td>
+                    <div class="btn-group btn-group-sm table-actions">
+                        <button class="btn btn-outline-primary view-unit" data-id="${unitCode}">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-outline-warning edit-unit" data-id="${unitCode}">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-outline-danger delete-unit" data-id="${unitCode}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Add event listeners to new buttons
+            newRow.querySelector('.view-unit').addEventListener('click', function() {
+                loadUnitDetails(this.dataset.id);
+            });
+            
+            newRow.querySelector('.edit-unit').addEventListener('click', function() {
+                editUnit(this.dataset.id);
+            });
+            
+            newRow.querySelector('.delete-unit').addEventListener('click', function() {
+                showDeleteUnitModal(this.dataset.id);
+            });
+            
+            // Close the modal
+            const addModal = bootstrap.Modal.getInstance(document.getElementById('addUnitModal'));
+            addModal.hide();
+            
+            // Reset the form
+            document.getElementById('newUnitCode').value = '';
+            document.getElementById('newUnitName').value = '';
+            document.getElementById('newUnitDescription').value = '';
+            document.getElementById('newUnitCategory').value = 'weight';
+            document.getElementById('newUnitSymbol').value = '';
+            document.getElementById('newIsBaseUnit').checked = false;
+            
+            // Load the new unit details
+            loadUnitDetails(unitCode);
+            
+            showAlert(`New unit ${unitCode} added successfully`, 'success');
+        }
+        
+        function clearUnitForm() {
+            document.getElementById('unitCode').value = '';
+            document.getElementById('unitName').value = '';
+            document.getElementById('unitDescription').value = '';
+            document.getElementById('unitCategory').value = 'weight';
+            document.getElementById('unitStatus').value = 'active';
+            document.getElementById('unitSymbol').value = '';
+            document.getElementById('decimalPlaces').value = '2';
+            document.getElementById('isBaseUnit').checked = false;
+            
+            showAlert('Form has been cleared', 'info');
+        }
+        
+        function exportUnits() {
+            // In a real application, you would generate and download a CSV/Excel file
+            showAlert('Units exported successfully', 'success');
+        }
+        
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+        
+        function getCategoryColor(category) {
+            const colors = {
+                'weight': 'bg-success',
+                'length': 'bg-primary',
+                'volume': 'bg-warning',
+                'temperature': 'bg-danger',
+                'area': 'bg-secondary',
+                'count': 'bg-purple',
+                'time': 'bg-info',
+                'custom': 'bg-dark'
+            };
+            return colors[category] || 'bg-secondary';
+        }
+        
+        function getStatusColor(status) {
+            const colors = {
+                'active': 'bg-success',
+                'inactive': 'bg-warning',
+                'system': 'bg-info'
+            };
+            return colors[status] || 'bg-secondary';
+        }
+        
+        function getIconClassForCategory(category) {
+            const icons = {
+                'weight': 'unit-icon-weight',
+                'length': 'unit-icon-length',
+                'volume': 'unit-icon-volume',
+                'temperature': 'unit-icon-temperature',
+                'area': 'unit-icon-area',
+                'count': 'unit-icon-count',
+                'time': 'unit-icon-temperature', // Default fallback
+                'custom': 'unit-icon-count' // Default fallback
+            };
+            return icons[category] || 'unit-icon-count';
+        }
+        
+        function getIconForCategory(category) {
+            const icons = {
+                'weight': 'fas fa-weight-hanging',
+                'length': 'fas fa-ruler',
+                'volume': 'fas fa-wine-bottle',
+                'temperature': 'fas fa-thermometer-half',
+                'area': 'fas fa-square',
+                'count': 'fas fa-cube',
+                'time': 'fas fa-clock',
+                'custom': 'fas fa-cog'
+            };
+            return icons[category] || 'fas fa-cube';
+        }
+    </script>
+</body>
+</html>

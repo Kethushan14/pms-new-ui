@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Ledger Report - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+     <link rel="stylesheet" href="css/header.css">
+
+      
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-book me-2"></i>General Ledger Report
+                                </h1>
+                                <p class="card-text text-muted mb-0">Complete financial transactions ledger for all accounts</p>
+                                <small class="text-muted">Period: <span class="fw-bold">Dec 1, 2025 - Dec 24, 2025</span> • Total Entries: <span class="fw-bold">1,247</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-success" id="exportReportBtn">
+                                    <i class="fas fa-file-export me-1"></i> Export Report
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="row mb-4">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card report-summary-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Total Debits</h6>
+                                <h3 class="fw-bold text-danger">$124,850.75</h3>
+                                <small class="text-muted">All accounts</small>
+                            </div>
+                            <div class="bg-danger bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-arrow-up fa-2x text-danger"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card report-summary-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Total Credits</h6>
+                                <h3 class="fw-bold text-success">$118,420.50</h3>
+                                <small class="text-muted">All accounts</small>
+                            </div>
+                            <div class="bg-success bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-arrow-down fa-2x text-success"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card report-summary-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Net Balance</h6>
+                                <h3 class="fw-bold text-warning">$6,430.25</h3>
+                                <small class="text-muted">Debit - Credit</small>
+                            </div>
+                            <div class="bg-warning bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-balance-scale fa-2x text-warning"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card report-summary-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h6 class="text-muted mb-1">Accounts</h6>
+                                <h3 class="fw-bold text-info">42</h3>
+                                <small class="text-muted">Active accounts</small>
+                            </div>
+                            <div class="bg-info bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-university fa-2x text-info"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Report Filters -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-light">
+                        <h5 class="mb-0">
+                            <i class="fas fa-filter me-2 text-primary"></i>Report Filters
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="reportFilterForm">
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <label for="accountType" class="form-label">Account Type:</label>
+                                    <select class="form-select" id="accountType">
+                                        <option value="">All Account Types</option>
+                                        <option value="asset">Assets</option>
+                                        <option value="liability">Liabilities</option>
+                                        <option value="equity">Equity</option>
+                                        <option value="revenue" selected>Revenue</option>
+                                        <option value="expense">Expenses</option>
+                                        <option value="bank">Bank Accounts</option>
+                                        <option value="cash">Cash Accounts</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="dateFrom" class="form-label">Date From</label>
+                                    <input type="date" class="form-control" id="dateFrom" value="2025-12-01">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="dateTo" class="form-label">Date To</label>
+                                    <input type="date" class="form-control" id="dateTo" value="2025-12-24">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="accountCode" class="form-label">Account Code</label>
+                                    <input type="text" class="form-control" id="accountCode" placeholder="e.g., 1001, 4001">
+                                </div>
+                                
+                                <div class="col-md-4 mb-3">
+                                    <label for="mainAccount" class="form-label">Main Account</label>
+                                    <select class="form-select" id="mainAccount">
+                                        <option value="">All Main Accounts</option>
+                                        <option value="cash">Cash & Bank</option>
+                                        <option value="receivables">Accounts Receivable</option>
+                                        <option value="payables">Accounts Payable</option>
+                                        <option value="revenue">Revenue Accounts</option>
+                                        <option value="expense">Expense Accounts</option>
+                                        <option value="assets">Fixed Assets</option>
+                                        <option value="liabilities">Long-term Liabilities</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="transactionType" class="form-label">Transaction Type</label>
+                                    <select class="form-select" id="transactionType">
+                                        <option value="">All Transactions</option>
+                                        <option value="debit">Debit Only</option>
+                                        <option value="credit">Credit Only</option>
+                                        <option value="both">Both</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="minAmount" class="form-label">Minimum Amount</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input type="number" class="form-control" id="minAmount" placeholder="0.00" step="0.01" min="0">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-end gap-2">
+                                        <button type="button" class="btn btn-outline-secondary" id="resetFiltersBtn">
+                                            <i class="fas fa-redo me-1"></i> Reset Filters
+                                        </button>
+                                        <button type="submit" class="btn btn-primary" id="applyFiltersBtn">
+                                            <i class="fas fa-check me-1"></i> Apply Filters
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Tree and Ledger -->
+        <div class="row mb-4">
+            <!-- Account Tree -->
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-sitemap me-2"></i>Account Hierarchy</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="account-tree" id="accountTree">
+                            <!-- Assets -->
+                            <div class="account-tree-item active" data-account-type="asset">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <i class="fas fa-building text-primary me-2"></i>
+                                        <strong>Assets</strong>
+                                    </div>
+                                    <span class="badge bg-primary">6 accounts</span>
+                                </div>
+                            </div>
+                            <div class="account-tree ml-3" style="display: block;">
+                                <!-- Current Assets -->
+                                <div class="account-tree-item" data-account-type="current-assets">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <i class="fas fa-angle-right me-2"></i>
+                                            <span>Current Assets</span>
+                                        </div>
+                                        <span class="badge bg-info">4 accounts</span>
+                                    </div>
+                                </div>
+                                <div class="account-tree ml-3">
+                                    <div class="account-tree-item" data-account-code="1001">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <span class="account-code me-2">1001</span>
+                                                <span>Cash In Hand</span>
+                                            </div>
+                                            <span class="balance-amount positive-balance">$12,850.75</span>
+                                        </div>
+                                    </div>
+                                    <div class="account-tree-item" data-account-code="1002">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <span class="account-code me-2">1002</span>
+                                                <span>Bank Accounts</span>
+                                            </div>
+                                            <span class="balance-amount positive-balance">$124,850.75</span>
+                                        </div>
+                                    </div>
+                                    <div class="account-tree-item" data-account-code="1003">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <span class="account-code me-2">1003</span>
+                                                <span>Accounts Receivable</span>
+                                            </div>
+                                            <span class="balance-amount positive-balance">$25,420.50</span>
+                                        </div>
+                                    </div>
+                                    <div class="account-tree-item" data-account-code="1004">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <span class="account-code me-2">1004</span>
+                                                <span>Inventory</span>
+                                            </div>
+                                            <span class="balance-amount positive-balance">$18,750.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Fixed Assets -->
+                                <div class="account-tree-item" data-account-type="fixed-assets">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <i class="fas fa-angle-right me-2"></i>
+                                            <span>Fixed Assets</span>
+                                        </div>
+                                        <span class="badge bg-info">2 accounts</span>
+                                    </div>
+                                </div>
+                                <div class="account-tree ml-3">
+                                    <div class="account-tree-item" data-account-code="1101">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <span class="account-code me-2">1101</span>
+                                                <span>Property & Buildings</span>
+                                            </div>
+                                            <span class="balance-amount positive-balance">$450,000.00</span>
+                                        </div>
+                                    </div>
+                                    <div class="account-tree-item" data-account-code="1102">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <span class="account-code me-2">1102</span>
+                                                <span>Furniture & Equipment</span>
+                                            </div>
+                                            <span class="balance-amount positive-balance">$85,250.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Liabilities -->
+                            <div class="account-tree-item" data-account-type="liability">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <i class="fas fa-hand-holding-usd text-warning me-2"></i>
+                                        <strong>Liabilities</strong>
+                                    </div>
+                                    <span class="badge bg-warning">5 accounts</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Equity -->
+                            <div class="account-tree-item" data-account-type="equity">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <i class="fas fa-chart-line text-success me-2"></i>
+                                        <strong>Equity</strong>
+                                    </div>
+                                    <span class="badge bg-success">3 accounts</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Revenue -->
+                            <div class="account-tree-item" data-account-type="revenue">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <i class="fas fa-money-bill-wave text-info me-2"></i>
+                                        <strong>Revenue</strong>
+                                    </div>
+                                    <span class="badge bg-info">8 accounts</span>
+                                </div>
+                            </div>
+                            <div class="account-tree ml-3">
+                                <!-- Room Revenue -->
+                                <div class="account-tree-item" data-account-type="room-revenue">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <i class="fas fa-angle-right me-2"></i>
+                                            <span>Room Revenue</span>
+                                        </div>
+                                        <span class="badge bg-info">3 accounts</span>
+                                    </div>
+                                </div>
+                                <div class="account-tree ml-3">
+                                    <div class="account-tree-item" data-account-code="4001">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <span class="account-code me-2">4001</span>
+                                                <span>Standard Room Sales</span>
+                                            </div>
+                                            <span class="balance-amount positive-balance">$45,820.25</span>
+                                        </div>
+                                    </div>
+                                    <div class="account-tree-item" data-account-code="4002">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <span class="account-code me-2">4002</span>
+                                                <span>Suite Sales</span>
+                                            </div>
+                                            <span class="balance-amount positive-balance">$28,750.50</span>
+                                        </div>
+                                    </div>
+                                    <div class="account-tree-item" data-account-code="4003">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <span class="account-code me-2">4003</span>
+                                                <span>Service Charges</span>
+                                            </div>
+                                            <span class="balance-amount positive-balance">$8,420.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Food & Beverage -->
+                                <div class="account-tree-item" data-account-type="f-b-revenue">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <i class="fas fa-angle-right me-2"></i>
+                                            <span>Food & Beverage</span>
+                                        </div>
+                                        <span class="badge bg-info">3 accounts</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Other Revenue -->
+                                <div class="account-tree-item" data-account-type="other-revenue">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <i class="fas fa-angle-right me-2"></i>
+                                            <span>Other Revenue</span>
+                                        </div>
+                                        <span class="badge bg-info">2 accounts</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Expenses -->
+                            <div class="account-tree-item" data-account-type="expense">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <i class="fas fa-receipt text-danger me-2"></i>
+                                        <strong>Expenses</strong>
+                                    </div>
+                                    <span class="badge bg-danger">20 accounts</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Click on any account to view its ledger entries</small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ledger Entries -->
+            <div class="col-lg-8 col-md-12 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-list me-2"></i>General Ledger Entries</h5>
+                            <div class="d-flex">
+                                <button class="btn btn-sm btn-outline-primary me-2" id="refreshLedgerBtn">
+                                    <i class="fas fa-sync-alt me-1"></i> Refresh
+                                </button>
+                                <button class="btn btn-sm btn-success" id="printLedgerBtn">
+                                    <i class="fas fa-print me-1"></i> Print
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Account</th>
+                                        <th>Description</th>
+                                        <th>Reference</th>
+                                        <th>Debit</th>
+                                        <th>Credit</th>
+                                        <th>Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ledgerTableBody">
+                                    <!-- Opening Balance -->
+                                    <tr class="ledger-entry entry-credit">
+                                        <td>
+                                            <span class="fw-bold">2025-12-01</span>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <span class="account-code">4001</span><br>
+                                                <small>Standard Room Sales</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span>Opening Balance</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-secondary">OB001</span>
+                                        </td>
+                                        <td class="text-center">-</td>
+                                        <td class="credit-amount">$0.00</td>
+                                        <td>
+                                            <span class="balance-amount zero-balance">$0.00</span>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Entry 1 -->
+                                    <tr class="ledger-entry entry-credit">
+                                        <td>
+                                            <span class="fw-bold">2025-12-05</span>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <span class="account-code">4001</span><br>
+                                                <small>Standard Room Sales</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span>Room booking - Room 101 (3 nights)</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">INV20241205001</span>
+                                        </td>
+                                        <td class="text-center">-</td>
+                                        <td class="credit-amount">$450.00</td>
+                                        <td>
+                                            <span class="balance-amount positive-balance">$450.00</span>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Entry 2 -->
+                                    <tr class="ledger-entry entry-credit">
+                                        <td>
+                                            <span class="fw-bold">2025-12-07</span>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <span class="account-code">4001</span><br>
+                                                <small>Standard Room Sales</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span>Room booking - Room 102 (2 nights)</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">INV20241207003</span>
+                                        </td>
+                                        <td class="text-center">-</td>
+                                        <td class="credit-amount">$300.00</td>
+                                        <td>
+                                            <span class="balance-amount positive-balance">$750.00</span>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Entry 3 -->
+                                    <tr class="ledger-entry entry-credit">
+                                        <td>
+                                            <span class="fw-bold">2025-12-10</span>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <span class="account-code">4001</span><br>
+                                                <small>Standard Room Sales</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span>Room booking - Room 105 (5 nights)</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">INV20241210005</span>
+                                        </td>
+                                        <td class="text-center">-</td>
+                                        <td class="credit-amount">$750.00</td>
+                                        <td>
+                                            <span class="balance-amount positive-balance">$1,500.00</span>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Entry 4 -->
+                                    <tr class="ledger-entry entry-debit">
+                                        <td>
+                                            <span class="fw-bold">2025-12-12</span>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <span class="account-code">4001</span><br>
+                                                <small>Standard Room Sales</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span>Refund - Cancelled booking</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-warning">REF20241212001</span>
+                                        </td>
+                                        <td class="debit-amount">$150.00</td>
+                                        <td class="text-center">-</td>
+                                        <td>
+                                            <span class="balance-amount positive-balance">$1,350.00</span>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Entry 5 -->
+                                    <tr class="ledger-entry entry-credit">
+                                        <td>
+                                            <span class="fw-bold">2025-12-15</span>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <span class="account-code">4001</span><br>
+                                                <small>Standard Room Sales</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span>Room booking - Room 108 (4 nights)</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">INV20241215008</span>
+                                        </td>
+                                        <td class="text-center">-</td>
+                                        <td class="credit-amount">$600.00</td>
+                                        <td>
+                                            <span class="balance-amount positive-balance">$1,950.00</span>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Entry 6 -->
+                                    <tr class="ledger-entry entry-credit">
+                                        <td>
+                                            <span class="fw-bold">2025-12-18</span>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <span class="account-code">4001</span><br>
+                                                <small>Standard Room Sales</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span>Room booking - Room 110 (2 nights)</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">INV20241218012</span>
+                                        </td>
+                                        <td class="text-center">-</td>
+                                        <td class="credit-amount">$300.00</td>
+                                        <td>
+                                            <span class="balance-amount positive-balance">$2,250.00</span>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Entry 7 -->
+                                    <tr class="ledger-entry entry-credit">
+                                        <td>
+                                            <span class="fw-bold">2025-12-20</span>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <span class="account-code">4001</span><br>
+                                                <small>Standard Room Sales</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span>Room booking - Room 112 (3 nights)</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">INV20241220015</span>
+                                        </td>
+                                        <td class="text-center">-</td>
+                                        <td class="credit-amount">$450.00</td>
+                                        <td>
+                                            <span class="balance-amount positive-balance">$2,700.00</span>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Entry 8 -->
+                                    <tr class="ledger-entry entry-debit">
+                                        <td>
+                                            <span class="fw-bold">2025-12-22</span>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <span class="account-code">4001</span><br>
+                                                <small>Standard Room Sales</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span>Discount - Loyalty Customer</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">DISC20241222001</span>
+                                        </td>
+                                        <td class="debit-amount">$75.00</td>
+                                        <td class="text-center">-</td>
+                                        <td>
+                                            <span class="balance-amount positive-balance">$2,625.00</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="table-light">
+                                    <tr>
+                                        <th colspan="4" class="text-end">Totals:</th>
+                                        <th class="debit-amount">$225.00</th>
+                                        <th class="credit-amount">$2,850.00</th>
+                                        <th class="balance-amount positive-balance">$2,625.00</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="4" class="text-end">Closing Balance:</th>
+                                        <th colspan="2" class="text-center">-</th>
+                                        <th class="balance-amount positive-balance">$2,625.00</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted">Showing 9 of 45 entries for Account 4001</span>
+                            </div>
+                            <nav aria-label="Ledger pagination">
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Summary and Chart -->
+        <div class="row mb-4">
+            <!-- Account Summary -->
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-chart-pie me-2"></i>Account Summary</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Account Type</th>
+                                        <th class="text-end">Debit Total</th>
+                                        <th class="text-end">Credit Total</th>
+                                        <th class="text-end">Net Balance</th>
+                                        <th class="text-end">Accounts</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <i class="fas fa-building text-primary me-2"></i>
+                                            <strong>Assets</strong>
+                                        </td>
+                                        <td class="text-end debit-amount">$718,121.00</td>
+                                        <td class="text-end credit-amount">$0.00</td>
+                                        <td class="text-end">
+                                            <span class="balance-amount positive-balance">$718,121.00</span>
+                                        </td>
+                                        <td class="text-end">6</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fas fa-hand-holding-usd text-warning me-2"></i>
+                                            <strong>Liabilities</strong>
+                                        </td>
+                                        <td class="text-end debit-amount">$0.00</td>
+                                        <td class="text-end credit-amount">$185,420.50</td>
+                                        <td class="text-end">
+                                            <span class="balance-amount negative-balance">$185,420.50</span>
+                                        </td>
+                                        <td class="text-end">5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fas fa-chart-line text-success me-2"></i>
+                                            <strong>Equity</strong>
+                                        </td>
+                                        <td class="text-end debit-amount">$0.00</td>
+                                        <td class="text-end credit-amount">$350,000.00</td>
+                                        <td class="text-end">
+                                            <span class="balance-amount negative-balance">$350,000.00</span>
+                                        </td>
+                                        <td class="text-end">3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fas fa-money-bill-wave text-info me-2"></i>
+                                            <strong>Revenue</strong>
+                                        </td>
+                                        <td class="text-end debit-amount">$8,520.75</td>
+                                        <td class="text-end credit-amount">$124,850.75</td>
+                                        <td class="text-end">
+                                            <span class="balance-amount positive-balance">$116,330.00</span>
+                                        </td>
+                                        <td class="text-end">8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fas fa-receipt text-danger me-2"></i>
+                                            <strong>Expenses</strong>
+                                        </td>
+                                        <td class="text-end debit-amount">$118,420.50</td>
+                                        <td class="text-end credit-amount">$2,850.00</td>
+                                        <td class="text-end">
+                                            <span class="balance-amount negative-balance">$115,570.50</span>
+                                        </td>
+                                        <td class="text-end">20</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="table-active">
+                                        <th>Grand Total</th>
+                                        <th class="text-end debit-amount">$845,062.25</th>
+                                        <th class="text-end credit-amount">$663,121.25</th>
+                                        <th class="text-end">
+                                            <span class="balance-amount positive-balance">$181,941.00</span>
+                                        </th>
+                                        <th class="text-end">42</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h6 class="text-muted mb-3">Key Metrics</h6>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block">Current Ratio</small>
+                                        <h4 class="text-success fw-bold">2.8:1</h4>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block">Debt to Equity</small>
+                                        <h4 class="text-warning fw-bold">0.53</h4>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block">Profit Margin</small>
+                                        <h4 class="text-primary fw-bold">18.5%</h4>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mb-3">
+                                        <small class="text-muted d-block">ROI</small>
+                                        <h4 class="text-info fw-bold">22.3%</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chart Section -->
+            <div class="col-lg-6 col-md-12 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Account Type Distribution</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="accountDistributionChart"></canvas>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="bg-primary p-2 rounded-circle me-3">
+                                        <i class="fas fa-building text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 fw-bold">Assets</p>
+                                        <small class="text-muted">54.8% of total</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="bg-info p-2 rounded-circle me-3">
+                                        <i class="fas fa-money-bill-wave text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 fw-bold">Revenue</p>
+                                        <small class="text-muted">18.8% of total</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="bg-warning p-2 rounded-circle me-3">
+                                        <i class="fas fa-hand-holding-usd text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 fw-bold">Liabilities</p>
+                                        <small class="text-muted">14.2% of total</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="bg-danger p-2 rounded-circle me-3">
+                                        <i class="fas fa-receipt text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 fw-bold">Expenses</p>
+                                        <small class="text-muted">8.8% of total</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Transaction Details Modal -->
+    <div class="modal fade" id="transactionDetailsModal" tabindex="-1" aria-labelledby="transactionDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="transactionDetailsModalLabel">
+                        <i class="fas fa-info-circle me-2"></i>Transaction Details
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Transaction ID</label>
+                            <p id="modalTransactionId">INV20241205001</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Date</label>
+                            <p id="modalTransactionDate">2025-12-05</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Account</label>
+                            <p id="modalTransactionAccount">4001 - Standard Room Sales</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Type</label>
+                            <p id="modalTransactionType"><span class="badge bg-success">Credit</span></p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Amount</label>
+                            <p id="modalTransactionAmount" class="h4 text-success">$450.00</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Balance After</label>
+                            <p id="modalBalanceAfter" class="h4 text-primary">$450.00</p>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label class="form-label fw-bold">Description</label>
+                            <p id="modalTransactionDescription">Room booking - Room 101 (3 nights)</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Created By</label>
+                            <p id="modalTransactionCreatedBy">Front Desk (User: Jane)</p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Created At</label>
+                            <p id="modalTransactionCreatedAt">2025-12-05 14:30 PM</p>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label fw-bold">Reference Details</label>
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <small class="text-muted d-block">Invoice Number</small>
+                                            <strong>INV-20241205-001</strong>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <small class="text-muted d-block">Customer</small>
+                                            <strong>John Smith</strong>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <small class="text-muted d-block">Room</small>
+                                            <strong>Room 101</strong>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <small class="text-muted d-block">Nights</small>
+                                            <strong>3 nights</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="printTransactionBtn">
+                        <i class="fas fa-print me-1"></i> Print Details
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    
+    <script>
+        // General Ledger Report Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize date pickers
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('dateTo').value = today;
+            
+            // Set default date from to start of month
+            const firstDayOfMonth = today.substring(0, 8) + '01';
+            document.getElementById('dateFrom').value = firstDayOfMonth;
+            
+            // Account tree click handlers
+            document.querySelectorAll('.account-tree-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remove active class from all items
+                    document.querySelectorAll('.account-tree-item').forEach(i => {
+                        i.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                    
+                    // Get account type or code
+                    const accountType = this.dataset.accountType;
+                    const accountCode = this.dataset.accountCode;
+                    
+                    if (accountCode) {
+                        // Load specific account ledger
+                        loadAccountLedger(accountCode);
+                    } else if (accountType) {
+                        // Load account type ledger
+                        loadAccountTypeLedger(accountType);
+                    }
+                });
+            });
+            
+            // Ledger entry click handlers
+            document.querySelectorAll('.ledger-entry').forEach(entry => {
+                entry.addEventListener('click', function() {
+                    const reference = this.querySelector('.badge').textContent;
+                    showTransactionDetails(reference);
+                });
+            });
+            
+            // Apply filters button
+            document.getElementById('reportFilterForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                applyFilters();
+            });
+            
+            // Reset filters button
+            document.getElementById('resetFiltersBtn').addEventListener('click', function() {
+                resetFilters();
+            });
+            
+            // Refresh ledger button
+            document.getElementById('refreshLedgerBtn').addEventListener('click', function() {
+                refreshLedger();
+            });
+            
+            // Print ledger button
+            document.getElementById('printLedgerBtn').addEventListener('click', function() {
+                printLedger();
+            });
+            
+            // Export report button
+            document.getElementById('exportReportBtn').addEventListener('click', function() {
+                exportReport();
+            });
+            
+            // Print transaction button
+            document.getElementById('printTransactionBtn').addEventListener('click', function() {
+                printTransactionDetails();
+            });
+            
+            // Initialize chart
+            initializeChart();
+            
+            // Load initial ledger for selected account (4001)
+            loadAccountLedger('4001');
+        });
+        
+        function loadAccountLedger(accountCode) {
+            // In a real application, you would fetch ledger data from API
+            // For now, we'll update the table header and show a message
+            
+            const accountName = getAccountName(accountCode);
+            const accountType = getAccountType(accountCode);
+            
+            // Update table header
+            const header = document.querySelector('.card-header h5');
+            header.innerHTML = `<i class="fas fa-list me-2"></i>Ledger Entries - ${accountCode}: ${accountName}`;
+            
+            // Show loading message
+            showAlert(`Loading ledger for account ${accountCode}: ${accountName}`, 'info');
+            
+            // Update showing text
+            document.querySelector('.card-footer span').textContent = `Showing 9 of 45 entries for Account ${accountCode}`;
+            
+            // Update totals based on account type
+            updateTotalsForAccount(accountCode);
+        }
+        
+        function loadAccountTypeLedger(accountType) {
+            // In a real application, you would fetch ledger data for account type from API
+            // For now, we'll update the table header and show a message
+            
+            const typeName = getAccountTypeName(accountType);
+            
+            // Update table header
+            const header = document.querySelector('.card-header h5');
+            header.innerHTML = `<i class="fas fa-list me-2"></i>Ledger Entries - ${typeName}`;
+            
+            // Show loading message
+            showAlert(`Loading ledger for ${typeName} accounts`, 'info');
+            
+            // Update showing text
+            document.querySelector('.card-footer span').textContent = `Showing 50 of 245 entries for ${typeName}`;
+            
+            // Update totals based on account type
+            updateTotalsForAccountType(accountType);
+        }
+        
+        function showTransactionDetails(reference) {
+            // Transaction data
+            const transactionData = {
+                'INV20241205001': {
+                    id: 'INV20241205001',
+                    date: '2025-12-05',
+                    account: '4001 - Standard Room Sales',
+                    type: 'Credit',
+                    amount: '$450.00',
+                    balanceAfter: '$450.00',
+                    description: 'Room booking - Room 101 (3 nights)',
+                    createdBy: 'Front Desk (User: Jane)',
+                    createdAt: '2025-12-05 14:30 PM',
+                    invoiceNo: 'INV-20241205-001',
+                    customer: 'John Smith',
+                    room: 'Room 101',
+                    nights: '3 nights'
+                },
+                'REF20241212001': {
+                    id: 'REF20241212001',
+                    date: '2025-12-12',
+                    account: '4001 - Standard Room Sales',
+                    type: 'Debit',
+                    amount: '$150.00',
+                    balanceAfter: '$1,350.00',
+                    description: 'Refund - Cancelled booking',
+                    createdBy: 'Front Desk (User: John)',
+                    createdAt: '2025-12-12 11:15 AM',
+                    invoiceNo: 'REF-20241212-001',
+                    customer: 'Sarah Johnson',
+                    room: 'Room 105',
+                    nights: 'Cancelled'
+                },
+                'DISC20241222001': {
+                    id: 'DISC20241222001',
+                    date: '2025-12-22',
+                    account: '4001 - Standard Room Sales',
+                    type: 'Debit',
+                    amount: '$75.00',
+                    balanceAfter: '$2,625.00',
+                    description: 'Discount - Loyalty Customer',
+                    createdBy: 'Manager (User: Admin)',
+                    createdAt: '2025-12-22 09:45 AM',
+                    invoiceNo: 'DISC-20241222-001',
+                    customer: 'Michael Brown (Loyalty)',
+                    room: 'Room 112',
+                    nights: '3 nights'
+                }
+            };
+            
+            const data = transactionData[reference] || transactionData['INV20241205001'];
+            
+            // Populate modal
+            document.getElementById('modalTransactionId').textContent = data.id;
+            document.getElementById('modalTransactionDate').textContent = data.date;
+            document.getElementById('modalTransactionAccount').textContent = data.account;
+            document.getElementById('modalTransactionAmount').textContent = data.amount;
+            document.getElementById('modalBalanceAfter').textContent = data.balanceAfter;
+            document.getElementById('modalTransactionDescription').textContent = data.description;
+            document.getElementById('modalTransactionCreatedBy').textContent = data.createdBy;
+            document.getElementById('modalTransactionCreatedAt').textContent = data.createdAt;
+            
+            // Update type badge
+            const typeBadge = document.getElementById('modalTransactionType');
+            typeBadge.innerHTML = '';
+            const badgeClass = data.type === 'Credit' ? 'bg-success' : 'bg-danger';
+            typeBadge.innerHTML = `<span class="badge ${badgeClass}">${data.type}</span>`;
+            
+            // Update reference details
+            const refDetails = document.querySelector('.card-body .row');
+            refDetails.innerHTML = `
+                <div class="col-md-6">
+                    <small class="text-muted d-block">Invoice Number</small>
+                    <strong>${data.invoiceNo}</strong>
+                </div>
+                <div class="col-md-6">
+                    <small class="text-muted d-block">Customer</small>
+                    <strong>${data.customer}</strong>
+                </div>
+                <div class="col-md-6">
+                    <small class="text-muted d-block">Room</small>
+                    <strong>${data.room}</strong>
+                </div>
+                <div class="col-md-6">
+                    <small class="text-muted d-block">Nights</small>
+                    <strong>${data.nights}</strong>
+                </div>
+            `;
+            
+            // Show modal
+            const modal = new bootstrap.Modal(document.getElementById('transactionDetailsModal'));
+            modal.show();
+        }
+        
+        function applyFilters() {
+            const accountType = document.getElementById('accountType').value;
+            const dateFrom = document.getElementById('dateFrom').value;
+            const dateTo = document.getElementById('dateTo').value;
+            const accountCode = document.getElementById('accountCode').value;
+            const mainAccount = document.getElementById('mainAccount').value;
+            const transactionType = document.getElementById('transactionType').value;
+            const minAmount = document.getElementById('minAmount').value;
+            
+            // Build filter message
+            let filterMessage = 'Applying filters: ';
+            const filters = [];
+            
+            if (accountType) filters.push(`Type: ${getAccountTypeName(accountType)}`);
+            if (dateFrom && dateTo) filters.push(`Date: ${dateFrom} to ${dateTo}`);
+            if (accountCode) filters.push(`Account Code: ${accountCode}`);
+            if (mainAccount) filters.push(`Main Account: ${mainAccount}`);
+            if (transactionType) filters.push(`Transaction: ${transactionType}`);
+            if (minAmount) filters.push(`Min Amount: $${minAmount}`);
+            
+            filterMessage += filters.join(', ');
+            
+            showAlert(filterMessage, 'info');
+            
+            // In a real application, you would send filter criteria to API
+            // For now, we'll simulate filtering
+            simulateFiltering();
+        }
+        
+        function resetFilters() {
+            const today = new Date().toISOString().split('T')[0];
+            const firstDayOfMonth = today.substring(0, 8) + '01';
+            
+            document.getElementById('accountType').value = '';
+            document.getElementById('dateFrom').value = firstDayOfMonth;
+            document.getElementById('dateTo').value = today;
+            document.getElementById('accountCode').value = '';
+            document.getElementById('mainAccount').value = '';
+            document.getElementById('transactionType').value = '';
+            document.getElementById('minAmount').value = '';
+            
+            showAlert('Filters reset to default values', 'info');
+            
+            // Reset to default view
+            loadAccountLedger('4001');
+            
+            // Reset account tree selection
+            document.querySelectorAll('.account-tree-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelector('[data-account-code="4001"]').classList.add('active');
+        }
+        
+        function refreshLedger() {
+            // In a real application, you would refresh data from API
+            // For now, we'll show a message
+            showAlert('Refreshing ledger data...', 'info');
+            
+            // Simulate refresh
+            setTimeout(() => {
+                showAlert('Ledger data refreshed successfully', 'success');
+            }, 1000);
+        }
+        
+        function printLedger() {
+            // In a real application, this would open a print dialog with formatted ledger
+            showAlert('Opening print preview for ledger...', 'info');
+            
+            // Simulate print
+            setTimeout(() => {
+                window.print();
+            }, 500);
+        }
+        
+        function exportReport() {
+            // In a real application, this would generate and download a CSV or PDF
+            showAlert('Exporting general ledger report...', 'info');
+            
+            // Simulate export process
+            setTimeout(() => {
+                showAlert('General ledger report exported successfully!', 'success');
+            }, 1500);
+        }
+        
+        function printTransactionDetails() {
+            // In a real application, this would open a print dialog with transaction details
+            showAlert('Opening print preview for transaction details...', 'info');
+            
+            // Simulate print
+            setTimeout(() => {
+                window.print();
+            }, 500);
+        }
+        
+        function simulateFiltering() {
+            // Simulate filtering by showing loading state
+            const rows = document.querySelectorAll('#ledgerTableBody tr');
+            rows.forEach((row, index) => {
+                // Hide some rows randomly to simulate filtering
+                if (index % 3 === 0) {
+                    row.style.display = 'none';
+                }
+            });
+            
+            // Update showing count
+            const visibleRows = document.querySelectorAll('#ledgerTableBody tr:not([style*="display: none"])');
+            document.querySelector('.card-footer span').textContent = `Showing ${visibleRows.length} of ${rows.length} entries`;
+        }
+        
+        function updateTotalsForAccount(accountCode) {
+            // Update totals based on account code
+            const totals = {
+                '4001': { debit: '$225.00', credit: '$2,850.00', balance: '$2,625.00' },
+                '1001': { debit: '$15,250.75', credit: '$2,400.00', balance: '$12,850.75' },
+                '1002': { debit: '$145,820.50', credit: '$20,969.75', balance: '$124,850.75' },
+                '1003': { debit: '$28,750.50', credit: '$3,330.00', balance: '$25,420.50' }
+            };
+            
+            const total = totals[accountCode] || { debit: '$0.00', credit: '$0.00', balance: '$0.00' };
+            
+            // Update table footer
+            document.querySelector('tfoot .debit-amount').textContent = total.debit;
+            document.querySelector('tfoot .credit-amount').textContent = total.credit;
+            document.querySelector('tfoot .balance-amount').textContent = total.balance;
+        }
+        
+        function updateTotalsForAccountType(accountType) {
+            // Update totals based on account type
+            const totals = {
+                'asset': { debit: '$718,121.00', credit: '$0.00', balance: '$718,121.00' },
+                'revenue': { debit: '$8,520.75', credit: '$124,850.75', balance: '$116,330.00' },
+                'expense': { debit: '$118,420.50', credit: '$2,850.00', balance: '$115,570.50' }
+            };
+            
+            const total = totals[accountType] || { debit: '$0.00', credit: '$0.00', balance: '$0.00' };
+            
+            // Update table footer
+            document.querySelector('tfoot .debit-amount').textContent = total.debit;
+            document.querySelector('tfoot .credit-amount').textContent = total.credit;
+            document.querySelector('tfoot .balance-amount').textContent = total.balance;
+        }
+        
+        function getAccountName(code) {
+            const accounts = {
+                '1001': 'Cash In Hand',
+                '1002': 'Bank Accounts',
+                '1003': 'Accounts Receivable',
+                '1004': 'Inventory',
+                '1101': 'Property & Buildings',
+                '1102': 'Furniture & Equipment',
+                '4001': 'Standard Room Sales',
+                '4002': 'Suite Sales',
+                '4003': 'Service Charges'
+            };
+            return accounts[code] || `Account ${code}`;
+        }
+        
+        function getAccountType(code) {
+            const types = {
+                '1001': 'asset', '1002': 'asset', '1003': 'asset', '1004': 'asset',
+                '1101': 'asset', '1102': 'asset',
+                '4001': 'revenue', '4002': 'revenue', '4003': 'revenue'
+            };
+            return types[code] || 'unknown';
+        }
+        
+        function getAccountTypeName(type) {
+            const names = {
+                'asset': 'Assets',
+                'liability': 'Liabilities',
+                'equity': 'Equity',
+                'revenue': 'Revenue',
+                'expense': 'Expenses',
+                'bank': 'Bank Accounts',
+                'cash': 'Cash Accounts',
+                'current-assets': 'Current Assets',
+                'fixed-assets': 'Fixed Assets',
+                'room-revenue': 'Room Revenue',
+                'f-b-revenue': 'Food & Beverage Revenue',
+                'other-revenue': 'Other Revenue'
+            };
+            return names[type] || type;
+        }
+        
+        function initializeChart() {
+            const ctx = document.getElementById('accountDistributionChart').getContext('2d');
+            
+            // Chart data
+            const data = {
+                labels: ['Assets', 'Liabilities', 'Equity', 'Revenue', 'Expenses'],
+                datasets: [{
+                    data: [54.8, 14.2, 26.7, 18.8, 8.8],
+                    backgroundColor: [
+                        '#007bff',
+                        '#ffc107',
+                        '#28a745',
+                        '#17a2b8',
+                        '#dc3545'
+                    ],
+                    borderColor: [
+                        '#0056b3',
+                        '#d39e00',
+                        '#1e7e34',
+                        '#117a8b',
+                        '#bd2130'
+                    ],
+                    borderWidth: 1
+                }]
+            };
+            
+            // Chart configuration
+            const config = {
+                type: 'doughnut',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                usePointStyle: true,
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    return `${label}: ${value}%`;
+                                }
+                            }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            };
+            
+            // Create chart
+            new Chart(ctx, config);
+        }
+        
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+    </script>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+
+    <!-- Include JavaScript -->
+    <script src="js/include.js"></script>
+     <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

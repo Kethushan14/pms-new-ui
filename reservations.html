@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ovia PMS - Hotel Admin Dashboard</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+
+</head>
+<body>
+    <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                        <li><a href="today-arrivals.html" data-subsection="arrivals">Today Arrivals</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-calendar-check me-2"></i>Reservations
+                                </h1>
+                                <p class="card-text text-muted mb-0">Create and manage hotel reservations</p>
+                                <small class="text-muted">Total Active Reservations: <span class="fw-bold">12</span> • Today Arrivals: <span class="text-success fw-bold">24</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-primary" id="quickReservationBtn">
+                                    <i class="fas fa-plus me-1"></i> Quick Reservation
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Left Column - Reservation Details -->
+            <div class="col-lg-8 mb-4">
+                <!-- Reservation Details Card -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Reservation Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="reservationId" class="form-label required">Reservation ID</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
+                                    <input type="text" class="form-control" id="reservationId" value="REC100114" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="source" class="form-label required">Source *</label>
+                                <select class="form-select" id="source" required>
+                                    <option value="">Select Source</option>
+                                    <option value="website" selected>Hotel Website</option>
+                                    <option value="booking.com">Booking.com</option>
+                                    <option value="expedia">Expedia</option>
+                                    <option value="agoda">Agoda</option>
+                                    <option value="direct">Direct Call</option>
+                                    <option value="walk-in">Walk-in</option>
+                                    <option value="travel-agent">Travel Agent</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="checkIn" class="form-label required">Check-In *</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                    <input type="date" class="form-control" id="checkIn" value="2024-12-20" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="checkOut" class="form-label required">Check-Out *</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                    <input type="date" class="form-control" id="checkOut" value="2024-12-23" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="nights" class="form-label">Nights</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-moon"></i></span>
+                                    <input type="number" class="form-control" id="nights" value="3" min="1" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="noOfRooms" class="form-label required">No Of Rooms *</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-bed"></i></span>
+                                    <input type="number" class="form-control" id="noOfRooms" value="1" min="1" max="10" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="mealPlan" class="form-label required">Meal Plan *</label>
+                                <select class="form-select" id="mealPlan" required>
+                                    <option value="">Select Meal Plan</option>
+                                    <option value="bed-breakfast" selected>Bed & Breakfast</option>
+                                    <option value="half-board">Half Board</option>
+                                    <option value="full-board">Full Board</option>
+                                    <option value="all-inclusive">All Inclusive</option>
+                                    <option value="room-only">Room Only</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="roomCategory" class="form-label required">Room Category *</label>
+                                <select class="form-select" id="roomCategory" required>
+                                    <option value="">Select Category</option>
+                                    <option value="standard" selected>Standard</option>
+                                    <option value="deluxe">Deluxe</option>
+                                    <option value="executive">Executive</option>
+                                    <option value="suite">Suite</option>
+                                    <option value="presidential">Presidential</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="roomType" class="form-label required">Room Type *</label>
+                                <select class="form-select" id="roomType" required>
+                                    <option value="">Select Type</option>
+                                    <option value="single" selected>Single</option>
+                                    <option value="double">Double</option>
+                                    <option value="twin">Twin</option>
+                                    <option value="triple">Triple</option>
+                                    <option value="family">Family</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="roomNumber" class="form-label">Room Number</label>
+                                <select class="form-select" id="roomNumber">
+                                    <option value="">Auto Assign</option>
+                                    <option value="101">101</option>
+                                    <option value="102">102</option>
+                                    <option value="103">103</option>
+                                    <option value="201">201</option>
+                                    <option value="202">202</option>
+                                    <option value="203" selected>203</option>
+                                    <option value="301">301</option>
+                                    <option value="302">302</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="adults" class="form-label required">Adult *</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    <input type="number" class="form-control" id="adults" value="2" min="1" max="4" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="children" class="form-label">Child</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-child"></i></span>
+                                    <input type="number" class="form-control" id="children" value="0" min="0" max="3">
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="discount" class="form-label">Discount(%) *</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-percentage"></i></span>
+                                    <input type="number" class="form-control" id="discount" value="0" min="0" max="100" step="0.1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Guest Information Card -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-user-friends me-2"></i>Guest Information
+                                                </h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Guest Type Selection -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="guestType" id="newGuest" checked>
+                                    <label class="form-check-label" for="newGuest">New Guest</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="guestType" id="existingGuest">
+                                    <label class="form-check-label" for="existingGuest">Existing Guest</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Existing Guest Search -->
+                        <div class="row mb-4" id="existingGuestSection" style="display: none;">
+                            <div class="col-12">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search guest by name, email, or phone...">
+                                    <button class="btn btn-outline-primary" type="button">
+                                        <i class="fas fa-search"></i> Search
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Guest Form -->
+                        <div class="row" id="guestFormSection">
+                            <div class="col-md-3 mb-3">
+                                <label for="title" class="form-label required">Title *</label>
+                                <select class="form-select" id="title" required>
+                                    <option value="">Select</option>
+                                    <option value="Mr" selected>Mr.</option>
+                                    <option value="Mrs">Mrs.</option>
+                                    <option value="Ms">Ms.</option>
+                                    <option value="Dr">Dr.</option>
+                                    <option value="Prof">Prof.</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="firstName" class="form-label required">First Name *</label>
+                                <input type="text" class="form-control" id="firstName" value="John" required>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="lastName" class="form-label required">Last Name *</label>
+                                <input type="text" class="form-control" id="lastName" value="Doe" required>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="registrationId" class="form-label">Registration ID *</label>
+                                <input type="text" class="form-control" id="registrationId" value="REG10045" readonly>
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="country" class="form-label required">Country *</label>
+                                <select class="form-select" id="country" required>
+                                    <option value="">Select</option>
+                                    <option value="USA" selected>United States</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Sri Lanka">Sri Lanka</option>
+                                    <option value="India">India</option>
+                                    <option value="France">France</option>
+                                    <option value="Germany">Germany</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="travelAssociation" class="form-label">Travel Association</label>
+                                <select class="form-select" id="travelAssociation">
+                                    <option value="">Select</option>
+                                    <option value="IATA">IATA</option>
+                                    <option value="ASTA">ASTA</option>
+                                    <option value="PATA">PATA</option>
+                                    <option value="UTA">UTA</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-4 mb-3">
+                                <label for="mobile" class="form-label required">Mobile *</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">+1</span>
+                                    <input type="tel" class="form-control" id="mobile" value="5551234567" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="telephone" class="form-label">Telephone</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">+1</span>
+                                    <input type="tel" class="form-control" id="telephone" value="5559876543">
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="email" class="form-label required">Email *</label>
+                                <input type="email" class="form-control" id="email" value="john.doe@example.com" required>
+                            </div>
+                            
+                            <div class="col-12 mb-3">
+                                <label for="address" class="form-label">Address</label>
+                                <textarea class="form-control" id="address" rows="2">123 Main Street, New York, NY 10001</textarea>
+                            </div>
+                            
+                            <div class="col-12">
+                                <button class="btn btn-primary" id="saveGuestBtn">
+                                    <i class="fas fa-save me-1"></i> Save Guest Information
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Services Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-concierge-bell me-2"></i>Additional Services</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="servicesTable">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th width="100">Service Code</th>
+                                        <th>Service Name</th>
+                                        <th>Department</th>
+                                        <th>Service Category</th>
+                                        <th>Service Sub Category</th>
+                                        <th width="100">Quantity</th>
+                                        <th width="100">Price</th>
+                                        <th width="80">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="badge bg-info">SVC001</span></td>
+                                        <td>Airport Transfer</td>
+                                        <td>Transport</td>
+                                        <td>Transportation</td>
+                                        <td>Airport Services</td>
+                                        <td>
+                                            <input type="number" class="form-control form-control-sm" value="1" min="1">
+                                        </td>
+                                        <td>$50.00</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-danger">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="badge bg-info">SVC002</span></td>
+                                        <td>Spa Treatment</td>
+                                        <td>Wellness</td>
+                                        <td>Spa</td>
+                                        <td>Massage</td>
+                                        <td>
+                                            <input type="number" class="form-control form-control-sm" value="2" min="1">
+                                        </td>
+                                        <td>$80.00</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-danger">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-md-4 mb-3">
+                                <label for="serviceCode" class="form-label">Service Code</label>
+                                <input type="text" class="form-control" id="serviceCode" placeholder="Enter service code">
+                            </div>
+                            <div class="col-md-8 mb-3">
+                                <label for="serviceSearch" class="form-label">Search Service</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="serviceSearch" placeholder="Search services...">
+                                    <button class="btn btn-outline-primary" type="button" id="addServiceBtn">
+                                        <i class="fas fa-plus"></i> Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column - Estimate & Actions -->
+            <div class="col-lg-4 mb-4">
+                <!-- Estimate Card -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-calculator me-2"></i>Estimate Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="estimate-details">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span>Room Rate (3 nights):</span>
+                                <span class="fw-bold">$450.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span>Meal Plan:</span>
+                                <span class="fw-bold">$120.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span>Additional Services:</span>
+                                <span class="fw-bold">$130.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span>Sub Total:</span>
+                                <span class="fw-bold">$700.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span>Discount (0%):</span>
+                                <span class="fw-bold">$0.00</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span>VAT (15%):</span>
+                                <span class="fw-bold">$105.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span>Service Charge (10%):</span>
+                                <span class="fw-bold">$70.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span>TDL (2%):</span>
+                                <span class="fw-bold">$14.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span>NBT (2%):</span>
+                                <span class="fw-bold">$14.00</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="h5 mb-0">Total:</span>
+                                <span class="h4 mb-0 text-primary">$903.00</span>
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary" id="calculateEstimateBtn">
+                                    <i class="fas fa-calculator me-1"></i> Calculate Estimate
+                                </button>
+                                <button class="btn btn-success" id="confirmReservationBtn">
+                                    <i class="fas fa-check-circle me-1"></i> Confirm Reservation
+                                </button>
+                                <button class="btn btn-outline-secondary" id="printEstimateBtn">
+                                    <i class="fas fa-print me-1"></i> Print Estimate
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Actions Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-bolt me-2"></i>Quick Actions</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-outline-primary">
+                                <i class="fas fa-copy me-1"></i> Clone Reservation
+                            </button>
+                            <button class="btn btn-outline-warning">
+                                <i class="fas fa-edit me-1"></i> Modify Reservation
+                            </button>
+                            <button class="btn btn-outline-danger">
+                                <i class="fas fa-times-circle me-1"></i> Cancel Reservation
+                            </button>
+                            <button class="btn btn-outline-info">
+                                <i class="fas fa-file-invoice me-1"></i> Generate Invoice
+                            </button>
+                            <button class="btn btn-outline-success">
+                                <i class="fas fa-envelope me-1"></i> Send Confirmation
+                            </button>
+                        </div>
+                        
+                        <hr>
+                        
+                        <div class="status-indicators mt-3">
+                            <h6 class="mb-2">Reservation Status</h6>
+                            <div class="btn-group w-100" role="group">
+                                <button type="button" class="btn btn-sm btn-success active">Confirmed</button>
+                                <button type="button" class="btn btn-sm btn-warning">Tentative</button>
+                                <button type="button" class="btn btn-sm btn-secondary">Waitlist</button>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-status mt-3">
+                            <h6 class="mb-2">Payment Status</h6>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-success" style="width: 50%"></div>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <small>Deposit: $451.50</small>
+                                <small>Balance: $451.50</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Quick Reservation Modal -->
+    <div class="modal fade" id="quickReservationModal" tabindex="-1" aria-labelledby="quickReservationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="quickReservationModalLabel">
+                        <i class="fas fa-plus me-2"></i>Quick Reservation
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Quick reservation form will go here -->
+                    <p>Quick reservation form content...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Create Reservation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    
+    <script>
+        // Reservation Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Calculate nights automatically
+            const checkInInput = document.getElementById('checkIn');
+            const checkOutInput = document.getElementById('checkOut');
+            const nightsInput = document.getElementById('nights');
+            
+            function calculateNights() {
+                if (checkInInput.value && checkOutInput.value) {
+                    const checkIn = new Date(checkInInput.value);
+                    const checkOut = new Date(checkOutInput.value);
+                    const timeDiff = checkOut.getTime() - checkIn.getTime();
+                    const nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                    nightsInput.value = nights > 0 ? nights : 1;
+                }
+            }
+            
+            checkInInput.addEventListener('change', calculateNights);
+            checkOutInput.addEventListener('change', calculateNights);
+            
+            // Guest type toggle
+            const newGuestRadio = document.getElementById('newGuest');
+            const existingGuestRadio = document.getElementById('existingGuest');
+            const existingGuestSection = document.getElementById('existingGuestSection');
+            const guestFormSection = document.getElementById('guestFormSection');
+            
+            newGuestRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    existingGuestSection.style.display = 'none';
+                    guestFormSection.style.display = 'block';
+                }
+            });
+            
+            existingGuestRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    existingGuestSection.style.display = 'block';
+                    guestFormSection.style.display = 'none';
+                }
+            });
+            
+            // Calculate estimate
+            document.getElementById('calculateEstimateBtn').addEventListener('click', function() {
+                calculateEstimate();
+            });
+            
+            // Confirm reservation
+            document.getElementById('confirmReservationBtn').addEventListener('click', function() {
+                confirmReservation();
+            });
+            
+            // Save guest information
+            document.getElementById('saveGuestBtn').addEventListener('click', function() {
+                saveGuestInfo();
+            });
+            
+            // Add service
+            document.getElementById('addServiceBtn').addEventListener('click', function() {
+                addService();
+            });
+            
+            // Quick reservation button
+            document.getElementById('quickReservationBtn').addEventListener('click', function() {
+                const quickReservationModal = new bootstrap.Modal(document.getElementById('quickReservationModal'));
+                quickReservationModal.show();
+            });
+            
+            // Print estimate
+            document.getElementById('printEstimateBtn').addEventListener('click', function() {
+                window.print();
+            });
+            
+            // Initialize with current date defaults
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const threeDaysLater = new Date(today);
+            threeDaysLater.setDate(threeDaysLater.getDate() + 3);
+            
+            checkInInput.value = tomorrow.toISOString().split('T')[0];
+            checkOutInput.value = threeDaysLater.toISOString().split('T')[0];
+            calculateNights();
+        });
+        
+        function calculateEstimate() {
+            const nights = parseInt(document.getElementById('nights').value) || 1;
+            const noOfRooms = parseInt(document.getElementById('noOfRooms').value) || 1;
+            const discount = parseFloat(document.getElementById('discount').value) || 0;
+            
+            // Room rate calculation (simplified)
+            const roomRate = 150 * nights * noOfRooms;
+            const mealPlanRate = 40 * nights * noOfRooms;
+            
+            // Additional services calculation
+            let servicesTotal = 0;
+            const serviceRows = document.querySelectorAll('#servicesTable tbody tr');
+            serviceRows.forEach(row => {
+                const quantity = parseInt(row.querySelector('input[type="number"]').value) || 0;
+                const priceText = row.querySelector('td:nth-child(7)').textContent;
+                const price = parseFloat(priceText.replace('$', '')) || 0;
+                servicesTotal += quantity * price;
+            });
+            
+            // Calculate totals
+            const subTotal = roomRate + mealPlanRate + servicesTotal;
+            const discountAmount = subTotal * (discount / 100);
+            const afterDiscount = subTotal - discountAmount;
+            
+            // Taxes and charges
+            const vat = afterDiscount * 0.15; // 15% VAT
+            const serviceCharge = afterDiscount * 0.10; // 10% service charge
+            const tdl = afterDiscount * 0.02; // 2% TDL
+            const nbt = afterDiscount * 0.02; // 2% NBT
+            
+            const total = afterDiscount + vat + serviceCharge + tdl + nbt;
+            
+            // Update estimate display (in a real app, you'd update the HTML elements)
+            showAlert(`Estimate calculated: $${total.toFixed(2)}`, 'info');
+            
+            // You would update the estimate details section with these values
+            console.log({
+                roomRate,
+                mealPlanRate,
+                servicesTotal,
+                subTotal,
+                discountAmount,
+                vat,
+                serviceCharge,
+                tdl,
+                nbt,
+                total
+            });
+        }
+        
+        function confirmReservation() {
+            const reservationId = document.getElementById('reservationId').value;
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            
+            if (!firstName || !lastName) {
+                showAlert('Please complete guest information first', 'warning');
+                return;
+            }
+            
+            if (confirm(`Confirm reservation for ${firstName} ${lastName}?`)) {
+                // In a real application, you would send this to your API
+                showAlert(`Reservation ${reservationId} confirmed successfully!`, 'success');
+                
+                // Generate a new reservation ID for next reservation
+                const newReservationId = 'REC' + (100114 + Math.floor(Math.random() * 100));
+                document.getElementById('reservationId').value = newReservationId;
+                
+                // Show success animation or redirect
+                setTimeout(() => {
+                    showAlert('Reservation details saved. Redirecting to reservations list...', 'success');
+                }, 1000);
+            }
+        }
+        
+        function saveGuestInfo() {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            
+            if (!firstName || !lastName || !email) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            // In a real application, you would save this to your database
+            showAlert(`Guest information saved for ${firstName} ${lastName}`, 'success');
+            
+            // Generate a new registration ID
+            const newRegId = 'REG' + (10045 + Math.floor(Math.random() * 100));
+            document.getElementById('registrationId').value = newRegId;
+        }
+        
+        function addService() {
+            const serviceCode = document.getElementById('serviceCode').value;
+            const serviceSearch = document.getElementById('serviceSearch').value;
+            
+            if (!serviceCode && !serviceSearch) {
+                showAlert('Please enter service code or search for a service', 'warning');
+                return;
+            }
+            
+            // In a real app, you would fetch service details from an API
+            const servicesTable = document.getElementById('servicesTable').getElementsByTagName('tbody')[0];
+            const newRow = servicesTable.insertRow();
+            
+            newRow.innerHTML = `
+                <td><span class="badge bg-info">${serviceCode || 'SVC003'}</span></td>
+                <td>${serviceSearch || 'New Service'}</td>
+                <td>General</td>
+                <td>Additional</td>
+                <td>Miscellaneous</td>
+                <td>
+                    <input type="number" class="form-control form-control-sm" value="1" min="1">
+                </td>
+                <td>$25.00</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-danger remove-service">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </td>
+            `;
+            
+            // Add event listener to remove button
+            newRow.querySelector('.remove-service').addEventListener('click', function() {
+                this.closest('tr').remove();
+            });
+            
+            // Clear inputs
+            document.getElementById('serviceCode').value = '';
+            document.getElementById('serviceSearch').value = '';
+            
+            showAlert('Service added successfully', 'success');
+        }
+        
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+    </script>
+
+<!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+
+    <!-- Include JavaScript -->
+    <script src="js/include.js"></script>
+
+
+</body>
+</html>

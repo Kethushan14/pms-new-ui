@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housekeeping - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+     <link rel="stylesheet" href="css/header.css">
+</head>
+<body>
+
+     
+    <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-broom me-2"></i>Housekeeping Management
+                                </h1>
+                                <p class="card-text text-muted mb-0">Manage room cleaning, maintenance, and housekeeping tasks</p>
+                                <small class="text-muted" id="lastUpdated">Pending Tasks: <span class="fw-bold text-warning">8</span> • Completed Today: <span class="fw-bold">24</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-success" id="refreshDataBtn">
+                                    <i class="fas fa-sync-alt me-1"></i> Refresh
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Housekeeping Overview -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card stat-card bg-warning text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="stat-number">8</h2>
+                                <p class="stat-label mb-0">Pending</p>
+                                <small class="stat-change">Awaiting cleaning</small>
+                            </div>
+                            <div class="stat-icon">
+                                <i class="fas fa-clock fa-3x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card bg-info text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="stat-number">12</h2>
+                                <p class="stat-label mb-0">In Progress</p>
+                                <small class="stat-change">Being cleaned now</small>
+                            </div>
+                            <div class="stat-icon">
+                                <i class="fas fa-spinner fa-3x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card bg-success text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="stat-number">24</h2>
+                                <p class="stat-label mb-0">Completed</p>
+                                <small class="stat-change">Today's cleanings</small>
+                            </div>
+                            <div class="stat-icon">
+                                <i class="fas fa-check-circle fa-3x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card bg-danger text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="stat-number">6</h2>
+                                <p class="stat-label mb-0">Inspections</p>
+                                <small class="stat-change">Due for inspection</small>
+                            </div>
+                            <div class="stat-icon">
+                                <i class="fas fa-clipboard-check fa-3x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Housekeeping Information Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Housekeeping Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th width="50">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="selectAllTasks">
+                                            </div>
+                                        </th>
+                                        <th>Code</th>
+                                        <th>Room</th>
+                                        <th>Status</th>
+                                        <th>Added Date</th>
+                                        <th>Added Time</th>
+                                        <th>Housekeeper</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="housekeepingTableBody">
+                                    <!-- Task 1 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input task-checkbox" type="checkbox" data-task-id="HK001">
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-primary">HK001</span></td>
+                                        <td><strong>Room 101</strong></td>
+                                        <td><span class="badge bg-warning">Pending</span></td>
+                                        <td>2024-12-20</td>
+                                        <td>08:30 AM</td>
+                                        <td>Not Assigned</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary view-task-btn" data-task-id="HK001">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-success assign-task-btn" data-task-id="HK001">
+                                                <i class="fas fa-user-check"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Task 2 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input task-checkbox" type="checkbox" data-task-id="HK002">
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-primary">HK002</span></td>
+                                        <td><strong>Room 102</strong></td>
+                                        <td><span class="badge bg-info">In Progress</span></td>
+                                        <td>2024-12-20</td>
+                                        <td>09:15 AM</td>
+                                        <td>Maria Santos</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary view-task-btn" data-task-id="HK002">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-warning complete-task-btn" data-task-id="HK002">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Task 3 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input task-checkbox" type="checkbox" data-task-id="HK003">
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-primary">HK003</span></td>
+                                        <td><strong>Room 105</strong></td>
+                                        <td><span class="badge bg-success">Completed</span></td>
+                                        <td>2024-12-20</td>
+                                        <td>07:45 AM</td>
+                                        <td>John Smith</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary view-task-btn" data-task-id="HK003">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-info inspect-task-btn" data-task-id="HK003">
+                                                <i class="fas fa-clipboard-check"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Task 4 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input task-checkbox" type="checkbox" data-task-id="HK004">
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-primary">HK004</span></td>
+                                        <td><strong>Room 108</strong></td>
+                                        <td><span class="badge bg-warning">Pending</span></td>
+                                        <td>2024-12-20</td>
+                                        <td>10:00 AM</td>
+                                        <td>Not Assigned</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary view-task-btn" data-task-id="HK004">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-success assign-task-btn" data-task-id="HK004">
+                                                <i class="fas fa-user-check"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Task 5 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input task-checkbox" type="checkbox" data-task-id="HK005">
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-primary">HK005</span></td>
+                                        <td><strong>Room 201</strong></td>
+                                        <td><span class="badge bg-danger">Maintenance</span></td>
+                                        <td>2024-12-20</td>
+                                        <td>11:30 AM</td>
+                                        <td>Maintenance Team</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary view-task-btn" data-task-id="HK005">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-warning complete-task-btn" data-task-id="HK005">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Task 6 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input task-checkbox" type="checkbox" data-task-id="HK006">
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-primary">HK006</span></td>
+                                        <td><strong>Room 205</strong></td>
+                                        <td><span class="badge bg-info">In Progress</span></td>
+                                        <td>2024-12-20</td>
+                                        <td>09:45 AM</td>
+                                        <td>Lisa Chen</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary view-task-btn" data-task-id="HK006">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-warning complete-task-btn" data-task-id="HK006">
+                                                <i class="fas fa-check"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Task 7 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input task-checkbox" type="checkbox" data-task-id="HK007">
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-primary">HK007</span></td>
+                                        <td><strong>Room 304</strong></td>
+                                        <td><span class="badge bg-success">Completed</span></td>
+                                        <td>2024-12-20</td>
+                                        <td>08:15 AM</td>
+                                        <td>Robert Johnson</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary view-task-btn" data-task-id="HK007">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-info inspect-task-btn" data-task-id="HK007">
+                                                <i class="fas fa-clipboard-check"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Task 8 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input task-checkbox" type="checkbox" data-task-id="HK008">
+                                            </div>
+                                        </td>
+                                        <td><span class="badge bg-primary">HK008</span></td>
+                                        <td><strong>Room 308</strong></td>
+                                        <td><span class="badge bg-warning">Pending</span></td>
+                                        <td>2024-12-20</td>
+                                        <td>10:30 AM</td>
+                                        <td>Not Assigned</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary view-task-btn" data-task-id="HK008">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-success assign-task-btn" data-task-id="HK008">
+                                                <i class="fas fa-user-check"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Bulk Actions -->
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <div class="d-flex gap-2">
+                                    <select class="form-select w-auto" id="bulkAction">
+                                        <option value="">Bulk Actions</option>
+                                        <option value="assign">Assign Selected</option>
+                                        <option value="complete">Mark as Complete</option>
+                                        <option value="pending">Mark as Pending</option>
+                                        <option value="delete">Delete Selected</option>
+                                    </select>
+                                    <button class="btn btn-primary" id="applyBulkActionBtn">
+                                        <i class="fas fa-play me-1"></i> Apply
+                                    </button>
+                                    <button class="btn btn-outline-secondary" id="addNewTaskBtn">
+                                        <i class="fas fa-plus me-1"></i> Add New Task
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Housekeeping Details Section -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-clipboard-list me-2"></i>Housekeeping Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">House-keeping Code</label>
+                                    <input type="text" class="form-control" id="housekeepingCode" value="HK001" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Room</label>
+                                    <select class="form-select" id="roomSelect">
+                                        <option value="">Select Room</option>
+                                        <option value="101" selected>101 - Standard Room</option>
+                                        <option value="102">102 - Standard Room</option>
+                                        <option value="103">103 - Standard Room</option>
+                                        <option value="104">104 - Standard Room</option>
+                                        <option value="105">105 - Deluxe Room</option>
+                                        <option value="201">201 - Suite</option>
+                                        <option value="202">202 - Suite</option>
+                                        <option value="203">203 - Suite</option>
+                                        <option value="204">204 - Suite</option>
+                                        <option value="205">205 - Executive Suite</option>
+                                        <option value="301">301 - Villa</option>
+                                        <option value="302">302 - Villa</option>
+                                        <option value="303">303 - Villa</option>
+                                        <option value="304">304 - Villa</option>
+                                        <option value="305">305 - Presidential Suite</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">All</label>
+                                    <select class="form-select" id="taskType">
+                                        <option value="cleaning">Cleaning</option>
+                                        <option value="maintenance">Maintenance</option>
+                                        <option value="inspection">Inspection</option>
+                                        <option value="turndown">Turndown Service</option>
+                                        <option value="deepclean">Deep Cleaning</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h6 class="mb-3 text-primary">Cleaning Checklist</h6>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card checklist-card">
+                                            <div class="card-body">
+                                                <div class="form-check form-switch mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="roomClean" checked>
+                                                    <label class="form-check-label" for="roomClean">
+                                                        <i class="fas fa-home me-2 text-success"></i>Room Clean
+                                                    </label>
+                                                </div>
+                                                <small class="text-muted">Dusting, vacuuming, surfaces wiped</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card checklist-card">
+                                            <div class="card-body">
+                                                <div class="form-check form-switch mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="bedSheetsClean" checked>
+                                                    <label class="form-check-label" for="bedSheetsClean">
+                                                        <i class="fas fa-bed me-2 text-success"></i>Bed Sheets Clean
+                                                    </label>
+                                                </div>
+                                                <small class="text-muted">Sheets changed, bed made</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card checklist-card">
+                                            <div class="card-body">
+                                                <div class="form-check form-switch mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="pillowsClean" checked>
+                                                    <label class="form-check-label" for="pillowsClean">
+                                                        <i class="fas fa-pill me-2 text-success"></i>Pillows Clean
+                                                    </label>
+                                                </div>
+                                                <small class="text-muted">Pillows fluffed, cases changed</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card checklist-card">
+                                            <div class="card-body">
+                                                <div class="form-check form-switch mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="toiletClean" checked>
+                                                    <label class="form-check-label" for="toiletClean">
+                                                        <i class="fas fa-toilet me-2 text-success"></i>Toilet Clean
+                                                    </label>
+                                                </div>
+                                                <small class="text-muted">Toilet, sink, shower cleaned</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card checklist-card">
+                                            <div class="card-body">
+                                                <div class="form-check form-switch mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="replenishItems" checked>
+                                                    <label class="form-check-label" for="replenishItems">
+                                                        <i class="fas fa-boxes me-2 text-success"></i>Replenish Items
+                                                    </label>
+                                                </div>
+                                                <small class="text-muted">Toiletries, towels, amenities</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card checklist-card">
+                                            <div class="card-body">
+                                                <div class="form-check form-switch mb-2">
+                                                    <input class="form-check-input" type="checkbox" id="minibarCheck">
+                                                    <label class="form-check-label" for="minibarCheck">
+                                                        <i class="fas fa-wine-bottle me-2 text-warning"></i>Mini-bar Check
+                                                    </label>
+                                                </div>
+                                                <small class="text-muted">Stock check, inventory</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Housekeeper</label>
+                                    <select class="form-select" id="housekeeperSelect">
+                                        <option value="">Select Housekeeper</option>
+                                        <option value="john">John Smith</option>
+                                        <option value="maria">Maria Santos</option>
+                                        <option value="lisa">Lisa Chen</option>
+                                        <option value="robert">Robert Johnson</option>
+                                        <option value="david">David Miller</option>
+                                        <option value="sarah">Sarah Wilson</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Priority</label>
+                                    <select class="form-select" id="taskPriority">
+                                        <option value="low">Low</option>
+                                        <option value="medium" selected>Medium</option>
+                                        <option value="high">High</option>
+                                        <option value="urgent">Urgent</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Notes</label>
+                                    <textarea class="form-control" id="taskNotes" rows="3" placeholder="Add any special instructions or notes...">Guest requested extra towels. Please ensure all surfaces are thoroughly disinfected.</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-outline-danger" id="deleteTaskBtn">
+                                        <i class="fas fa-trash me-1"></i> Delete Task
+                                    </button>
+                                    <div class="d-flex gap-2">
+                                        <button class="btn btn-outline-secondary" id="saveTaskBtn">
+                                            <i class="fas fa-save me-1"></i> Save
+                                        </button>
+                                        <button class="btn btn-primary" id="updateTaskBtn">
+                                            <i class="fas fa-sync-alt me-1"></i> Update
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Assign Task Modal -->
+    <div class="modal fade" id="assignTaskModal" tabindex="-1" aria-labelledby="assignTaskModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="assignTaskModalLabel">
+                        <i class="fas fa-user-check me-2"></i>Assign Housekeeper
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Task Code</label>
+                        <input type="text" class="form-control" id="assignTaskCode" value="HK001" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Room</label>
+                        <input type="text" class="form-control" id="assignTaskRoom" value="Room 101" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Assign To</label>
+                        <select class="form-select" id="assignHousekeeper">
+                            <option value="">Select Housekeeper</option>
+                            <option value="john">John Smith</option>
+                            <option value="maria">Maria Santos</option>
+                            <option value="lisa">Lisa Chen</option>
+                            <option value="robert">Robert Johnson</option>
+                            <option value="david">David Miller</option>
+                            <option value="sarah">Sarah Wilson</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Estimated Time (minutes)</label>
+                        <input type="number" class="form-control" id="estimatedTime" value="30" min="15" max="180">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Instructions</label>
+                        <textarea class="form-control" id="assignInstructions" rows="2" placeholder="Special instructions for this task..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="confirmAssignBtn">Assign Task</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Complete Task Modal -->
+    <div class="modal fade" id="completeTaskModal" tabindex="-1" aria-labelledby="completeTaskModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="completeTaskModalLabel">
+                        <i class="fas fa-check-circle me-2"></i>Complete Task
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Task Code</label>
+                        <input type="text" class="form-control" id="completeTaskCode" value="HK002" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Room</label>
+                        <input type="text" class="form-control" id="completeTaskRoom" value="Room 102" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Completion Time (minutes)</label>
+                        <input type="number" class="form-control" id="actualTime" value="35" min="1" max="300">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Housekeeper Notes</label>
+                        <textarea class="form-control" id="completionNotes" rows="3" placeholder="Add completion notes...">Room cleaned thoroughly. All checklist items completed. Replenished towels and toiletries.</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="inspectionRequired">
+                            <label class="form-check-label" for="inspectionRequired">
+                                Requires inspection before marking as complete
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" id="confirmCompleteBtn">Mark as Complete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add New Task Modal -->
+    <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="addTaskModalLabel">
+                        <i class="fas fa-plus-circle me-2"></i>Add New Housekeeping Task
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Room Number *</label>
+                            <select class="form-select" id="newTaskRoom">
+                                <option value="">Select Room</option>
+                                <option value="101">101 - Standard Room</option>
+                                <option value="102">102 - Standard Room</option>
+                                <option value="103">103 - Standard Room</option>
+                                <option value="104">104 - Standard Room</option>
+                                <option value="105">105 - Deluxe Room</option>
+                                <option value="201">201 - Suite</option>
+                                <option value="202">202 - Suite</option>
+                                <option value="203">203 - Suite</option>
+                                <option value="204">204 - Suite</option>
+                                <option value="205">205 - Executive Suite</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Task Type *</label>
+                            <select class="form-select" id="newTaskType">
+                                <option value="cleaning">Cleaning</option>
+                                <option value="maintenance">Maintenance</option>
+                                <option value="inspection">Inspection</option>
+                                <option value="turndown">Turndown Service</option>
+                                <option value="deepclean">Deep Cleaning</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Priority *</label>
+                            <select class="form-select" id="newTaskPriority">
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                                <option value="urgent">Urgent</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Assigned To</label>
+                            <select class="form-select" id="newTaskAssignee">
+                                <option value="">Not Assigned</option>
+                                <option value="john">John Smith</option>
+                                <option value="maria">Maria Santos</option>
+                                <option value="lisa">Lisa Chen</option>
+                                <option value="robert">Robert Johnson</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Task Description</label>
+                            <textarea class="form-control" id="newTaskDescription" rows="3" placeholder="Describe the housekeeping task..."></textarea>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">Special Instructions</label>
+                            <textarea class="form-control" id="newTaskInstructions" rows="2" placeholder="Any special instructions..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" id="createTaskBtn">Create Task</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Housekeeping Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Refresh data button
+            document.getElementById('refreshDataBtn').addEventListener('click', function() {
+                refreshHousekeepingData();
+            });
+            
+            // Select all tasks checkbox
+            document.getElementById('selectAllTasks').addEventListener('change', function() {
+                const checkboxes = document.querySelectorAll('.task-checkbox');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+            
+            // View task buttons
+            document.querySelectorAll('.view-task-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const taskId = this.dataset.taskId;
+                    viewTaskDetails(taskId);
+                });
+            });
+            
+            // Assign task buttons
+            document.querySelectorAll('.assign-task-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const taskId = this.dataset.taskId;
+                    assignTask(taskId);
+                });
+            });
+            
+            // Complete task buttons
+            document.querySelectorAll('.complete-task-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const taskId = this.dataset.taskId;
+                    completeTask(taskId);
+                });
+            });
+            
+            // Inspect task buttons
+            document.querySelectorAll('.inspect-task-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const taskId = this.dataset.taskId;
+                    inspectTask(taskId);
+                });
+            });
+            
+            // Apply bulk action button
+            document.getElementById('applyBulkActionBtn').addEventListener('click', function() {
+                applyBulkAction();
+            });
+            
+            // Add new task button
+            document.getElementById('addNewTaskBtn').addEventListener('click', function() {
+                addNewTask();
+            });
+            
+            // Delete task button
+            document.getElementById('deleteTaskBtn').addEventListener('click', function() {
+                deleteTask();
+            });
+            
+            // Save task button
+            document.getElementById('saveTaskBtn').addEventListener('click', function() {
+                saveTask();
+            });
+            
+            // Update task button
+            document.getElementById('updateTaskBtn').addEventListener('click', function() {
+                updateTask();
+            });
+            
+            // Confirm assign button
+            document.getElementById('confirmAssignBtn').addEventListener('click', function() {
+                confirmAssignTask();
+            });
+            
+            // Confirm complete button
+            document.getElementById('confirmCompleteBtn').addEventListener('click', function() {
+                confirmCompleteTask();
+            });
+            
+            // Create task button
+            document.getElementById('createTaskBtn').addEventListener('click', function() {
+                createNewTask();
+            });
+            
+            // Checklist item changes
+            document.getElementById('roomClean').addEventListener('change', updateChecklistStatus);
+            document.getElementById('bedSheetsClean').addEventListener('change', updateChecklistStatus);
+            document.getElementById('pillowsClean').addEventListener('change', updateChecklistStatus);
+            document.getElementById('toiletClean').addEventListener('change', updateChecklistStatus);
+            document.getElementById('replenishItems').addEventListener('change', updateChecklistStatus);
+            document.getElementById('minibarCheck').addEventListener('change', updateChecklistStatus);
+            
+            // Initialize with first task selected
+            const firstTask = document.querySelector('#housekeepingTableBody tr:first-child');
+            if (firstTask) {
+                viewTaskDetails('HK001');
+            }
+        });
+        
+        function refreshHousekeepingData() {
+            const refreshBtn = document.getElementById('refreshDataBtn');
+            const originalText = refreshBtn.innerHTML;
+            refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Refreshing...';
+            refreshBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Update stats with random changes
+                updateHousekeepingStats();
+                
+                // Update task counts in header
+                const pendingTasks = document.querySelectorAll('#housekeepingTableBody .badge.bg-warning').length;
+                document.querySelector('#lastUpdated span.text-warning').textContent = pendingTasks;
+                
+                // Show success message
+                showAlert('Housekeeping data refreshed successfully', 'success');
+                
+                // Restore button
+                refreshBtn.innerHTML = originalText;
+                refreshBtn.disabled = false;
+            }, 1500);
+        }
+        
+        function updateHousekeepingStats() {
+            // Update stats with random values for demo
+            const stats = {
+                pending: document.querySelectorAll('#housekeepingTableBody .badge.bg-warning').length,
+                inProgress: document.querySelectorAll('#housekeepingTableBody .badge.bg-info').length,
+                completed: document.querySelectorAll('#housekeepingTableBody .badge.bg-success').length,
+                inspections: Math.floor(Math.random() * 10) + 1
+            };
+            
+            document.querySelector('.stat-card.bg-warning .stat-number').textContent = stats.pending;
+            document.querySelector('.stat-card.bg-info .stat-number').textContent = stats.inProgress;
+            document.querySelector('.stat-card.bg-success .stat-number').textContent = stats.completed;
+            document.querySelector('.stat-card.bg-danger .stat-number').textContent = stats.inspections;
+        }
+        
+        function viewTaskDetails(taskId) {
+            // Find the task row
+            const taskRow = document.querySelector(`.task-checkbox[data-task-id="${taskId}"]`).closest('tr');
+            
+            // Highlight selected row
+            document.querySelectorAll('#housekeepingTableBody tr').forEach(row => {
+                row.classList.remove('table-primary');
+            });
+            taskRow.classList.add('table-primary');
+            
+            // Get task data from row
+            const room = taskRow.cells[2].textContent.trim();
+            const status = taskRow.cells[3].querySelector('.badge').textContent;
+            const housekeeper = taskRow.cells[6].textContent;
+            
+            // Update form with task details
+            document.getElementById('housekeepingCode').value = taskId;
+            
+            // Extract room number from "Room 101" format
+            const roomNumber = room.split(' ')[1];
+            document.getElementById('roomSelect').value = roomNumber;
+            
+            // Set status-based values
+            updateFormBasedOnStatus(status, housekeeper);
+            
+            showAlert(`Viewing task ${taskId} for ${room}`, 'info');
+        }
+        
+        function updateFormBasedOnStatus(status, housekeeper) {
+            // Update housekeeper select
+            if (housekeeper !== 'Not Assigned') {
+                document.getElementById('housekeeperSelect').value = housekeeper.toLowerCase().split(' ')[0];
+            } else {
+                document.getElementById('housekeeperSelect').value = '';
+            }
+            
+            // Update checklist based on status
+            const isCompleted = status === 'Completed';
+            const isInProgress = status === 'In Progress';
+            
+            document.getElementById('roomClean').checked = isCompleted || isInProgress;
+            document.getElementById('bedSheetsClean').checked = isCompleted;
+            document.getElementById('pillowsClean').checked = isCompleted;
+            document.getElementById('toiletClean').checked = isCompleted || isInProgress;
+            document.getElementById('replenishItems').checked = isCompleted;
+            document.getElementById('minibarCheck').checked = isCompleted;
+            
+            // Update priority based on status
+            if (status === 'Maintenance') {
+                document.getElementById('taskPriority').value = 'high';
+            } else if (status === 'Pending') {
+                document.getElementById('taskPriority').value = 'medium';
+            } else {
+                document.getElementById('taskPriority').value = 'low';
+            }
+        }
+        
+        function assignTask(taskId) {
+            // Find the task row
+            const taskRow = document.querySelector(`.task-checkbox[data-task-id="${taskId}"]`).closest('tr');
+            const room = taskRow.cells[2].textContent.trim();
+            
+            // Update modal values
+            document.getElementById('assignTaskCode').value = taskId;
+            document.getElementById('assignTaskRoom').value = room;
+            
+            // Show assign modal
+            const assignModal = new bootstrap.Modal(document.getElementById('assignTaskModal'));
+            assignModal.show();
+        }
+        
+        function confirmAssignTask() {
+            const taskId = document.getElementById('assignTaskCode').value;
+            const housekeeper = document.getElementById('assignHousekeeper').value;
+            const estimatedTime = document.getElementById('estimatedTime').value;
+            const instructions = document.getElementById('assignInstructions').value;
+            
+            if (!housekeeper) {
+                showAlert('Please select a housekeeper', 'warning');
+                return;
+            }
+            
+            // Find the task row
+            const taskRow = document.querySelector(`.task-checkbox[data-task-id="${taskId}"]`).closest('tr');
+            
+            // Update task row
+            const housekeeperName = getHousekeeperName(housekeeper);
+            taskRow.cells[6].textContent = housekeeperName;
+            
+            // Update status to "In Progress"
+            const statusBadge = taskRow.cells[3].querySelector('.badge');
+            statusBadge.textContent = 'In Progress';
+            statusBadge.className = 'badge bg-info';
+            
+            // Update actions buttons
+            const actionCell = taskRow.cells[7];
+            actionCell.innerHTML = `
+                <button class="btn btn-sm btn-outline-primary view-task-btn" data-task-id="${taskId}">
+                    <i class="fas fa-eye"></i>
+                </button>
+                <button class="btn btn-sm btn-outline-warning complete-task-btn" data-task-id="${taskId}">
+                    <i class="fas fa-check"></i>
+                </button>
+            `;
+            
+            // Add event listeners to new buttons
+            actionCell.querySelector('.view-task-btn').addEventListener('click', function() {
+                viewTaskDetails(taskId);
+            });
+            actionCell.querySelector('.complete-task-btn').addEventListener('click', function() {
+                completeTask(taskId);
+            });
+            
+            // Update stats
+            updateHousekeepingStats();
+            
+            // Show success message
+            showAlert(`Task ${taskId} assigned to ${housekeeperName}`, 'success');
+            
+            // Close modal
+            const assignModal = bootstrap.Modal.getInstance(document.getElementById('assignTaskModal'));
+            assignModal.hide();
+            
+            // Reset modal form
+            document.getElementById('assignHousekeeper').value = '';
+            document.getElementById('estimatedTime').value = '30';
+            document.getElementById('assignInstructions').value = '';
+        }
+        
+        function completeTask(taskId) {
+            // Find the task row
+            const taskRow = document.querySelector(`.task-checkbox[data-task-id="${taskId}"]`).closest('tr');
+            const room = taskRow.cells[2].textContent.trim();
+            const housekeeper = taskRow.cells[6].textContent;
+            
+            // Update modal values
+            document.getElementById('completeTaskCode').value = taskId;
+            document.getElementById('completeTaskRoom').value = room;
+            
+            // Set default completion time based on housekeeper
+            const defaultTime = housekeeper === 'Maria Santos' ? '28' : '35';
+            document.getElementById('actualTime').value = defaultTime;
+            
+            // Show complete modal
+            const completeModal = new bootstrap.Modal(document.getElementById('completeTaskModal'));
+            completeModal.show();
+        }
+        
+        function confirmCompleteTask() {
+            const taskId = document.getElementById('completeTaskCode').value;
+            const actualTime = document.getElementById('actualTime').value;
+            const completionNotes = document.getElementById('completionNotes').value;
+            const inspectionRequired = document.getElementById('inspectionRequired').checked;
+            
+            if (!actualTime || actualTime <= 0) {
+                showAlert('Please enter a valid completion time', 'warning');
+                return;
+            }
+            
+            // Find the task row
+            const taskRow = document.querySelector(`.task-checkbox[data-task-id="${taskId}"]`).closest('tr');
+            
+            // Update task row
+            const statusBadge = taskRow.cells[3].querySelector('.badge');
+            
+            if (inspectionRequired) {
+                statusBadge.textContent = 'Needs Inspection';
+                statusBadge.className = 'badge bg-danger';
+            } else {
+                statusBadge.textContent = 'Completed';
+                statusBadge.className = 'badge bg-success';
+                
+                // Update actions buttons
+                const actionCell = taskRow.cells[7];
+                actionCell.innerHTML = `
+                    <button class="btn btn-sm btn-outline-primary view-task-btn" data-task-id="${taskId}">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-info inspect-task-btn" data-task-id="${taskId}">
+                        <i class="fas fa-clipboard-check"></i>
+                    </button>
+                `;
+                
+                // Add event listeners to new buttons
+                actionCell.querySelector('.view-task-btn').addEventListener('click', function() {
+                    viewTaskDetails(taskId);
+                });
+                actionCell.querySelector('.inspect-task-btn').addEventListener('click', function() {
+                    inspectTask(taskId);
+                });
+            }
+            
+            // Update stats
+            updateHousekeepingStats();
+            
+            // Show success message
+            showAlert(`Task ${taskId} marked as ${inspectionRequired ? 'needing inspection' : 'completed'}`, 'success');
+            
+            // Close modal
+            const completeModal = bootstrap.Modal.getInstance(document.getElementById('completeTaskModal'));
+            completeModal.hide();
+            
+            // Reset modal form
+            document.getElementById('actualTime').value = '35';
+            document.getElementById('completionNotes').value = 'Room cleaned thoroughly. All checklist items completed. Replenished towels and toiletries.';
+            document.getElementById('inspectionRequired').checked = false;
+        }
+        
+        function inspectTask(taskId) {
+            // Find the task row
+            const taskRow = document.querySelector(`.task-checkbox[data-task-id="${taskId}"]`).closest('tr');
+            const room = taskRow.cells[2].textContent.trim();
+            
+            // Update form with inspection details
+            viewTaskDetails(taskId);
+            
+            // Update checklist for inspection
+            document.getElementById('roomClean').checked = true;
+            document.getElementById('bedSheetsClean').checked = true;
+            document.getElementById('pillowsClean').checked = true;
+            document.getElementById('toiletClean').checked = true;
+            document.getElementById('replenishItems').checked = true;
+            document.getElementById('minibarCheck').checked = true;
+            
+            // Update notes
+            document.getElementById('taskNotes').value = `Inspected by supervisor on ${new Date().toLocaleDateString()}. Room passed inspection. All standards met.`;
+            
+            // Update task status
+            taskRow.cells[3].querySelector('.badge').textContent = 'Inspected';
+            taskRow.cells[3].querySelector('.badge').className = 'badge bg-secondary';
+            
+            showAlert(`Task ${taskId} for ${room} inspected and approved`, 'success');
+        }
+        
+        function applyBulkAction() {
+            const bulkAction = document.getElementById('bulkAction').value;
+            const selectedTasks = document.querySelectorAll('.task-checkbox:checked');
+            
+            if (selectedTasks.length === 0) {
+                showAlert('Please select at least one task', 'warning');
+                return;
+            }
+            
+            if (!bulkAction) {
+                showAlert('Please select a bulk action', 'warning');
+                return;
+            }
+            
+            selectedTasks.forEach(checkbox => {
+                const taskId = checkbox.dataset.taskId;
+                const taskRow = checkbox.closest('tr');
+                const statusBadge = taskRow.cells[3].querySelector('.badge');
+                
+                switch(bulkAction) {
+                    case 'assign':
+                        // Assign to first available housekeeper
+                        const housekeepers = ['John Smith', 'Maria Santos', 'Lisa Chen', 'Robert Johnson'];
+                        const randomHousekeeper = housekeepers[Math.floor(Math.random() * housekeepers.length)];
+                        taskRow.cells[6].textContent = randomHousekeeper;
+                        statusBadge.textContent = 'In Progress';
+                        statusBadge.className = 'badge bg-info';
+                        break;
+                        
+                    case 'complete':
+                        statusBadge.textContent = 'Completed';
+                        statusBadge.className = 'badge bg-success';
+                        break;
+                        
+                    case 'pending':
+                        statusBadge.textContent = 'Pending';
+                        statusBadge.className = 'badge bg-warning';
+                        taskRow.cells[6].textContent = 'Not Assigned';
+                        break;
+                        
+                    case 'delete':
+                        taskRow.remove();
+                        break;
+                }
+            });
+            
+            // Update stats
+            updateHousekeepingStats();
+            
+            // Reset select all checkbox
+            document.getElementById('selectAllTasks').checked = false;
+            
+            showAlert(`Bulk action "${bulkAction}" applied to ${selectedTasks.length} tasks`, 'success');
+        }
+        
+        function addNewTask() {
+            // Show add task modal
+            const addModal = new bootstrap.Modal(document.getElementById('addTaskModal'));
+            addModal.show();
+        }
+        
+        function createNewTask() {
+            const room = document.getElementById('newTaskRoom').value;
+            const taskType = document.getElementById('newTaskType').value;
+            const priority = document.getElementById('newTaskPriority').value;
+            const assignee = document.getElementById('newTaskAssignee').value;
+            const description = document.getElementById('newTaskDescription').value;
+            const instructions = document.getElementById('newTaskInstructions').value;
+            
+            if (!room) {
+                showAlert('Please select a room', 'warning');
+                return;
+            }
+            
+            // Generate new task ID
+            const taskCount = document.querySelectorAll('.task-checkbox').length;
+            const newTaskId = `HK${String(taskCount + 1).padStart(3, '0')}`;
+            
+            // Get current date and time
+            const now = new Date();
+            const dateStr = now.toISOString().split('T')[0];
+            const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            
+            // Get housekeeper name
+            const housekeeperName = assignee ? getHousekeeperName(assignee) : 'Not Assigned';
+            
+            // Create new table row
+            const tableBody = document.getElementById('housekeepingTableBody');
+            const newRow = document.createElement('tr');
+            
+            newRow.innerHTML = `
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input task-checkbox" type="checkbox" data-task-id="${newTaskId}">
+                    </div>
+                </td>
+                <td><span class="badge bg-primary">${newTaskId}</span></td>
+                <td><strong>Room ${room}</strong></td>
+                <td><span class="badge bg-warning">Pending</span></td>
+                <td>${dateStr}</td>
+                <td>${timeStr}</td>
+                <td>${housekeeperName}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-primary view-task-btn" data-task-id="${newTaskId}">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-success assign-task-btn" data-task-id="${newTaskId}">
+                        <i class="fas fa-user-check"></i>
+                    </button>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Add event listeners to new buttons
+            newRow.querySelector('.view-task-btn').addEventListener('click', function() {
+                viewTaskDetails(newTaskId);
+            });
+            
+            newRow.querySelector('.assign-task-btn').addEventListener('click', function() {
+                assignTask(newTaskId);
+            });
+            
+            // Update stats
+            updateHousekeepingStats();
+            
+            // Show success message
+            showAlert(`New task ${newTaskId} created for Room ${room}`, 'success');
+            
+            // Close modal
+            const addModal = bootstrap.Modal.getInstance(document.getElementById('addTaskModal'));
+            addModal.hide();
+            
+            // Reset modal form
+            document.getElementById('newTaskRoom').value = '';
+            document.getElementById('newTaskType').value = 'cleaning';
+            document.getElementById('newTaskPriority').value = 'medium';
+            document.getElementById('newTaskAssignee').value = '';
+            document.getElementById('newTaskDescription').value = '';
+            document.getElementById('newTaskInstructions').value = '';
+            
+            // Auto-select the new task
+            viewTaskDetails(newTaskId);
+        }
+        
+        function deleteTask() {
+            const taskId = document.getElementById('housekeepingCode').value;
+            
+            if (!taskId) {
+                showAlert('Please select a task to delete', 'warning');
+                return;
+            }
+            
+            if (confirm(`Are you sure you want to delete task ${taskId}?`)) {
+                // Find the task row
+                const taskRow = document.querySelector(`.task-checkbox[data-task-id="${taskId}"]`)?.closest('tr');
+                
+                if (taskRow) {
+                    taskRow.remove();
+                    
+                    // Update stats
+                    updateHousekeepingStats();
+                    
+                    // Reset form
+                    resetHousekeepingForm();
+                    
+                    showAlert(`Task ${taskId} deleted successfully`, 'success');
+                }
+            }
+        }
+        
+        function saveTask() {
+            const taskId = document.getElementById('housekeepingCode').value;
+            const room = document.getElementById('roomSelect').value;
+            const taskType = document.getElementById('taskType').value;
+            const housekeeper = document.getElementById('housekeeperSelect').value;
+            const priority = document.getElementById('taskPriority').value;
+            const notes = document.getElementById('taskNotes').value;
+            
+            if (!taskId) {
+                showAlert('Please select a task first', 'warning');
+                return;
+            }
+            
+            // Find the task row
+            const taskRow = document.querySelector(`.task-checkbox[data-task-id="${taskId}"]`).closest('tr');
+            
+            // Update task row
+            if (room) {
+                taskRow.cells[2].innerHTML = `<strong>Room ${room}</strong>`;
+            }
+            
+            if (housekeeper) {
+                const housekeeperName = getHousekeeperName(housekeeper);
+                taskRow.cells[6].textContent = housekeeperName;
+                
+                // Update status if assigned
+                if (taskRow.cells[3].querySelector('.badge').textContent === 'Pending') {
+                    taskRow.cells[3].querySelector('.badge').textContent = 'In Progress';
+                    taskRow.cells[3].querySelector('.badge').className = 'badge bg-info';
+                }
+            }
+            
+            showAlert(`Task ${taskId} saved successfully`, 'success');
+        }
+        
+        function updateTask() {
+            const taskId = document.getElementById('housekeepingCode').value;
+            
+            if (!taskId) {
+                showAlert('Please select a task first', 'warning');
+                return;
+            }
+            
+            // Get checklist status
+            const allChecked = 
+                document.getElementById('roomClean').checked &&
+                document.getElementById('bedSheetsClean').checked &&
+                document.getElementById('pillowsClean').checked &&
+                document.getElementById('toiletClean').checked &&
+                document.getElementById('replenishItems').checked;
+            
+            // Find the task row
+            const taskRow = document.querySelector(`.task-checkbox[data-task-id="${taskId}"]`).closest('tr');
+            const statusBadge = taskRow.cells[3].querySelector('.badge');
+            
+            if (allChecked) {
+                statusBadge.textContent = 'Completed';
+                statusBadge.className = 'badge bg-success';
+                
+                // Update actions buttons
+                const actionCell = taskRow.cells[7];
+                actionCell.innerHTML = `
+                    <button class="btn btn-sm btn-outline-primary view-task-btn" data-task-id="${taskId}">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-info inspect-task-btn" data-task-id="${taskId}">
+                        <i class="fas fa-clipboard-check"></i>
+                    </button>
+                `;
+                
+                // Add event listeners to new buttons
+                actionCell.querySelector('.view-task-btn').addEventListener('click', function() {
+                    viewTaskDetails(taskId);
+                });
+                actionCell.querySelector('.inspect-task-btn').addEventListener('click', function() {
+                    inspectTask(taskId);
+                });
+            }
+            
+            // Update stats
+            updateHousekeepingStats();
+            
+            showAlert(`Task ${taskId} updated successfully`, 'success');
+        }
+        
+        function updateChecklistStatus() {
+            const taskId = document.getElementById('housekeepingCode').value;
+            
+            if (!taskId) {
+                return;
+            }
+            
+            // Calculate completion percentage
+            const checkboxes = [
+                document.getElementById('roomClean'),
+                document.getElementById('bedSheetsClean'),
+                document.getElementById('pillowsClean'),
+                document.getElementById('toiletClean'),
+                document.getElementById('replenishItems'),
+                document.getElementById('minibarCheck')
+            ];
+            
+            const checkedCount = checkboxes.filter(cb => cb.checked).length;
+            const totalCount = checkboxes.length;
+            const percentage = Math.round((checkedCount / totalCount) * 100);
+            
+            // Update UI based on completion
+            if (percentage === 100) {
+                document.getElementById('updateTaskBtn').classList.remove('btn-primary');
+                document.getElementById('updateTaskBtn').classList.add('btn-success');
+                document.getElementById('updateTaskBtn').innerHTML = '<i class="fas fa-check me-1"></i> Mark Complete';
+            } else {
+                document.getElementById('updateTaskBtn').classList.remove('btn-success');
+                document.getElementById('updateTaskBtn').classList.add('btn-primary');
+                document.getElementById('updateTaskBtn').innerHTML = '<i class="fas fa-sync-alt me-1"></i> Update';
+            }
+        }
+        
+        function resetHousekeepingForm() {
+            document.getElementById('housekeepingCode').value = '';
+            document.getElementById('roomSelect').value = '';
+            document.getElementById('taskType').value = 'cleaning';
+            document.getElementById('housekeeperSelect').value = '';
+            document.getElementById('taskPriority').value = 'medium';
+            document.getElementById('taskNotes').value = '';
+            
+            // Reset checkboxes
+            document.getElementById('roomClean').checked = false;
+            document.getElementById('bedSheetsClean').checked = false;
+            document.getElementById('pillowsClean').checked = false;
+            document.getElementById('toiletClean').checked = false;
+            document.getElementById('replenishItems').checked = false;
+            document.getElementById('minibarCheck').checked = false;
+        }
+        
+        // Utility functions
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+        
+        function getHousekeeperName(key) {
+            const housekeepers = {
+                'john': 'John Smith',
+                'maria': 'Maria Santos',
+                'lisa': 'Lisa Chen',
+                'robert': 'Robert Johnson',
+                'david': 'David Miller',
+                'sarah': 'Sarah Wilson'
+            };
+            return housekeepers[key] || key;
+        }
+    </script>
+    
+<!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+
+    <!-- Include JavaScript -->
+    <script src="js/include.js"></script>
+     <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>

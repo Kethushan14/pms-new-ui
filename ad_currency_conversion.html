@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Conversion - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/ad_currency_co.css">
+
+     
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-exchange-alt me-2"></i>Currency Conversion Management
+                                </h1>
+                                <p class="card-text text-muted mb-0">Manage currency conversion rates and cross rates</p>
+                                <small class="text-muted">Total Conversions: <span class="fw-bold">28</span> • Active: <span class="text-success fw-bold">24</span> • Base Currency: <span class="text-info fw-bold">USD</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addConversionModal">
+                                    <i class="fas fa-plus-circle me-1"></i> Add New Conversion
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Conversion Tool -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-calculator me-2"></i>Quick Currency Conversion</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-4">
+                                <div class="conversion-input-group">
+                                    <label class="form-label">From</label>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text"><i class="fas fa-arrow-right-from-bracket"></i></span>
+                                        <select class="form-select" id="quickFromCurrency">
+                                            <option value="USD" selected>USD - US Dollar</option>
+                                            <option value="EUR">EUR - Euro</option>
+                                            <option value="GBP">GBP - British Pound</option>
+                                            <option value="JPY">JPY - Japanese Yen</option>
+                                            <option value="AUD">AUD - Australian Dollar</option>
+                                            <option value="CAD">CAD - Canadian Dollar</option>
+                                            <option value="CHF">CHF - Swiss Franc</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                        <input type="number" class="form-control" id="quickAmount" placeholder="Enter amount" value="100" min="0" step="0.01">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-1">
+                                <div class="exchange-arrow">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="conversion-input-group">
+                                    <label class="form-label">To</label>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text"><i class="fas fa-arrow-right-to-bracket"></i></span>
+                                        <select class="form-select" id="quickToCurrency">
+                                            <option value="EUR">EUR - Euro</option>
+                                            <option value="USD" selected>USD - US Dollar</option>
+                                            <option value="GBP">GBP - British Pound</option>
+                                            <option value="JPY">JPY - Japanese Yen</option>
+                                            <option value="AUD">AUD - Australian Dollar</option>
+                                            <option value="CAD">CAD - Canadian Dollar</option>
+                                            <option value="CHF">CHF - Swiss Franc</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                                        <input type="text" class="form-control" id="quickResult" placeholder="Converted amount" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <div class="quick-convert-card">
+                                    <h2 id="conversionRate">0.9200</h2>
+                                    <p>Exchange Rate</p>
+                                    <small>1 USD = 0.9200 EUR</small>
+                                    <button class="btn btn-light btn-sm mt-3" id="quickConvertBtn">
+                                        <i class="fas fa-sync-alt me-1"></i> Convert Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Currency Conversion Search -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-search me-2"></i>Currency Conversion</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-end">
+                            <div class="col-md-5">
+                                <label for="conversionFromSearch" class="form-label">From</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-arrow-right-from-bracket"></i></span>
+                                    <select class="form-select" id="conversionFromSearch">
+                                        <option value="">All Currencies</option>
+                                        <option value="USD">USD - US Dollar</option>
+                                        <option value="EUR">EUR - Euro</option>
+                                        <option value="GBP">GBP - British Pound</option>
+                                        <option value="JPY">JPY - Japanese Yen</option>
+                                        <option value="AUD">AUD - Australian Dollar</option>
+                                        <option value="CAD">CAD - Canadian Dollar</option>
+                                        <option value="CHF">CHF - Swiss Franc</option>
+                                        <option value="INR">INR - Indian Rupee</option>
+                                        <option value="CNY">CNY - Chinese Yuan</option>
+                                        <option value="SGD">SGD - Singapore Dollar</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <label for="conversionToSearch" class="form-label">To</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-arrow-right-to-bracket"></i></span>
+                                    <select class="form-select" id="conversionToSearch">
+                                        <option value="">All Currencies</option>
+                                        <option value="USD">USD - US Dollar</option>
+                                        <option value="EUR">EUR - Euro</option>
+                                        <option value="GBP">GBP - British Pound</option>
+                                        <option value="JPY">JPY - Japanese Yen</option>
+                                        <option value="AUD">AUD - Australian Dollar</option>
+                                        <option value="CAD">CAD - Canadian Dollar</option>
+                                        <option value="CHF">CHF - Swiss Franc</option>
+                                        <option value="INR">INR - Indian Rupee</option>
+                                        <option value="CNY">CNY - Chinese Yuan</option>
+                                        <option value="SGD">SGD - Singapore Dollar</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex align-items-end">
+                                <div class="d-flex gap-2 w-100">
+                                    <button class="btn btn-primary flex-fill" id="searchConversionsBtn">
+                                        <i class="fas fa-search me-1"></i> Search
+                                    </button>
+                                    <button class="btn btn-outline-secondary flex-fill" id="resetConversionSearchBtn">
+                                        <i class="fas fa-redo me-1"></i> All
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Currency Conversions and Information -->
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-list me-2"></i>Currency Conversion Rates</h5>
+                            <div class="d-flex">
+                                <div class="btn-group me-2" role="group">
+                                    <button type="button" class="btn btn-sm btn-outline-primary active" data-filter="all">All</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="active">Active</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="inactive">Inactive</button>
+                                </div>
+                                <button class="btn btn-sm btn-success" id="exportConversionsBtn">
+                                    <i class="fas fa-download me-1"></i> Export
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th width="50">#</th>
+                                        <th>From</th>
+                                        <th>To</th>
+                                        <th>Currency</th>
+                                        <th>Rate</th>
+                                        <th>Last Updated</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="conversionsTableBody">
+                                    <!-- Conversion rows will be populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted">Showing 8 of 28 conversions</span>
+                            </div>
+                            <nav aria-label="Conversions pagination">
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Currency Conversion Information -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Conversion Information</h5>
+                            <button class="btn btn-sm btn-primary" id="addNewConversionBtn">
+                                <i class="fas fa-plus me-1"></i> Add New Conversion
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="conversion-section">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="conversionFrom" class="form-label required-field">From *</label>
+                                    <select class="form-select" id="conversionFrom" required>
+                                        <option value="">Select Currency</option>
+                                        <option value="USD">USD - US Dollar</option>
+                                        <option value="EUR">EUR - Euro</option>
+                                        <option value="GBP">GBP - British Pound</option>
+                                        <option value="JPY">JPY - Japanese Yen</option>
+                                        <option value="AUD">AUD - Australian Dollar</option>
+                                        <option value="CAD">CAD - Canadian Dollar</option>
+                                        <option value="CHF">CHF - Swiss Franc</option>
+                                        <option value="INR">INR - Indian Rupee</option>
+                                        <option value="CNY">CNY - Chinese Yuan</option>
+                                        <option value="SGD">SGD - Singapore Dollar</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="conversionTo" class="form-label required-field">To *</label>
+                                    <select class="form-select" id="conversionTo" required>
+                                        <option value="">Select Currency</option>
+                                        <option value="USD">USD - US Dollar</option>
+                                        <option value="EUR">EUR - Euro</option>
+                                        <option value="GBP">GBP - British Pound</option>
+                                        <option value="JPY">JPY - Japanese Yen</option>
+                                        <option value="AUD">AUD - Australian Dollar</option>
+                                        <option value="CAD">CAD - Canadian Dollar</option>
+                                        <option value="CHF">CHF - Swiss Franc</option>
+                                        <option value="INR">INR - Indian Rupee</option>
+                                        <option value="CNY">CNY - Chinese Yuan</option>
+                                        <option value="SGD">SGD - Singapore Dollar</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="conversionRateInput" class="form-label">Rate</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">1 <span id="fromCurrencyText">USD</span> =</span>
+                                        <input type="number" class="form-control" id="conversionRateInput" placeholder="0.0000" min="0" step="0.0001">
+                                        <span class="input-group-text" id="toCurrencyText">EUR</span>
+                                    </div>
+                                    <small class="text-muted">Exchange rate (1 From = X To)</small>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="conversionCurrency" class="form-label">Currency</label>
+                                    <select class="form-select" id="conversionCurrency">
+                                        <option value="USD">USD</option>
+                                        <option value="EUR">EUR</option>
+                                        <option value="GBP">GBP</option>
+                                        <option value="JPY">JPY</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="conversionStatus" class="form-label">Status</label>
+                                    <select class="form-select" id="conversionStatus">
+                                        <option value="active" selected>Active</option>
+                                        <option value="inactive">Inactive</option>
+                                        <option value="archived">Archived</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="autoUpdateConversion">
+                                        <label class="form-check-label" for="autoUpdateConversion">
+                                            Auto Update Rate
+                                        </label>
+                                        <small class="text-muted d-block">Automatically update from external source</small>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="effectiveDate" class="form-label">Effective Date</label>
+                                    <input type="date" class="form-control" id="effectiveDate" value="2024-12-25">
+                                </div>
+                            </div>
+                            
+                            <!-- Action Buttons -->
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-between gap-2">
+                                        <button class="btn btn-secondary w-50" id="clearConversionFormBtn">
+                                            <i class="fas fa-broom me-1"></i> Clear
+                                        </button>
+                                        <div class="d-flex gap-2 w-50">
+                                            <button class="btn btn-danger flex-fill" id="deleteConversionBtn">
+                                                <i class="fas fa-trash me-1"></i> Delete
+                                            </button>
+                                            <button class="btn btn-success flex-fill" id="saveConversionBtn">
+                                                <i class="fas fa-save me-1"></i> Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Rate Statistics -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h6 class="text-primary mb-3">Conversion Statistics</h6>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <div class="card bg-light">
+                                            <div class="card-body p-3 text-center">
+                                                <h4 class="text-primary mb-1">28</h4>
+                                                <small class="text-muted">Total Conversions</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <div class="card bg-light">
+                                            <div class="card-body p-3 text-center">
+                                                <h4 class="text-success mb-1">24</h4>
+                                                <small class="text-muted">Active Rates</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card bg-light">
+                                            <div class="card-body p-3 text-center">
+                                                <h4 class="text-info mb-1">USD</h4>
+                                                <small class="text-muted">Base Currency</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card bg-light">
+                                            <div class="card-body p-3 text-center">
+                                                <h4 class="text-warning mb-1">7</h4>
+                                                <small class="text-muted">Auto Updated</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Currency Cross Rates -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-retweet me-2"></i>Currency Cross Rates</h5>
+                            <div class="d-flex align-items-center">
+                                <span class="me-2">Base Currency:</span>
+                                <select class="form-select form-select-sm" id="baseCurrencySelect" style="width: 150px;">
+                                    <option value="USD" selected>USD - US Dollar</option>
+                                    <option value="EUR">EUR - Euro</option>
+                                    <option value="GBP">GBP - British Pound</option>
+                                    <option value="JPY">JPY - Japanese Yen</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered cross-rate-table">
+                                <thead>
+                                    <tr>
+                                        <th>Currency</th>
+                                        <th>USD</th>
+                                        <th>EUR</th>
+                                        <th>GBP</th>
+                                        <th>JPY</th>
+                                        <th>AUD</th>
+                                        <th>CAD</th>
+                                        <th>CHF</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>USD</strong></td>
+                                        <td class="text-center">1.0000</td>
+                                        <td class="text-center">0.9200</td>
+                                        <td class="text-center">0.7900</td>
+                                        <td class="text-center">151.50</td>
+                                        <td class="text-center">1.5100</td>
+                                        <td class="text-center">1.3500</td>
+                                        <td class="text-center">0.8900</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>EUR</strong></td>
+                                        <td class="text-center">1.0870</td>
+                                        <td class="text-center">1.0000</td>
+                                        <td class="text-center">0.8587</td>
+                                        <td class="text-center">164.67</td>
+                                        <td class="text-center">1.6413</td>
+                                        <td class="text-center">1.4674</td>
+                                        <td class="text-center">0.9674</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>GBP</strong></td>
+                                        <td class="text-center">1.2658</td>
+                                        <td class="text-center">1.1645</td>
+                                        <td class="text-center">1.0000</td>
+                                        <td class="text-center">191.77</td>
+                                        <td class="text-center">1.9114</td>
+                                        <td class="text-center">1.7089</td>
+                                        <td class="text-center">1.1266</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>JPY</strong></td>
+                                        <td class="text-center">0.0066</td>
+                                        <td class="text-center">0.0061</td>
+                                        <td class="text-center">0.0052</td>
+                                        <td class="text-center">1.0000</td>
+                                        <td class="text-center">0.0100</td>
+                                        <td class="text-center">0.0089</td>
+                                        <td class="text-center">0.0059</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mt-3">
+                            <small class="text-muted"><i class="fas fa-info-circle me-1"></i> Rates shown as 1 unit of row currency = X units of column currency</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Conversion History -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-history me-2"></i>Recent Conversion History</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="conversion-history-item">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <span class="currency-pair-badge">USD → EUR</span>
+                                            <span class="rate-badge ms-2">0.9200</span>
+                                        </div>
+                                        <small class="text-muted">2 hours ago</small>
+                                    </div>
+                                    <p class="mb-1 small">Rate updated by system auto-update</p>
+                                    <small class="text-success"><i class="fas fa-arrow-up me-1"></i> Increased by 0.0025</small>
+                                </div>
+                                <div class="conversion-history-item">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <span class="currency-pair-badge">GBP → USD</span>
+                                            <span class="rate-badge ms-2">1.2658</span>
+                                        </div>
+                                        <small class="text-muted">Yesterday</small>
+                                    </div>
+                                    <p class="mb-1 small">Manual rate adjustment by Admin</p>
+                                    <small class="text-danger"><i class="fas fa-arrow-down me-1"></i> Decreased by 0.0102</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="conversion-history-item">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <span class="currency-pair-badge">JPY → EUR</span>
+                                            <span class="rate-badge ms-2">0.0061</span>
+                                        </div>
+                                        <small class="text-muted">3 days ago</small>
+                                    </div>
+                                    <p class="mb-1 small">New conversion rate added</p>
+                                    <small class="text-info"><i class="fas fa-plus-circle me-1"></i> New rate established</small>
+                                </div>
+                                <div class="conversion-history-item">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <span class="currency-pair-badge">AUD → CAD</span>
+                                            <span class="rate-badge ms-2">0.8934</span>
+                                        </div>
+                                        <small class="text-muted">1 week ago</small>
+                                    </div>
+                                    <p class="mb-1 small">Rate activated for transactions</p>
+                                    <small class="text-success"><i class="fas fa-check-circle me-1"></i> Activated for use</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button class="btn btn-outline-primary" id="viewAllHistoryBtn">
+                                <i class="fas fa-list me-1"></i> View All History
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Add Conversion Modal -->
+    <div class="modal fade" id="addConversionModal" tabindex="-1" aria-labelledby="addConversionModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="addConversionModalLabel">
+                        <i class="fas fa-plus-circle me-2"></i>Add New Conversion
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="modalFromCurrency" class="form-label required-field">From *</label>
+                            <select class="form-select" id="modalFromCurrency" required>
+                                <option value="">Select Currency</option>
+                                <option value="USD">USD - US Dollar</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="GBP">GBP - British Pound</option>
+                                <option value="JPY">JPY - Japanese Yen</option>
+                                <option value="AUD">AUD - Australian Dollar</option>
+                                <option value="CAD">CAD - Canadian Dollar</option>
+                                <option value="CHF">CHF - Swiss Franc</option>
+                                <option value="INR">INR - Indian Rupee</option>
+                                <option value="CNY">CNY - Chinese Yuan</option>
+                                <option value="SGD">SGD - Singapore Dollar</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="modalToCurrency" class="form-label required-field">To *</label>
+                            <select class="form-select" id="modalToCurrency" required>
+                                <option value="">Select Currency</option>
+                                <option value="USD">USD - US Dollar</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="GBP">GBP - British Pound</option>
+                                <option value="JPY">JPY - Japanese Yen</option>
+                                <option value="AUD">AUD - Australian Dollar</option>
+                                <option value="CAD">CAD - Canadian Dollar</option>
+                                <option value="CHF">CHF - Swiss Franc</option>
+                                <option value="INR">INR - Indian Rupee</option>
+                                <option value="CNY">CNY - Chinese Yuan</option>
+                                <option value="SGD">SGD - Singapore Dollar</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="modalCurrency" class="form-label">Currency</label>
+                            <select class="form-select" id="modalCurrency">
+                                <option value="">Select Currency</option>
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="GBP">GBP</option>
+                                <option value="JPY">JPY</option>
+                                <option value="AUD">AUD</option>
+                                <option value="CAD">CAD</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="modalRate" class="form-label">Rate</label>
+                            <div class="input-group">
+                                <span class="input-group-text">Rate:</span>
+                                <input type="number" class="form-control" id="modalRate" placeholder="0.0000" min="0" step="0.0001">
+                                <button class="btn btn-outline-primary" type="button" id="addRateBtn">
+                                    <i class="fas fa-plus me-1"></i> Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveNewConversion">Save Conversion</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteConversionModal" tabindex="-1" aria-labelledby="deleteConversionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteConversionModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Confirm Delete
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this conversion rate?</p>
+                    <p class="text-danger"><strong>This action cannot be undone and may affect existing transactions.</strong></p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="confirmConversionDelete">
+                        <label class="form-check-label" for="confirmConversionDelete">
+                            I understand the consequences
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmConversionDeleteBtn" disabled>Delete Conversion</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/include.js"></script>
+
+    <script>
+        // Currency Conversion Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize conversion data
+            const conversionsData = [
+                {
+                    id: 1,
+                    from: 'USD',
+                    to: 'EUR',
+                    currency: 'USD',
+                    rate: 0.9200,
+                    lastUpdated: '2024-12-25 10:30:00',
+                    status: 'active',
+                    autoUpdate: true,
+                    effectiveDate: '2024-12-25'
+                },
+                {
+                    id: 2,
+                    from: 'USD',
+                    to: 'GBP',
+                    currency: 'USD',
+                    rate: 0.7900,
+                    lastUpdated: '2024-12-24 14:15:00',
+                    status: 'active',
+                    autoUpdate: true,
+                    effectiveDate: '2024-12-24'
+                },
+                {
+                    id: 3,
+                    from: 'USD',
+                    to: 'JPY',
+                    currency: 'USD',
+                    rate: 151.50,
+                    lastUpdated: '2024-12-25 09:00:00',
+                    status: 'active',
+                    autoUpdate: true,
+                    effectiveDate: '2024-12-25'
+                },
+                {
+                    id: 4,
+                    from: 'USD',
+                    to: 'AUD',
+                    currency: 'USD',
+                    rate: 1.5100,
+                    lastUpdated: '2024-12-23 16:45:00',
+                    status: 'active',
+                    autoUpdate: true,
+                    effectiveDate: '2024-12-23'
+                },
+                {
+                    id: 5,
+                    from: 'USD',
+                    to: 'CAD',
+                    currency: 'USD',
+                    rate: 1.3500,
+                    lastUpdated: '2024-12-24 11:20:00',
+                    status: 'active',
+                    autoUpdate: true,
+                    effectiveDate: '2024-12-24'
+                },
+                {
+                    id: 6,
+                    from: 'USD',
+                    to: 'CHF',
+                    currency: 'USD',
+                    rate: 0.8900,
+                    lastUpdated: '2024-12-22 13:10:00',
+                    status: 'active',
+                    autoUpdate: false,
+                    effectiveDate: '2024-12-22'
+                },
+                {
+                    id: 7,
+                    from: 'EUR',
+                    to: 'GBP',
+                    currency: 'EUR',
+                    rate: 0.8587,
+                    lastUpdated: '2024-12-25 08:30:00',
+                    status: 'active',
+                    autoUpdate: true,
+                    effectiveDate: '2024-12-25'
+                },
+                {
+                    id: 8,
+                    from: 'GBP',
+                    to: 'JPY',
+                    currency: 'GBP',
+                    rate: 191.77,
+                    lastUpdated: '2024-12-24 15:40:00',
+                    status: 'inactive',
+                    autoUpdate: false,
+                    effectiveDate: '2024-12-24'
+                }
+            ];
+
+            let currentConversionId = null;
+            
+            // Populate conversions table
+            populateConversionsTable(conversionsData);
+            
+            // Quick conversion functionality
+            document.getElementById('quickConvertBtn').addEventListener('click', performQuickConversion);
+            document.getElementById('quickFromCurrency').addEventListener('change', updateQuickConversionRate);
+            document.getElementById('quickToCurrency').addEventListener('change', updateQuickConversionRate);
+            document.getElementById('quickAmount').addEventListener('input', performQuickConversion);
+            
+            // Update conversion rate display based on selection
+            updateQuickConversionRate();
+            
+            // Search functionality
+            document.getElementById('searchConversionsBtn').addEventListener('click', searchConversions);
+            document.getElementById('resetConversionSearchBtn').addEventListener('click', resetConversionSearch);
+            
+            // Filter buttons
+            document.querySelectorAll('[data-filter]').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('[data-filter]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    filterConversions(filter);
+                });
+            });
+            
+            // Add new conversion button
+            document.getElementById('addNewConversionBtn').addEventListener('click', function() {
+                clearConversionForm();
+                const modal = new bootstrap.Modal(document.getElementById('addConversionModal'));
+                modal.show();
+            });
+            
+            // Save new conversion in modal
+            document.getElementById('saveNewConversion').addEventListener('click', saveNewConversion);
+            
+            // Add rate button in modal
+            document.getElementById('addRateBtn').addEventListener('click', function() {
+                const rate = document.getElementById('modalRate').value;
+                if (rate) {
+                    showAlert(`Rate ${rate} added`, 'success');
+                }
+            });
+            
+            // Clear form button
+            document.getElementById('clearConversionFormBtn').addEventListener('click', clearConversionForm);
+            
+            // Save conversion button
+            document.getElementById('saveConversionBtn').addEventListener('click', saveConversion);
+            
+            // Delete conversion button
+            document.getElementById('deleteConversionBtn').addEventListener('click', function() {
+                if (currentConversionId) {
+                    showDeleteConversionModal(currentConversionId);
+                } else {
+                    showAlert('Please select a conversion first', 'warning');
+                }
+            });
+            
+            // From/To currency change handlers
+            document.getElementById('conversionFrom').addEventListener('change', function() {
+                document.getElementById('fromCurrencyText').textContent = this.value || 'USD';
+            });
+            
+            document.getElementById('conversionTo').addEventListener('change', function() {
+                document.getElementById('toCurrencyText').textContent = this.value || 'EUR';
+            });
+            
+            // Confirm delete checkbox
+            document.getElementById('confirmConversionDelete').addEventListener('change', function() {
+                document.getElementById('confirmConversionDeleteBtn').disabled = !this.checked;
+            });
+            
+            // Confirm delete button
+            document.getElementById('confirmConversionDeleteBtn').addEventListener('click', deleteConversion);
+            
+            // Export button
+            document.getElementById('exportConversionsBtn').addEventListener('click', exportConversions);
+            
+            // View all history button
+            document.getElementById('viewAllHistoryBtn').addEventListener('click', function() {
+                showAlert('Viewing all conversion history', 'info');
+            });
+            
+            // Base currency selector for cross rates
+            document.getElementById('baseCurrencySelect').addEventListener('change', updateCrossRates);
+        });
+        
+        function populateConversionsTable(conversions) {
+            const tableBody = document.getElementById('conversionsTableBody');
+            tableBody.innerHTML = '';
+            
+            conversions.forEach((conversion, index) => {
+                const statusColor = conversion.status === 'active' ? 'success' : 
+                                  conversion.status === 'inactive' ? 'warning' : 'secondary';
+                
+                const row = document.createElement('tr');
+                row.className = 'conversion-row';
+                row.dataset.status = conversion.status;
+                row.dataset.id = conversion.id;
+                
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <div class="currency-icon" style="background: ${getCurrencyColor(conversion.from)}; width: 30px; height: 30px; font-size: 14px;">
+                                <i class="${getCurrencyIcon(conversion.from)}"></i>
+                            </div>
+                            <div class="ms-2">
+                                <strong>${conversion.from}</strong>
+                                <div class="small text-muted">${getCurrencyName(conversion.from)}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <div class="currency-icon" style="background: ${getCurrencyColor(conversion.to)}; width: 30px; height: 30px; font-size: 14px;">
+                                <i class="${getCurrencyIcon(conversion.to)}"></i>
+                            </div>
+                            <div class="ms-2">
+                                <strong>${conversion.to}</strong>
+                                <div class="small text-muted">${getCurrencyName(conversion.to)}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="badge bg-info">${conversion.currency}</span>
+                    </td>
+                    <td>
+                        <span class="rate-badge">${formatRate(conversion.rate)}</span>
+                    </td>
+                    <td>
+                        <small>${formatDate(conversion.lastUpdated)}</small>
+                    </td>
+                    <td>
+                        <span class="currency-status-badge bg-${statusColor}">${conversion.status.charAt(0).toUpperCase() + conversion.status.slice(1)}</span>
+                    </td>
+                    <td>
+                        <div class="btn-group btn-group-sm table-actions">
+                            <button class="btn btn-outline-primary view-conversion" data-id="${conversion.id}">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn btn-outline-warning edit-conversion" data-id="${conversion.id}">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-outline-danger delete-conversion" data-id="${conversion.id}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+            
+            // Add event listeners to buttons
+            document.querySelectorAll('.view-conversion').forEach(button => {
+                button.addEventListener('click', function() {
+                    const conversionId = parseInt(this.dataset.id);
+                    viewConversionDetails(conversionId);
+                });
+            });
+            
+            document.querySelectorAll('.edit-conversion').forEach(button => {
+                button.addEventListener('click', function() {
+                    const conversionId = parseInt(this.dataset.id);
+                    editConversion(conversionId);
+                });
+            });
+            
+            document.querySelectorAll('.delete-conversion').forEach(button => {
+                button.addEventListener('click', function() {
+                    const conversionId = parseInt(this.dataset.id);
+                    showDeleteConversionModal(conversionId);
+                });
+            });
+        }
+        
+        function performQuickConversion() {
+            const fromCurrency = document.getElementById('quickFromCurrency').value;
+            const toCurrency = document.getElementById('quickToCurrency').value;
+            const amount = parseFloat(document.getElementById('quickAmount').value) || 0;
+            
+            // Get conversion rate
+            let rate = 0.9200; // Default USD to EUR
+            
+            // Find the conversion in our data
+            const conversion = conversionsData.find(c => 
+                c.from === fromCurrency && c.to === toCurrency && c.status === 'active'
+            );
+            
+            if (conversion) {
+                rate = conversion.rate;
+            } else {
+                // Try to find reverse conversion
+                const reverseConversion = conversionsData.find(c => 
+                    c.from === toCurrency && c.to === fromCurrency && c.status === 'active'
+                );
+                
+                if (reverseConversion) {
+                    rate = 1 / reverseConversion.rate;
+                }
+            }
+            
+            // Update display rate
+            document.getElementById('conversionRate').textContent = formatRate(rate);
+            document.querySelector('.quick-convert-card small').textContent = 
+                `1 ${fromCurrency} = ${formatRate(rate)} ${toCurrency}`;
+            
+            // Calculate result
+            const result = amount * rate;
+            document.getElementById('quickResult').value = formatNumber(result, 4);
+        }
+        
+        function updateQuickConversionRate() {
+            const fromCurrency = document.getElementById('quickFromCurrency').value;
+            const toCurrency = document.getElementById('quickToCurrency').value;
+            
+            // Get conversion rate for display
+            let rate = 0.9200; // Default
+            
+            const conversion = conversionsData.find(c => 
+                c.from === fromCurrency && c.to === toCurrency && c.status === 'active'
+            );
+            
+            if (conversion) {
+                rate = conversion.rate;
+            } else {
+                // Try reverse
+                const reverseConversion = conversionsData.find(c => 
+                    c.from === toCurrency && c.to === fromCurrency && c.status === 'active'
+                );
+                
+                if (reverseConversion) {
+                    rate = 1 / reverseConversion.rate;
+                }
+            }
+            
+            document.getElementById('conversionRate').textContent = formatRate(rate);
+            document.querySelector('.quick-convert-card small').textContent = 
+                `1 ${fromCurrency} = ${formatRate(rate)} ${toCurrency}`;
+            
+            // Also perform conversion with current amount
+            performQuickConversion();
+        }
+        
+        function searchConversions() {
+            const fromSearch = document.getElementById('conversionFromSearch').value;
+            const toSearch = document.getElementById('conversionToSearch').value;
+            
+            const rows = document.querySelectorAll('.conversion-row');
+            
+            rows.forEach(row => {
+                const from = row.querySelector('td:nth-child(2) strong').textContent;
+                const to = row.querySelector('td:nth-child(3) strong').textContent;
+                
+                let show = true;
+                
+                if (fromSearch && from !== fromSearch) show = false;
+                if (toSearch && to !== toSearch) show = false;
+                
+                row.style.display = show ? '' : 'none';
+            });
+        }
+        
+        function resetConversionSearch() {
+            document.getElementById('conversionFromSearch').value = '';
+            document.getElementById('conversionToSearch').value = '';
+            
+            const rows = document.querySelectorAll('.conversion-row');
+            rows.forEach(row => {
+                row.style.display = '';
+            });
+        }
+        
+        function filterConversions(filter) {
+            const rows = document.querySelectorAll('.conversion-row');
+            
+            rows.forEach(row => {
+                const status = row.dataset.status;
+                
+                let show = true;
+                
+                if (filter === 'active' && status !== 'active') show = false;
+                if (filter === 'inactive' && status !== 'inactive') show = false;
+                
+                row.style.display = show ? '' : 'none';
+            });
+        }
+        
+        function viewConversionDetails(conversionId) {
+            const conversion = getConversionById(conversionId);
+            if (!conversion) return;
+            
+            // Populate the form with conversion data
+            document.getElementById('conversionFrom').value = conversion.from;
+            document.getElementById('conversionTo').value = conversion.to;
+            document.getElementById('conversionCurrency').value = conversion.currency;
+            document.getElementById('conversionRateInput').value = conversion.rate;
+            document.getElementById('conversionStatus').value = conversion.status;
+            document.getElementById('autoUpdateConversion').checked = conversion.autoUpdate;
+            document.getElementById('effectiveDate').value = conversion.effectiveDate;
+            
+            // Update currency text
+            document.getElementById('fromCurrencyText').textContent = conversion.from;
+            document.getElementById('toCurrencyText').textContent = conversion.to;
+            
+            currentConversionId = conversionId;
+            
+            showAlert(`Viewing conversion ${conversion.from} → ${conversion.to}`, 'info');
+        }
+        
+        function editConversion(conversionId) {
+            viewConversionDetails(conversionId);
+            showAlert(`Editing conversion ${getConversionById(conversionId).from} → ${getConversionById(conversionId).to}`, 'warning');
+        }
+        
+        function saveConversion() {
+            if (!currentConversionId) {
+                showAlert('Please select a conversion to update', 'warning');
+                return;
+            }
+            
+            const conversion = getConversionById(currentConversionId);
+            if (!conversion) return;
+            
+            // Get form values
+            const from = document.getElementById('conversionFrom').value;
+            const to = document.getElementById('conversionTo').value;
+            const currency = document.getElementById('conversionCurrency').value;
+            const rate = parseFloat(document.getElementById('conversionRateInput').value);
+            const status = document.getElementById('conversionStatus').value;
+            const autoUpdate = document.getElementById('autoUpdateConversion').checked;
+            const effectiveDate = document.getElementById('effectiveDate').value;
+            
+            // Validate
+            if (!from || !to) {
+                showAlert('From and To currencies are required fields', 'danger');
+                return;
+            }
+            
+            if (!rate || rate <= 0) {
+                showAlert('Rate must be a positive number', 'danger');
+                return;
+            }
+            
+            // Check if this would create a duplicate (different ID, same from/to)
+            const duplicate = conversionsData.find(c => 
+                c.id !== currentConversionId && 
+                c.from === from && 
+                c.to === to
+            );
+            
+            if (duplicate) {
+                showAlert(`Conversion ${from} → ${to} already exists`, 'warning');
+                return;
+            }
+            
+            // Update conversion object
+            conversion.from = from;
+            conversion.to = to;
+            conversion.currency = currency;
+            conversion.rate = rate;
+            conversion.status = status;
+            conversion.autoUpdate = autoUpdate;
+            conversion.effectiveDate = effectiveDate;
+            conversion.lastUpdated = new Date().toISOString().replace('T', ' ').substring(0, 19);
+            
+            // Update table
+            populateConversionsTable(conversionsData);
+            
+            // Update quick conversion if needed
+            if (from === document.getElementById('quickFromCurrency').value && 
+                to === document.getElementById('quickToCurrency').value) {
+                updateQuickConversionRate();
+            }
+            
+            showAlert(`Conversion ${from} → ${to} updated successfully`, 'success');
+        }
+        
+        function saveNewConversion() {
+            // Get form values from modal
+            const from = document.getElementById('modalFromCurrency').value;
+            const to = document.getElementById('modalToCurrency').value;
+            const currency = document.getElementById('modalCurrency').value;
+            const rate = parseFloat(document.getElementById('modalRate').value) || 0;
+            
+            // Validate
+            if (!from || !to) {
+                showAlert('From and To currencies are required fields', 'danger');
+                return;
+            }
+            
+            if (!rate || rate <= 0) {
+                showAlert('Rate must be a positive number', 'danger');
+                return;
+            }
+            
+            // Check if conversion already exists
+            const duplicate = conversionsData.find(c => 
+                c.from === from && c.to === to
+            );
+            
+            if (duplicate) {
+                showAlert(`Conversion ${from} → ${to} already exists`, 'warning');
+                return;
+            }
+            
+            // Create new conversion object
+            const newConversion = {
+                id: conversionsData.length + 1,
+                from: from,
+                to: to,
+                currency: currency || from,
+                rate: rate,
+                lastUpdated: new Date().toISOString().replace('T', ' ').substring(0, 19),
+                status: 'active',
+                autoUpdate: false,
+                effectiveDate: new Date().toISOString().split('T')[0]
+            };
+            
+            // Add to data array
+            conversionsData.push(newConversion);
+            
+            // Update table
+            populateConversionsTable(conversionsData);
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('addConversionModal'));
+            modal.hide();
+            
+            // Clear modal form
+            document.getElementById('modalFromCurrency').value = '';
+            document.getElementById('modalToCurrency').value = '';
+            document.getElementById('modalCurrency').value = '';
+            document.getElementById('modalRate').value = '';
+            
+            showAlert(`Conversion ${from} → ${to} added successfully`, 'success');
+        }
+        
+        function clearConversionForm() {
+            document.getElementById('conversionFrom').value = '';
+            document.getElementById('conversionTo').value = '';
+            document.getElementById('conversionCurrency').value = 'USD';
+            document.getElementById('conversionRateInput').value = '';
+            document.getElementById('conversionStatus').value = 'active';
+            document.getElementById('autoUpdateConversion').checked = false;
+            document.getElementById('effectiveDate').value = new Date().toISOString().split('T')[0];
+            
+            document.getElementById('fromCurrencyText').textContent = 'USD';
+            document.getElementById('toCurrencyText').textContent = 'EUR';
+            
+            currentConversionId = null;
+            
+            showAlert('Form cleared', 'info');
+        }
+        
+        function showDeleteConversionModal(conversionId) {
+            const conversion = getConversionById(conversionId);
+            if (!conversion) return;
+            
+            currentConversionId = conversionId;
+            
+            // Update modal text
+            document.querySelector('#deleteConversionModal .modal-body p').textContent = 
+                `Are you sure you want to delete conversion ${conversion.from} → ${conversion.to}?`;
+            
+            // Reset checkbox
+            document.getElementById('confirmConversionDelete').checked = false;
+            document.getElementById('confirmConversionDeleteBtn').disabled = true;
+            
+            // Show modal
+            const modal = new bootstrap.Modal(document.getElementById('deleteConversionModal'));
+            modal.show();
+        }
+        
+        function deleteConversion() {
+            if (!currentConversionId) return;
+            
+            const conversion = getConversionById(currentConversionId);
+            if (!conversion) return;
+            
+            // Remove from data array
+            const index = conversionsData.findIndex(c => c.id === currentConversionId);
+            if (index !== -1) {
+                conversionsData.splice(index, 1);
+            }
+            
+            // Update table
+            populateConversionsTable(conversionsData);
+            
+            // Clear form
+            clearConversionForm();
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('deleteConversionModal'));
+            modal.hide();
+            
+            showAlert(`Conversion ${conversion.from} → ${conversion.to} deleted successfully`, 'success');
+        }
+        
+        function exportConversions() {
+            // In a real application, this would generate a CSV or Excel file
+            const dataStr = JSON.stringify(conversionsData, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = `conversions_export_${new Date().toISOString().split('T')[0]}.json`;
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            showAlert('Conversions exported successfully', 'success');
+        }
+        
+        function updateCrossRates() {
+            const baseCurrency = document.getElementById('baseCurrencySelect').value;
+            showAlert(`Cross rates updated to base currency: ${baseCurrency}`, 'info');
+        }
+        
+        function getConversionById(id) {
+            return conversionsData.find(c => c.id === id);
+        }
+        
+        function getCurrencyColor(code) {
+            const colors = {
+                'USD': '#4CAF50',
+                'EUR': '#2196F3',
+                'GBP': '#FF5722',
+                'JPY': '#F44336',
+                'AUD': '#9C27B0',
+                'CAD': '#00BCD4',
+                'CHF': '#FF9800',
+                'INR': '#795548',
+                'CNY': '#E91E63',
+                'SGD': '#009688'
+            };
+            return colors[code] || '#9C27B0';
+        }
+        
+        function getCurrencyIcon(code) {
+            switch(code) {
+                case 'USD':
+                case 'AUD':
+                case 'CAD':
+                case 'SGD': return 'fas fa-dollar-sign';
+                case 'EUR': return 'fas fa-euro-sign';
+                case 'GBP': return 'fas fa-pound-sign';
+                case 'JPY': return 'fas fa-yen-sign';
+                case 'INR': return 'fas fa-rupee-sign';
+                case 'CNY': return 'fas fa-yen-sign';
+                case 'CHF': return 'fas fa-franc-sign';
+                default: return 'fas fa-money-bill-wave';
+            }
+        }
+        
+        function getCurrencyName(code) {
+            const names = {
+                'USD': 'US Dollar',
+                'EUR': 'Euro',
+                'GBP': 'British Pound',
+                'JPY': 'Japanese Yen',
+                'AUD': 'Australian Dollar',
+                'CAD': 'Canadian Dollar',
+                'CHF': 'Swiss Franc',
+                'INR': 'Indian Rupee',
+                'CNY': 'Chinese Yuan',
+                'SGD': 'Singapore Dollar'
+            };
+            return names[code] || code;
+        }
+        
+        function formatRate(rate) {
+            if (rate >= 100) {
+                return rate.toFixed(2);
+            } else if (rate >= 10) {
+                return rate.toFixed(3);
+            } else if (rate >= 1) {
+                return rate.toFixed(4);
+            } else {
+                return rate.toFixed(6);
+            }
+        }
+        
+        function formatNumber(num, decimals = 2) {
+            return num.toLocaleString('en-US', {
+                minimumFractionDigits: decimals,
+                maximumFractionDigits: decimals
+            });
+        }
+        
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric'
+            }) + ' ' + date.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+        
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+/* Responsive styles for Ovia PMS Dashboard */
+
+/* Dark mode adjustments */
+body.dark-mode {
+    background-color: #1a1d28;
+    color: #e2e8f0;
+}
+
+body.dark-mode .card {
+    background-color: #2d3748;
+    border-color: #4a5568;
+}
+
+body.dark-mode .card-header {
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+}
+
+body.dark-mode .sidebar {
+    background-color: #2d3748;
+    color: #e2e8f0;
+}
+
+body.dark-mode .nav-link {
+    color: #cbd5e0;
+}
+
+body.dark-mode .nav-link:hover,
+body.dark-mode .nav-link.active {
+    background-color: rgba(66, 153, 225, 0.1);
+    color: #63b3ed;
+}
+
+body.dark-mode .quick-stat {
+    background-color: #2d3748;
+    color: #e2e8f0;
+}
+
+body.dark-mode .event-item {
+    background-color: rgba(45, 55, 72, 0.7);
+}
+
+body.dark-mode .activity-content {
+    background-color: #2d3748;
+    color: #e2e8f0;
+}
+
+body.dark-mode .stat-item,
+body.dark-mode .quick-stat-item,
+body.dark-mode .role-selector .form-check {
+    background-color: #4a5568;
+}
+
+body.dark-mode footer {
+    border-color: #4a5568;
+    color: #a0aec0;
+}
+
+body.dark-mode .submenu {
+    background-color: rgba(45, 55, 72, 0.9);
+}
+
+body.dark-mode .submenu a {
+    color: #cbd5e0;
+}
+
+body.dark-mode .submenu a:hover {
+    background-color: rgba(66, 153, 225, 0.1);
+    color: #63b3ed;
+}
+
+body.dark-mode .toast-notification {
+    background: #2d3748;
+    color: #e2e8f0;
+}
+
+body.dark-mode .toast-close {
+    color: #a0aec0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1200px) {
+    .quick-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .metric-number {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    /* Hide sidebar on mobile */
+    .sidebar {
+        transform: translateX(-100%);
+        z-index: 1050;
+        top: 70px;
+        height: calc(100vh - 70px);
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1040;
+        display: none;
+    }
+    
+    .sidebar-overlay.active {
+        display: block;
+    }
+    
+    /* Show sidebar toggle button */
+    #sidebarToggle {
+        display: block;
+    }
+    
+    /* Adjust navbar for mobile */
+    .navbar {
+        margin-top: 0;
+    }
+    
+    /* Remove user status panel on mobile */
+    .user-status-panel {
+        display: none;
+    }
+    
+    body {
+        padding-top: 0;
+    }
+    
+    .main-content {
+        margin-top: 0;
+    }
+    
+    /* Adjust submenus for mobile */
+    .submenu {
+        margin-left: 1.5rem;
+        margin-right: 0.5rem;
+    }
+    
+    .submenu a {
+        padding-left: 1.5rem;
+    }
+    
+    .submenu a::before {
+        left: 0.5rem;
+    }
+    
+    /* Adjust quick stats grid */
+    .quick-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Hide some status toggle elements */
+    .status-toggle {
+        display: none;
+    }
+    
+    /* Adjust toast position */
+    #toastContainer {
+        top: 80px;
+        right: 10px;
+        max-width: 300px;
+    }
+    
+    .toast-notification {
+        min-width: 250px;
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Adjust padding for smaller screens */
+    .main-content {
+        padding: 1rem;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    /* Stack metrics cards */
+    .metric-card .card-body {
+        padding: 1.5rem;
+    }
+    
+    .metric-number {
+        font-size: 2rem;
+    }
+    
+    /* Adjust activity timeline */
+    .activity-timeline::before {
+        left: 15px;
+    }
+    
+    .activity-item {
+        padding-left: 40px;
+    }
+    
+    .activity-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 0.875rem;
+    }
+    
+    /* Adjust status display */
+    .status-controls {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    /* Footer adjustments */
+    footer .col-md-6 {
+        text-align: center !important;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Adjust quick actions */
+    .col-md-6 {
+        margin-bottom: 1rem;
+    }
+    
+    .quick-stat {
+        padding: 0.75rem;
+    }
+    
+    .quick-stat h5 {
+        font-size: 1rem;
+    }
+    
+    /* Adjust event items */
+    .event-item {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    /* Adjust quick stats grid */
+    .quick-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Further adjustments for mobile */
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+    
+    /* Hide some navbar items on very small screens */
+    .theme-toggle,
+    .dropdown.me-3:not(:last-child) {
+        display: none;
+    }
+    
+    /* Adjust user avatar display */
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 0.875rem;
+    }
+    
+    /* Make cards more compact */
+    .card-header {
+        padding: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    /* Adjust table responsiveness */
+    .chart-table {
+        font-size: 0.875rem;
+    }
+    
+    /* Adjust toast notifications */
+    #toastContainer {
+        left: 10px;
+        right: 10px;
+        max-width: 100%;
+    }
+    
+    .toast-notification {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    /* Adjust badge sizes */
+    .badge {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .user-status-panel,
+    .navbar,
+    .sidebar,
+    .sidebar-overlay,
+    #sidebarToggle {
+        display: none !important;
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .card {
+        box-shadow: none !important;
+        border: 1px solid #dee2e6 !important;
+        page-break-inside: avoid;
+    }
+    
+    /* Hide interactive elements */
+    .btn, 
+    .dropdown,
+    .theme-toggle,
+    .notification-badge {
+        display: none !important;
+    }
+}

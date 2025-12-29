@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Occupancy Forecast Report - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/reports.css">
+    <!-- Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card occupancy-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-chart-line me-2"></i>Occupancy Forecast Report
+                                </h1>
+                                <p class="card-text text-muted mb-0">Analyze and forecast room occupancy trends</p>
+                                <small class="text-muted">Current Occupancy: <span class="fw-bold text-success">85%</span> • Forecast Accuracy: <span class="fw-bold text-info">92%</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#compareReportModal">
+                                    <i class="fas fa-exchange-alt me-1"></i> Compare Periods
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter and Controls Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card occupancy-card">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label class="form-label">From Date</label>
+                                <input type="date" class="form-control" id="fromDate" value="2024-12-01">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">To Date</label>
+                                <input type="date" class="form-control" id="toDate" value="2024-12-31">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Room Type</label>
+                                <select class="form-select" id="roomTypeFilter">
+                                    <option value="">All Room Types</option>
+                                    <option value="standard">Standard Room</option>
+                                    <option value="deluxe">Deluxe Room</option>
+                                    <option value="suite">Suite</option>
+                                    <option value="family">Family Room</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Forecast Period</label>
+                                <select class="form-select" id="forecastPeriod">
+                                    <option value="7">Next 7 Days</option>
+                                    <option value="14" selected>Next 14 Days</option>
+                                    <option value="30">Next 30 Days</option>
+                                    <option value="90">Next 90 Days</option>
+                                </select>
+                            </div>
+                            <div class="col-md-9">
+                                <label class="form-label">Search</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search by room number, guest name, or booking reference...">
+                                    <button class="btn btn-primary" type="button" id="searchBtn">
+                                        <i class="fas fa-search"></i> Search
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-flex align-items-end">
+                                <div class="d-flex gap-2 w-100">
+                                    <button class="btn btn-outline-secondary w-50" id="resetFiltersBtn">
+                                        <i class="fas fa-redo me-1"></i> Reset
+                                    </button>
+                                    <button class="btn btn-info w-50" id="viewReportBtn">
+                                        <i class="fas fa-eye me-1"></i> View
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Occupancy Summary -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card occupancy-card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-chart-pie me-2 text-primary"></i>Occupancy Summary</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 col-6 mb-4">
+                                <div class="text-center">
+                                    <h6 class="text-muted mb-2">Total Rooms</h6>
+                                    <h2 class="text-primary fw-bold">120</h2>
+                                    <div class="occupancy-meter">
+                                        <div class="meter-fill fill-available" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6 mb-4">
+                                <div class="text-center">
+                                    <h6 class="text-muted mb-2">Occupied</h6>
+                                    <h2 class="text-danger fw-bold">102</h2>
+                                    <div class="occupancy-meter">
+                                        <div class="meter-fill fill-high" style="width: 85%"></div>
+                                    </div>
+                                    <small class="text-muted">85% occupancy rate</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6 mb-4">
+                                <div class="text-center">
+                                    <h6 class="text-muted mb-2">Reserved</h6>
+                                    <h2 class="text-warning fw-bold">15</h2>
+                                    <div class="occupancy-meter">
+                                        <div class="meter-fill fill-medium" style="width: 12.5%"></div>
+                                    </div>
+                                    <small class="text-muted">Future bookings</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6 mb-4">
+                                <div class="text-center">
+                                    <h6 class="text-muted mb-2">Available</h6>
+                                    <h2 class="text-success fw-bold">3</h2>
+                                    <div class="occupancy-meter">
+                                        <div class="meter-fill fill-low" style="width: 2.5%"></div>
+                                    </div>
+                                    <small class="text-muted">Ready for booking</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Stats -->
+                        <div class="row mt-3">
+                            <div class="col-md-3 col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-primary p-2 rounded me-3">
+                                        <i class="fas fa-bed text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 fw-medium">Avg. Occupancy</p>
+                                        <small class="text-muted">78% this month</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-success p-2 rounded me-3">
+                                        <i class="fas fa-trend-up text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 fw-medium">Growth Rate</p>
+                                        <small class="text-muted">+8% from last month</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-info p-2 rounded me-3">
+                                        <i class="fas fa-star text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 fw-medium">Guest Rating</p>
+                                        <small class="text-muted">4.8/5.0</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-warning p-2 rounded me-3">
+                                        <i class="fas fa-calendar-check text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="mb-0 fw-medium">Booking Rate</p>
+                                        <small class="text-muted">92% accuracy</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forecast Chart and Table -->
+        <div class="row mb-4">
+            <!-- Chart Column -->
+            <div class="col-lg-8 col-md-12 mb-4">
+                <div class="card occupancy-card h-100">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-chart-line me-2 text-primary"></i>Occupancy Forecast Chart</h5>
+                            <div class="btn-group btn-group-sm">
+                                <button type="button" class="btn btn-outline-primary active" data-chart-type="line">Line</button>
+                                <button type="button" class="btn btn-outline-primary" data-chart-type="bar">Bar</button>
+                                <button type="button" class="btn btn-outline-primary" data-chart-type="area">Area</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-container">
+                            <canvas id="occupancyChart"></canvas>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="forecast-card forecast-trend-up">
+                                    <h6 class="fw-bold mb-2">Positive Trend</h6>
+                                    <p class="mb-0 small">Weekend occupancy expected to increase by 15% compared to last month</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="forecast-card forecast-trend-stable">
+                                    <h6 class="fw-bold mb-2">Stable Weekdays</h6>
+                                    <p class="mb-0 small">Mid-week occupancy remains consistent at 75-80% range</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Room Type Breakdown -->
+            <div class="col-lg-4 col-md-12 mb-4">
+                <div class="card occupancy-card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-chart-pie me-2 text-primary"></i>Room Type Breakdown</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div>
+                                    <span class="room-type-indicator" style="background: #28a745;"></span>
+                                    <span>Standard Rooms</span>
+                                </div>
+                                <div class="text-end">
+                                    <strong>92%</strong>
+                                    <div class="occupancy-meter mt-1" style="width: 100px;">
+                                        <div class="meter-fill fill-high" style="width: 92%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div>
+                                    <span class="room-type-indicator" style="background: #007bff;"></span>
+                                    <span>Deluxe Rooms</span>
+                                </div>
+                                <div class="text-end">
+                                    <strong>88%</strong>
+                                    <div class="occupancy-meter mt-1" style="width: 100px;">
+                                        <div class="meter-fill fill-high" style="width: 88%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div>
+                                    <span class="room-type-indicator" style="background: #ffc107;"></span>
+                                    <span>Suites</span>
+                                </div>
+                                <div class="text-end">
+                                    <strong>78%</strong>
+                                    <div class="occupancy-meter mt-1" style="width: 100px;">
+                                        <div class="meter-fill fill-medium" style="width: 78%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="room-type-indicator" style="background: #6f42c1;"></span>
+                                    <span>Family Rooms</span>
+                                </div>
+                                <div class="text-end">
+                                    <strong>65%</strong>
+                                    <div class="occupancy-meter mt-1" style="width: 100px;">
+                                        <div class="meter-fill fill-medium" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h6 class="text-primary mb-3">Forecast Insights</h6>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Peak season starts Dec 20</span>
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-exclamation-triangle text-warning me-2"></i>
+                                    <span>Low availability on Dec 24-26</span>
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-info-circle text-info me-2"></i>
+                                    <span>Expected 95% occupancy on New Year's Eve</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-lightbulb text-primary me-2"></i>
+                                    <span>Consider dynamic pricing for high-demand dates</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Occupancy Forecast Table -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card occupancy-card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-calendar-alt me-2 text-primary"></i>Daily Occupancy Forecast (Dec 15-31, 2024)</h5>
+                            <div class="d-flex">
+                                <button class="btn btn-sm btn-outline-primary me-2 no-print" id="printBtn">
+                                    <i class="fas fa-print me-1"></i> Print
+                                </button>
+                                <button class="btn btn-sm btn-success no-print" id="exportBtn">
+                                    <i class="fas fa-download me-1"></i> Export
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Day</th>
+                                        <th>Total Rooms</th>
+                                        <th>Occupied</th>
+                                        <th>Reserved</th>
+                                        <th>Available</th>
+                                        <th>Occupancy Rate</th>
+                                        <th>Forecast Status</th>
+                                        <th class="no-print">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="forecastTableBody">
+                                    <!-- Day 1 -->
+                                    <tr>
+                                        <td>2024-12-15</td>
+                                        <td>Sunday</td>
+                                        <td>120</td>
+                                        <td class="status-occupied">102</td>
+                                        <td class="status-reserved">15</td>
+                                        <td class="status-available">3</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="occupancy-meter me-2" style="width: 80px;">
+                                                    <div class="meter-fill fill-high" style="width: 85%"></div>
+                                                </div>
+                                                <span>85%</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="occupancy-badge badge-high">High Occupancy</span>
+                                        </td>
+                                        <td class="no-print">
+                                            <button class="btn btn-sm btn-outline-primary view-details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Day 2 -->
+                                    <tr>
+                                        <td>2024-12-16</td>
+                                        <td>Monday</td>
+                                        <td>120</td>
+                                        <td class="status-occupied">98</td>
+                                        <td class="status-reserved">18</td>
+                                        <td class="status-available">4</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="occupancy-meter me-2" style="width: 80px;">
+                                                    <div class="meter-fill fill-high" style="width: 82%"></div>
+                                                </div>
+                                                <span>82%</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="occupancy-badge badge-high">High Occupancy</span>
+                                        </td>
+                                        <td class="no-print">
+                                            <button class="btn btn-sm btn-outline-primary view-details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Day 3 -->
+                                    <tr>
+                                        <td>2024-12-17</td>
+                                        <td>Tuesday</td>
+                                        <td>120</td>
+                                        <td class="status-occupied">96</td>
+                                        <td class="status-reserved">20</td>
+                                        <td class="status-available">4</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="occupancy-meter me-2" style="width: 80px;">
+                                                    <div class="meter-fill fill-high" style="width: 80%"></div>
+                                                </div>
+                                                <span>80%</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="occupancy-badge badge-high">High Occupancy</span>
+                                        </td>
+                                        <td class="no-print">
+                                            <button class="btn btn-sm btn-outline-primary view-details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Day 4 -->
+                                    <tr>
+                                        <td>2024-12-18</td>
+                                        <td>Wednesday</td>
+                                        <td>120</td>
+                                        <td class="status-occupied">94</td>
+                                        <td class="status-reserved">22</td>
+                                        <td class="status-available">4</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="occupancy-meter me-2" style="width: 80px;">
+                                                    <div class="meter-fill fill-high" style="width: 78%"></div>
+                                                </div>
+                                                <span>78%</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="occupancy-badge badge-medium">Medium Occupancy</span>
+                                        </td>
+                                        <td class="no-print">
+                                            <button class="btn btn-sm btn-outline-primary view-details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Day 5 -->
+                                    <tr>
+                                        <td>2024-12-19</td>
+                                        <td>Thursday</td>
+                                        <td>120</td>
+                                        <td class="status-occupied">92</td>
+                                        <td class="status-reserved">24</td>
+                                        <td class="status-available">4</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="occupancy-meter me-2" style="width: 80px;">
+                                                    <div class="meter-fill fill-medium" style="width: 77%"></div>
+                                                </div>
+                                                <span>77%</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="occupancy-badge badge-medium">Medium Occupancy</span>
+                                        </td>
+                                        <td class="no-print">
+                                            <button class="btn btn-sm btn-outline-primary view-details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Day 6 -->
+                                    <tr>
+                                        <td>2024-12-20</td>
+                                        <td>Friday</td>
+                                        <td>120</td>
+                                        <td class="status-occupied">100</td>
+                                        <td class="status-reserved">18</td>
+                                        <td class="status-available">2</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="occupancy-meter me-2" style="width: 80px;">
+                                                    <div class="meter-fill fill-high" style="width: 83%"></div>
+                                                </div>
+                                                <span>83%</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="occupancy-badge badge-high">High Occupancy</span>
+                                        </td>
+                                        <td class="no-print">
+                                            <button class="btn btn-sm btn-outline-primary view-details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Day 7 -->
+                                    <tr>
+                                        <td>2024-12-21</td>
+                                        <td>Saturday</td>
+                                        <td>120</td>
+                                        <td class="status-occupied">108</td>
+                                        <td class="status-reserved">10</td>
+                                        <td class="status-available">2</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="occupancy-meter me-2" style="width: 80px;">
+                                                    <div class="meter-fill fill-high" style="width: 90%"></div>
+                                                </div>
+                                                <span>90%</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="occupancy-badge badge-high">High Occupancy</span>
+                                        </td>
+                                        <td class="no-print">
+                                            <button class="btn btn-sm btn-outline-primary view-details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Day 8 -->
+                                    <tr>
+                                        <td>2024-12-22</td>
+                                        <td>Sunday</td>
+                                        <td>120</td>
+                                        <td class="status-occupied">110</td>
+                                        <td class="status-reserved">8</td>
+                                        <td class="status-available">2</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="occupancy-meter me-2" style="width: 80px;">
+                                                    <div class="meter-fill fill-high" style="width: 92%"></div>
+                                                </div>
+                                                <span>92%</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="occupancy-badge badge-high">Very High Occupancy</span>
+                                        </td>
+                                        <td class="no-print">
+                                            <button class="btn btn-sm btn-outline-primary view-details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Day 9 -->
+                                    <tr>
+                                        <td>2024-12-23</td>
+                                        <td>Monday</td>
+                                        <td>120</td>
+                                        <td class="status-occupied">112</td>
+                                        <td class="status-reserved">6</td>
+                                        <td class="status-available">2</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="occupancy-meter me-2" style="width: 80px;">
+                                                    <div class="meter-fill fill-high" style="width: 93%"></div>
+                                                </div>
+                                                <span>93%</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="occupancy-badge badge-high">Very High Occupancy</span>
+                                        </td>
+                                        <td class="no-print">
+                                            <button class="btn btn-sm btn-outline-primary view-details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Day 10 -->
+                                    <tr>
+                                        <td>2024-12-24</td>
+                                        <td>Tuesday</td>
+                                        <td>120</td>
+                                        <td class="status-occupied">114</td>
+                                        <td class="status-reserved">4</td>
+                                        <td class="status-available">2</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="occupancy-meter me-2" style="width: 80px;">
+                                                    <div class="meter-fill fill-high" style="width: 95%"></div>
+                                                </div>
+                                                <span>95%</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="occupancy-badge badge-high">Peak Occupancy</span>
+                                        </td>
+                                        <td class="no-print">
+                                            <button class="btn btn-sm btn-outline-primary view-details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted">Showing forecast for Dec 15-24, 2024</span>
+                            </div>
+                            <nav aria-label="Forecast pagination">
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Report Details Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card occupancy-card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-file-alt me-2 text-primary"></i>Report Details & Insights</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="mb-3 text-primary">Key Findings</h6>
+                                <div class="mb-4">
+                                    <div class="forecast-card forecast-trend-up">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="bg-success p-2 rounded me-3">
+                                                <i class="fas fa-trend-up text-white"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold mb-1">Strong Weekend Demand</h6>
+                                                <p class="mb-0 small">Weekend occupancy averages 88%, 12% higher than weekdays</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="forecast-card forecast-trend-stable">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="bg-warning p-2 rounded me-3">
+                                                <i class="fas fa-chart-line text-white"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold mb-1">Consistent Mid-Week</h6>
+                                                <p class="mb-0 small">Tuesday-Thursday maintains stable 78-82% occupancy</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="forecast-card forecast-trend-up">
+                                        <div class="d-flex align-items-center">
+                                            <div class="bg-danger p-2 rounded me-3">
+                                                <i class="fas fa-fire text-white"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold mb-1">Holiday Peak</h6>
+                                                <p class="mb-0 small">Christmas week shows 95%+ occupancy, consider rate adjustments</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h6 class="text-primary mb-3">Revenue Impact</h6>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="bg-primary p-2 rounded me-3">
+                                                    <i class="fas fa-dollar-sign text-white"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0 fw-bold">$125K</h5>
+                                                    <small class="text-muted">Expected Revenue</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="bg-success p-2 rounded me-3">
+                                                    <i class="fas fa-percentage text-white"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0 fw-bold">18%</h5>
+                                                    <small class="text-muted">Growth vs Last Year</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center">
+                                                <div class="bg-info p-2 rounded me-3">
+                                                    <i class="fas fa-bed text-white"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0 fw-bold">$104</h5>
+                                                    <small class="text-muted">Avg. Room Rate</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="d-flex align-items-center">
+                                                <div class="bg-warning p-2 rounded me-3">
+                                                    <i class="fas fa-users text-white"></i>
+                                                </div>
+                                                <div>
+                                                    <h5 class="mb-0 fw-bold">2.3</h5>
+                                                    <small class="text-muted">Avg. Guests/Room</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <h6 class="mb-3 text-primary">Recommendations</h6>
+                                <div class="mb-4">
+                                    <div class="alert alert-warning">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <i class="fas fa-exclamation-triangle fa-2x"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h6 class="alert-heading">Capacity Management</h6>
+                                                <p class="mb-0 small">Only 2-4 rooms available during peak periods. Consider overbooking strategy or temporary capacity expansion.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert alert-info">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <i class="fas fa-lightbulb fa-2x"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h6 class="alert-heading">Dynamic Pricing</h6>
+                                                <p class="mb-0 small">Implement dynamic pricing for Dec 22-26. Increase rates by 15-20% to maximize revenue during high demand.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert alert-success">
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <i class="fas fa-calendar-plus fa-2x"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <h6 class="alert-heading">Promotion Opportunities</h6>
+                                                <p class="mb-0 small">Create special packages for Jan 2-10 to fill post-holiday availability. Target local staycation market.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h6 class="text-primary mb-3">Forecast Accuracy Metrics</h6>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="progress mb-3" style="height: 10px;">
+                                                <div class="progress-bar bg-success" style="width: 92%"></div>
+                                            </div>
+                                            <small class="text-muted">Current Accuracy: 92%</small>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="progress mb-3" style="height: 10px;">
+                                                <div class="progress-bar bg-primary" style="width: 88%"></div>
+                                            </div>
+                                            <small class="text-muted">Historical Accuracy: 88%</small>
+                                        </div>
+                                    </div>
+                                    <p class="small text-muted">Based on 12-month historical data and current booking patterns. Forecast updated daily.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-end gap-2">
+                                    <button class="btn btn-outline-secondary" id="refreshReportBtn">
+                                        <i class="fas fa-sync-alt me-1"></i> Refresh
+                                    </button>
+                                    <button class="btn btn-primary" id="generateReportBtn">
+                                        <i class="fas fa-file-pdf me-1"></i> Generate PDF
+                                    </button>
+                                    <button class="btn btn-success" id="sendReportBtn">
+                                        <i class="fas fa-paper-plane me-1"></i> Send Report
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Occupancy Forecast Module</strong> v3.2 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Compare Reports Modal -->
+    <div class="modal fade" id="compareReportModal" tabindex="-1" aria-labelledby="compareReportModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="compareReportModalLabel">
+                        <i class="fas fa-exchange-alt me-2"></i>Compare Forecast Periods
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="comparePeriod1" class="form-label">First Period</label>
+                            <select class="form-select" id="comparePeriod1">
+                                <option value="current">Current Month (Dec 2024)</option>
+                                <option value="last_month">Last Month (Nov 2024)</option>
+                                <option value="same_month_last_year">Same Month Last Year (Dec 2023)</option>
+                                <option value="quarter">This Quarter (Q4 2024)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="comparePeriod2" class="form-label">Second Period</label>
+                            <select class="form-select" id="comparePeriod2">
+                                <option value="last_month">Last Month (Nov 2024)</option>
+                                <option value="current">Current Month (Dec 2024)</option>
+                                <option value="same_month_last_year">Same Month Last Year (Dec 2023)</option>
+                                <option value="quarter">Last Quarter (Q3 2024)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="compareMetric" class="form-label">Compare By</label>
+                            <select class="form-select" id="compareMetric">
+                                <option value="occupancy_rate">Occupancy Rate</option>
+                                <option value="revenue">Revenue</option>
+                                <option value="adr">Average Daily Rate (ADR)</option>
+                                <option value="revpar">Revenue Per Available Room (RevPAR)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="compareGranularity" class="form-label">Granularity</label>
+                            <select class="form-select" id="compareGranularity">
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h6 class="text-primary mb-3">Comparison Preview</h6>
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th id="previewPeriod1">Current Month</th>
+                                        <th id="previewPeriod2">Last Month</th>
+                                        <th>Change</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Avg. Occupancy Rate</td>
+                                        <td>85%</td>
+                                        <td>78%</td>
+                                        <td><span class="text-success">+7%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Revenue</td>
+                                        <td>$125,000</td>
+                                        <td>$98,500</td>
+                                        <td><span class="text-success">+26.9%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Avg. Daily Rate</td>
+                                        <td>$104.25</td>
+                                        <td>$95.80</td>
+                                        <td><span class="text-success">+8.8%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>RevPAR</td>
+                                        <td>$88.61</td>
+                                        <td>$74.72</td>
+                                        <td><span class="text-success">+18.6%</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="generateComparisonBtn">Generate Comparison</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Day Details Modal -->
+    <div class="modal fade" id="dayDetailsModal" tabindex="-1" aria-labelledby="dayDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title" id="dayDetailsModalLabel">
+                        <i class="fas fa-calendar-day me-2"></i>Day Details
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h6 class="text-muted mb-2">Date</h6>
+                            <h4 id="detailDayDate" class="text-primary">December 15, 2024 (Sunday)</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-muted mb-2">Overall Occupancy</h6>
+                            <div class="d-flex align-items-center">
+                                <div class="occupancy-meter me-3" style="width: 150px;">
+                                    <div class="meter-fill fill-high" style="width: 85%"></div>
+                                </div>
+                                <h3 class="mb-0">85%</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h6 class="text-primary mb-3">Room Type Breakdown</h6>
+                    <div class="table-responsive mb-4">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Room Type</th>
+                                    <th>Total Rooms</th>
+                                    <th>Occupied</th>
+                                    <th>Reserved</th>
+                                    <th>Available</th>
+                                    <th>Occupancy Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Standard Room</td>
+                                    <td>80</td>
+                                    <td>68</td>
+                                    <td>10</td>
+                                    <td>2</td>
+                                    <td>85%</td>
+                                </tr>
+                                <tr>
+                                    <td>Deluxe Room</td>
+                                    <td>25</td>
+                                    <td>22</td>
+                                    <td>3</td>
+                                    <td>0</td>
+                                    <td>88%</td>
+                                </tr>
+                                <tr>
+                                    <td>Suite</td>
+                                    <td>10</td>
+                                    <td>8</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                    <td>80%</td>
+                                </tr>
+                                <tr>
+                                    <td>Family Room</td>
+                                    <td>5</td>
+                                    <td>4</td>
+                                    <td>1</td>
+                                    <td>0</td>
+                                    <td>80%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h6 class="text-primary mb-3">Key Events & Notes</h6>
+                    <div class="alert alert-info">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-info-circle fa-2x"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="alert-heading">Weekend Peak</h6>
+                                <p class="mb-0">Sunday occupancy typically peaks at 85-90%. High demand for extended weekend stays.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="printDayReportBtn">
+                        <i class="fas fa-print me-1"></i> Print Report
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Print Report Header -->
+    <div class="print-only">
+        <div class="text-center mb-4">
+            <h1>Ovia PMS - Occupancy Forecast Report</h1>
+            <h3>Period: Dec 15-31, 2024</h3>
+            <p>Generated on: <span id="printDate"></span></p>
+            <p class="text-muted">Forecast Accuracy: 92% | Total Rooms: 120</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    
+    <script>
+        // Occupancy Forecast Report Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current date for print
+            document.getElementById('printDate').textContent = new Date().toLocaleDateString();
+            
+            // Initialize Chart
+            initializeChart();
+            
+            // Chart type buttons
+            document.querySelectorAll('[data-chart-type]').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('[data-chart-type]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    const chartType = this.dataset.chartType;
+                    changeChartType(chartType);
+                });
+            });
+            
+            // View day details buttons
+            document.querySelectorAll('.view-details').forEach(button => {
+                button.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    showDayDetails(row);
+                });
+            });
+            
+            // Search button
+            document.getElementById('searchBtn').addEventListener('click', function() {
+                filterForecast();
+            });
+            
+            // View report button
+            document.getElementById('viewReportBtn').addEventListener('click', function() {
+                viewReport();
+            });
+            
+            // Reset filters
+            document.getElementById('resetFiltersBtn').addEventListener('click', function() {
+                resetFilters();
+            });
+            
+            // Print button
+            document.getElementById('printBtn').addEventListener('click', function() {
+                printReport();
+            });
+            
+            // Export button
+            document.getElementById('exportBtn').addEventListener('click', function() {
+                exportReport();
+            });
+            
+            // Refresh report button
+            document.getElementById('refreshReportBtn').addEventListener('click', function() {
+                refreshReport();
+            });
+            
+            // Generate PDF button
+            document.getElementById('generateReportBtn').addEventListener('click', function() {
+                generatePDF();
+            });
+            
+            // Send report button
+            document.getElementById('sendReportBtn').addEventListener('click', function() {
+                sendReport();
+            });
+            
+            // Generate comparison button
+            document.getElementById('generateComparisonBtn').addEventListener('click', function() {
+                generateComparison();
+            });
+            
+            // Print day report button
+            document.getElementById('printDayReportBtn').addEventListener('click', function() {
+                printDayReport();
+            });
+            
+            // Update comparison preview
+            document.getElementById('comparePeriod1').addEventListener('change', updateComparisonPreview);
+            document.getElementById('comparePeriod2').addEventListener('change', updateComparisonPreview);
+            document.getElementById('compareMetric').addEventListener('change', updateComparisonPreview);
+            
+            // Filter on input change
+            document.getElementById('fromDate').addEventListener('change', filterForecast);
+            document.getElementById('toDate').addEventListener('change', filterForecast);
+            document.getElementById('roomTypeFilter').addEventListener('change', filterForecast);
+            document.getElementById('forecastPeriod').addEventListener('change', filterForecast);
+        });
+        
+        let occupancyChart;
+        
+        function initializeChart() {
+            const ctx = document.getElementById('occupancyChart').getContext('2d');
+            
+            const data = {
+                labels: ['Dec 15', 'Dec 16', 'Dec 17', 'Dec 18', 'Dec 19', 'Dec 20', 'Dec 21', 'Dec 22', 'Dec 23', 'Dec 24'],
+                datasets: [
+                    {
+                        label: 'Occupancy Rate (%)',
+                        data: [85, 82, 80, 78, 77, 83, 90, 92, 93, 95],
+                        borderColor: '#007bff',
+                        backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Historical Avg (%)',
+                        data: [78, 76, 75, 74, 73, 80, 85, 88, 89, 90],
+                        borderColor: '#6c757d',
+                        backgroundColor: 'rgba(108, 117, 125, 0.05)',
+                        borderWidth: 1,
+                        borderDash: [5, 5],
+                        fill: false,
+                        tension: 0.4
+                    }
+                ]
+            };
+            
+            const config = {
+                type: 'line',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Occupancy Rate (%)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Date'
+                            }
+                        }
+                    }
+                }
+            };
+            
+            occupancyChart = new Chart(ctx, config);
+        }
+        
+        function changeChartType(type) {
+            if (occupancyChart) {
+                occupancyChart.config.type = type;
+                
+                // Adjust fill for area chart
+                if (type === 'area') {
+                    occupancyChart.data.datasets[0].fill = true;
+                    occupancyChart.data.datasets[1].fill = false;
+                } else if (type === 'bar') {
+                    occupancyChart.data.datasets[0].fill = false;
+                    occupancyChart.data.datasets[1].fill = false;
+                } else {
+                    occupancyChart.data.datasets[0].fill = true;
+                    occupancyChart.data.datasets[1].fill = false;
+                }
+                
+                occupancyChart.update();
+                showAlert(`Chart changed to ${type} view`, 'info');
+            }
+        }
+        
+        function filterForecast() {
+            const fromDate = document.getElementById('fromDate').value;
+            const toDate = document.getElementById('toDate').value;
+            const roomType = document.getElementById('roomTypeFilter').value;
+            const forecastPeriod = document.getElementById('forecastPeriod').value;
+            
+            // In a real application, you would fetch filtered data from the server
+            // For now, we'll just show a message and update the table
+            
+            const rows = document.querySelectorAll('#forecastTableBody tr');
+            
+            rows.forEach(row => {
+                const rowDate = row.querySelector('td:nth-child(1)').textContent;
+                
+                let show = true;
+                
+                // Apply date filter
+                if (fromDate && rowDate < fromDate) show = false;
+                if (toDate && rowDate > toDate) show = false;
+                
+                // Apply room type filter would filter data at server level
+                // For demo, we're just showing/hiding rows based on date
+                
+                row.style.display = show ? '' : 'none';
+            });
+            
+            // Update chart based on filtered period
+            updateChartForPeriod(forecastPeriod);
+            
+            showAlert(`Filter applied for ${fromDate} to ${toDate}`, 'success');
+        }
+        
+        function updateChartForPeriod(period) {
+            // Update chart data based on selected period
+            let labels, data, historicalData;
+            
+            switch(period) {
+                case '7':
+                    labels = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'];
+                    data = [85, 82, 80, 78, 77, 83, 90];
+                    historicalData = [78, 76, 75, 74, 73, 80, 85];
+                    break;
+                case '14':
+                    labels = ['Dec 15', 'Dec 16', 'Dec 17', 'Dec 18', 'Dec 19', 'Dec 20', 'Dec 21', 'Dec 22', 'Dec 23', 'Dec 24', 'Dec 25', 'Dec 26', 'Dec 27', 'Dec 28'];
+                    data = [85, 82, 80, 78, 77, 83, 90, 92, 93, 95, 96, 94, 88, 85];
+                    historicalData = [78, 76, 75, 74, 73, 80, 85, 88, 89, 90, 91, 89, 83, 80];
+                    break;
+                case '30':
+                    labels = Array.from({length: 30}, (_, i) => `Day ${i + 1}`);
+                    data = Array.from({length: 30}, () => Math.floor(Math.random() * 20) + 75);
+                    historicalData = data.map(value => Math.max(70, value - Math.floor(Math.random() * 10)));
+                    break;
+                case '90':
+                    labels = Array.from({length: 12}, (_, i) => `Week ${i + 1}`);
+                    data = [85, 82, 80, 78, 77, 83, 90, 92, 93, 95, 88, 85];
+                    historicalData = [78, 76, 75, 74, 73, 80, 85, 88, 89, 90, 83, 80];
+                    break;
+                default:
+                    return;
+            }
+            
+            if (occupancyChart) {
+                occupancyChart.data.labels = labels;
+                occupancyChart.data.datasets[0].data = data;
+                occupancyChart.data.datasets[1].data = historicalData;
+                occupancyChart.update();
+            }
+        }
+        
+        function showDayDetails(row) {
+            const date = row.querySelector('td:nth-child(1)').textContent;
+            const day = row.querySelector('td:nth-child(2)').textContent;
+            const occupancy = row.querySelector('td:nth-child(7) span:last-child').textContent;
+            
+            document.getElementById('detailDayDate').textContent = formatDate(date) + ' (' + day + ')';
+            
+            // Update occupancy meter
+            const occupancyValue = parseInt(occupancy);
+            const meterFill = document.querySelector('#dayDetailsModal .meter-fill');
+            meterFill.style.width = occupancyValue + '%';
+            
+            // Set appropriate color based on occupancy
+            if (occupancyValue >= 90) {
+                meterFill.className = 'meter-fill fill-high';
+            } else if (occupancyValue >= 75) {
+                meterFill.className = 'meter-fill fill-medium';
+            } else {
+                meterFill.className = 'meter-fill fill-low';
+            }
+            
+            // Show modal
+            const detailsModal = new bootstrap.Modal(document.getElementById('dayDetailsModal'));
+            detailsModal.show();
+        }
+        
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { month: 'long', day: 'numeric', year: 'numeric' };
+            return date.toLocaleDateString('en-US', options);
+        }
+        
+        function viewReport() {
+            const fromDate = document.getElementById('fromDate').value;
+            const toDate = document.getElementById('toDate').value;
+            
+            showAlert(`Viewing occupancy forecast from ${fromDate} to ${toDate}`, 'success');
+            filterForecast();
+        }
+        
+        function resetFilters() {
+            // Set default dates (next 14 days)
+            const today = new Date();
+            const next14Days = new Date();
+            next14Days.setDate(today.getDate() + 14);
+            
+            document.getElementById('fromDate').value = today.toISOString().split('T')[0];
+            document.getElementById('toDate').value = next14Days.toISOString().split('T')[0];
+            document.getElementById('roomTypeFilter').value = '';
+            document.getElementById('forecastPeriod').value = '14';
+            
+            filterForecast();
+            showAlert('Filters have been reset to default', 'info');
+        }
+        
+        function printReport() {
+            window.print();
+        }
+        
+        function exportReport() {
+            showAlert('Occupancy forecast exported successfully as Excel file', 'success');
+        }
+        
+        function refreshReport() {
+            // Simulate data refresh
+            showAlert('Forecast data refreshed successfully', 'success');
+            
+            // Update some random values for demo
+            const rows = document.querySelectorAll('#forecastTableBody tr');
+            rows.forEach((row, index) => {
+                if (index < 5) { // Update first 5 rows
+                    const occupiedCell = row.querySelector('td:nth-child(4)');
+                    const reservedCell = row.querySelector('td:nth-child(5)');
+                    const availableCell = row.querySelector('td:nth-child(6)');
+                    const occupancyCell = row.querySelector('td:nth-child(7)');
+                    const statusCell = row.querySelector('td:nth-child(8) span');
+                    
+                    // Generate new random values
+                    const occupied = Math.floor(Math.random() * 10) + 90;
+                    const reserved = Math.floor(Math.random() * 10) + 10;
+                    const available = 120 - occupied - reserved;
+                    const occupancyRate = Math.round((occupied / 120) * 100);
+                    
+                    // Update cells
+                    occupiedCell.textContent = occupied;
+                    reservedCell.textContent = reserved;
+                    availableCell.textContent = available > 0 ? available : 0;
+                    
+                    // Update occupancy rate
+                    const meterFill = occupancyCell.querySelector('.meter-fill');
+                    meterFill.style.width = occupancyRate + '%';
+                    occupancyCell.querySelector('span:last-child').textContent = occupancyRate + '%';
+                    
+                    // Update status
+                    let statusText, statusClass;
+                    if (occupancyRate >= 90) {
+                        statusText = 'Very High Occupancy';
+                        statusClass = 'badge-high';
+                        meterFill.className = 'meter-fill fill-high';
+                    } else if (occupancyRate >= 80) {
+                        statusText = 'High Occupancy';
+                        statusClass = 'badge-high';
+                        meterFill.className = 'meter-fill fill-high';
+                    } else if (occupancyRate >= 70) {
+                        statusText = 'Medium Occupancy';
+                        statusClass = 'badge-medium';
+                        meterFill.className = 'meter-fill fill-medium';
+                    } else {
+                        statusText = 'Low Occupancy';
+                        statusClass = 'badge-low';
+                        meterFill.className = 'meter-fill fill-low';
+                    }
+                    
+                    statusCell.textContent = statusText;
+                    statusCell.className = `occupancy-badge ${statusClass}`;
+                }
+            });
+            
+            // Update chart with new data
+            if (occupancyChart) {
+                const newData = occupancyChart.data.datasets[0].data.map(value => {
+                    const change = Math.floor(Math.random() * 6) - 3; // -3 to +3
+                    return Math.min(100, Math.max(70, value + change));
+                });
+                occupancyChart.data.datasets[0].data = newData;
+                occupancyChart.update();
+            }
+        }
+        
+        function generatePDF() {
+            showAlert('PDF report is being generated...', 'info');
+            // In a real application, you would generate a PDF here
+            setTimeout(() => {
+                showAlert('PDF report generated successfully', 'success');
+            }, 1500);
+        }
+        
+        function sendReport() {
+            showAlert('Occupancy forecast report sent to management team', 'success');
+        }
+        
+        function updateComparisonPreview() {
+            const period1 = document.getElementById('comparePeriod1').options[document.getElementById('comparePeriod1').selectedIndex].text;
+            const period2 = document.getElementById('comparePeriod2').options[document.getElementById('comparePeriod2').selectedIndex].text;
+            
+            document.getElementById('previewPeriod1').textContent = period1;
+            document.getElementById('previewPeriod2').textContent = period2;
+        }
+        
+        function generateComparison() {
+            const period1 = document.getElementById('comparePeriod1').value;
+            const period2 = document.getElementById('comparePeriod2').value;
+            const metric = document.getElementById('compareMetric').value;
+            const granularity = document.getElementById('compareGranularity').value;
+            
+            const compareModal = bootstrap.Modal.getInstance(document.getElementById('compareReportModal'));
+            compareModal.hide();
+            
+            showAlert(`Generating comparison between ${period1} and ${period2} by ${metric} (${granularity})`, 'info');
+            
+            // In a real application, you would generate and show the comparison chart
+            setTimeout(() => {
+                showAlert('Comparison report generated successfully', 'success');
+            }, 1000);
+        }
+        
+        function printDayReport() {
+            const detailsModal = bootstrap.Modal.getInstance(document.getElementById('dayDetailsModal'));
+            detailsModal.hide();
+            
+            setTimeout(() => {
+                window.print();
+            }, 500);
+        }
+        
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+    </script>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+
+    <!-- Include JavaScript -->
+    <script src="js/include.js"></script>
+     <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,2696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Analysis Report - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+      <link rel="stylesheet" href="css/rep_age.css">
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card age-analysis-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-chart-line me-2"></i>Age Analysis Report
+                                </h1>
+                                <p class="card-text text-muted mb-0">Analysis of outstanding balances by age category</p>
+                                <small class="text-muted">Total Outstanding: <span class="fw-bold text-danger">$48,750</span> • Accounts: <span class="fw-bold text-info">127</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#collectionPlanModal">
+                                    <i class="fas fa-bullhorn me-1"></i> Collection Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter and Controls Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card age-analysis-card">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label class="form-label">As of Date</label>
+                                <input type="date" class="form-control" id="reportDate" value="2024-12-15">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Customer Type</label>
+                                <select class="form-select" id="customerTypeFilter">
+                                    <option value="">All Types</option>
+                                    <option value="individual">Individual</option>
+                                    <option value="corporate">Corporate</option>
+                                    <option value="travel-agent">Travel Agent</option>
+                                    <option value="group">Group</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Age Category</label>
+                                <select class="form-select" id="ageCategoryFilter">
+                                    <option value="">All Categories</option>
+                                    <option value="current">Current (0-30 days)</option>
+                                    <option value="31-60">31-60 Days</option>
+                                    <option value="61-90">61-90 Days</option>
+                                    <option value="90plus">90+ Days</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Risk Level</label>
+                                <select class="form-select" id="riskLevelFilter">
+                                    <option value="">All Risk Levels</option>
+                                    <option value="low">Low Risk</option>
+                                    <option value="medium">Medium Risk</option>
+                                    <option value="high">High Risk</option>
+                                    <option value="critical">Critical Risk</option>
+                                </select>
+                            </div>
+                            <div class="col-md-8">
+                                <label class="form-label">Search</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search by customer name, invoice number, or amount...">
+                                    <button class="btn btn-primary" type="button" id="searchBtn">
+                                        <i class="fas fa-search"></i> Search
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-4 d-flex align-items-end">
+                                <div class="d-flex gap-2 w-100">
+                                    <button class="btn btn-outline-secondary w-50" id="resetFiltersBtn">
+                                        <i class="fas fa-redo me-1"></i> Reset
+                                    </button>
+                                    <button class="btn btn-info w-50" id="viewReportBtn">
+                                        <i class="fas fa-eye me-1"></i> View
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Age Analysis Summary KPIs -->
+        <div class="row mb-4">
+            <div class="col-xl-2 col-md-4 col-sm-6 mb-4">
+                <div class="summary-kpi-card kpi-total">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="mb-2">Total Outstanding</h6>
+                            <h4 class="text-white fw-bold">$48,750</h4>
+                            <p class="mb-0">
+                                <span class="badge bg-light text-danger">+5.8%</span>
+                                <small class="ms-2">vs Last Month</small>
+                            </p>
+                        </div>
+                        <div class="bg-white bg-opacity-25 p-2 rounded-circle">
+                            <i class="fas fa-dollar-sign text-white"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <div class="progress bg-white bg-opacity-25" style="height: 5px;">
+                            <div class="progress-bar bg-white" style="width: 85%"></div>
+                        </div>
+                        <small class="text-white">127 accounts</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-2 col-md-4 col-sm-6 mb-4">
+                <div class="summary-kpi-card kpi-current">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="mb-2">Current (0-30)</h6>
+                            <h4 class="text-white fw-bold">$18,250</h4>
+                            <p class="mb-0">
+                                <span class="badge bg-light text-success">-2.1%</span>
+                                <small class="ms-2">vs Last Month</small>
+                            </p>
+                        </div>
+                        <div class="bg-white bg-opacity-25 p-2 rounded-circle">
+                            <i class="fas fa-calendar-check text-white"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <div class="progress bg-white bg-opacity-25" style="height: 5px;">
+                            <div class="progress-bar bg-white" style="width: 37%"></div>
+                        </div>
+                        <small class="text-white">58 accounts</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-2 col-md-4 col-sm-6 mb-4">
+                <div class="summary-kpi-card kpi-31-60">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="mb-2">31-60 Days</h6>
+                            <h4 class="text-white fw-bold">$12,480</h4>
+                            <p class="mb-0">
+                                <span class="badge bg-light text-danger">+8.4%</span>
+                                <small class="ms-2">vs Last Month</small>
+                            </p>
+                        </div>
+                        <div class="bg-white bg-opacity-25 p-2 rounded-circle">
+                            <i class="fas fa-calendar-week text-white"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <div class="progress bg-white bg-opacity-25" style="height: 5px;">
+                            <div class="progress-bar bg-white" style="width: 26%"></div>
+                        </div>
+                        <small class="text-white">34 accounts</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-2 col-md-4 col-sm-6 mb-4">
+                <div class="summary-kpi-card kpi-61-90">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="mb-2">61-90 Days</h6>
+                            <h4 class="text-white fw-bold">$9,850</h4>
+                            <p class="mb-0">
+                                <span class="badge bg-light text-danger">+12.5%</span>
+                                <small class="ms-2">vs Last Month</small>
+                            </p>
+                        </div>
+                        <div class="bg-white bg-opacity-25 p-2 rounded-circle">
+                            <i class="fas fa-calendar-alt text-white"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <div class="progress bg-white bg-opacity-25" style="height: 5px;">
+                            <div class="progress-bar bg-white" style="width: 20%"></div>
+                        </div>
+                        <small class="text-white">22 accounts</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-2 col-md-4 col-sm-6 mb-4">
+                <div class="summary-kpi-card kpi-90plus">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="mb-2">90+ Days</h6>
+                            <h4 class="text-white fw-bold">$8,170</h4>
+                            <p class="mb-0">
+                                <span class="badge bg-light text-danger">+15.2%</span>
+                                <small class="ms-2">vs Last Month</small>
+                            </p>
+                        </div>
+                        <div class="bg-white bg-opacity-25 p-2 rounded-circle">
+                            <i class="fas fa-calendar-times text-white"></i>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <div class="progress bg-white bg-opacity-25" style="height: 5px;">
+                            <div class="progress-bar bg-white" style="width: 17%"></div>
+                        </div>
+                        <small class="text-white">13 accounts</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-2 col-md-4 col-sm-6 mb-4">
+                <div class="card summary-card summary-total">
+                    <div class="d-flex align-items-center">
+                        <div class="bg-info p-2 rounded me-3">
+                            <i class="fas fa-percentage text-white"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0 fw-bold">67.4%</h5>
+                            <small class="text-muted">Collection Rate</small>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <div class="progress" style="height: 5px;">
+                            <div class="progress-bar bg-info" style="width: 67.4%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Age Analysis Report Table -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card age-analysis-card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-file-invoice-dollar me-2 text-primary"></i>Age Analysis Report - As of December 15, 2024</h5>
+                            <div class="d-flex">
+                                <button class="btn btn-sm btn-outline-primary me-2 no-print" id="printBtn">
+                                    <i class="fas fa-print me-1"></i> Print
+                                </button>
+                                <button class="btn btn-sm btn-success no-print" id="exportBtn">
+                                    <i class="fas fa-download me-1"></i> Export
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Customer</th>
+                                        <th>Invoice No</th>
+                                        <th>Invoice Date</th>
+                                        <th>Due Date</th>
+                                        <th>Age (Days)</th>
+                                        <th>Outstanding Amount</th>
+                                        <th>Age Category</th>
+                                        <th>Risk Level</th>
+                                        <th>Last Payment</th>
+                                        <th class="no-print">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ageAnalysisTableBody">
+                                    <!-- Account 1 - Current -->
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="customer-avatar bg-primary text-white me-2" style="width: 28px; height: 28px; font-size: 12px;">
+                                                    HM
+                                                </div>
+                                                <div>
+                                                    <div>Howard Martenstyn</div>
+                                                    <small class="text-muted">Individual</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">INV-202412-001</span>
+                                        </td>
+                                        <td>Dec 10, 2024</td>
+                                        <td>Jan 09, 2025</td>
+                                        <td>
+                                            <span class="status-indicator status-current"></span>
+                                            <span class="age-current">5</span>
+                                        </td>
+                                        <td class="age-current fw-bold">$1,250.00</td>
+                                        <td>
+                                            <span class="age-badge badge-current">Current</span>
+                                        </td>
+                                        <td>
+                                            <span class="risk-badge risk-low">Low Risk</span>
+                                        </td>
+                                        <td>
+                                            <small>Dec 05, 2024</small>
+                                            <div><small class="text-success">$500.00</small></div>
+                                        </td>
+                                        <td class="no-print">
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-details" data-id="INV-202412-001">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-success record-payment" data-id="INV-202412-001">
+                                                    <i class="fas fa-money-bill-wave"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning send-reminder" data-id="INV-202412-001">
+                                                    <i class="fas fa-envelope"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Account 2 - 31-60 Days -->
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="customer-avatar bg-success text-white me-2" style="width: 28px; height: 28px; font-size: 12px;">
+                                                    ST
+                                                </div>
+                                                <div>
+                                                    <div>Sugeethan Thanigasalam</div>
+                                                    <small class="text-muted">Corporate</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">INV-202411-015</span>
+                                        </td>
+                                        <td>Nov 15, 2024</td>
+                                        <td>Dec 15, 2024</td>
+                                        <td>
+                                            <span class="status-indicator status-due"></span>
+                                            <span class="age-31-60">30</span>
+                                        </td>
+                                        <td class="age-31-60 fw-bold">$2,850.00</td>
+                                        <td>
+                                            <span class="age-badge badge-31-60">31-60 Days</span>
+                                        </td>
+                                        <td>
+                                            <span class="risk-badge risk-medium">Medium Risk</span>
+                                        </td>
+                                        <td>
+                                            <small>Oct 20, 2024</small>
+                                            <div><small class="text-success">$1,000.00</small></div>
+                                        </td>
+                                        <td class="no-print">
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-details" data-id="INV-202411-015">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-success record-payment" data-id="INV-202411-015">
+                                                    <i class="fas fa-money-bill-wave"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning send-reminder" data-id="INV-202411-015">
+                                                    <i class="fas fa-envelope"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Account 3 - 61-90 Days -->
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="customer-avatar bg-info text-white me-2" style="width: 28px; height: 28px; font-size: 12px;">
+                                                    AJ
+                                                </div>
+                                                <div>
+                                                    <div>Anne et Jean Green</div>
+                                                    <small class="text-muted">Travel Agent</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">INV-202410-008</span>
+                                        </td>
+                                        <td>Oct 20, 2024</td>
+                                        <td>Nov 19, 2024</td>
+                                        <td>
+                                            <span class="status-indicator status-overdue"></span>
+                                            <span class="age-61-90">56</span>
+                                        </td>
+                                        <td class="age-61-90 fw-bold">$4,500.00</td>
+                                        <td>
+                                            <span class="age-badge badge-61-90">61-90 Days</span>
+                                        </td>
+                                        <td>
+                                            <span class="risk-badge risk-high">High Risk</span>
+                                        </div>
+                                        </td>
+                                        <td>
+                                            <small>Sep 15, 2024</small>
+                                            <div><small class="text-success">$2,000.00</small></div>
+                                        </td>
+                                        <td class="no-print">
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-details" data-id="INV-202410-008">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-success record-payment" data-id="INV-202410-008">
+                                                    <i class="fas fa-money-bill-wave"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger escalate" data-id="INV-202410-008">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Account 4 - 90+ Days -->
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="customer-avatar bg-warning text-dark me-2" style="width: 28px; height: 28px; font-size: 12px;">
+                                                    SB
+                                                </div>
+                                                <div>
+                                                    <div>Selina Bridget</div>
+                                                    <small class="text-muted">Individual</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">INV-202409-003</span>
+                                        </td>
+                                        <td>Sep 05, 2024</td>
+                                        <td>Oct 05, 2024</td>
+                                        <td>
+                                            <span class="status-indicator status-overdue"></span>
+                                            <span class="age-90plus">101</span>
+                                        </td>
+                                        <td class="age-90plus fw-bold">$3,200.00</td>
+                                        <td>
+                                            <span class="age-badge badge-90plus">90+ Days</span>
+                                        </td>
+                                        <td>
+                                            <span class="risk-badge risk-critical">Critical Risk</span>
+                                        </td>
+                                        <td>
+                                            <small>Aug 10, 2024</small>
+                                            <div><small class="text-success">$1,500.00</small></div>
+                                        </td>
+                                        <td class="no-print">
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-details" data-id="INV-202409-003">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-success record-payment" data-id="INV-202409-003">
+                                                    <i class="fas fa-money-bill-wave"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger write-off" data-id="INV-202409-003">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Account 5 - Current -->
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="customer-avatar bg-danger text-white me-2" style="width: 28px; height: 28px; font-size: 12px;">
+                                                    SK
+                                                </div>
+                                                <div>
+                                                    <div>Sachith Kapu</div>
+                                                    <small class="text-muted">Corporate</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">INV-202412-005</span>
+                                        </td>
+                                        <td>Dec 12, 2024</td>
+                                        <td>Jan 11, 2025</td>
+                                        <td>
+                                            <span class="status-indicator status-current"></span>
+                                            <span class="age-current">3</span>
+                                        </td>
+                                        <td class="age-current fw-bold">$850.00</td>
+                                        <td>
+                                            <span class="age-badge badge-current">Current</span>
+                                        </td>
+                                        <td>
+                                            <span class="risk-badge risk-low">Low Risk</span>
+                                        </td>
+                                        <td>
+                                            <small>Nov 30, 2024</small>
+                                            <div><small class="text-success">$2,000.00</small></div>
+                                        </td>
+                                        <td class="no-print">
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-details" data-id="INV-202412-005">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-success record-payment" data-id="INV-202412-005">
+                                                    <i class="fas fa-money-bill-wave"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning send-reminder" data-id="INV-202412-005">
+                                                    <i class="fas fa-envelope"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Account 6 - 31-60 Days -->
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="customer-avatar bg-secondary text-white me-2" style="width: 28px; height: 28px; font-size: 12px;">
+                                                    MD
+                                                </div>
+                                                <div>
+                                                    <div>Michael Davis</div>
+                                                    <small class="text-muted">Individual</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">INV-202411-012</span>
+                                        </td>
+                                        <td>Nov 20, 2024</td>
+                                        <td>Dec 20, 2024</td>
+                                        <td>
+                                            <span class="status-indicator status-due"></span>
+                                            <span class="age-31-60">25</span>
+                                        </td>
+                                        <td class="age-31-60 fw-bold">$1,680.00</td>
+                                        <td>
+                                            <span class="age-badge badge-31-60">31-60 Days</span>
+                                        </td>
+                                        <td>
+                                            <span class="risk-badge risk-medium">Medium Risk</span>
+                                        </td>
+                                        <td>
+                                            <small>Oct 25, 2024</small>
+                                            <div><small class="text-success">$750.00</small></div>
+                                        </td>
+                                        <td class="no-print">
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-details" data-id="INV-202411-012">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-success record-payment" data-id="INV-202411-012">
+                                                    <i class="fas fa-money-bill-wave"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning send-reminder" data-id="INV-202411-012">
+                                                    <i class="fas fa-envelope"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Account 7 - 61-90 Days -->
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="customer-avatar bg-primary text-white me-2" style="width: 28px; height: 28px; font-size: 12px;">
+                                                    JS
+                                                </div>
+                                                <div>
+                                                    <div>Jennifer Smith</div>
+                                                    <small class="text-muted">Corporate</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">INV-202410-020</span>
+                                        </td>
+                                        <td>Oct 10, 2024</td>
+                                        <td>Nov 09, 2024</td>
+                                        <td>
+                                            <span class="status-indicator status-overdue"></span>
+                                            <span class="age-61-90">66</span>
+                                        </td>
+                                        <td class="age-61-90 fw-bold">$5,250.00</td>
+                                        <td>
+                                            <span class="age-badge badge-61-90">61-90 Days</span>
+                                        </td>
+                                        <td>
+                                            <span class="risk-badge risk-high">High Risk</span>
+                                        </td>
+                                        <td>
+                                            <small>Sep 05, 2024</small>
+                                            <div><small class="text-success">$1,500.00</small></div>
+                                        </td>
+                                        <td class="no-print">
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-details" data-id="INV-202410-020">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-success record-payment" data-id="INV-202410-020">
+                                                    <i class="fas fa-money-bill-wave"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger escalate" data-id="INV-202410-020">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Account 8 - 90+ Days -->
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="customer-avatar bg-success text-white me-2" style="width: 28px; height: 28px; font-size: 12px;">
+                                                    RW
+                                                </div>
+                                                <div>
+                                                    <div>Robert Wilson</div>
+                                                    <small class="text-muted">Individual</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">INV-202408-007</span>
+                                        </td>
+                                        <td>Aug 15, 2024</td>
+                                        <td>Sep 14, 2024</td>
+                                        <td>
+                                            <span class="status-indicator status-overdue"></span>
+                                            <span class="age-90plus">122</span>
+                                        </td>
+                                        <td class="age-90plus fw-bold">$1,750.00</td>
+                                        <td>
+                                            <span class="age-badge badge-90plus">90+ Days</span>
+                                        </td>
+                                        <td>
+                                            <span class="risk-badge risk-critical">Critical Risk</span>
+                                        </td>
+                                        <td>
+                                            <small>Jul 20, 2024</small>
+                                            <div><small class="text-success">$800.00</small></div>
+                                        </td>
+                                        <td class="no-print">
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-details" data-id="INV-202408-007">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-success record-payment" data-id="INV-202408-007">
+                                                    <i class="fas fa-money-bill-wave"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger write-off" data-id="INV-202408-007">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Account 9 - Current -->
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="customer-avatar bg-info text-white me-2" style="width: 28px; height: 28px; font-size: 12px;">
+                                                    EJ
+                                                </div>
+                                                <div>
+                                                    <div>Emily Johnson</div>
+                                                    <small class="text-muted">Travel Agent</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">INV-202412-003</span>
+                                        </td>
+                                        <td>Dec 14, 2024</td>
+                                        <td>Jan 13, 2025</td>
+                                        <td>
+                                            <span class="status-indicator status-current"></span>
+                                            <span class="age-current">1</span>
+                                        </td>
+                                        <td class="age-current fw-bold">$3,200.00</td>
+                                        <td>
+                                            <span class="age-badge badge-current">Current</span>
+                                        </td>
+                                        <td>
+                                            <span class="risk-badge risk-low">Low Risk</span>
+                                        </td>
+                                        <td>
+                                            <small>Dec 01, 2024</small>
+                                            <div><small class="text-success">$1,500.00</small></div>
+                                        </td>
+                                        <td class="no-print">
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-details" data-id="INV-202412-003">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-success record-payment" data-id="INV-202412-003">
+                                                    <i class="fas fa-money-bill-wave"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning send-reminder" data-id="INV-202412-003">
+                                                    <i class="fas fa-envelope"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Account 10 - 31-60 Days -->
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="customer-avatar bg-warning text-dark me-2" style="width: 28px; height: 28px; font-size: 12px;">
+                                                    TB
+                                                </div>
+                                                <div>
+                                                    <div>Thomas Brown</div>
+                                                    <small class="text-muted">Group</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">INV-202411-025</span>
+                                        </td>
+                                        <td>Nov 25, 2024</td>
+                                        <td>Dec 25, 2024</td>
+                                        <td>
+                                            <span class="status-indicator status-due"></span>
+                                            <span class="age-31-60">20</span>
+                                        </td>
+                                        <td class="age-31-60 fw-bold">$2,100.00</td>
+                                        <td>
+                                            <span class="age-badge badge-31-60">31-60 Days</span>
+                                        </td>
+                                        <td>
+                                            <span class="risk-badge risk-medium">Medium Risk</span>
+                                        </td>
+                                        <td>
+                                            <small>Oct 30, 2024</small>
+                                            <div><small class="text-success">$1,000.00</small></div>
+                                        </td>
+                                        <td class="no-print">
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-details" data-id="INV-202411-025">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-success record-payment" data-id="INV-202411-025">
+                                                    <i class="fas fa-money-bill-wave"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning send-reminder" data-id="INV-202411-025">
+                                                    <i class="fas fa-envelope"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <!-- Summary Footer -->
+                                <tfoot class="table-active">
+                                    <tr>
+                                        <td colspan="5"><strong>Age Analysis Summary</strong></td>
+                                        <td colspan="2">
+                                            <h5 class="mb-0 text-danger">Total Outstanding: $48,750</h5>
+                                            <small class="text-muted">127 outstanding invoices</small>
+                                        </td>
+                                        <td colspan="3">
+                                            <small class="text-muted">
+                                                <strong>Current (0-30):</strong> $18,250 (37.4%)<br>
+                                                <strong>31-60 Days:</strong> $12,480 (25.6%)<br>
+                                                <strong>61-90 Days:</strong> $9,850 (20.2%)<br>
+                                                <strong>90+ Days:</strong> $8,170 (16.8%)
+                                            </small>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted">Showing 10 of 127 outstanding invoices as of December 15, 2024</span>
+                            </div>
+                            <nav aria-label="Age Analysis pagination">
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Report Details Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card age-analysis-card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-chart-pie me-2 text-primary"></i>Report Details & Analysis</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="mb-3 text-primary">Age Bucket Analysis</h6>
+                                <div class="mb-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div>
+                                            <span class="status-indicator status-current"></span>
+                                            <span class="age-current">Current (0-30 days)</span>
+                                        </div>
+                                        <div class="text-end">
+                                            <strong>$18,250</strong>
+                                            <div class="age-meter mt-1">
+                                                <div class="meter-fill fill-current" style="width: 37%"></div>
+                                            </div>
+                                            <small class="text-muted">37.4% of total • 58 accounts</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div>
+                                            <span class="status-indicator" style="background: #ffc107;"></span>
+                                            <span class="age-31-60">31-60 Days</span>
+                                        </div>
+                                        <div class="text-end">
+                                            <strong>$12,480</strong>
+                                            <div class="age-meter mt-1">
+                                                <div class="meter-fill fill-31-60" style="width: 26%"></div>
+                                            </div>
+                                            <small class="text-muted">25.6% of total • 34 accounts</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div>
+                                            <span class="status-indicator" style="background: #fd7e14;"></span>
+                                            <span class="age-61-90">61-90 Days</span>
+                                        </div>
+                                        <div class="text-end">
+                                            <strong>$9,850</strong>
+                                            <div class="age-meter mt-1">
+                                                <div class="meter-fill fill-61-90" style="width: 20%"></div>
+                                            </div>
+                                            <small class="text-muted">20.2% of total • 22 accounts</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <span class="status-indicator" style="background: #dc3545;"></span>
+                                            <span class="age-90plus">90+ Days</span>
+                                        </div>
+                                        <div class="text-end">
+                                            <strong>$8,170</strong>
+                                            <div class="age-meter mt-1">
+                                                <div class="meter-fill fill-90plus" style="width: 17%"></div>
+                                            </div>
+                                            <small class="text-muted">16.8% of total • 13 accounts</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h6 class="text-primary mb-3">Risk Level Distribution</h6>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="summary-card" style="border-left-color: #28a745;">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-success p-2 rounded me-3">
+                                                        <i class="fas fa-check-circle text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="mb-0 fw-bold">58</h5>
+                                                        <small class="text-muted">Low Risk</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="summary-card" style="border-left-color: #ffc107;">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-warning p-2 rounded me-3">
+                                                        <i class="fas fa-exclamation-circle text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="mb-0 fw-bold">34</h5>
+                                                        <small class="text-muted">Medium Risk</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="summary-card" style="border-left-color: #fd7e14;">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-orange p-2 rounded me-3">
+                                                        <i class="fas fa-exclamation-triangle text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="mb-0 fw-bold">22</h5>
+                                                        <small class="text-muted">High Risk</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="summary-card" style="border-left-color: #dc3545;">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-danger p-2 rounded me-3">
+                                                        <i class="fas fa-skull-crossbones text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="mb-0 fw-bold">13</h5>
+                                                        <small class="text-muted">Critical Risk</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <h6 class="mb-3 text-primary">Collection Analysis</h6>
+                                <div class="mb-4">
+                                    <div class="summary-card summary-total">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="bg-info p-2 rounded me-3">
+                                                <i class="fas fa-tachometer-alt text-white"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold mb-1">Collection Performance: 67.4%</h6>
+                                                <p class="mb-0 small">Overall collection rate is below target of 80%. Focus needed on 60+ day accounts.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="summary-card" style="border-left-color: #dc3545;">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="bg-danger p-2 rounded me-3">
+                                                <i class="fas fa-clock text-white"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold mb-1">90+ Days Aging</h6>
+                                                <p class="mb-0 small">$8,170 in critical aging. Immediate action required for these 13 accounts.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="summary-card" style="border-left-color: #28a745;">
+                                        <div class="d-flex align-items-center">
+                                            <div class="bg-success p-2 rounded me-3">
+                                                <i class="fas fa-chart-line text-white"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-bold mb-1">Current Accounts</h6>
+                                                <p class="mb-0 small">$18,250 in current aging. Good payment history with these 58 accounts.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h6 class="text-primary mb-3">Customer Type Analysis</h6>
+                                    <div class="table-responsive">
+                                        <table class="table table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>Customer Type</th>
+                                                    <th>Accounts</th>
+                                                    <th>Outstanding</th>
+                                                    <th>Avg Age</th>
+                                                    <th>Collection Rate</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Individual</td>
+                                                    <td>45</td>
+                                                    <td>$12,450</td>
+                                                    <td>42 days</td>
+                                                    <td><span class="text-success">75.2%</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Corporate</td>
+                                                    <td>38</td>
+                                                    <td>$18,750</td>
+                                                    <td>38 days</td>
+                                                    <td><span class="text-success">78.5%</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Travel Agent</td>
+                                                    <td>24</td>
+                                                    <td>$9,850</td>
+                                                    <td>56 days</td>
+                                                    <td><span class="text-warning">62.3%</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Group</td>
+                                                    <td>20</td>
+                                                    <td>$7,700</td>
+                                                    <td>45 days</td>
+                                                    <td><span class="text-success">73.8%</span></td>
+                                                </tr>
+                                                <tr class="table-active">
+                                                    <td><strong>Total</strong></td>
+                                                    <td><strong>127</strong></td>
+                                                    <td><strong>$48,750</strong></td>
+                                                    <td><strong>45 days</strong></td>
+                                                    <td><strong><span class="text-warning">67.4%</span></strong></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <p class="small text-muted mt-2">Travel agents show the lowest collection rate and highest average age.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Stats -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="border-top pt-3">
+                                    <div class="row">
+                                        <div class="col-md-3 col-6 mb-3">
+                                            <div class="text-center">
+                                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle d-inline-block mb-2">
+                                                    <i class="fas fa-file-invoice-dollar fa-2x text-primary"></i>
+                                                </div>
+                                                <h5 class="fw-bold mb-1">127</h5>
+                                                <small class="text-muted">Outstanding Invoices</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-6 mb-3">
+                                            <div class="text-center">
+                                                <div class="bg-success bg-opacity-10 p-3 rounded-circle d-inline-block mb-2">
+                                                    <i class="fas fa-users fa-2x text-success"></i>
+                                                </div>
+                                                <h5 class="fw-bold mb-1">98</h5>
+                                                <small class="text-muted">Unique Customers</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-6 mb-3">
+                                            <div class="text-center">
+                                                <div class="bg-warning bg-opacity-10 p-3 rounded-circle d-inline-block mb-2">
+                                                    <i class="fas fa-calendar-times fa-2x text-warning"></i>
+                                                </div>
+                                                <h5 class="fw-bold mb-1">45</h5>
+                                                <small class="text-muted">Avg Days Outstanding</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-6 mb-3">
+                                            <div class="text-center">
+                                                <div class="bg-danger bg-opacity-10 p-3 rounded-circle d-inline-block mb-2">
+                                                    <i class="fas fa-exclamation-triangle fa-2x text-danger"></i>
+                                                </div>
+                                                <h5 class="fw-bold mb-1">13</h5>
+                                                <small class="text-muted">Critical Accounts</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-end gap-2">
+                                    <button class="btn btn-outline-secondary" id="refreshReportBtn">
+                                        <i class="fas fa-sync-alt me-1"></i> Refresh
+                                    </button>
+                                    <button class="btn btn-primary" id="generateReportBtn">
+                                        <i class="fas fa-file-pdf me-1"></i> Generate PDF
+                                    </button>
+                                    <button class="btn btn-success" id="sendRemindersBtn">
+                                        <i class="fas fa-paper-plane me-1"></i> Send Reminders
+                                    </button>
+                                    <button class="btn btn-warning" id="collectionPlanBtn">
+                                        <i class="fas fa-bullhorn me-1"></i> Collection Plan
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Age Analysis Report Module</strong> v3.2 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Collection Plan Modal -->
+    <div class="modal fade" id="collectionPlanModal" tabindex="-1" aria-labelledby="collectionPlanModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-white">
+                    <h5 class="modal-title" id="collectionPlanModalLabel">
+                        <i class="fas fa-bullhorn me-2"></i>Collection Action Plan
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-lightbulb fa-2x"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="alert-heading">Collection Strategy</h6>
+                                <p class="mb-0">Based on the age analysis, here's the recommended collection action plan for outstanding accounts.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="planDate" class="form-label">Plan Date</label>
+                            <input type="date" class="form-control" id="planDate" value="2024-12-15" readonly>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="targetDate" class="form-label">Target Completion Date</label>
+                            <input type="date" class="form-control" id="targetDate" value="2024-12-31">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="planOwner" class="form-label">Plan Owner</label>
+                            <input type="text" class="form-control" id="planOwner" value="Admin Johnson" readonly>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="targetCollection" class="form-label">Target Collection Amount</label>
+                            <input type="text" class="form-control" id="targetCollection" value="$35,000">
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h6 class="text-primary mb-3">Collection Action Steps</h6>
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Age Category</th>
+                                        <th>Action</th>
+                                        <th>Timeline</th>
+                                        <th>Responsible</th>
+                                        <th>Target</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="age-badge badge-current">Current (0-30)</span></td>
+                                        <td>Send friendly reminders before due date</td>
+                                        <td>Weekly</td>
+                                        <td>Accounts Team</td>
+                                        <td>$16,000 (87.7%)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="age-badge badge-31-60">31-60 Days</span></td>
+                                        <td>Phone calls and payment arrangements</td>
+                                        <td>Every 3 days</td>
+                                        <td>Senior Collector</td>
+                                        <td>$10,000 (80.1%)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="age-badge badge-61-90">61-90 Days</span></td>
+                                        <td>Escalated calls, payment plans</td>
+                                        <td>Daily</td>
+                                        <td>Collection Manager</td>
+                                        <td>$6,500 (66.0%)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="age-badge badge-90plus">90+ Days</span></td>
+                                        <td>Legal notice, write-off consideration</td>
+                                        <td>Immediate</td>
+                                        <td>Finance Director</td>
+                                        <td>$2,500 (30.6%)</td>
+                                    </tr>
+                                    <tr class="table-active">
+                                        <td><strong>Total Plan</strong></td>
+                                        <td><strong>Multi-tier collection strategy</strong></td>
+                                        <td><strong>16 days</strong></td>
+                                        <td><strong>Team Effort</strong></td>
+                                        <td><strong class="text-success">$35,000 (71.8%)</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="form-check mt-4">
+                        <input class="form-check-input" type="checkbox" id="confirmCollectionPlan">
+                        <label class="form-check-label" for="confirmCollectionPlan">
+                            I confirm this collection action plan and authorize the team to proceed with the outlined strategy.
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-warning" id="confirmCollectionPlanBtn" disabled>Activate Collection Plan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Account Details Modal -->
+    <div class="modal fade" id="accountDetailsModal" tabindex="-1" aria-labelledby="accountDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title" id="accountDetailsModalLabel">
+                        <i class="fas fa-file-invoice-dollar me-2"></i>Account Details
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h6 class="text-muted mb-2">Invoice Number</h6>
+                            <h4 id="detailInvoiceNo" class="text-primary">INV-202412-001</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-muted mb-2">Outstanding Amount</h6>
+                            <h2 id="detailOutstandingAmount" class="text-danger">$1,250.00</h2>
+                            <p id="detailAgeCategory" class="mb-0"><span class="age-badge badge-current">Current</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h6 class="text-primary mb-3">Customer Information</h6>
+                            <p class="mb-1"><strong>Name:</strong> <span id="detailCustomerName">Howard Martenstyn</span></p>
+                            <p class="mb-1"><strong>Type:</strong> <span id="detailCustomerType">Individual</span></p>
+                            <p class="mb-1"><strong>Contact:</strong> <span id="detailCustomerContact">hmartenstyn@gmail.com</span></p>
+                            <p class="mb-0"><strong>Phone:</strong> <span id="detailCustomerPhone">+1 416 123 4567</span></p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-primary mb-3">Invoice Information</h6>
+                            <p class="mb-1"><strong>Invoice Date:</strong> <span id="detailInvoiceDate">Dec 10, 2024</span></p>
+                            <p class="mb-1"><strong>Due Date:</strong> <span id="detailDueDate">Jan 09, 2025</span></p>
+                            <p class="mb-1"><strong>Age:</strong> <span id="detailAgeDays">5 days</span></p>
+                            <p class="mb-0"><strong>Risk Level:</strong> <span id="detailRiskLevel" class="risk-badge risk-low">Low Risk</span></p>
+                        </div>
+                    </div>
+                    
+                    <h6 class="text-primary mb-3">Invoice Items</h6>
+                    <div class="table-responsive mb-4">
+                        <table class="table table-sm customer-items-table">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Quantity</th>
+                                    <th>Rate</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody id="invoiceItemsBody">
+                                <tr>
+                                    <td>Deluxe Room (3 nights)</td>
+                                    <td>3</td>
+                                    <td>$250.00</td>
+                                    <td>$750.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Breakfast Buffet (3 days)</td>
+                                    <td>3</td>
+                                    <td>$25.00</td>
+                                    <td>$75.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Room Service</td>
+                                    <td>5</td>
+                                    <td>$35.00</td>
+                                    <td>$175.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Mini Bar</td>
+                                    <td>1</td>
+                                    <td>$150.00</td>
+                                    <td>$150.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Tax (12%)</td>
+                                    <td>1</td>
+                                    <td>$138.00</td>
+                                    <td>$138.00</td>
+                                </tr>
+                                <tr class="table-active">
+                                    <td colspan="3"><strong>Invoice Total</strong></td>
+                                    <td><strong>$1,288.00</strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3"><strong>Payments Received</strong></td>
+                                    <td><strong class="text-success">-$38.00</strong></td>
+                                </tr>
+                                <tr class="table-active">
+                                    <td colspan="3"><strong>Outstanding Balance</strong></td>
+                                    <td><strong>$1,250.00</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h6 class="text-primary mb-3">Payment History</h6>
+                    <div class="table-responsive mb-4">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Method</th>
+                                    <th>Reference</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="paymentHistoryBody">
+                                <tr>
+                                    <td>Dec 05, 2024</td>
+                                    <td>$500.00</td>
+                                    <td>Credit Card</td>
+                                    <td>CC-00124578</td>
+                                    <td><span class="badge bg-success">Completed</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Nov 30, 2024</td>
+                                    <td>$750.00</td>
+                                    <td>Bank Transfer</td>
+                                    <td>BT-00987456</td>
+                                    <td><span class="badge bg-success">Completed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h6 class="text-primary mb-3">Collection Notes</h6>
+                    <div class="alert alert-light">
+                        <p class="mb-0" id="detailCollectionNotes">Customer has good payment history. Last payment made on Dec 05, 2024. Regular guest who visits quarterly.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="printStatementBtn">
+                        <i class="fas fa-print me-1"></i> Print Statement
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Record Payment Modal -->
+    <div class="modal fade" id="recordPaymentModal" tabindex="-1" aria-labelledby="recordPaymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="recordPaymentModalLabel">
+                        <i class="fas fa-money-bill-wave me-2"></i>Record Payment
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-success">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-check-circle fa-2x"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="alert-heading">Record Payment</h6>
+                                <p class="mb-0">Record a payment against the outstanding invoice.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="paymentInvoiceNo" class="form-label">Invoice Number</label>
+                        <input type="text" class="form-control" id="paymentInvoiceNo" value="INV-202412-001" readonly>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="paymentCustomer" class="form-label">Customer</label>
+                        <input type="text" class="form-control" id="paymentCustomer" value="Howard Martenstyn" readonly>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="paymentOutstanding" class="form-label">Outstanding Amount</label>
+                        <input type="text" class="form-control" id="paymentOutstanding" value="$1,250.00" readonly>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="paymentAmount" class="form-label">Payment Amount *</label>
+                        <input type="number" class="form-control" id="paymentAmount" step="0.01" min="0" max="1250" placeholder="Enter payment amount" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="paymentDate" class="form-label">Payment Date *</label>
+                        <input type="date" class="form-control" id="paymentDate" value="2024-12-15" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="paymentMethod" class="form-label">Payment Method *</label>
+                        <select class="form-select" id="paymentMethod" required>
+                            <option value="">Select Method</option>
+                            <option value="cash">Cash</option>
+                            <option value="credit-card">Credit Card</option>
+                            <option value="debit-card">Debit Card</option>
+                            <option value="bank-transfer">Bank Transfer</option>
+                            <option value="online">Online Payment</option>
+                            <option value="cheque">Cheque</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="paymentReference" class="form-label">Reference Number</label>
+                        <input type="text" class="form-control" id="paymentReference" placeholder="Enter reference number">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="paymentNotes" class="form-label">Notes</label>
+                        <textarea class="form-control" id="paymentNotes" rows="3" placeholder="Enter payment notes..."></textarea>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="confirmPayment">
+                        <label class="form-check-label" for="confirmPayment">
+                            I confirm that this payment has been received and processed correctly.
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" id="confirmPaymentBtn" disabled>Record Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Send Reminder Modal -->
+    <div class="modal fade" id="sendReminderModal" tabindex="-1" aria-labelledby="sendReminderModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-white">
+                    <h5 class="modal-title" id="sendReminderModalLabel">
+                        <i class="fas fa-envelope me-2"></i>Send Payment Reminder
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-clock fa-2x"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="alert-heading">Send Reminder</h6>
+                                <p class="mb-0">Send a payment reminder to the customer for the outstanding invoice.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="reminderInvoiceNo" class="form-label">Invoice Number</label>
+                        <input type="text" class="form-control" id="reminderInvoiceNo" value="INV-202412-001" readonly>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="reminderCustomer" class="form-label">Customer</label>
+                        <input type="text" class="form-control" id="reminderCustomer" value="Howard Martenstyn" readonly>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="reminderOutstanding" class="form-label">Outstanding Amount</label>
+                        <input type="text" class="form-control" id="reminderOutstanding" value="$1,250.00" readonly>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="reminderType" class="form-label">Reminder Type *</label>
+                        <select class="form-select" id="reminderType" required>
+                            <option value="">Select Type</option>
+                            <option value="friendly">Friendly Reminder</option>
+                            <option value="first">First Reminder</option>
+                            <option value="second">Second Reminder</option>
+                            <option value="final">Final Notice</option>
+                            <option value="urgent">Urgent Action Required</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="reminderMethod" class="form-label">Delivery Method *</label>
+                        <select class="form-select" id="reminderMethod" required>
+                            <option value="">Select Method</option>
+                            <option value="email" selected>Email</option>
+                            <option value="sms">SMS</option>
+                            <option value="phone">Phone Call</option>
+                            <option value="letter">Letter</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="reminderTemplate" class="form-label">Template</label>
+                        <select class="form-select" id="reminderTemplate">
+                            <option value="">Select Template</option>
+                            <option value="standard">Standard Reminder</option>
+                            <option value="friendly">Friendly Reminder</option>
+                            <option value="urgent">Urgent Payment Request</option>
+                            <option value="final-notice">Final Notice</option>
+                            <option value="custom">Custom Message</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="reminderMessage" class="form-label">Message</label>
+                        <textarea class="form-control" id="reminderMessage" rows="5" placeholder="Enter reminder message...">
+Dear Howard Martenstyn,
+
+This is a friendly reminder regarding invoice INV-202412-001 for $1,250.00 which is due on Jan 09, 2025.
+
+Please arrange payment at your earliest convenience to avoid any late fees.
+
+Thank you for your prompt attention to this matter.
+
+Best regards,
+Ovia PMS Accounts Team
+                        </textarea>
+                    </div>
+                    
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="confirmReminder">
+                        <label class="form-check-label" for="confirmReminder">
+                            I confirm that I want to send this payment reminder to the customer.
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-warning" id="confirmReminderBtn" disabled>Send Reminder</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Print Report Header -->
+    <div class="print-only">
+        <div class="text-center mb-4">
+            <h1>Ovia PMS - Age Analysis Report</h1>
+            <h3>As of Date: December 15, 2024</h3>
+            <p>Generated on: <span id="printDate"></span></p>
+            <p class="text-muted">Total Outstanding: $48,750 | Accounts: 127 | Collection Rate: 67.4%</p>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    
+    <script>
+        // Age Analysis Report Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current date for print
+            document.getElementById('printDate').textContent = new Date().toLocaleDateString();
+            
+            // View account details buttons
+            document.querySelectorAll('.view-details').forEach(button => {
+                button.addEventListener('click', function() {
+                    const invoiceId = this.dataset.id;
+                    showAccountDetails(invoiceId);
+                });
+            });
+            
+            // Record payment buttons
+            document.querySelectorAll('.record-payment').forEach(button => {
+                button.addEventListener('click', function() {
+                    const invoiceId = this.dataset.id;
+                    showRecordPaymentModal(invoiceId);
+                });
+            });
+            
+            // Send reminder buttons
+            document.querySelectorAll('.send-reminder').forEach(button => {
+                button.addEventListener('click', function() {
+                    const invoiceId = this.dataset.id;
+                    showSendReminderModal(invoiceId);
+                });
+            });
+            
+            // Escalate buttons
+            document.querySelectorAll('.escalate').forEach(button => {
+                button.addEventListener('click', function() {
+                    const invoiceId = this.dataset.id;
+                    escalateAccount(invoiceId);
+                });
+            });
+            
+            // Write-off buttons
+            document.querySelectorAll('.write-off').forEach(button => {
+                button.addEventListener('click', function() {
+                    const invoiceId = this.dataset.id;
+                    showWriteOffModal(invoiceId);
+                });
+            });
+            
+            // Search button
+            document.getElementById('searchBtn').addEventListener('click', function() {
+                filterAccounts();
+            });
+            
+            // View report button
+            document.getElementById('viewReportBtn').addEventListener('click', function() {
+                viewReport();
+            });
+            
+            // Reset filters
+            document.getElementById('resetFiltersBtn').addEventListener('click', function() {
+                resetFilters();
+            });
+            
+            // Print button
+            document.getElementById('printBtn').addEventListener('click', function() {
+                printReport();
+            });
+            
+            // Export button
+            document.getElementById('exportBtn').addEventListener('click', function() {
+                exportReport();
+            });
+            
+            // Refresh report button
+            document.getElementById('refreshReportBtn').addEventListener('click', function() {
+                refreshReport();
+            });
+            
+            // Generate PDF button
+            document.getElementById('generateReportBtn').addEventListener('click', function() {
+                generatePDF();
+            });
+            
+            // Send reminders button
+            document.getElementById('sendRemindersBtn').addEventListener('click', function() {
+                sendBulkReminders();
+            });
+            
+            // Collection plan button
+            document.getElementById('collectionPlanBtn').addEventListener('click', function() {
+                showCollectionPlan();
+            });
+            
+            // Print statement button
+            document.getElementById('printStatementBtn').addEventListener('click', function() {
+                printStatement();
+            });
+            
+            // Confirm payment button
+            document.getElementById('confirmPaymentBtn').addEventListener('click', function() {
+                recordPayment();
+            });
+            
+            // Confirm reminder button
+            document.getElementById('confirmReminderBtn').addEventListener('click', function() {
+                sendReminder();
+            });
+            
+            // Confirm collection plan button
+            document.getElementById('confirmCollectionPlanBtn').addEventListener('click', function() {
+                activateCollectionPlan();
+            });
+            
+            // Confirm payment checkbox
+            document.getElementById('confirmPayment').addEventListener('change', function() {
+                document.getElementById('confirmPaymentBtn').disabled = !this.checked;
+            });
+            
+            // Confirm reminder checkbox
+            document.getElementById('confirmReminder').addEventListener('change', function() {
+                document.getElementById('confirmReminderBtn').disabled = !this.checked;
+            });
+            
+            // Confirm collection plan checkbox
+            document.getElementById('confirmCollectionPlan').addEventListener('change', function() {
+                document.getElementById('confirmCollectionPlanBtn').disabled = !this.checked;
+            });
+            
+            // Filter on input change
+            document.getElementById('reportDate').addEventListener('change', filterAccounts);
+            document.getElementById('customerTypeFilter').addEventListener('change', filterAccounts);
+            document.getElementById('ageCategoryFilter').addEventListener('change', filterAccounts);
+            document.getElementById('riskLevelFilter').addEventListener('change', filterAccounts);
+            
+            // Initialize the page
+            initializePage();
+        });
+        
+        function initializePage() {
+            // Set today's date as default
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('reportDate').value = today;
+            
+            // Initialize totals calculation
+            calculateTotals();
+        }
+        
+        function filterAccounts() {
+            const reportDate = document.getElementById('reportDate').value;
+            const customerType = document.getElementById('customerTypeFilter').value;
+            const ageCategory = document.getElementById('ageCategoryFilter').value;
+            const riskLevel = document.getElementById('riskLevelFilter').value;
+            
+            // In a real application, you would fetch filtered data from the server
+            // For now, we'll just show a message and simulate filtering
+            
+            const rows = document.querySelectorAll('#ageAnalysisTableBody tr');
+            
+            rows.forEach(row => {
+                const rowCustomerType = row.querySelector('td:nth-child(1) small').textContent.toLowerCase();
+                const rowAgeCategory = row.querySelector('td:nth-child(7) span').classList.contains('badge-current') ? 'current' :
+                                      row.querySelector('td:nth-child(7) span').classList.contains('badge-31-60') ? '31-60' :
+                                      row.querySelector('td:nth-child(7) span').classList.contains('badge-61-90') ? '61-90' : '90plus';
+                
+                const rowRiskLevel = row.querySelector('td:nth-child(8) span').classList.contains('risk-low') ? 'low' :
+                                    row.querySelector('td:nth-child(8) span').classList.contains('risk-medium') ? 'medium' :
+                                    row.querySelector('td:nth-child(8) span').classList.contains('risk-high') ? 'high' : 'critical';
+                
+                let show = true;
+                
+                // Apply customer type filter
+                if (customerType && rowCustomerType !== customerType.toLowerCase()) show = false;
+                
+                // Apply age category filter
+                if (ageCategory && rowAgeCategory !== ageCategory.toLowerCase()) show = false;
+                
+                // Apply risk level filter
+                if (riskLevel && rowRiskLevel !== riskLevel.toLowerCase()) show = false;
+                
+                row.style.display = show ? '' : 'none';
+            });
+            
+            // Recalculate totals
+            calculateTotals();
+            
+            showAlert(`Accounts filtered for ${reportDate}`, 'success');
+        }
+        
+        function calculateTotals() {
+            let totalCurrent = 0, total31_60 = 0, total61_90 = 0, total90plus = 0, totalAmount = 0;
+            let countCurrent = 0, count31_60 = 0, count61_90 = 0, count90plus = 0;
+            let countLow = 0, countMedium = 0, countHigh = 0, countCritical = 0;
+            
+            const rows = document.querySelectorAll('#ageAnalysisTableBody tr');
+            
+            rows.forEach(row => {
+                if (row.style.display === 'none') return;
+                
+                const amount = parseFloat(row.querySelector('td:nth-child(6)').textContent.replace('$', '').replace(',', ''));
+                const ageCategory = row.querySelector('td:nth-child(7) span').classList.contains('badge-current') ? 'current' :
+                                  row.querySelector('td:nth-child(7) span').classList.contains('badge-31-60') ? '31-60' :
+                                  row.querySelector('td:nth-child(7) span').classList.contains('badge-61-90') ? '61-90' : '90plus';
+                
+                const riskLevel = row.querySelector('td:nth-child(8) span').classList.contains('risk-low') ? 'low' :
+                                row.querySelector('td:nth-child(8) span').classList.contains('risk-medium') ? 'medium' :
+                                row.querySelector('td:nth-child(8) span').classList.contains('risk-high') ? 'high' : 'critical';
+                
+                // Add to appropriate total
+                switch(ageCategory) {
+                    case 'current': totalCurrent += amount; countCurrent++; break;
+                    case '31-60': total31_60 += amount; count31_60++; break;
+                    case '61-90': total61_90 += amount; count61_90++; break;
+                    case '90plus': total90plus += amount; count90plus++; break;
+                }
+                
+                // Count risk levels
+                switch(riskLevel) {
+                    case 'low': countLow++; break;
+                    case 'medium': countMedium++; break;
+                    case 'high': countHigh++; break;
+                    case 'critical': countCritical++; break;
+                }
+                
+                totalAmount += amount;
+            });
+            
+            // Update summary footer
+            const footerRow = document.querySelector('#ageAnalysisTableBody + tfoot tr');
+            if (footerRow) {
+                footerRow.querySelector('td:nth-child(6) h5').textContent = `Total Outstanding: $${totalAmount.toLocaleString()}`;
+                footerRow.querySelector('td:nth-child(6) small').textContent = `${rows.length} outstanding invoices`;
+                
+                const currentPercent = totalCurrent > 0 ? ((totalCurrent / totalAmount) * 100).toFixed(1) : 0;
+                const percent31_60 = total31_60 > 0 ? ((total31_60 / totalAmount) * 100).toFixed(1) : 0;
+                const percent61_90 = total61_90 > 0 ? ((total61_90 / totalAmount) * 100).toFixed(1) : 0;
+                const percent90plus = total90plus > 0 ? ((total90plus / totalAmount) * 100).toFixed(1) : 0;
+                
+                footerRow.querySelector('td:nth-child(7) small').innerHTML = `
+                    <strong>Current (0-30):</strong> $${totalCurrent.toLocaleString()} (${currentPercent}%)<br>
+                    <strong>31-60 Days:</strong> $${total31_60.toLocaleString()} (${percent31_60}%)<br>
+                    <strong>61-90 Days:</strong> $${total61_90.toLocaleString()} (${percent61_90}%)<br>
+                    <strong>90+ Days:</strong> $${total90plus.toLocaleString()} (${percent90plus}%)
+                `;
+            }
+            
+            // Update KPI cards
+            updateKPICards(totalAmount, totalCurrent, total31_60, total61_90, total90plus, countCurrent, count31_60, count61_90, count90plus);
+            
+            // Update risk distribution
+            updateRiskDistribution(countLow, countMedium, countHigh, countCritical);
+        }
+        
+        function updateKPICards(totalAmount, currentAmount, amount31_60, amount61_90, amount90plus, countCurrent, count31_60, count61_90, count90plus) {
+            // Update KPI cards with new values
+            document.querySelector('.kpi-total h4').textContent = '$' + Math.round(totalAmount).toLocaleString();
+            document.querySelector('.kpi-current h4').textContent = '$' + Math.round(currentAmount).toLocaleString();
+            document.querySelector('.kpi-31-60 h4').textContent = '$' + Math.round(amount31_60).toLocaleString();
+            document.querySelector('.kpi-61-90 h4').textContent = '$' + Math.round(amount61_90).toLocaleString();
+            document.querySelector('.kpi-90plus h4').textContent = '$' + Math.round(amount90plus).toLocaleString();
+            
+            // Update progress bars
+            const currentPercentage = totalAmount > 0 ? Math.round((currentAmount / totalAmount) * 100) : 0;
+            const percentage31_60 = totalAmount > 0 ? Math.round((amount31_60 / totalAmount) * 100) : 0;
+            const percentage61_90 = totalAmount > 0 ? Math.round((amount61_90 / totalAmount) * 100) : 0;
+            const percentage90plus = totalAmount > 0 ? Math.round((amount90plus / totalAmount) * 100) : 0;
+            
+            document.querySelector('.kpi-current .progress-bar').style.width = currentPercentage + '%';
+            document.querySelector('.kpi-31-60 .progress-bar').style.width = percentage31_60 + '%';
+            document.querySelector('.kpi-61-90 .progress-bar').style.width = percentage61_90 + '%';
+            document.querySelector('.kpi-90plus .progress-bar').style.width = percentage90plus + '%';
+            
+            // Update account counts
+            const rows = document.querySelectorAll('#ageAnalysisTableBody tr');
+            const visibleRows = Array.from(rows).filter(row => row.style.display !== 'none');
+            
+            document.querySelector('.kpi-total small').textContent = `${visibleRows.length} accounts`;
+            document.querySelector('.kpi-current small').textContent = `${countCurrent} accounts`;
+            document.querySelector('.kpi-31-60 small').textContent = `${count31_60} accounts`;
+            document.querySelector('.kpi-61-90 small').textContent = `${count61_90} accounts`;
+            document.querySelector('.kpi-90plus small').textContent = `${count90plus} accounts`;
+        }
+        
+        function updateRiskDistribution(low, medium, high, critical) {
+            // Update risk distribution cards
+            const riskLowCard = document.querySelector('.summary-card:nth-child(1) h5');
+            const riskMediumCard = document.querySelector('.summary-card:nth-child(2) h5');
+            const riskHighCard = document.querySelector('.summary-card:nth-child(3) h5');
+            const riskCriticalCard = document.querySelector('.summary-card:nth-child(4) h5');
+            
+            if (riskLowCard) riskLowCard.textContent = low;
+            if (riskMediumCard) riskMediumCard.textContent = medium;
+            if (riskHighCard) riskHighCard.textContent = high;
+            if (riskCriticalCard) riskCriticalCard.textContent = critical;
+        }
+        
+        function showAccountDetails(invoiceId) {
+            // Sample account data
+            const accountData = {
+                'INV-202412-001': {
+                    invoiceNo: 'INV-202412-001',
+                    amount: '$1,250.00',
+                    ageCategory: 'Current',
+                    customerName: 'Howard Martenstyn',
+                    customerType: 'Individual',
+                    customerContact: 'hmartenstyn@gmail.com',
+                    customerPhone: '+1 416 123 4567',
+                    invoiceDate: 'Dec 10, 2024',
+                    dueDate: 'Jan 09, 2025',
+                    ageDays: '5 days',
+                    riskLevel: 'Low Risk',
+                    notes: 'Customer has good payment history. Last payment made on Dec 05, 2024. Regular guest who visits quarterly.'
+                },
+                'INV-202411-015': {
+                    invoiceNo: 'INV-202411-015',
+                    amount: '$2,850.00',
+                    ageCategory: '31-60 Days',
+                    customerName: 'Sugeethan Thanigasalam',
+                    customerType: 'Corporate',
+                    customerContact: 'sugee@ascensorpartners.com',
+                    customerPhone: '+94 77 123 4567',
+                    invoiceDate: 'Nov 15, 2024',
+                    dueDate: 'Dec 15, 2024',
+                    ageDays: '30 days',
+                    riskLevel: 'Medium Risk',
+                    notes: 'Corporate account with occasional delays. Usually pays within 45 days.'
+                },
+                'INV-202410-008': {
+                    invoiceNo: 'INV-202410-008',
+                    amount: '$4,500.00',
+                    ageCategory: '61-90 Days',
+                    customerName: 'Anne et Jean Green',
+                    customerType: 'Travel Agent',
+                    customerContact: 'info@barreefresort.com',
+                    customerPhone: '+33 1 23 45 67 89',
+                    invoiceDate: 'Oct 20, 2024',
+                    dueDate: 'Nov 19, 2024',
+                    ageDays: '56 days',
+                    riskLevel: 'High Risk',
+                    notes: 'International travel agent with payment processing delays. Requires follow-up.'
+                }
+            };
+            
+            const data = accountData[invoiceId] || accountData['INV-202412-001'];
+            
+            // Populate modal with account data
+            document.getElementById('detailInvoiceNo').textContent = data.invoiceNo;
+            document.getElementById('detailOutstandingAmount').textContent = data.amount;
+            document.getElementById('detailAgeCategory').innerHTML = data.ageCategory === 'Current' ? 
+                `<span class="age-badge badge-current">${data.ageCategory}</span>` :
+                data.ageCategory === '31-60 Days' ? 
+                `<span class="age-badge badge-31-60">${data.ageCategory}</span>` :
+                data.ageCategory === '61-90 Days' ?
+                `<span class="age-badge badge-61-90">${data.ageCategory}</span>` :
+                `<span class="age-badge badge-90plus">${data.ageCategory}</span>`;
+            document.getElementById('detailCustomerName').textContent = data.customerName;
+            document.getElementById('detailCustomerType').textContent = data.customerType;
+            document.getElementById('detailCustomerContact').textContent = data.customerContact;
+            document.getElementById('detailCustomerPhone').textContent = data.customerPhone;
+            document.getElementById('detailInvoiceDate').textContent = data.invoiceDate;
+            document.getElementById('detailDueDate').textContent = data.dueDate;
+            document.getElementById('detailAgeDays').textContent = data.ageDays;
+            document.getElementById('detailRiskLevel').innerHTML = data.riskLevel === 'Low Risk' ? 
+                `<span class="risk-badge risk-low">${data.riskLevel}</span>` :
+                data.riskLevel === 'Medium Risk' ?
+                `<span class="risk-badge risk-medium">${data.riskLevel}</span>` :
+                data.riskLevel === 'High Risk' ?
+                `<span class="risk-badge risk-high">${data.riskLevel}</span>` :
+                `<span class="risk-badge risk-critical">${data.riskLevel}</span>`;
+            document.getElementById('detailCollectionNotes').textContent = data.notes;
+            
+            // Store invoice ID for print button
+            document.getElementById('printStatementBtn').dataset.invoiceId = invoiceId;
+            
+            // Show the modal
+            const modal = new bootstrap.Modal(document.getElementById('accountDetailsModal'));
+            modal.show();
+        }
+        
+        function showRecordPaymentModal(invoiceId) {
+            // Find the row data
+            const row = document.querySelector(`.record-payment[data-id="${invoiceId}"]`)?.closest('tr');
+            if (row) {
+                const customerName = row.querySelector('td:nth-child(1) div:nth-child(2) div').textContent;
+                const outstandingAmount = row.querySelector('td:nth-child(6)').textContent;
+                
+                // Populate modal fields
+                document.getElementById('paymentInvoiceNo').value = invoiceId;
+                document.getElementById('paymentCustomer').value = customerName;
+                document.getElementById('paymentOutstanding').value = outstandingAmount;
+                document.getElementById('paymentAmount').value = '';
+                document.getElementById('paymentAmount').max = parseFloat(outstandingAmount.replace('$', '').replace(',', ''));
+                
+                // Reset the form
+                document.getElementById('paymentDate').value = new Date().toISOString().split('T')[0];
+                document.getElementById('paymentMethod').value = '';
+                document.getElementById('paymentReference').value = '';
+                document.getElementById('paymentNotes').value = '';
+                document.getElementById('confirmPayment').checked = false;
+                document.getElementById('confirmPaymentBtn').disabled = true;
+                
+                // Store invoice ID for confirm button
+                document.getElementById('confirmPaymentBtn').dataset.invoiceId = invoiceId;
+                
+                // Show the modal
+                const modal = new bootstrap.Modal(document.getElementById('recordPaymentModal'));
+                modal.show();
+            }
+        }
+        
+        function showSendReminderModal(invoiceId) {
+            // Find the row data
+            const row = document.querySelector(`.send-reminder[data-id="${invoiceId}"]`)?.closest('tr');
+            if (row) {
+                const customerName = row.querySelector('td:nth-child(1) div:nth-child(2) div').textContent;
+                const outstandingAmount = row.querySelector('td:nth-child(6)').textContent;
+                const dueDate = row.querySelector('td:nth-child(4)').textContent;
+                
+                // Populate modal fields
+                document.getElementById('reminderInvoiceNo').value = invoiceId;
+                document.getElementById('reminderCustomer').value = customerName;
+                document.getElementById('reminderOutstanding').value = outstandingAmount;
+                
+                // Set default message based on due date
+                const messageTextarea = document.getElementById('reminderMessage');
+                const today = new Date();
+                const due = new Date(dueDate + ', 2024');
+                const daysUntilDue = Math.ceil((due - today) / (1000 * 60 * 60 * 24));
+                
+                let messageType = 'friendly';
+                if (daysUntilDue <= 0) {
+                    messageType = 'urgent';
+                } else if (daysUntilDue <= 7) {
+                    messageType = 'first';
+                }
+                
+                const messages = {
+                    'friendly': `Dear ${customerName},\n\nThis is a friendly reminder regarding invoice ${invoiceId} for ${outstandingAmount} which is due on ${dueDate}.\n\nPlease arrange payment at your earliest convenience.\n\nThank you for your prompt attention to this matter.\n\nBest regards,\nOvia PMS Accounts Team`,
+                    'first': `Dear ${customerName},\n\nThis is a reminder that invoice ${invoiceId} for ${outstandingAmount} is due on ${dueDate}.\n\nPlease ensure payment is made by the due date to avoid any late fees.\n\nBest regards,\nOvia PMS Accounts Team`,
+                    'urgent': `URGENT: Payment Overdue\n\nDear ${customerName},\n\nInvoice ${invoiceId} for ${outstandingAmount} is now overdue. The due date was ${dueDate}.\n\nPlease arrange immediate payment to avoid further action.\n\nSincerely,\nOvia PMS Accounts Department`
+                };
+                
+                messageTextarea.value = messages[messageType] || messages['friendly'];
+                
+                // Reset the form
+                document.getElementById('reminderType').value = messageType;
+                document.getElementById('reminderMethod').value = 'email';
+                document.getElementById('reminderTemplate').value = messageType === 'urgent' ? 'urgent' : 'standard';
+                document.getElementById('confirmReminder').checked = false;
+                document.getElementById('confirmReminderBtn').disabled = true;
+                
+                // Store invoice ID for confirm button
+                document.getElementById('confirmReminderBtn').dataset.invoiceId = invoiceId;
+                
+                // Show the modal
+                const modal = new bootstrap.Modal(document.getElementById('sendReminderModal'));
+                modal.show();
+            }
+        }
+        
+        function escalateAccount(invoiceId) {
+            const row = document.querySelector(`.escalate[data-id="${invoiceId}"]`)?.closest('tr');
+            if (row) {
+                const customerName = row.querySelector('td:nth-child(1) div:nth-child(2) div').textContent;
+                const amount = row.querySelector('td:nth-child(6)').textContent;
+                
+                // Confirm escalation
+                if (confirm(`Escalate account ${customerName} (${invoiceId}) for ${amount} to collection manager?`)) {
+                    // Update risk level to critical
+                    const riskCell = row.querySelector('td:nth-child(8)');
+                    riskCell.innerHTML = '<span class="risk-badge risk-critical">Critical Risk</span>';
+                    
+                    // Update actions to show write-off option
+                    const actionCell = row.querySelector('td:nth-child(10)');
+                    actionCell.innerHTML = `
+                        <div class="btn-group btn-group-sm">
+                            <button class="btn btn-outline-primary view-details" data-id="${invoiceId}">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn btn-outline-success record-payment" data-id="${invoiceId}">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </button>
+                            <button class="btn btn-outline-danger write-off" data-id="${invoiceId}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    
+                    // Reattach event listeners
+                    actionCell.querySelector('.view-details').addEventListener('click', function() {
+                        showAccountDetails(this.dataset.id);
+                    });
+                    actionCell.querySelector('.record-payment').addEventListener('click', function() {
+                        showRecordPaymentModal(this.dataset.id);
+                    });
+                    actionCell.querySelector('.write-off').addEventListener('click', function() {
+                        showWriteOffModal(this.dataset.id);
+                    });
+                    
+                    showAlert(`Account ${invoiceId} has been escalated to collection manager`, 'warning');
+                }
+            }
+        }
+        
+        function showWriteOffModal(invoiceId) {
+            const row = document.querySelector(`.write-off[data-id="${invoiceId}"]`)?.closest('tr');
+            if (row) {
+                const customerName = row.querySelector('td:nth-child(1) div:nth-child(2) div').textContent;
+                const amount = row.querySelector('td:nth-child(6)').textContent;
+                
+                if (confirm(`Write off invoice ${invoiceId} for ${customerName} (${amount}) as bad debt?\n\nThis action cannot be undone and will affect financial reports.`)) {
+                    // Remove the row
+                    row.remove();
+                    
+                    // Recalculate totals
+                    calculateTotals();
+                    
+                    showAlert(`Invoice ${invoiceId} has been written off as bad debt`, 'danger');
+                }
+            }
+        }
+        
+        function recordPayment() {
+            const invoiceId = document.getElementById('confirmPaymentBtn').dataset.invoiceId;
+            const paymentAmount = parseFloat(document.getElementById('paymentAmount').value);
+            const paymentDate = document.getElementById('paymentDate').value;
+            const paymentMethod = document.getElementById('paymentMethod').value;
+            const paymentReference = document.getElementById('paymentReference').value;
+            const paymentNotes = document.getElementById('paymentNotes').value;
+            
+            if (!paymentAmount || paymentAmount <= 0) {
+                showAlert('Please enter a valid payment amount', 'warning');
+                return;
+            }
+            
+            if (!paymentMethod) {
+                showAlert('Please select a payment method', 'warning');
+                return;
+            }
+            
+            // In a real application, you would send this to the server
+            const row = document.querySelector(`.record-payment[data-id="${invoiceId}"]`)?.closest('tr');
+            if (row) {
+                const currentAmount = parseFloat(row.querySelector('td:nth-child(6)').textContent.replace('$', '').replace(',', ''));
+                const newAmount = currentAmount - paymentAmount;
+                
+                if (newAmount <= 0) {
+                    // Remove the row if fully paid
+                    row.remove();
+                    showAlert(`Invoice ${invoiceId} has been fully paid and removed from the report`, 'success');
+                } else {
+                    // Update the amount
+                    row.querySelector('td:nth-child(6)').textContent = '$' + newAmount.toFixed(2);
+                    
+                    // Update last payment
+                    const lastPaymentCell = row.querySelector('td:nth-child(9)');
+                    lastPaymentCell.innerHTML = `
+                        <small>${new Date(paymentDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</small>
+                        <div><small class="text-success">$${paymentAmount.toFixed(2)}</small></div>
+                    `;
+                    
+                    // Recalculate age (simplified)
+                    const ageCell = row.querySelector('td:nth-child(5)');
+                    const currentAge = parseInt(ageCell.querySelector('.age-current, .age-31-60, .age-61-90, .age-90plus').textContent);
+                    ageCell.querySelector('.age-current, .age-31-60, .age-61-90, .age-90plus').textContent = currentAge;
+                    
+                    showAlert(`Payment of $${paymentAmount.toFixed(2)} recorded for invoice ${invoiceId}`, 'success');
+                }
+                
+                // Recalculate totals
+                calculateTotals();
+            }
+            
+            // Close the modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('recordPaymentModal'));
+            modal.hide();
+        }
+        
+        function sendReminder() {
+            const invoiceId = document.getElementById('confirmReminderBtn').dataset.invoiceId;
+            const reminderType = document.getElementById('reminderType').value;
+            const reminderMethod = document.getElementById('reminderMethod').value;
+            const reminderMessage = document.getElementById('reminderMessage').value;
+            
+            // In a real application, you would send this to the server
+            const row = document.querySelector(`.send-reminder[data-id="${invoiceId}"]`)?.closest('tr');
+            if (row) {
+                const customerName = row.querySelector('td:nth-child(1) div:nth-child(2) div').textContent;
+                
+                // Simulate sending reminder
+                setTimeout(() => {
+                    showAlert(`${reminderType} sent to ${customerName} via ${reminderMethod}`, 'success');
+                }, 1000);
+            }
+            
+            // Close the modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('sendReminderModal'));
+            modal.hide();
+        }
+        
+        function viewReport() {
+            const reportDate = document.getElementById('reportDate').value;
+            const customerType = document.getElementById('customerTypeFilter').value;
+            const ageCategory = document.getElementById('ageCategoryFilter').value;
+            const riskLevel = document.getElementById('riskLevelFilter').value;
+            
+            const filterText = customerType ? `, Customer Type: ${customerType}` : '';
+            const ageText = ageCategory ? `, Age: ${ageCategory}` : '';
+            const riskText = riskLevel ? `, Risk: ${riskLevel}` : '';
+            
+            showAlert(`Generating age analysis report for ${reportDate}${filterText}${ageText}${riskText}`, 'info');
+            
+            // Simulate report generation
+            setTimeout(() => {
+                filterAccounts();
+            }, 500);
+        }
+        
+        function resetFilters() {
+            document.getElementById('reportDate').value = new Date().toISOString().split('T')[0];
+            document.getElementById('customerTypeFilter').value = '';
+            document.getElementById('ageCategoryFilter').value = '';
+            document.getElementById('riskLevelFilter').value = '';
+            
+            // Show all rows
+            const rows = document.querySelectorAll('#ageAnalysisTableBody tr');
+            rows.forEach(row => {
+                row.style.display = '';
+            });
+            
+            // Recalculate totals
+            calculateTotals();
+            
+            showAlert('Filters have been reset', 'success');
+        }
+        
+        function printReport() {
+            // Set print date
+            document.getElementById('printDate').textContent = new Date().toLocaleString();
+            
+            // Add print-specific styling
+            const originalTitle = document.title;
+            document.title = `Age Analysis Report - ${document.getElementById('reportDate').value}`;
+            
+            // Print the page
+            window.print();
+            
+            // Restore original title
+            document.title = originalTitle;
+            
+            showAlert('Print dialog opened', 'info');
+        }
+        
+        function exportReport() {
+            const reportDate = document.getElementById('reportDate').value;
+            const format = 'Excel'; // You could add a format selector
+            
+            showAlert(`Exporting Age Analysis report for ${reportDate} as ${format}...`, 'success');
+            
+            // In a real application, you would generate and download the file
+            // For now, we'll simulate a download
+            setTimeout(() => {
+                showAlert(`${format} file has been downloaded`, 'success');
+            }, 1500);
+        }
+        
+        function refreshReport() {
+            showAlert('Refreshing age analysis data...', 'info');
+            
+            // Simulate data refresh
+            setTimeout(() => {
+                // In a real application, you would fetch fresh data from the server
+                filterAccounts();
+                showAlert('Age analysis data refreshed successfully', 'success');
+            }, 1000);
+        }
+        
+        function generatePDF() {
+            showAlert('Generating PDF report...', 'info');
+            
+            // In a real application, you would generate a PDF using a library or API
+            setTimeout(() => {
+                showAlert('PDF report generated and ready for download', 'success');
+            }, 2000);
+        }
+        
+        function sendBulkReminders() {
+            const count = document.querySelectorAll('#ageAnalysisTableBody tr').length;
+            
+            if (confirm(`Send payment reminders to all ${count} customers in the report?`)) {
+                showAlert(`Sending bulk reminders to ${count} customers...`, 'info');
+                
+                // Simulate sending
+                setTimeout(() => {
+                    showAlert(`Payment reminders sent to ${count} customers`, 'success');
+                }, 2000);
+            }
+        }
+        
+        function showCollectionPlan() {
+            // Show the collection plan modal
+            const modal = new bootstrap.Modal(document.getElementById('collectionPlanModal'));
+            modal.show();
+        }
+        
+        function activateCollectionPlan() {
+            const targetDate = document.getElementById('targetDate').value;
+            const targetAmount = document.getElementById('targetCollection').value;
+            
+            showAlert(`Collection plan activated with target of ${targetAmount} by ${targetDate}`, 'success');
+            
+            // Close the modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('collectionPlanModal'));
+            modal.hide();
+        }
+        
+        function printStatement() {
+            const invoiceId = document.getElementById('printStatementBtn').dataset.invoiceId;
+            
+            showAlert(`Printing statement for invoice ${invoiceId}...`, 'info');
+            
+            // In a real application, you would open a print dialog for the statement
+            // For now, we'll simulate printing
+            setTimeout(() => {
+                showAlert(`Statement for invoice ${invoiceId} has been sent to printer`, 'success');
+            }, 1000);
+        }
+        
+        // Helper function to show alerts
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px; max-width: 400px;';
+            alertDiv.innerHTML = `
+                <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0 me-3">
+                        <i class="fas ${getAlertIcon(type)} fa-lg"></i>
+                    </div>
+                    <div class="flex-grow-1">
+                        ${message}
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+        
+        function getAlertIcon(type) {
+            switch(type) {
+                case 'success': return 'fa-check-circle';
+                case 'danger': return 'fa-exclamation-circle';
+                case 'warning': return 'fa-exclamation-triangle';
+                case 'info': return 'fa-info-circle';
+                default: return 'fa-info-circle';
+            }
+        }
+    </script>
+
+<!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+
+    <!-- Include JavaScript -->
+    <script src="js/include.js"></script>
+     <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

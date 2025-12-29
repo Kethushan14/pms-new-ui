@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Plane - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+     
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-plane me-2"></i>Rate Plane Management
+                                </h1>
+                                <p class="card-text text-muted mb-0">Create and manage rate planes for hotel pricing</p>
+                                <small class="text-muted">Total Rate Planes: <span class="fw-bold">24</span> • Active: <span class="text-success fw-bold">18</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addRatePlaneModal">
+                                    <i class="fas fa-plus-circle me-1"></i> Add New Rate Plane
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rate Plan Information Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Rate Plan Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="rate-plan-form-section">
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <label for="rpCode" class="form-label">Code</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">RP</span>
+                                        <input type="text" class="form-control" id="rpCode" placeholder="Enter code" value="BC5001">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="rpName" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="rpName" placeholder="Enter name" value="Website Standard">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="rpCategory" class="form-label">Category</label>
+                                    <select class="form-select" id="rpCategory">
+                                        <option value="">Select</option>
+                                        <option value="standard" selected>Standard</option>
+                                        <option value="premium">Premium</option>
+                                        <option value="luxury">Luxury</option>
+                                        <option value="budget">Budget</option>
+                                        <option value="seasonal">Seasonal</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="rpPlanCategory" class="form-label">Rate Plan Category</label>
+                                    <select class="form-select" id="rpPlanCategory">
+                                        <option value="">Select</option>
+                                        <option value="website" selected>Website</option>
+                                        <option value="walkin">Walk-in</option>
+                                        <option value="corporate">Corporate</option>
+                                        <option value="travel">Travel Agency</option>
+                                        <option value="group">Group</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="d-flex justify-content-end gap-2">
+                                        <button class="btn btn-outline-secondary" id="clearFormBtn">
+                                            <i class="fas fa-times me-1"></i> Clear
+                                        </button>
+                                        <button class="btn btn-primary" id="saveRateInfoBtn">
+                                            <i class="fas fa-save me-1"></i> Save Information
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-8">
+                                <label class="form-label">Search</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search by RP Code or Name..." id="ratePlaneSearch">
+                                    <button class="btn btn-primary" type="button" id="searchRatePlaneBtn">
+                                        <i class="fas fa-search"></i> Search
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Filter</label>
+                                <select class="form-select" id="ratePlaneFilter">
+                                    <option value="all" selected>All</option>
+                                    <option value="active">Active</option>
+                                    <option value="inactive">Inactive</option>
+                                    <option value="website">Website</option>
+                                    <option value="walkin">Walk-in</option>
+                                    <option value="corporate">Corporate</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rate Plan Table -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-list me-2"></i>Rate Plan List</h5>
+                            <div class="d-flex align-items-center">
+                                <div class="pagination-container me-3">
+                                    <span class="text-muted"><strong>1</strong> of <strong>4</strong></span>
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-sm btn-outline-primary active" data-filter="all">All</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="active">Active</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="inactive">Inactive</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0 rp-table">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th width="50">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="selectAllRatePlanes">
+                                            </div>
+                                        </th>
+                                        <th>RP Code</th>
+                                        <th>RP Name</th>
+                                        <th>Category</th>
+                                        <th>B.T</th>
+                                        <th>M.P</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ratePlaneTableBody">
+                                    <!-- Rate Plane 1 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input rateplane-checkbox" type="checkbox" data-id="RP1001">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="rp-code-badge badge bg-primary">RP1001</span>
+                                        </td>
+                                        <td>
+                                            <strong>Standard Rate</strong>
+                                            <small class="d-block text-muted">Website booking</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">Standard</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-success fw-bold">$120</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-primary fw-bold">$150</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary edit-rateplane" data-id="RP1001">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-rateplane" data-id="RP1001">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                                <button class="btn btn-outline-info view-rateplane" data-id="RP1001">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Rate Plane 2 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input rateplane-checkbox" type="checkbox" data-id="RP1002">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="rp-code-badge badge bg-primary">RP1002</span>
+                                        </td>
+                                        <td>
+                                            <strong>Premium Suite</strong>
+                                            <small class="d-block text-muted">Luxury package</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-warning">Premium</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-success fw-bold">$250</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-primary fw-bold">$300</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary edit-rateplane" data-id="RP1002">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-rateplane" data-id="RP1002">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                                <button class="btn btn-outline-info view-rateplane" data-id="RP1002">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Rate Plane 3 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input rateplane-checkbox" type="checkbox" data-id="RP1003">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="rp-code-badge badge bg-primary">RP1003</span>
+                                        </td>
+                                        <td>
+                                            <strong>Corporate Discount</strong>
+                                            <small class="d-block text-muted">Business clients</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-secondary">Corporate</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-success fw-bold">$100</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-primary fw-bold">$120</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary edit-rateplane" data-id="RP1003">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-rateplane" data-id="RP1003">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                                <button class="btn btn-outline-info view-rateplane" data-id="RP1003">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Rate Plane 4 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input rateplane-checkbox" type="checkbox" data-id="RP1004">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="rp-code-badge badge bg-primary">RP1004</span>
+                                        </td>
+                                        <td>
+                                            <strong>Walk-in Special</strong>
+                                            <small class="d-block text-muted">Direct booking</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Walk-in</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-success fw-bold">$110</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-primary fw-bold">$130</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-warning">Inactive</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary edit-rateplane" data-id="RP1004">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-rateplane" data-id="RP1004">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                                <button class="btn btn-outline-info view-rateplane" data-id="RP1004">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted">Showing 4 of 24 rate planes</span>
+                            </div>
+                            <nav aria-label="Rate plane pagination">
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rate Plan Details Section -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-file-alt me-2"></i>Rate Plan Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Add New RP Section -->
+                            <div class="col-lg-6">
+                                <div class="rate-plan-form-section">
+                                    <h6 class="mb-3 text-primary">
+                                        <i class="fas fa-plus-circle me-2"></i>Add New RP
+                                    </h6>
+                                    
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="newRpCode" class="form-label">RP Code</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">RP</span>
+                                                <input type="text" class="form-control" id="newRpCode" placeholder="Enter code">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 currency-selector">
+                                            <label for="currencyType" class="form-label">Currency Type</label>
+                                            <select class="form-select" id="currencyType">
+                                                <option value="USD" selected>USD ($)</option>
+                                                <option value="EUR">EUR (€)</option>
+                                                <option value="GBP">GBP (£)</option>
+                                                <option value="LKR">LKR (Rs)</option>
+                                                <option value="CAD">CAD (C$)</option>
+                                                <option value="AUD">AUD (A$)</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="newRpName" class="form-label">RP Name</label>
+                                            <input type="text" class="form-control" id="newRpName" placeholder="Enter rate plane name">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="baseRate" class="form-label">Base Rate (B.T)</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">$</span>
+                                                <input type="number" class="form-control" id="baseRate" placeholder="0.00" min="0" step="0.01">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="marketRate" class="form-label">Market Price (M.P)</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">$</span>
+                                                <input type="number" class="form-control" id="marketRate" placeholder="0.00" min="0" step="0.01">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="startDate" class="form-label">Start Date</label>
+                                            <input type="date" class="form-control" id="startDate">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="endDate" class="form-label">End Date</label>
+                                            <input type="date" class="form-control" id="endDate">
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="rpDescription" class="form-label">Description</label>
+                                            <textarea class="form-control" id="rpDescription" rows="3" placeholder="Enter rate plane description..."></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="d-flex justify-content-end gap-2">
+                                                <button class="btn btn-outline-secondary" id="clearNewRpFormBtn">
+                                                    <i class="fas fa-redo me-1"></i> Clear
+                                                </button>
+                                                <button class="btn btn-success" id="addNewRpBtn">
+                                                    <i class="fas fa-plus me-1"></i> Add Rate Plane
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Additional Information Section -->
+                            <div class="col-lg-6">
+                                <div class="rate-plan-form-section">
+                                    <h6 class="mb-3 text-primary">
+                                        <i class="fas fa-cogs me-2"></i>Additional Settings
+                                    </h6>
+                                    
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="commissionRate" class="form-label">Commission Rate (%)</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" id="commissionRate" placeholder="0" min="0" max="100" value="10">
+                                                <span class="input-group-text">%</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="taxRate" class="form-label">Tax Rate (%)</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" id="taxRate" placeholder="0" min="0" max="100" value="8">
+                                                <span class="input-group-text">%</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="applicableRooms" class="form-label">Applicable Rooms</label>
+                                            <select class="form-select" id="applicableRooms" multiple>
+                                                <option value="101" selected>101 - Standard Room</option>
+                                                <option value="102" selected>102 - Standard Room</option>
+                                                <option value="201" selected>201 - Deluxe Room</option>
+                                                <option value="202">202 - Deluxe Room</option>
+                                                <option value="301">301 - Suite</option>
+                                                <option value="302">302 - Suite</option>
+                                            </select>
+                                            <small class="text-muted">Hold Ctrl/Cmd to select multiple rooms</small>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="breakfastIncluded" checked>
+                                                <label class="form-check-label" for="breakfastIncluded">
+                                                    Breakfast Included
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="freeCancellation">
+                                                <label class="form-check-label" for="freeCancellation">
+                                                    Free Cancellation (24hrs)
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="earlyCheckin">
+                                                <label class="form-check-label" for="earlyCheckin">
+                                                    Early Check-in Available
+                                                </label>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" id="lateCheckout">
+                                                <label class="form-check-label" for="lateCheckout">
+                                                    Late Check-out Available
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <hr class="my-4">
+                                    
+                                    <!-- Quick Actions -->
+                                    <div class="mt-3">
+                                        <h6 class="mb-3 text-primary">
+                                            <i class="fas fa-bolt me-2"></i>Quick Actions
+                                        </h6>
+                                        <div class="row g-2">
+                                            <div class="col-6">
+                                                <button class="btn btn-outline-primary w-100" id="duplicateRatePlaneBtn">
+                                                    <i class="fas fa-copy me-1"></i> Duplicate
+                                                </button>
+                                            </div>
+                                            <div class="col-6">
+                                                <button class="btn btn-outline-warning w-100" id="exportRatePlaneBtn">
+                                                    <i class="fas fa-download me-1"></i> Export
+                                                </button>
+                                            </div>
+                                            <div class="col-6">
+                                                <button class="btn btn-outline-info w-100" id="previewRatePlaneBtn">
+                                                    <i class="fas fa-eye me-1"></i> Preview
+                                                </button>
+                                            </div>
+                                            <div class="col-6">
+                                                <button class="btn btn-outline-success w-100" id="activateRatePlaneBtn">
+                                                    <i class="fas fa-check me-1"></i> Activate
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Summary Section -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h6 class="mb-0"><i class="fas fa-chart-pie me-2"></i>Rate Plane Summary</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-3 col-6 mb-3">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-primary p-2 rounded me-3">
+                                                        <i class="fas fa-tag text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="mb-0 fw-bold">24</h5>
+                                                        <small class="text-muted">Total Rate Planes</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-6 mb-3">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-success p-2 rounded me-3">
+                                                        <i class="fas fa-check-circle text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="mb-0 fw-bold">18</h5>
+                                                        <small class="text-muted">Active Planes</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-6">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-info p-2 rounded me-3">
+                                                        <i class="fas fa-dollar-sign text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="mb-0 fw-bold">$120</h5>
+                                                        <small class="text-muted">Avg. Base Rate</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-6">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-warning p-2 rounded me-3">
+                                                        <i class="fas fa-chart-line text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h5 class="mb-0 fw-bold">15%</h5>
+                                                        <small class="text-muted">Avg. Commission</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <button class="btn btn-outline-primary">
+                                            <i class="fas fa-question-circle me-1"></i> Help
+                                        </button>
+                                        <button class="btn btn-outline-secondary ms-2">
+                                            <i class="fas fa-print me-1"></i> Print Report
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-danger" id="deleteSelectedBtn" data-bs-toggle="modal" data-bs-target="#deleteRatePlanesModal">
+                                            <i class="fas fa-trash me-1"></i> Delete Selected
+                                        </button>
+                                        <button class="btn btn-success ms-2" id="saveAllChangesBtn">
+                                            <i class="fas fa-save me-1"></i> Save All Changes
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Add Rate Plane Modal -->
+    <div class="modal fade" id="addRatePlaneModal" tabindex="-1" aria-labelledby="addRatePlaneModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="addRatePlaneModalLabel">
+                        <i class="fas fa-plus-circle me-2"></i>Add New Rate Plane
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="modalRpCode" class="form-label">RP Code *</label>
+                            <div class="input-group">
+                                <span class="input-group-text">RP</span>
+                                <input type="text" class="form-control" id="modalRpCode" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="modalRpName" class="form-label">RP Name *</label>
+                            <input type="text" class="form-control" id="modalRpName" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="modalCategory" class="form-label">Category *</label>
+                            <select class="form-select" id="modalCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="standard">Standard</option>
+                                <option value="premium">Premium</option>
+                                <option value="luxury">Luxury</option>
+                                <option value="budget">Budget</option>
+                                <option value="seasonal">Seasonal</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="modalPlanCategory" class="form-label">Rate Plan Category *</label>
+                            <select class="form-select" id="modalPlanCategory" required>
+                                <option value="">Select Plan Category</option>
+                                <option value="website">Website</option>
+                                <option value="walkin">Walk-in</option>
+                                <option value="corporate">Corporate</option>
+                                <option value="travel">Travel Agency</option>
+                                <option value="group">Group</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="modalBaseRate" class="form-label">Base Rate (B.T) *</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="modalBaseRate" required min="0" step="0.01">
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="modalMarketRate" class="form-label">Market Price (M.P) *</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="modalMarketRate" required min="0" step="0.01">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="modalDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="modalDescription" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveModalRatePlane">Save Rate Plane</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Rate Planes Modal -->
+    <div class="modal fade" id="deleteRatePlanesModal" tabindex="-1" aria-labelledby="deleteRatePlanesModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteRatePlanesModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Delete Rate Planes
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete the selected rate planes?</p>
+                    <p class="text-danger"><strong>This action cannot be undone.</strong></p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="confirmDeleteRatePlanes">
+                        <label class="form-check-label" for="confirmDeleteRatePlanes">
+                            I understand that this will permanently delete the selected rate planes
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteRatePlanesBtn" disabled>Delete Selected</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/include.js"></script>
+    
+    <script>
+        // Rate Plane Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select all rate planes checkbox
+            document.getElementById('selectAllRatePlanes').addEventListener('change', function() {
+                const checkboxes = document.querySelectorAll('.rateplane-checkbox');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+            
+            // Filter buttons
+            document.querySelectorAll('[data-filter]').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('[data-filter]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    filterRatePlanes(filter);
+                });
+            });
+            
+            // Edit rate plane
+            document.querySelectorAll('.edit-rateplane').forEach(button => {
+                button.addEventListener('click', function() {
+                    const ratePlaneId = this.dataset.id;
+                    editRatePlane(ratePlaneId);
+                });
+            });
+            
+            // Delete rate plane
+            document.querySelectorAll('.delete-rateplane').forEach(button => {
+                button.addEventListener('click', function() {
+                    const ratePlaneId = this.dataset.id;
+                    showDeleteRatePlaneModal(ratePlaneId);
+                });
+            });
+            
+            // View rate plane
+            document.querySelectorAll('.view-rateplane').forEach(button => {
+                button.addEventListener('click', function() {
+                    const ratePlaneId = this.dataset.id;
+                    viewRatePlane(ratePlaneId);
+                });
+            });
+            
+            // Clear form button
+            document.getElementById('clearFormBtn').addEventListener('click', function() {
+                clearRatePlanInfoForm();
+            });
+            
+            // Save rate info button
+            document.getElementById('saveRateInfoBtn').addEventListener('click', function() {
+                saveRatePlanInfo();
+            });
+            
+            // Search functionality
+            document.getElementById('ratePlaneSearch').addEventListener('input', filterRatePlanes);
+            document.getElementById('ratePlaneFilter').addEventListener('change', filterRatePlanes);
+            document.getElementById('searchRatePlaneBtn').addEventListener('click', filterRatePlanes);
+            
+            // Add new RP button
+            document.getElementById('addNewRpBtn').addEventListener('click', function() {
+                addNewRatePlane();
+            });
+            
+            // Clear new RP form button
+            document.getElementById('clearNewRpFormBtn').addEventListener('click', function() {
+                clearNewRpForm();
+            });
+            
+            // Save modal rate plane
+            document.getElementById('saveModalRatePlane').addEventListener('click', function() {
+                saveModalRatePlane();
+            });
+            
+            // Confirm delete rate planes checkbox
+            document.getElementById('confirmDeleteRatePlanes').addEventListener('change', function() {
+                document.getElementById('confirmDeleteRatePlanesBtn').disabled = !this.checked;
+            });
+            
+            // Confirm delete rate planes button
+            document.getElementById('confirmDeleteRatePlanesBtn').addEventListener('click', function() {
+                deleteSelectedRatePlanes();
+            });
+            
+            // Quick action buttons
+            document.getElementById('duplicateRatePlaneBtn').addEventListener('click', function() {
+                duplicateRatePlane();
+            });
+            
+            document.getElementById('exportRatePlaneBtn').addEventListener('click', function() {
+                exportRatePlane();
+            });
+            
+            document.getElementById('previewRatePlaneBtn').addEventListener('click', function() {
+                previewRatePlane();
+            });
+            
+            document.getElementById('activateRatePlaneBtn').addEventListener('click', function() {
+                activateRatePlane();
+            });
+            
+            document.getElementById('deleteSelectedBtn').addEventListener('click', function() {
+                const selectedCount = document.querySelectorAll('.rateplane-checkbox:checked').length;
+                if (selectedCount === 0) {
+                    showAlert('Please select at least one rate plane to delete', 'warning');
+                    return;
+                }
+            });
+            
+            document.getElementById('saveAllChangesBtn').addEventListener('click', function() {
+                saveAllChanges();
+            });
+        });
+        
+        function filterRatePlanes(filter = 'all') {
+            const searchTerm = document.getElementById('ratePlaneSearch').value.toLowerCase();
+            const categoryFilter = document.getElementById('ratePlaneFilter').value;
+            
+            const rows = document.querySelectorAll('#ratePlaneTableBody tr');
+            let visibleCount = 0;
+            
+            rows.forEach(row => {
+                const rowCode = row.querySelector('td:nth-child(2) .badge').textContent.toLowerCase();
+                const rowName = row.querySelector('td:nth-child(3) strong').textContent.toLowerCase();
+                const rowCategory = row.querySelector('td:nth-child(4) .badge').textContent.toLowerCase();
+                const rowStatus = row.querySelector('td:nth-child(7) .badge').textContent.toLowerCase();
+                
+                let show = true;
+                
+                // Apply search filters
+                if (searchTerm && !rowCode.includes(searchTerm) && !rowName.includes(searchTerm)) {
+                    show = false;
+                }
+                
+                // Apply category filter
+                if (categoryFilter !== 'all') {
+                    if (categoryFilter === 'active' && rowStatus !== 'active') show = false;
+                    if (categoryFilter === 'inactive' && rowStatus !== 'inactive') show = false;
+                    if (categoryFilter === 'website' && !rowName.includes('website')) show = false;
+                    if (categoryFilter === 'walkin' && !rowName.includes('walk-in')) show = false;
+                    if (categoryFilter === 'corporate' && !rowName.includes('corporate')) show = false;
+                }
+                
+                // Apply status filter from buttons
+                if (filter !== 'all') {
+                    if (filter === 'active' && rowStatus !== 'active') show = false;
+                    if (filter === 'inactive' && rowStatus !== 'inactive') show = false;
+                }
+                
+                row.style.display = show ? '' : 'none';
+                if (show) visibleCount++;
+            });
+            
+            // Update showing count
+            const footer = document.querySelector('.card-footer span');
+            if (footer) {
+                footer.textContent = `Showing ${visibleCount} of ${rows.length} rate planes`;
+            }
+        }
+        
+        function editRatePlane(ratePlaneId) {
+            // In a real application, you would fetch rate plane data from an API
+            // For now, we'll use sample data based on ratePlaneId
+            
+            const ratePlaneData = {
+                'RP1001': {
+                    code: '1001',
+                    name: 'Standard Rate',
+                    category: 'standard',
+                    planCategory: 'website',
+                    baseRate: '120',
+                    marketRate: '150',
+                    description: 'Website booking standard rate'
+                },
+                'RP1002': {
+                    code: '1002',
+                    name: 'Premium Suite',
+                    category: 'premium',
+                    planCategory: 'website',
+                    baseRate: '250',
+                    marketRate: '300',
+                    description: 'Luxury package for premium suites'
+                },
+                'RP1003': {
+                    code: '1003',
+                    name: 'Corporate Discount',
+                    category: 'corporate',
+                    planCategory: 'corporate',
+                    baseRate: '100',
+                    marketRate: '120',
+                    description: 'Special rates for business clients'
+                },
+                'RP1004': {
+                    code: '1004',
+                    name: 'Walk-in Special',
+                    category: 'walkin',
+                    planCategory: 'walkin',
+                    baseRate: '110',
+                    marketRate: '130',
+                    description: 'Direct booking special rate'
+                }
+            };
+            
+            const data = ratePlaneData[ratePlaneId] || ratePlaneData['RP1001'];
+            
+            // Populate the form with rate plane data
+            document.getElementById('rpCode').value = data.code;
+            document.getElementById('rpName').value = data.name;
+            document.getElementById('rpCategory').value = data.category;
+            document.getElementById('rpPlanCategory').value = data.planCategory;
+            
+            // Populate new RP form with data
+            document.getElementById('newRpCode').value = data.code;
+            document.getElementById('newRpName').value = data.name;
+            document.getElementById('baseRate').value = data.baseRate;
+            document.getElementById('marketRate').value = data.marketRate;
+            document.getElementById('rpDescription').value = data.description;
+            
+            showAlert(`Editing rate plane ${ratePlaneId}`, 'info');
+        }
+        
+        function viewRatePlane(ratePlaneId) {
+            // Find the row with this rate plane
+            const row = document.querySelector(`.rateplane-checkbox[data-id="${ratePlaneId}"]`)?.closest('tr');
+            if (row) {
+                const code = row.querySelector('td:nth-child(2) .badge').textContent;
+                const name = row.querySelector('td:nth-child(3) strong').textContent;
+                const category = row.querySelector('td:nth-child(4) .badge').textContent;
+                const baseRate = row.querySelector('td:nth-child(5)').textContent.replace('$', '');
+                const marketRate = row.querySelector('td:nth-child(6)').textContent.replace('$', '');
+                
+                // Show view modal or details
+                showAlert(`Viewing rate plane ${code}: ${name} (${category}) - Base: $${baseRate}, Market: $${marketRate}`, 'info');
+            }
+        }
+        
+        function showDeleteRatePlaneModal(ratePlaneId) {
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteRatePlanesModal'));
+            document.getElementById('confirmDeleteRatePlanesBtn').dataset.ratePlaneId = ratePlaneId;
+            deleteModal.show();
+        }
+        
+        function deleteSelectedRatePlanes() {
+            const ratePlaneId = document.getElementById('confirmDeleteRatePlanesBtn').dataset.ratePlaneId;
+            
+            // Get all selected checkboxes
+            const selectedCheckboxes = document.querySelectorAll('.rateplane-checkbox:checked');
+            
+            if (selectedCheckboxes.length === 0 && !ratePlaneId) {
+                showAlert('Please select at least one rate plane to delete', 'warning');
+                return;
+            }
+            
+            let ratePlaneIds = [];
+            
+            if (ratePlaneId) {
+                ratePlaneIds.push(ratePlaneId);
+            } else {
+                selectedCheckboxes.forEach(checkbox => {
+                    ratePlaneIds.push(checkbox.dataset.id);
+                });
+            }
+            
+            // In a real application, you would send a delete request to your API
+            // For now, we'll just show a message and remove from table
+            ratePlaneIds.forEach(id => {
+                const row = document.querySelector(`.rateplane-checkbox[data-id="${id}"]`)?.closest('tr');
+                if (row) {
+                    row.remove();
+                }
+            });
+            
+            showAlert(`Deleted ${ratePlaneIds.length} rate plane(s)`, 'danger');
+            
+            // Close the modal
+            const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteRatePlanesModal'));
+            deleteModal.hide();
+            
+            // Reset the checkbox
+            document.getElementById('confirmDeleteRatePlanes').checked = false;
+            document.getElementById('confirmDeleteRatePlanesBtn').disabled = true;
+        }
+        
+        function clearRatePlanInfoForm() {
+            document.getElementById('rpCode').value = '';
+            document.getElementById('rpName').value = '';
+            document.getElementById('rpCategory').value = '';
+            document.getElementById('rpPlanCategory').value = '';
+            showAlert('Form cleared', 'info');
+        }
+        
+        function saveRatePlanInfo() {
+            const code = document.getElementById('rpCode').value;
+            const name = document.getElementById('rpName').value;
+            const category = document.getElementById('rpCategory').value;
+            const planCategory = document.getElementById('rpPlanCategory').value;
+            
+            if (!code || !name || !category || !planCategory) {
+                showAlert('Please fill in all fields', 'warning');
+                return;
+            }
+            
+            showAlert(`Rate plan information saved: ${code} - ${name} (${category}, ${planCategory})`, 'success');
+        }
+        
+        function addNewRatePlane() {
+            const code = document.getElementById('newRpCode').value;
+            const name = document.getElementById('newRpName').value;
+            const baseRate = document.getElementById('baseRate').value;
+            const marketRate = document.getElementById('marketRate').value;
+            const currency = document.getElementById('currencyType').value;
+            
+            if (!code || !name || !baseRate || !marketRate) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            // Add to table
+            const tableBody = document.getElementById('ratePlaneTableBody');
+            const newRow = document.createElement('tr');
+            
+            // Determine badge color based on category
+            const category = document.getElementById('rpCategory').value || 'standard';
+            let categoryBadge = 'bg-info';
+            if (category === 'premium') categoryBadge = 'bg-warning';
+            if (category === 'corporate') categoryBadge = 'bg-secondary';
+            if (category === 'walkin') categoryBadge = 'bg-success';
+            if (category === 'luxury') categoryBadge = 'bg-danger';
+            
+            newRow.innerHTML = `
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input rateplane-checkbox" type="checkbox" data-id="RP${code}">
+                    </div>
+                </td>
+                <td>
+                    <span class="rp-code-badge badge bg-primary">RP${code}</span>
+                </td>
+                <td>
+                    <strong>${name}</strong>
+                    <small class="d-block text-muted">${document.getElementById('rpDescription').value.substring(0, 30)}...</small>
+                </td>
+                <td>
+                    <span class="badge ${categoryBadge}">${category.charAt(0).toUpperCase() + category.slice(1)}</span>
+                </td>
+                <td>
+                    <span class="text-success fw-bold">$${baseRate}</span>
+                </td>
+                <td>
+                    <span class="text-primary fw-bold">$${marketRate}</span>
+                </td>
+                <td>
+                    <span class="badge bg-success">Active</span>
+                </td>
+                <td>
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-outline-primary edit-rateplane" data-id="RP${code}">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-outline-danger delete-rateplane" data-id="RP${code}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <button class="btn btn-outline-info view-rateplane" data-id="RP${code}">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Add event listeners to new buttons
+            newRow.querySelector('.edit-rateplane').addEventListener('click', function() {
+                editRatePlane(this.dataset.id);
+            });
+            
+            newRow.querySelector('.delete-rateplane').addEventListener('click', function() {
+                showDeleteRatePlaneModal(this.dataset.id);
+            });
+            
+            newRow.querySelector('.view-rateplane').addEventListener('click', function() {
+                viewRatePlane(this.dataset.id);
+            });
+            
+            // Clear form
+            clearNewRpForm();
+            
+            showAlert(`New rate plane RP${code} added successfully`, 'success');
+        }
+        
+        function clearNewRpForm() {
+            document.getElementById('newRpCode').value = '';
+            document.getElementById('newRpName').value = '';
+            document.getElementById('baseRate').value = '';
+            document.getElementById('marketRate').value = '';
+            document.getElementById('startDate').value = '';
+            document.getElementById('endDate').value = '';
+            document.getElementById('rpDescription').value = '';
+            document.getElementById('commissionRate').value = '10';
+            document.getElementById('taxRate').value = '8';
+        }
+        
+        function saveModalRatePlane() {
+            const code = document.getElementById('modalRpCode').value;
+            const name = document.getElementById('modalRpName').value;
+            const category = document.getElementById('modalCategory').value;
+            const planCategory = document.getElementById('modalPlanCategory').value;
+            const baseRate = document.getElementById('modalBaseRate').value;
+            const marketRate = document.getElementById('modalMarketRate').value;
+            
+            if (!code || !name || !category || !planCategory || !baseRate || !marketRate) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            // Add to table
+            const tableBody = document.getElementById('ratePlaneTableBody');
+            const newRow = document.createElement('tr');
+            
+            // Determine badge color based on category
+            let categoryBadge = 'bg-info';
+            if (category === 'premium') categoryBadge = 'bg-warning';
+            if (category === 'corporate') categoryBadge = 'bg-secondary';
+            if (category === 'walkin') categoryBadge = 'bg-success';
+            if (category === 'luxury') categoryBadge = 'bg-danger';
+            
+            newRow.innerHTML = `
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input rateplane-checkbox" type="checkbox" data-id="RP${code}">
+                    </div>
+                </td>
+                <td>
+                    <span class="rp-code-badge badge bg-primary">RP${code}</span>
+                </td>
+                <td>
+                    <strong>${name}</strong>
+                    <small class="d-block text-muted">${document.getElementById('modalDescription').value.substring(0, 30)}...</small>
+                </td>
+                <td>
+                    <span class="badge ${categoryBadge}">${category.charAt(0).toUpperCase() + category.slice(1)}</span>
+                </td>
+                <td>
+                    <span class="text-success fw-bold">$${baseRate}</span>
+                </td>
+                <td>
+                    <span class="text-primary fw-bold">$${marketRate}</span>
+                </td>
+                <td>
+                    <span class="badge bg-success">Active</span>
+                </td>
+                <td>
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-outline-primary edit-rateplane" data-id="RP${code}">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-outline-danger delete-rateplane" data-id="RP${code}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <button class="btn btn-outline-info view-rateplane" data-id="RP${code}">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Add event listeners to new buttons
+            newRow.querySelector('.edit-rateplane').addEventListener('click', function() {
+                editRatePlane(this.dataset.id);
+            });
+            
+            newRow.querySelector('.delete-rateplane').addEventListener('click', function() {
+                showDeleteRatePlaneModal(this.dataset.id);
+            });
+            
+            newRow.querySelector('.view-rateplane').addEventListener('click', function() {
+                viewRatePlane(this.dataset.id);
+            });
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('addRatePlaneModal'));
+            modal.hide();
+            
+            // Reset modal form
+            document.getElementById('modalRpCode').value = '';
+            document.getElementById('modalRpName').value = '';
+            document.getElementById('modalCategory').value = '';
+            document.getElementById('modalPlanCategory').value = '';
+            document.getElementById('modalBaseRate').value = '';
+            document.getElementById('modalMarketRate').value = '';
+            document.getElementById('modalDescription').value = '';
+            
+            showAlert(`New rate plane RP${code} added successfully`, 'success');
+        }
+        
+        function duplicateRatePlane() {
+            const selectedCheckboxes = document.querySelectorAll('.rateplane-checkbox:checked');
+            
+            if (selectedCheckboxes.length === 0) {
+                showAlert('Please select at least one rate plane to duplicate', 'warning');
+                return;
+            }
+            
+            selectedCheckboxes.forEach(checkbox => {
+                const row = checkbox.closest('tr');
+                const code = row.querySelector('td:nth-child(2) .badge').textContent;
+                const name = row.querySelector('td:nth-child(3) strong').textContent;
+                const category = row.querySelector('td:nth-child(4) .badge').textContent;
+                const baseRate = row.querySelector('td:nth-child(5)').textContent.replace('$', '');
+                const marketRate = row.querySelector('td:nth-child(6)').textContent.replace('$', '');
+                
+                // In a real application, this would create a duplicate entry
+                showAlert(`Duplicated rate plane ${code}: ${name}`, 'info');
+            });
+        }
+        
+        function exportRatePlane() {
+            showAlert('Exporting rate plane data to CSV file...', 'info');
+            // In a real application, this would trigger a file download
+        }
+        
+        function previewRatePlane() {
+            showAlert('Previewing rate plane details...', 'info');
+            // In a real application, this would open a preview modal
+        }
+        
+        function activateRatePlane() {
+            const selectedCheckboxes = document.querySelectorAll('.rateplane-checkbox:checked');
+            
+            if (selectedCheckboxes.length === 0) {
+                showAlert('Please select at least one rate plane to activate', 'warning');
+                return;
+            }
+            
+            selectedCheckboxes.forEach(checkbox => {
+                const row = checkbox.closest('tr');
+                const statusBadge = row.querySelector('td:nth-child(7) .badge');
+                const code = row.querySelector('td:nth-child(2) .badge').textContent;
+                
+                statusBadge.textContent = 'Active';
+                statusBadge.className = 'badge bg-success';
+                
+                showAlert(`Activated rate plane ${code}`, 'success');
+            });
+        }
+        
+        function saveAllChanges() {
+            showAlert('All changes have been saved successfully', 'success');
+        }
+        
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

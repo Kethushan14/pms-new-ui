@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt/Checkout - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+     <link rel="stylesheet" href="css/header.css">
+</head>
+<body>
+  
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-file-invoice me-2"></i>Receipt & Invoice Generation
+                                </h1>
+                                <p class="card-text text-muted mb-0">Generate and print invoices and receipts for guests</p>
+                                <small class="text-muted" id="lastUpdated">Today's Invoices: <span class="fw-bold">8</span> • Pending: <span class="fw-bold text-warning">3</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-success" id="refreshDataBtn">
+                                    <i class="fas fa-sync-alt me-1"></i> Refresh
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Invoice Information Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-search me-2"></i>Invoice Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Last Name:</label>
+                                    <input type="text" class="form-control" id="lastNameSearch" placeholder="Enter last name">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Room No:</label>
+                                    <input type="text" class="form-control" id="roomNoSearch" placeholder="Enter room number">
+                                </div>
+                            </div>
+                            <div class="col-md-4 d-flex align-items-end">
+                                <button class="btn btn-primary w-100" id="searchInvoiceBtn">
+                                    <i class="fas fa-search me-1"></i> Search
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Guests Table -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Res. No.</th>
+                                        <th>K</th>
+                                        <th>Last Name</th>
+                                        <th>First Name</th>
+                                        <th>No of Rooms</th>
+                                        <th>Check-In</th>
+                                        <th>Check-Out</th>
+                                        <th>Total</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="invoiceTableBody">
+                                    <!-- Row 1 -->
+                                    <tr class="invoice-row" data-res-no="RES20241215001" data-last-name="Smith" data-first-name="John" data-room="101">
+                                        <td><span class="badge bg-info">RES20241215001</span></td>
+                                        <td><input type="checkbox" class="form-check-input select-invoice" checked></td>
+                                        <td>Smith</td>
+                                        <td>John</td>
+                                        <td>1</td>
+                                        <td>Dec 15, 2024</td>
+                                        <td>Dec 20, 2024</td>
+                                        <td><strong>$1,250.00</strong></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary select-invoice-btn">
+                                                <i class="fas fa-check me-1"></i> Select
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Row 2 -->
+                                    <tr class="invoice-row" data-res-no="RES20241216002" data-last-name="Johnson" data-first-name="Sarah" data-room="102">
+                                        <td><span class="badge bg-info">RES20241216002</span></td>
+                                        <td><input type="checkbox" class="form-check-input select-invoice"></td>
+                                        <td>Johnson</td>
+                                        <td>Sarah</td>
+                                        <td>1</td>
+                                        <td>Dec 16, 2024</td>
+                                        <td>Dec 22, 2024</td>
+                                        <td><strong>$900.00</strong></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary select-invoice-btn">
+                                                <i class="fas fa-check me-1"></i> Select
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Row 3 -->
+                                    <tr class="invoice-row" data-res-no="RES20241214003" data-last-name="Williams" data-first-name="Robert" data-room="201">
+                                        <td><span class="badge bg-info">RES20241214003</span></td>
+                                        <td><input type="checkbox" class="form-check-input select-invoice"></td>
+                                        <td>Williams</td>
+                                        <td>Robert</td>
+                                        <td>1</td>
+                                        <td>Dec 14, 2024</td>
+                                        <td>Dec 21, 2024</td>
+                                        <td><strong>$2,100.00</strong></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary select-invoice-btn">
+                                                <i class="fas fa-check me-1"></i> Select
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Row 4 -->
+                                    <tr class="invoice-row" data-res-no="RES20241217004" data-last-name="Brown" data-first-name="Emily" data-room="205">
+                                        <td><span class="badge bg-info">RES20241217004</span></td>
+                                        <td><input type="checkbox" class="form-check-input select-invoice"></td>
+                                        <td>Brown</td>
+                                        <td>Emily</td>
+                                        <td>1</td>
+                                        <td>Dec 17, 2024</td>
+                                        <td>Dec 19, 2024</td>
+                                        <td><strong>$280.00</strong></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary select-invoice-btn">
+                                                <i class="fas fa-check me-1"></i> Select
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Details and Invoice Generation Section -->
+        <div class="row">
+            <!-- Left Column: Reservation Details -->
+            <div class="col-lg-6">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Reservation Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstNameDetail" value="John" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastNameDetail" value="Smith" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Adults</label>
+                                <input type="number" class="form-control" id="adultsDetail" value="2" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Children</label>
+                                <input type="number" class="form-control" id="childrenDetail" value="0" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Room Type</label>
+                                <input type="text" class="form-control" id="roomTypeDetail" value="Deluxe Suite" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Status</label>
+                                <select class="form-select" id="statusDetail">
+                                    <option value="checked-out" selected>Checked Out</option>
+                                    <option value="checked-in">Checked In</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Number of Days</label>
+                                <input type="number" class="form-control" id="numDaysDetail" value="5" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Number of Rooms</label>
+                                <input type="number" class="form-control" id="numRoomsDetail" value="1" readonly>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Sub Total</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" class="form-control" id="subTotalDetail" value="1,250.00" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Total</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="text" class="form-control" id="totalDetail" value="1,375.00" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column: Rooms and Invoice Generation -->
+            <div class="col-lg-6">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-bed me-2"></i>Rooms & Invoice Generation</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Rooms Table -->
+                        <div class="mb-4">
+                            <h6 class="mb-3 text-primary">Rooms</h6>
+                            <div class="table-responsive">
+                                <table class="table table-sm table-bordered">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Room</th>
+                                            <th>B.T.</th>
+                                            <th>M.P.</th>
+                                            <th>From</th>
+                                            <th>To</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="roomsTableBody">
+                                        <tr>
+                                            <td>101</td>
+                                            <td>Deluxe Suite</td>
+                                            <td>Breakfast</td>
+                                            <td>Dec 15, 2024</td>
+                                            <td>Dec 20, 2024</td>
+                                            <td>$1,250.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Invoice Generation Options -->
+                        <div class="mb-4">
+                            <h6 class="mb-3 text-primary">Invoice Generation</h6>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Select Currency Type</label>
+                                    <select class="form-select" id="currencyType">
+                                        <option value="USD" selected>USD ($)</option>
+                                        <option value="EUR">EUR (€)</option>
+                                        <option value="GBP">GBP (£)</option>
+                                        <option value="LKR">LKR (Rs)</option>
+                                        <option value="AUD">AUD (A$)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Invoice Number</label>
+                                    <input type="text" class="form-control" id="invoiceNumber" value="INV20241220001" readonly>
+                                </div>
+                            </div>
+                            
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="includeTax" checked>
+                                <label class="form-check-label" for="includeTax">
+                                    Include Tax (10%)
+                                </label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="includeServiceCharge" checked>
+                                <label class="form-check-label" for="includeServiceCharge">
+                                    Include Service Charge (8%)
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Complete Status -->
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="completeStatus">
+                                <label class="form-check-label" for="completeStatus">
+                                    <span class="h6 text-success">Complete</span>
+                                </label>
+                            </div>
+                            <small class="text-muted">Mark as complete when invoice is finalized and sent to guest</small>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary btn-lg" id="generateInvoiceBtn">
+                                <i class="fas fa-file-invoice me-2"></i> Generate Invoice
+                            </button>
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-success" id="printInvoiceBtn">
+                                    <i class="fas fa-print me-1"></i> Print
+                                </button>
+                                <button class="btn btn-outline-secondary" id="emailInvoiceBtn">
+                                    <i class="fas fa-envelope me-1"></i> Email
+                                </button>
+                                <button class="btn btn-outline-info" id="downloadInvoiceBtn">
+                                    <i class="fas fa-download me-1"></i> PDF
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Invoice Preview Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-eye me-2"></i>Invoice Preview</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="invoice-preview" id="invoicePreview">
+                            <!-- Invoice content will be generated here -->
+                            <div class="text-center text-muted py-5">
+                                <i class="fas fa-file-invoice fa-3x mb-3"></i>
+                                <p>Generate an invoice to see preview here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Email Invoice Modal -->
+    <div class="modal fade" id="emailInvoiceModal" tabindex="-1" aria-labelledby="emailInvoiceModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="emailInvoiceModalLabel">
+                        <i class="fas fa-envelope me-2"></i>Email Invoice
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Guest Email</label>
+                        <input type="email" class="form-control" id="guestEmail" value="john.smith@example.com">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="emailSubject" value="Invoice for your stay - Grand Horizon Hotel">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-control" id="emailMessage" rows="4">Dear John Smith,
+
+Please find attached the invoice for your recent stay at Grand Horizon Hotel.
+
+Thank you for choosing to stay with us. We hope to welcome you back soon!
+
+Best regards,
+Grand Horizon Hotel Management</textarea>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="sendCopy">
+                        <label class="form-check-label" for="sendCopy">
+                            Send a copy to hotel email
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" id="sendEmailBtn">Send Email</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Receipt/Invoice Generation Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize invoice number
+            generateInvoiceNumber();
+            
+            // Refresh data button
+            document.getElementById('refreshDataBtn').addEventListener('click', function() {
+                refreshInvoiceData();
+            });
+            
+            // Search button
+            document.getElementById('searchInvoiceBtn').addEventListener('click', function() {
+                searchInvoiceGuest();
+            });
+            
+            // Select invoice buttons
+            document.querySelectorAll('.select-invoice-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    selectGuestForInvoice(row);
+                });
+            });
+            
+            // Checkbox selection
+            document.querySelectorAll('.select-invoice').forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        const row = this.closest('tr');
+                        selectGuestForInvoice(row);
+                    }
+                });
+            });
+            
+            // Generate invoice button
+            document.getElementById('generateInvoiceBtn').addEventListener('click', function() {
+                generateInvoice();
+            });
+            
+            // Print invoice button
+            document.getElementById('printInvoiceBtn').addEventListener('click', function() {
+                printInvoice();
+            });
+            
+            // Email invoice button
+            document.getElementById('emailInvoiceBtn').addEventListener('click', function() {
+                emailInvoice();
+            });
+            
+            // Download PDF button
+            document.getElementById('downloadInvoiceBtn').addEventListener('click', function() {
+                downloadInvoicePDF();
+            });
+            
+            // Send email button
+            document.getElementById('sendEmailBtn').addEventListener('click', function() {
+                sendInvoiceEmail();
+            });
+            
+            // Complete checkbox
+            document.getElementById('completeStatus').addEventListener('change', function() {
+                updateCompleteStatus(this.checked);
+            });
+            
+            // Search inputs (trigger search on Enter)
+            document.getElementById('lastNameSearch').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') searchInvoiceGuest();
+            });
+            
+            document.getElementById('roomNoSearch').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') searchInvoiceGuest();
+            });
+            
+            // Currency type change
+            document.getElementById('currencyType').addEventListener('change', function() {
+                updateCurrency(this.value);
+            });
+            
+            // Initialize with first guest selected
+            const firstRow = document.querySelector('#invoiceTableBody tr:first-child');
+            if (firstRow) {
+                selectGuestForInvoice(firstRow);
+            }
+        });
+        
+        function generateInvoiceNumber() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const random = String(Math.floor(Math.random() * 900) + 100);
+            const invoiceNo = `INV${year}${month}${day}${random}`;
+            document.getElementById('invoiceNumber').value = invoiceNo;
+            return invoiceNo;
+        }
+        
+        function refreshInvoiceData() {
+            const refreshBtn = document.getElementById('refreshDataBtn');
+            const originalText = refreshBtn.innerHTML;
+            refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Refreshing...';
+            refreshBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Update pending count
+                const pendingCount = document.querySelectorAll('.invoice-row .select-invoice:not(:checked)').length;
+                document.querySelector('#lastUpdated span.text-warning').textContent = pendingCount;
+                
+                // Generate new invoice number
+                generateInvoiceNumber();
+                
+                // Show success message
+                showAlert('Invoice data refreshed successfully', 'success');
+                
+                // Restore button
+                refreshBtn.innerHTML = originalText;
+                refreshBtn.disabled = false;
+            }, 1500);
+        }
+        
+        function searchInvoiceGuest() {
+            const lastName = document.getElementById('lastNameSearch').value.trim();
+            const roomNo = document.getElementById('roomNoSearch').value.trim();
+            
+            if (!lastName && !roomNo) {
+                showAlert('Please enter last name or room number to search', 'warning');
+                return;
+            }
+            
+            const rows = document.querySelectorAll('.invoice-row');
+            let found = false;
+            
+            rows.forEach(row => {
+                const rowLastName = row.dataset.lastName.toLowerCase();
+                const rowRoom = row.dataset.room;
+                
+                const matchesLastName = lastName && rowLastName.includes(lastName.toLowerCase());
+                const matchesRoom = roomNo && rowRoom.includes(roomNo);
+                
+                if ((lastName && matchesLastName) || (roomNo && matchesRoom)) {
+                    row.classList.add('table-info');
+                    found = true;
+                    
+                    // Auto-select the found guest
+                    setTimeout(() => {
+                        selectGuestForInvoice(row);
+                    }, 500);
+                    
+                    // Remove highlight after 3 seconds
+                    setTimeout(() => {
+                        row.classList.remove('table-info');
+                    }, 3000);
+                } else {
+                    row.style.opacity = '0.5';
+                    setTimeout(() => {
+                        row.style.opacity = '';
+                    }, 3000);
+                }
+            });
+            
+            if (!found) {
+                showAlert('No guest found with the search criteria', 'warning');
+            } else {
+                showAlert('Guest found and selected', 'success');
+            }
+        }
+        
+        function selectGuestForInvoice(row) {
+            // Reset all selections
+            document.querySelectorAll('.invoice-row').forEach(r => {
+                r.classList.remove('table-primary');
+                r.querySelector('.select-invoice').checked = false;
+            });
+            
+            // Highlight selected row
+            row.classList.add('table-primary');
+            row.querySelector('.select-invoice').checked = true;
+            
+            // Get guest data from row
+            const resNo = row.dataset.resNo;
+            const lastName = row.dataset.lastName;
+            const firstName = row.dataset.firstName;
+            const roomNo = row.dataset.room;
+            
+            // Update guest details based on reservation number
+            updateGuestDetails(resNo, lastName, firstName, roomNo);
+            
+            // Update rooms table
+            updateRoomsTable(resNo, roomNo);
+            
+            // Update guest email in email modal
+            const email = getGuestEmail(firstName, lastName);
+            document.getElementById('guestEmail').value = email;
+            
+            showAlert(`Selected guest: ${firstName} ${lastName} (Room ${roomNo}) for invoice generation`, 'info');
+        }
+        
+        function updateGuestDetails(resNo, lastName, firstName, roomNo) {
+            // Sample data for different guests
+            const guestData = {
+                'RES20241215001': {
+                    firstName: 'John',
+                    lastName: 'Smith',
+                    adults: 2,
+                    children: 0,
+                    roomType: 'Deluxe Suite',
+                    numRooms: 1,
+                    numDays: 5,
+                    subTotal: '1,250.00',
+                    total: '1,375.00'
+                },
+                'RES20241216002': {
+                    firstName: 'Sarah',
+                    lastName: 'Johnson',
+                    adults: 1,
+                    children: 1,
+                    roomType: 'Standard Room',
+                    numRooms: 1,
+                    numDays: 6,
+                    subTotal: '900.00',
+                    total: '990.00'
+                },
+                'RES20241214003': {
+                    firstName: 'Robert',
+                    lastName: 'Williams',
+                    adults: 2,
+                    children: 2,
+                    roomType: 'Executive Suite',
+                    numRooms: 1,
+                    numDays: 7,
+                    subTotal: '2,100.00',
+                    total: '2,310.00'
+                },
+                'RES20241217004': {
+                    firstName: 'Emily',
+                    lastName: 'Brown',
+                    adults: 1,
+                    children: 0,
+                    roomType: 'Standard Room',
+                    numRooms: 1,
+                    numDays: 2,
+                    subTotal: '280.00',
+                    total: '308.00'
+                }
+            };
+            
+            const data = guestData[resNo] || guestData['RES20241215001'];
+            
+            // Update form fields
+            document.getElementById('firstNameDetail').value = data.firstName;
+            document.getElementById('lastNameDetail').value = data.lastName;
+            document.getElementById('adultsDetail').value = data.adults;
+            document.getElementById('childrenDetail').value = data.children;
+            document.getElementById('roomTypeDetail').value = data.roomType;
+            document.getElementById('numRoomsDetail').value = data.numRooms;
+            document.getElementById('numDaysDetail').value = data.numDays;
+            document.getElementById('subTotalDetail').value = data.subTotal;
+            document.getElementById('totalDetail').value = data.total;
+        }
+        
+        function updateRoomsTable(resNo, roomNo) {
+            const roomsTableBody = document.getElementById('roomsTableBody');
+            
+            // Sample room data
+            const roomData = {
+                'RES20241215001': [
+                    { room: '101', type: 'Deluxe Suite', meal: 'Breakfast', from: 'Dec 15, 2024', to: 'Dec 20, 2024', total: '$1,250.00' }
+                ],
+                'RES20241216002': [
+                    { room: '102', type: 'Standard Room', meal: 'Half Board', from: 'Dec 16, 2024', to: 'Dec 22, 2024', total: '$900.00' }
+                ],
+                'RES20241214003': [
+                    { room: '201', type: 'Executive Suite', meal: 'Full Board', from: 'Dec 14, 2024', to: 'Dec 21, 2024', total: '$2,100.00' }
+                ],
+                'RES20241217004': [
+                    { room: '205', type: 'Standard Room', meal: 'Breakfast Only', from: 'Dec 17, 2024', to: 'Dec 19, 2024', total: '$280.00' }
+                ]
+            };
+            
+            const rooms = roomData[resNo] || roomData['RES20241215001'];
+            
+            // Clear existing rows
+            roomsTableBody.innerHTML = '';
+            
+            // Add new rows
+            rooms.forEach(room => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${room.room}</td>
+                    <td>${room.type}</td>
+                    <td>${room.meal}</td>
+                    <td>${room.from}</td>
+                    <td>${room.to}</td>
+                    <td>${room.total}</td>
+                `;
+                roomsTableBody.appendChild(row);
+            });
+        }
+        
+        function generateInvoice() {
+            const firstName = document.getElementById('firstNameDetail').value;
+            const lastName = document.getElementById('lastNameDetail').value;
+            const invoiceNo = document.getElementById('invoiceNumber').value;
+            const currency = document.getElementById('currencyType').value;
+            const includeTax = document.getElementById('includeTax').checked;
+            const includeServiceCharge = document.getElementById('includeServiceCharge').checked;
+            
+            if (!firstName || !lastName) {
+                showAlert('Please select a guest first', 'warning');
+                return;
+            }
+            
+            // Get room data
+            const selectedRow = document.querySelector('.invoice-row.table-primary');
+            const roomNo = selectedRow ? selectedRow.dataset.room : '101';
+            
+            // Get dates
+            const checkIn = selectedRow ? selectedRow.cells[5].textContent : 'Dec 15, 2024';
+            const checkOut = selectedRow ? selectedRow.cells[6].textContent : 'Dec 20, 2024';
+            
+            // Calculate totals
+            const subTotal = parseFloat(document.getElementById('subTotalDetail').value.replace(',', ''));
+            const total = parseFloat(document.getElementById('totalDetail').value.replace(',', ''));
+            const tax = includeTax ? total * 0.10 : 0;
+            const serviceCharge = includeServiceCharge ? total * 0.08 : 0;
+            const grandTotal = subTotal + tax + serviceCharge;
+            
+            // Get currency symbol
+            const currencySymbol = getCurrencySymbol(currency);
+            
+            // Generate invoice HTML
+            const invoiceHTML = createInvoiceHTML({
+                invoiceNo: invoiceNo,
+                date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
+                guestName: `${firstName} ${lastName}`,
+                roomNo: roomNo,
+                checkIn: checkIn,
+                checkOut: checkOut,
+                currency: currency,
+                currencySymbol: currencySymbol,
+                items: [
+                    { description: `Room ${roomNo} (5 nights)`, qty: 5, unitPrice: 200, lineTotal: 1000 },
+                    { description: 'Service Charges', qty: 1, unitPrice: 250, lineTotal: 250 }
+                ],
+                subTotal: subTotal,
+                tax: tax,
+                serviceCharge: serviceCharge,
+                grandTotal: grandTotal
+            });
+            
+            // Display invoice preview
+            document.getElementById('invoicePreview').innerHTML = invoiceHTML;
+            
+            // Mark as complete
+            document.getElementById('completeStatus').checked = true;
+            
+            // Show success message
+            showAlert(`Invoice ${invoiceNo} generated successfully for ${firstName} ${lastName}`, 'success');
+        }
+        
+        function createInvoiceHTML(invoiceData) {
+            const itemsHTML = invoiceData.items.map(item => `
+                <tr>
+                    <td>${item.qty}</td>
+                    <td>${item.description}</td>
+                    <td class="text-end">${invoiceData.currencySymbol}${item.unitPrice.toFixed(2)}</td>
+                    <td class="text-end">${invoiceData.currencySymbol}${item.lineTotal.toFixed(2)}</td>
+                </tr>
+            `).join('');
+            
+            return `
+                <div class="invoice-container" id="printableInvoice">
+                    <div class="invoice-header text-center mb-4">
+                        <h2 class="hotel-name mb-1">Grand Horizon Hotel</h2>
+                        <p class="hotel-address mb-1">Paimyrah Road Alankuda Kalpitiya, Sri Lanka.</p>
+                        <p class="hotel-location mb-1">Kalpitiya, Sri Lanka</p>
+                        <p class="hotel-contact mb-1">Tel: 0094 777 219 218 | Email: info@grandhorizon.com</p>
+                        <p class="hotel-website mb-3">Web: www.grandhorizon.com</p>
+                        
+                        <div class="border-top border-bottom py-2">
+                            <h3 class="invoice-title mb-0">INVOICE</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-info mb-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="mb-1"><strong>Guest:</strong> ${invoiceData.guestName}</p>
+                                <p class="mb-1"><strong>Room:</strong> ${invoiceData.roomNo}</p>
+                                <p class="mb-1"><strong>Check-in:</strong> ${invoiceData.checkIn}</p>
+                                <p class="mb-1"><strong>Check-out:</strong> ${invoiceData.checkOut}</p>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <p class="mb-1"><strong>Invoice No:</strong> ${invoiceData.invoiceNo}</p>
+                                <p class="mb-1"><strong>Date:</strong> ${invoiceData.date}</p>
+                                <p class="mb-1"><strong>Currency:</strong> ${invoiceData.currency}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-items mb-4">
+                        <table class="table table-bordered">
+                            <thead class="table-light">
+                                <tr>
+                                    <th width="15%">Qty</th>
+                                    <th>Description</th>
+                                    <th width="20%" class="text-end">Unit Price</th>
+                                    <th width="20%" class="text-end">Line Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${itemsHTML}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="invoice-totals">
+                        <div class="row justify-content-end">
+                            <div class="col-md-6">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Sub Total</strong></td>
+                                            <td class="text-end">${invoiceData.currencySymbol}${invoiceData.subTotal.toFixed(2)}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Service Charges</td>
+                                            <td class="text-end">${invoiceData.currencySymbol}${invoiceData.serviceCharge.toFixed(2)}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>VAT (10%)</td>
+                                            <td class="text-end">${invoiceData.currencySymbol}${invoiceData.tax.toFixed(2)}</td>
+                                        </tr>
+                                        <tr class="table-active">
+                                            <td><strong>TOTAL</strong></td>
+                                            <td class="text-end"><strong>${invoiceData.currencySymbol}${invoiceData.grandTotal.toFixed(2)}</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-footer mt-4 pt-4 border-top">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="mb-1"><strong>Payment Terms:</strong></p>
+                                <p class="mb-1 small">Payment due upon receipt</p>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <p class="mb-1"><strong>Thank you for your business!</strong></p>
+                                <p class="mb-0 small">Grand Horizon Hotel Management</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function printInvoice() {
+            const invoicePreview = document.getElementById('invoicePreview');
+            
+            if (!invoicePreview.innerHTML.includes('invoice-container')) {
+                showAlert('Please generate an invoice first', 'warning');
+                return;
+            }
+            
+            showAlert('Opening print dialog...', 'info');
+            
+            // Get printable invoice content
+            const printableInvoice = document.getElementById('printableInvoice');
+            if (!printableInvoice) {
+                showAlert('No invoice available to print', 'warning');
+                return;
+            }
+            
+            // Create print window
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`
+                <html>
+                <head>
+                    <title>Invoice - Grand Horizon Hotel</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; margin: 20px; }
+                        .invoice-container { max-width: 800px; margin: 0 auto; }
+                        .hotel-name { font-size: 24px; font-weight: bold; color: #2c3e50; }
+                        .hotel-address { color: #666; }
+                        .invoice-title { font-size: 20px; color: #2c3e50; }
+                        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+                        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+                        th { background-color: #f8f9fa; font-weight: bold; }
+                        .text-end { text-align: right; }
+                        .table-active { background-color: #f8f9fa; }
+                        .invoice-footer { font-size: 12px; color: #666; }
+                        @media print {
+                            body { margin: 0; }
+                            .no-print { display: none; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    ${printableInvoice.outerHTML}
+                    <div class="text-center no-print mt-4">
+                        <button onclick="window.print()" class="btn btn-primary">Print Invoice</button>
+                        <button onclick="window.close()" class="btn btn-secondary">Close</button>
+                    </div>
+                </body>
+                </html>
+            `);
+            printWindow.document.close();
+            
+            // Focus and auto-print after a delay
+            setTimeout(() => {
+                printWindow.focus();
+                printWindow.print();
+            }, 500);
+        }
+        
+        function emailInvoice() {
+            const firstName = document.getElementById('firstNameDetail').value;
+            const lastName = document.getElementById('lastNameDetail').value;
+            
+            if (!firstName || !lastName) {
+                showAlert('Please select a guest first', 'warning');
+                return;
+            }
+            
+            // Show email modal
+            const emailModal = new bootstrap.Modal(document.getElementById('emailInvoiceModal'));
+            emailModal.show();
+        }
+        
+        function sendInvoiceEmail() {
+            const guestEmail = document.getElementById('guestEmail').value;
+            const subject = document.getElementById('emailSubject').value;
+            const message = document.getElementById('emailMessage').value;
+            const sendCopy = document.getElementById('sendCopy').checked;
+            
+            if (!guestEmail) {
+                showAlert('Please enter guest email address', 'warning');
+                return;
+            }
+            
+            // Show sending message
+            showAlert(`Sending invoice to ${guestEmail}...`, 'info');
+            
+            // Simulate sending email
+            setTimeout(() => {
+                showAlert(`Invoice sent successfully to ${guestEmail}${sendCopy ? ' (copy sent to hotel)' : ''}`, 'success');
+                
+                // Close modal
+                const emailModal = bootstrap.Modal.getInstance(document.getElementById('emailInvoiceModal'));
+                emailModal.hide();
+                
+                // Mark as complete
+                document.getElementById('completeStatus').checked = true;
+            }, 2000);
+        }
+        
+        function downloadInvoicePDF() {
+            const invoicePreview = document.getElementById('invoicePreview');
+            
+            if (!invoicePreview.innerHTML.includes('invoice-container')) {
+                showAlert('Please generate an invoice first', 'warning');
+                return;
+            }
+            
+            showAlert('Downloading PDF...', 'info');
+            
+            // In a real application, this would generate a PDF using a library
+            // For now, we'll simulate the download
+            setTimeout(() => {
+                // Create a fake download link
+                const invoiceNo = document.getElementById('invoiceNumber').value;
+                const guestName = document.getElementById('firstNameDetail').value + '_' + document.getElementById('lastNameDetail').value;
+                const fileName = `Invoice_${invoiceNo}_${guestName}.pdf`;
+                
+                // Simulate download
+                const link = document.createElement('a');
+                link.href = '#';
+                link.download = fileName;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                showAlert(`Invoice downloaded as ${fileName}`, 'success');
+            }, 1500);
+        }
+        
+        function updateCompleteStatus(isComplete) {
+            if (isComplete) {
+                // Generate new invoice number for next invoice
+                generateInvoiceNumber();
+                showAlert('Invoice marked as complete', 'success');
+            }
+        }
+        
+        function updateCurrency(currency) {
+            // Update currency symbol in totals
+            const currencySymbol = getCurrencySymbol(currency);
+            
+            // Update total fields with new currency symbol
+            const subTotal = document.getElementById('subTotalDetail').value;
+            const total = document.getElementById('totalDetail').value;
+            
+            // In a real application, you would convert amounts based on exchange rates
+            console.log(`Currency changed to: ${currency} (${currencySymbol})`);
+            
+            showAlert(`Currency changed to ${currency}`, 'info');
+        }
+        
+        // Utility functions
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+        
+        function getGuestEmail(firstName, lastName) {
+            // Generate a sample email based on name
+            return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@example.com`;
+        }
+        
+        function getCurrencySymbol(currency) {
+            const symbols = {
+                'USD': '$',
+                'EUR': '€',
+                'GBP': '£',
+                'LKR': 'Rs ',
+                'AUD': 'A$'
+            };
+            return symbols[currency] || '$';
+        }
+    </script>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+
+    <!-- Include JavaScript -->
+    <script src="js/include.js"></script>
+     <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

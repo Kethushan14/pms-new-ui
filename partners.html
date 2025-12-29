@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partners Management - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+</head>
+<body>
+ 
+    <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-handshake me-2"></i>Partners Management
+                                </h1>
+                                <p class="card-text text-muted mb-0">Manage corporate clients and travel agent partnerships</p>
+                                <small class="text-muted" id="lastUpdated">Active Partners: <span class="fw-bold text-info">24</span> • Corporate Clients: <span class="fw-bold text-primary">15</span> • Travel Agents: <span class="fw-bold text-success">9</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-success" id="refreshDataBtn">
+                                    <i class="fas fa-sync-alt me-1"></i> Refresh
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partner Type Selection -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="btn-group w-100" role="group">
+                            <button type="button" class="btn btn-outline-primary active" id="corporateClientBtn">
+                                <i class="fas fa-building me-2"></i>Corporate Client
+                            </button>
+                            <button type="button" class="btn btn-outline-primary" id="travelAgentBtn">
+                                <i class="fas fa-plane me-2"></i>Travel Agent
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Corporate Client Section -->
+        <div class="row mb-4" id="corporateClientSection">
+            <!-- Corporate Information -->
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-building me-2"></i>Corporate Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Search Form -->
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="corporateNameSearch" placeholder="Enter company name">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Reg.No.</label>
+                                    <input type="text" class="form-control" id="corporateRegNoSearch" placeholder="Enter registration number">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label class="form-label">Country</label>
+                                    <select class="form-select" id="corporateCountrySearch">
+                                        <option value="">Select</option>
+                                        <option value="LK">Sri Lanka</option>
+                                        <option value="US">United States</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="IN">India</option>
+                                        <option value="CN">China</option>
+                                        <option value="AE">UAE</option>
+                                        <option value="AU">Australia</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <button class="btn btn-primary" id="searchCorporateBtn">
+                                    <i class="fas fa-search me-2"></i>Search
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Corporate List -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th width="40">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="selectAllCorporate">
+                                            </div>
+                                        </th>
+                                        <th>Name</th>
+                                        <th>Reg.No.</th>
+                                        <th>Mobile</th>
+                                        <th>E-mail</th>
+                                        <th>Country</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="corporateTableBody">
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input corporate-checkbox" type="checkbox" data-id="1">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong>ABC Corporation</strong>
+                                            <small class="d-block text-muted">IT Solutions</small>
+                                        </td>
+                                        <td><span class="badge bg-primary">REG-001</span></td>
+                                        <td>+94 77 123 4567</td>
+                                        <td>contact@abccorp.com</td>
+                                        <td><span class="badge bg-info">Sri Lanka</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary edit-corporate-btn" data-id="1">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger delete-corporate-btn" data-id="1">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input corporate-checkbox" type="checkbox" data-id="2">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong>XYZ Enterprises</strong>
+                                            <small class="d-block text-muted">Manufacturing</small>
+                                        </td>
+                                        <td><span class="badge bg-primary">REG-002</span></td>
+                                        <td>+94 76 234 5678</td>
+                                        <td>info@xyzent.com</td>
+                                        <td><span class="badge bg-info">Sri Lanka</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary edit-corporate-btn" data-id="2">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger delete-corporate-btn" data-id="2">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input corporate-checkbox" type="checkbox" data-id="3">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong>Global Solutions Ltd.</strong>
+                                            <small class="d-block text-muted">Consulting</small>
+                                        </td>
+                                        <td><span class="badge bg-primary">REG-003</span></td>
+                                        <td>+1 555 123 4567</td>
+                                        <td>contact@globalsol.com</td>
+                                        <td><span class="badge bg-warning">USA</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary edit-corporate-btn" data-id="3">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger delete-corporate-btn" data-id="3">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input corporate-checkbox" type="checkbox" data-id="4">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong>Asian Trading Co.</strong>
+                                            <small class="d-block text-muted">Import/Export</small>
+                                        </td>
+                                        <td><span class="badge bg-primary">REG-004</span></td>
+                                        <td>+91 98765 43210</td>
+                                        <td>sales@asiantrading.com</td>
+                                        <td><span class="badge bg-success">India</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary edit-corporate-btn" data-id="4">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger delete-corporate-btn" data-id="4">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Bulk Actions -->
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <div class="d-flex gap-2">
+                                    <select class="form-select w-auto" id="corporateBulkAction">
+                                        <option value="">Bulk Actions</option>
+                                        <option value="export">Export Selected</option>
+                                        <option value="activate">Activate Selected</option>
+                                        <option value="deactivate">Deactivate Selected</option>
+                                        <option value="delete">Delete Selected</option>
+                                    </select>
+                                    <button class="btn btn-primary" id="applyCorporateBulkActionBtn">
+                                        <i class="fas fa-play me-1"></i> Apply
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Corporate Details Form -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-file-alt me-2"></i>Corporate Details</h5>
+                            <button class="btn btn-sm btn-success" id="newCorporateBtn">
+                                <i class="fas fa-plus me-1"></i> New
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form id="corporateForm">
+                            <div class="mb-3">
+                                <label class="form-label">Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="corporateName" required placeholder="Enter company name">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Registration No. <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="corporateRegNo" required placeholder="Enter registration number">
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Country <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="corporateCountry" required>
+                                        <option value="">Select</option>
+                                        <option value="LK">Sri Lanka</option>
+                                        <option value="US">United States</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="IN">India</option>
+                                        <option value="CN">China</option>
+                                        <option value="AE">UAE</option>
+                                        <option value="AU">Australia</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Discount (%)</label>
+                                    <input type="number" class="form-control" id="corporateDiscount" min="0" max="100" value="10" step="1">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Address <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="corporateAddress" rows="2" required placeholder="Enter company address"></textarea>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Mobile <span class="text-danger">*</span></label>
+                                    <input type="tel" class="form-control" id="corporateMobile" required placeholder="Enter mobile number">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Telephone</label>
+                                    <input type="tel" class="form-control" id="corporateTelephone" placeholder="Enter telephone number">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="corporateEmail" required placeholder="Enter email address">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Contact Person</label>
+                                <input type="text" class="form-control" id="corporateContactPerson" placeholder="Enter contact person name">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Notes</label>
+                                <textarea class="form-control" id="corporateNotes" rows="2" placeholder="Additional notes"></textarea>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between">
+                                <button type="button" class="btn btn-danger" id="deleteCorporateBtn" disabled>
+                                    <i class="fas fa-trash me-1"></i> Delete
+                                </button>
+                                <div class="d-flex gap-2">
+                                    <button type="reset" class="btn btn-outline-secondary">
+                                        <i class="fas fa-redo me-1"></i> Reset
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save me-1"></i> Save
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <input type="hidden" id="corporateId" value="">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Travel Agent Section -->
+        <div class="row mb-4 d-none" id="travelAgentSection">
+            <!-- Travel Agent Information -->
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-plane me-2"></i>Travel Agent Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Agent Profile Information -->
+                        <div class="row mb-4">
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="agentFirstNameSearch" placeholder="Enter first name">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="agentLastNameSearch" placeholder="Enter last name">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label class="form-label">Reg.ID.</label>
+                                    <input type="text" class="form-control" id="agentRegIdSearch" placeholder="Enter registration ID">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label class="form-label">Country</label>
+                                    <select class="form-select" id="agentCountrySearch">
+                                        <option value="">Select</option>
+                                        <option value="LK">Sri Lanka</option>
+                                        <option value="US">United States</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="IN">India</option>
+                                        <option value="CN">China</option>
+                                        <option value="AE">UAE</option>
+                                        <option value="AU">Australia</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Association</label>
+                                    <input type="text" class="form-control" id="agentAssociationSearch" placeholder="Enter association name">
+                                </div>
+                            </div>
+                            <div class="col-md-6 d-flex align-items-end">
+                                <button class="btn btn-primary w-100" id="searchAgentBtn">
+                                    <i class="fas fa-search me-2"></i>Search
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Travel Agent List -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th width="40">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="selectAllAgent">
+                                            </div>
+                                        </th>
+                                        <th>Agent Name</th>
+                                        <th>Reg.ID.</th>
+                                        <th>Country</th>
+                                        <th>Association</th>
+                                        <th>Commission</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="agentTableBody">
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input agent-checkbox" type="checkbox" data-id="1">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong>John Smith</strong>
+                                            <small class="d-block text-muted">Global Tours</small>
+                                        </td>
+                                        <td><span class="badge bg-primary">AGT-001</span></td>
+                                        <td><span class="badge bg-info">USA</span></td>
+                                        <td>ASTA</td>
+                                        <td>15%</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary edit-agent-btn" data-id="1">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger delete-agent-btn" data-id="1">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input agent-checkbox" type="checkbox" data-id="2">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong>Maria Garcia</strong>
+                                            <small class="d-block text-muted">Sunshine Travel</small>
+                                        </td>
+                                        <td><span class="badge bg-primary">AGT-002</span></td>
+                                        <td><span class="badge bg-success">Spain</span></td>
+                                        <td>IATA</td>
+                                        <td>12%</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary edit-agent-btn" data-id="2">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger delete-agent-btn" data-id="2">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input agent-checkbox" type="checkbox" data-id="3">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong>Robert Chen</strong>
+                                            <small class="d-block text-muted">Asian Adventures</small>
+                                        </td>
+                                        <td><span class="badge bg-primary">AGT-003</span></td>
+                                        <td><span class="badge bg-warning">China</span></td>
+                                        <td>PATA</td>
+                                        <td>10%</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary edit-agent-btn" data-id="3">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger delete-agent-btn" data-id="3">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input agent-checkbox" type="checkbox" data-id="4">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <strong>Sarah Johnson</strong>
+                                            <small class="d-block text-muted">UK Travel Experts</small>
+                                        </td>
+                                        <td><span class="badge bg-primary">AGT-004</span></td>
+                                        <td><span class="badge bg-info">UK</span></td>
+                                        <td>ABTA</td>
+                                        <td>18%</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary edit-agent-btn" data-id="4">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger delete-agent-btn" data-id="4">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Bulk Actions -->
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <div class="d-flex gap-2">
+                                    <select class="form-select w-auto" id="agentBulkAction">
+                                        <option value="">Bulk Actions</option>
+                                        <option value="export">Export Selected</option>
+                                        <option value="commission">Update Commission</option>
+                                        <option value="activate">Activate Selected</option>
+                                        <option value="deactivate">Deactivate Selected</option>
+                                        <option value="delete">Delete Selected</option>
+                                    </select>
+                                    <button class="btn btn-primary" id="applyAgentBulkActionBtn">
+                                        <i class="fas fa-play me-1"></i> Apply
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Travel Agent Details Form -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-user-tie me-2"></i>Agent Details</h5>
+                            <button class="btn btn-sm btn-success" id="newAgentBtn">
+                                <i class="fas fa-plus me-1"></i> New
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form id="agentForm">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">First Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="agentFirstName" required placeholder="Enter first name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Last Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="agentLastName" required placeholder="Enter last name">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Registration ID <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="agentRegId" required placeholder="Enter registration ID">
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Country <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="agentCountry" required>
+                                        <option value="">Select</option>
+                                        <option value="LK">Sri Lanka</option>
+                                        <option value="US">United States</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="IN">India</option>
+                                        <option value="CN">China</option>
+                                        <option value="AE">UAE</option>
+                                        <option value="AU">Australia</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Commission (%)</label>
+                                    <input type="number" class="form-control" id="agentCommission" min="0" max="50" value="15" step="0.5">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Association</label>
+                                <input type="text" class="form-control" id="agentAssociation" placeholder="Enter association name">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Company/Agency</label>
+                                <input type="text" class="form-control" id="agentCompany" placeholder="Enter company name">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Address</label>
+                                <textarea class="form-control" id="agentAddress" rows="2" placeholder="Enter address"></textarea>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Mobile <span class="text-danger">*</span></label>
+                                    <input type="tel" class="form-control" id="agentMobile" required placeholder="Enter mobile number">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Telephone</label>
+                                    <input type="tel" class="form-control" id="agentTelephone" placeholder="Enter telephone number">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="agentEmail" required placeholder="Enter email address">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Website</label>
+                                <input type="url" class="form-control" id="agentWebsite" placeholder="Enter website URL">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Notes</label>
+                                <textarea class="form-control" id="agentNotes" rows="2" placeholder="Additional notes"></textarea>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between">
+                                <button type="button" class="btn btn-danger" id="deleteAgentBtn" disabled>
+                                    <i class="fas fa-trash me-1"></i> Delete
+                                </button>
+                                <div class="d-flex gap-2">
+                                    <button type="reset" class="btn btn-outline-secondary">
+                                        <i class="fas fa-redo me-1"></i> Reset
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save me-1"></i> Save
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <input type="hidden" id="agentId" value="">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partner Statistics -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-chart-pie me-2"></i>Partner Statistics</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="card stat-card bg-primary text-white">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h2 class="stat-number">24</h2>
+                                                <p class="stat-label mb-0">Total Partners</p>
+                                                <small class="stat-change">Active partnerships</small>
+                                            </div>
+                                            <div class="stat-icon">
+                                                <i class="fas fa-handshake fa-3x"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card stat-card bg-info text-white">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h2 class="stat-number">15</h2>
+                                                <p class="stat-label mb-0">Corporate Clients</p>
+                                                <small class="stat-change">Business partnerships</small>
+                                            </div>
+                                            <div class="stat-icon">
+                                                <i class="fas fa-building fa-3x"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card stat-card bg-success text-white">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h2 class="stat-number">9</h2>
+                                                <p class="stat-label mb-0">Travel Agents</p>
+                                                <small class="stat-change">Tour operators</small>
+                                            </div>
+                                            <div class="stat-icon">
+                                                <i class="fas fa-plane fa-3x"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card stat-card bg-warning text-white">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h2 class="stat-number">$45,200</h2>
+                                                <p class="stat-label mb-0">Monthly Revenue</p>
+                                                <small class="stat-change">From partners</small>
+                                            </div>
+                                            <div class="stat-icon">
+                                                <i class="fas fa-dollar-sign fa-3x"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteConfirmationModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Confirm Deletion
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this <span id="deleteItemType">item</span>?</p>
+                    <p class="text-danger"><strong>This action cannot be undone.</strong></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bulk Action Modal -->
+    <div class="modal fade" id="bulkActionModal" tabindex="-1" aria-labelledby="bulkActionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="bulkActionModalLabel">
+                        <i class="fas fa-tasks me-2"></i>Bulk Action
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="bulkActionMessage">Processing bulk action...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Partners Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize variables
+            let currentPartnerType = 'corporate';
+            let deleteItemId = null;
+            let deleteItemType = null;
+            
+            // Partner type buttons
+            document.getElementById('corporateClientBtn').addEventListener('click', function() {
+                setPartnerType('corporate');
+            });
+            
+            document.getElementById('travelAgentBtn').addEventListener('click', function() {
+                setPartnerType('agent');
+            });
+            
+            // Corporate section
+            document.getElementById('searchCorporateBtn').addEventListener('click', function() {
+                searchCorporate();
+            });
+            
+            document.getElementById('newCorporateBtn').addEventListener('click', function() {
+                newCorporate();
+            });
+            
+            document.getElementById('deleteCorporateBtn').addEventListener('click', function() {
+                deleteCorporate();
+            });
+            
+            document.getElementById('selectAllCorporate').addEventListener('change', function() {
+                selectAllCorporate(this.checked);
+            });
+            
+            document.getElementById('applyCorporateBulkActionBtn').addEventListener('click', function() {
+                applyCorporateBulkAction();
+            });
+            
+            // Agent section
+            document.getElementById('searchAgentBtn').addEventListener('click', function() {
+                searchAgent();
+            });
+            
+            document.getElementById('newAgentBtn').addEventListener('click', function() {
+                newAgent();
+            });
+            
+            document.getElementById('deleteAgentBtn').addEventListener('click', function() {
+                deleteAgent();
+            });
+            
+            document.getElementById('selectAllAgent').addEventListener('change', function() {
+                selectAllAgent(this.checked);
+            });
+            
+            document.getElementById('applyAgentBulkActionBtn').addEventListener('click', function() {
+                applyAgentBulkAction();
+            });
+            
+            // Form submissions
+            document.getElementById('corporateForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveCorporate();
+            });
+            
+            document.getElementById('agentForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveAgent();
+            });
+            
+            // Edit buttons
+            document.querySelectorAll('.edit-corporate-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    editCorporate(this.dataset.id);
+                });
+            });
+            
+            document.querySelectorAll('.delete-corporate-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    confirmDelete('corporate', this.dataset.id);
+                });
+            });
+            
+            document.querySelectorAll('.edit-agent-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    editAgent(this.dataset.id);
+                });
+            });
+            
+            document.querySelectorAll('.delete-agent-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    confirmDelete('agent', this.dataset.id);
+                });
+            });
+            
+            // Refresh data button
+            document.getElementById('refreshDataBtn').addEventListener('click', function() {
+                refreshPartnersData();
+            });
+            
+            // Confirm delete button
+            document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
+                executeDelete();
+            });
+            
+            // Initialize
+            setPartnerType('corporate');
+            loadSampleCorporateData();
+            loadSampleAgentData();
+        });
+        
+        function setPartnerType(type) {
+            currentPartnerType = type;
+            
+            // Update button states
+            document.getElementById('corporateClientBtn').classList.remove('active');
+            document.getElementById('travelAgentBtn').classList.remove('active');
+            
+            // Show/hide sections
+            document.getElementById('corporateClientSection').classList.add('d-none');
+            document.getElementById('travelAgentSection').classList.add('d-none');
+            
+            switch(type) {
+                case 'corporate':
+                    document.getElementById('corporateClientBtn').classList.add('active');
+                    document.getElementById('corporateClientSection').classList.remove('d-none');
+                    break;
+                case 'agent':
+                    document.getElementById('travelAgentBtn').classList.add('active');
+                    document.getElementById('travelAgentSection').classList.remove('d-none');
+                    break;
+            }
+        }
+        
+        function searchCorporate() {
+            const name = document.getElementById('corporateNameSearch').value;
+            const regNo = document.getElementById('corporateRegNoSearch').value;
+            const country = document.getElementById('corporateCountrySearch').value;
+            
+            // Simulate search
+            showAlert(`Searching corporate clients with Name: "${name}", Reg.No: "${regNo}", Country: "${country}"`, 'info');
+            
+            // In a real application, this would be an API call
+            setTimeout(() => {
+                // Filter table rows
+                const rows = document.querySelectorAll('#corporateTableBody tr');
+                let foundCount = 0;
+                
+                rows.forEach(row => {
+                    const rowName = row.querySelector('td:nth-child(2) strong').textContent.toLowerCase();
+                    const rowRegNo = row.querySelector('td:nth-child(3) .badge').textContent.toLowerCase();
+                    const rowCountry = row.querySelector('td:nth-child(6) .badge').textContent.toLowerCase();
+                    
+                    const nameMatch = !name || rowName.includes(name.toLowerCase());
+                    const regNoMatch = !regNo || rowRegNo.includes(regNo.toLowerCase());
+                    const countryMatch = !country || rowCountry.includes(getCountryName(country).toLowerCase());
+                    
+                    if (nameMatch && regNoMatch && countryMatch) {
+                        row.style.display = '';
+                        foundCount++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+                
+                showAlert(`Found ${foundCount} corporate clients matching search criteria`, 'success');
+            }, 500);
+        }
+        
+        function searchAgent() {
+            const firstName = document.getElementById('agentFirstNameSearch').value;
+            const lastName = document.getElementById('agentLastNameSearch').value;
+            const regId = document.getElementById('agentRegIdSearch').value;
+            const country = document.getElementById('agentCountrySearch').value;
+            const association = document.getElementById('agentAssociationSearch').value;
+            
+            // Simulate search
+            showAlert(`Searching travel agents with First Name: "${firstName}", Last Name: "${lastName}", Reg.ID: "${regId}", Country: "${country}", Association: "${association}"`, 'info');
+            
+            // In a real application, this would be an API call
+            setTimeout(() => {
+                // Filter table rows
+                const rows = document.querySelectorAll('#agentTableBody tr');
+                let foundCount = 0;
+                
+                rows.forEach(row => {
+                    const rowName = row.querySelector('td:nth-child(2) strong').textContent.toLowerCase();
+                    const rowRegId = row.querySelector('td:nth-child(3) .badge').textContent.toLowerCase();
+                    const rowCountry = row.querySelector('td:nth-child(4) .badge').textContent.toLowerCase();
+                    const rowAssociation = row.querySelector('td:nth-child(5)').textContent.toLowerCase();
+                    
+                    const firstNameMatch = !firstName || rowName.includes(firstName.toLowerCase());
+                    const lastNameMatch = !lastName || rowName.includes(lastName.toLowerCase());
+                    const regIdMatch = !regId || rowRegId.includes(regId.toLowerCase());
+                    const countryMatch = !country || rowCountry.includes(getCountryName(country).toLowerCase());
+                    const associationMatch = !association || rowAssociation.includes(association.toLowerCase());
+                    
+                    if (firstNameMatch && lastNameMatch && regIdMatch && countryMatch && associationMatch) {
+                        row.style.display = '';
+                        foundCount++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+                
+                showAlert(`Found ${foundCount} travel agents matching search criteria`, 'success');
+            }, 500);
+        }
+        
+        function newCorporate() {
+            // Reset form
+            document.getElementById('corporateForm').reset();
+            document.getElementById('corporateId').value = '';
+            document.getElementById('deleteCorporateBtn').disabled = true;
+            document.getElementById('corporateCountry').value = 'LK';
+            document.getElementById('corporateDiscount').value = '10';
+            
+            showAlert('Ready to add new corporate client', 'info');
+        }
+        
+        function newAgent() {
+            // Reset form
+            document.getElementById('agentForm').reset();
+            document.getElementById('agentId').value = '';
+            document.getElementById('deleteAgentBtn').disabled = true;
+            document.getElementById('agentCountry').value = 'LK';
+            document.getElementById('agentCommission').value = '15';
+            
+            showAlert('Ready to add new travel agent', 'info');
+        }
+        
+        function saveCorporate() {
+            const id = document.getElementById('corporateId').value;
+            const name = document.getElementById('corporateName').value;
+            const regNo = document.getElementById('corporateRegNo').value;
+            const country = document.getElementById('corporateCountry').value;
+            const discount = document.getElementById('corporateDiscount').value;
+            const address = document.getElementById('corporateAddress').value;
+            const mobile = document.getElementById('corporateMobile').value;
+            const telephone = document.getElementById('corporateTelephone').value;
+            const email = document.getElementById('corporateEmail').value;
+            const contactPerson = document.getElementById('corporateContactPerson').value;
+            const notes = document.getElementById('corporateNotes').value;
+            
+            // Validation
+            if (!name || !regNo || !country || !address || !mobile || !email) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            if (id) {
+                // Update existing corporate
+                updateCorporateInTable(id, name, regNo, country, discount, address, mobile, telephone, email, contactPerson, notes);
+                showAlert(`Corporate client "${name}" updated successfully`, 'success');
+            } else {
+                // Add new corporate
+                addCorporateToTable(name, regNo, country, discount, address, mobile, telephone, email, contactPerson, notes);
+                showAlert(`New corporate client "${name}" added successfully`, 'success');
+            }
+            
+            // Reset form
+            newCorporate();
+        }
+        
+        function saveAgent() {
+            const id = document.getElementById('agentId').value;
+            const firstName = document.getElementById('agentFirstName').value;
+            const lastName = document.getElementById('agentLastName').value;
+            const regId = document.getElementById('agentRegId').value;
+            const country = document.getElementById('agentCountry').value;
+            const commission = document.getElementById('agentCommission').value;
+            const association = document.getElementById('agentAssociation').value;
+            const company = document.getElementById('agentCompany').value;
+            const address = document.getElementById('agentAddress').value;
+            const mobile = document.getElementById('agentMobile').value;
+            const telephone = document.getElementById('agentTelephone').value;
+            const email = document.getElementById('agentEmail').value;
+            const website = document.getElementById('agentWebsite').value;
+            const notes = document.getElementById('agentNotes').value;
+            
+            // Validation
+            if (!firstName || !lastName || !regId || !country || !mobile || !email) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            if (id) {
+                // Update existing agent
+                updateAgentInTable(id, firstName, lastName, regId, country, commission, association, company, address, mobile, telephone, email, website, notes);
+                showAlert(`Travel agent "${firstName} ${lastName}" updated successfully`, 'success');
+            } else {
+                // Add new agent
+                addAgentToTable(firstName, lastName, regId, country, commission, association, company, address, mobile, telephone, email, website, notes);
+                showAlert(`New travel agent "${firstName} ${lastName}" added successfully`, 'success');
+            }
+            
+            // Reset form
+            newAgent();
+        }
+        
+        function editCorporate(id) {
+            // Find the corporate in the table
+            const row = document.querySelector(`.edit-corporate-btn[data-id="${id}"]`).closest('tr');
+            
+            // Extract data from table
+            const name = row.querySelector('td:nth-child(2) strong').textContent;
+            const regNo = row.querySelector('td:nth-child(3) .badge').textContent;
+            const countryBadge = row.querySelector('td:nth-child(6) .badge');
+            const country = getCountryCode(countryBadge.textContent);
+            const mobile = row.querySelector('td:nth-child(4)').textContent;
+            const email = row.querySelector('td:nth-child(5)').textContent;
+            
+            // For demo, set some sample values
+            const discount = '10';
+            const address = '123 Business Street, Colombo';
+            const telephone = '+94 11 123 4567';
+            const contactPerson = 'John Manager';
+            const notes = 'Corporate client with special rates';
+            
+            // Populate form
+            document.getElementById('corporateId').value = id;
+            document.getElementById('corporateName').value = name;
+            document.getElementById('corporateRegNo').value = regNo;
+            document.getElementById('corporateCountry').value = country;
+            document.getElementById('corporateDiscount').value = discount;
+            document.getElementById('corporateAddress').value = address;
+            document.getElementById('corporateMobile').value = mobile;
+            document.getElementById('corporateTelephone').value = telephone;
+            document.getElementById('corporateEmail').value = email;
+            document.getElementById('corporateContactPerson').value = contactPerson;
+            document.getElementById('corporateNotes').value = notes;
+            
+            // Enable delete button
+            document.getElementById('deleteCorporateBtn').disabled = false;
+            
+            showAlert(`Editing corporate client: ${name}`, 'info');
+        }
+        
+        function editAgent(id) {
+            // Find the agent in the table
+            const row = document.querySelector(`.edit-agent-btn[data-id="${id}"]`).closest('tr');
+            
+            // Extract data from table
+            const nameParts = row.querySelector('td:nth-child(2) strong').textContent.split(' ');
+            const firstName = nameParts[0];
+            const lastName = nameParts.slice(1).join(' ');
+            const regId = row.querySelector('td:nth-child(3) .badge').textContent;
+            const countryBadge = row.querySelector('td:nth-child(4) .badge');
+            const country = getCountryCode(countryBadge.textContent);
+            const association = row.querySelector('td:nth-child(5)').textContent;
+            const commission = row.querySelector('td:nth-child(6)').textContent.replace('%', '');
+            
+            // For demo, set some sample values
+            const company = row.querySelector('td:nth-child(2) small').textContent;
+            const address = '456 Travel Street, City';
+            const mobile = '+94 77 987 6543';
+            const telephone = '+94 11 987 6543';
+            const email = 'agent@example.com';
+            const website = 'https://www.travelagency.com';
+            const notes = 'Reliable travel agent with good referrals';
+            
+            // Populate form
+            document.getElementById('agentId').value = id;
+            document.getElementById('agentFirstName').value = firstName;
+            document.getElementById('agentLastName').value = lastName;
+            document.getElementById('agentRegId').value = regId;
+            document.getElementById('agentCountry').value = country;
+            document.getElementById('agentCommission').value = commission;
+            document.getElementById('agentAssociation').value = association;
+            document.getElementById('agentCompany').value = company;
+            document.getElementById('agentAddress').value = address;
+            document.getElementById('agentMobile').value = mobile;
+            document.getElementById('agentTelephone').value = telephone;
+            document.getElementById('agentEmail').value = email;
+            document.getElementById('agentWebsite').value = website;
+            document.getElementById('agentNotes').value = notes;
+            
+            // Enable delete button
+            document.getElementById('deleteAgentBtn').disabled = false;
+            
+            showAlert(`Editing travel agent: ${firstName} ${lastName}`, 'info');
+        }
+        
+        function deleteCorporate() {
+            const id = document.getElementById('corporateId').value;
+            if (id) {
+                confirmDelete('corporate', id);
+            }
+        }
+        
+        function deleteAgent() {
+            const id = document.getElementById('agentId').value;
+            if (id) {
+                confirmDelete('agent', id);
+            }
+        }
+        
+        function confirmDelete(type, id) {
+            deleteItemId = id;
+            deleteItemType = type;
+            
+            // Update modal text
+            document.getElementById('deleteItemType').textContent = type === 'corporate' ? 'corporate client' : 'travel agent';
+            
+            // Show modal
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmationModal'));
+            deleteModal.show();
+        }
+        
+        function executeDelete() {
+            if (deleteItemType === 'corporate') {
+                // Remove from table
+                const row = document.querySelector(`.edit-corporate-btn[data-id="${deleteItemId}"]`)?.closest('tr');
+                if (row) {
+                    const name = row.querySelector('td:nth-child(2) strong').textContent;
+                    row.remove();
+                    showAlert(`Corporate client "${name}" deleted successfully`, 'success');
+                    
+                    // Reset form
+                    newCorporate();
+                }
+            } else if (deleteItemType === 'agent') {
+                // Remove from table
+                const row = document.querySelector(`.edit-agent-btn[data-id="${deleteItemId}"]`)?.closest('tr');
+                if (row) {
+                    const name = row.querySelector('td:nth-child(2) strong').textContent;
+                    row.remove();
+                    showAlert(`Travel agent "${name}" deleted successfully`, 'success');
+                    
+                    // Reset form
+                    newAgent();
+                }
+            }
+            
+            // Update stats
+            updatePartnerStats();
+            
+            // Close modal
+            const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteConfirmationModal'));
+            deleteModal.hide();
+            
+            // Reset delete variables
+            deleteItemId = null;
+            deleteItemType = null;
+        }
+        
+        function selectAllCorporate(checked) {
+            const checkboxes = document.querySelectorAll('.corporate-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = checked;
+            });
+        }
+        
+        function selectAllAgent(checked) {
+            const checkboxes = document.querySelectorAll('.agent-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = checked;
+            });
+        }
+        
+        function applyCorporateBulkAction() {
+            const action = document.getElementById('corporateBulkAction').value;
+            const selected = document.querySelectorAll('.corporate-checkbox:checked');
+            
+            if (selected.length === 0) {
+                showAlert('Please select at least one corporate client', 'warning');
+                return;
+            }
+            
+            if (!action) {
+                showAlert('Please select a bulk action', 'warning');
+                return;
+            }
+            
+            // Show bulk action message
+            document.getElementById('bulkActionMessage').textContent = `Processing ${action} for ${selected.length} corporate client(s)...`;
+            const bulkModal = new bootstrap.Modal(document.getElementById('bulkActionModal'));
+            bulkModal.show();
+            
+            // Simulate processing
+            setTimeout(() => {
+                showAlert(`${action} applied to ${selected.length} corporate client(s)`, 'success');
+                bulkModal.hide();
+            }, 1500);
+        }
+        
+        function applyAgentBulkAction() {
+            const action = document.getElementById('agentBulkAction').value;
+            const selected = document.querySelectorAll('.agent-checkbox:checked');
+            
+            if (selected.length === 0) {
+                showAlert('Please select at least one travel agent', 'warning');
+                return;
+            }
+            
+            if (!action) {
+                showAlert('Please select a bulk action', 'warning');
+                return;
+            }
+            
+            // Show bulk action message
+            document.getElementById('bulkActionMessage').textContent = `Processing ${action} for ${selected.length} travel agent(s)...`;
+            const bulkModal = new bootstrap.Modal(document.getElementById('bulkActionModal'));
+            bulkModal.show();
+            
+            // Simulate processing
+            setTimeout(() => {
+                showAlert(`${action} applied to ${selected.length} travel agent(s)`, 'success');
+                bulkModal.hide();
+            }, 1500);
+        }
+        
+        function refreshPartnersData() {
+            const refreshBtn = document.getElementById('refreshDataBtn');
+            const originalText = refreshBtn.innerHTML;
+            refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Refreshing...';
+            refreshBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                updatePartnerStats();
+                showAlert('Partners data refreshed successfully', 'success');
+                
+                // Restore button
+                refreshBtn.innerHTML = originalText;
+                refreshBtn.disabled = false;
+            }, 1500);
+        }
+        
+        function updatePartnerStats() {
+            // Count corporate clients and agents
+            const corporateCount = document.querySelectorAll('#corporateTableBody tr').length;
+            const agentCount = document.querySelectorAll('#agentTableBody tr').length;
+            const totalCount = corporateCount + agentCount;
+            
+            // Update stats cards
+            document.querySelector('.stat-card.bg-primary .stat-number').textContent = totalCount;
+            document.querySelector('.stat-card.bg-info .stat-number').textContent = corporateCount;
+            document.querySelector('.stat-card.bg-success .stat-number').textContent = agentCount;
+            
+            // Update header
+            document.querySelector('#lastUpdated .text-info').textContent = totalCount;
+            document.querySelector('#lastUpdated .text-primary').textContent = corporateCount;
+            document.querySelector('#lastUpdated .text-success').textContent = agentCount;
+        }
+        
+        function loadSampleCorporateData() {
+            // Sample data already in HTML
+            updatePartnerStats();
+        }
+        
+        function loadSampleAgentData() {
+            // Sample data already in HTML
+            updatePartnerStats();
+        }
+        
+        function addCorporateToTable(name, regNo, countryCode, discount, address, mobile, telephone, email, contactPerson, notes) {
+            const tableBody = document.getElementById('corporateTableBody');
+            const id = Date.now(); // Generate unique ID
+            
+            const countryName = getCountryName(countryCode);
+            
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input corporate-checkbox" type="checkbox" data-id="${id}">
+                    </div>
+                </td>
+                <td>
+                    <strong>${name}</strong>
+                    <small class="d-block text-muted">Corporate Client</small>
+                </td>
+                <td><span class="badge bg-primary">${regNo}</span></td>
+                <td>${mobile}</td>
+                <td>${email}</td>
+                <td><span class="badge bg-info">${countryName}</span></td>
+                <td>
+                    <button class="btn btn-sm btn-outline-primary edit-corporate-btn" data-id="${id}">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger delete-corporate-btn" data-id="${id}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Add event listeners
+            newRow.querySelector('.edit-corporate-btn').addEventListener('click', function() {
+                editCorporate(id);
+            });
+            
+            newRow.querySelector('.delete-corporate-btn').addEventListener('click', function() {
+                confirmDelete('corporate', id);
+            });
+            
+            // Update stats
+            updatePartnerStats();
+        }
+        
+        function updateCorporateInTable(id, name, regNo, countryCode, discount, address, mobile, telephone, email, contactPerson, notes) {
+            const row = document.querySelector(`.edit-corporate-btn[data-id="${id}"]`)?.closest('tr');
+            if (!row) return;
+            
+            const countryName = getCountryName(countryCode);
+            
+            // Update row data
+            row.querySelector('td:nth-child(2) strong').textContent = name;
+            row.querySelector('td:nth-child(3) .badge').textContent = regNo;
+            row.querySelector('td:nth-child(4)').textContent = mobile;
+            row.querySelector('td:nth-child(5)').textContent = email;
+            row.querySelector('td:nth-child(6) .badge').textContent = countryName;
+        }
+        
+        function addAgentToTable(firstName, lastName, regId, countryCode, commission, association, company, address, mobile, telephone, email, website, notes) {
+            const tableBody = document.getElementById('agentTableBody');
+            const id = Date.now(); // Generate unique ID
+            
+            const countryName = getCountryName(countryCode);
+            const fullName = `${firstName} ${lastName}`;
+            
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input agent-checkbox" type="checkbox" data-id="${id}">
+                    </div>
+                </td>
+                <td>
+                    <strong>${fullName}</strong>
+                    <small class="d-block text-muted">${company || 'Travel Agent'}</small>
+                </td>
+                <td><span class="badge bg-primary">${regId}</span></td>
+                <td><span class="badge bg-info">${countryName}</span></td>
+                <td>${association || '-'}</td>
+                <td>${commission}%</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-primary edit-agent-btn" data-id="${id}">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger delete-agent-btn" data-id="${id}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Add event listeners
+            newRow.querySelector('.edit-agent-btn').addEventListener('click', function() {
+                editAgent(id);
+            });
+            
+            newRow.querySelector('.delete-agent-btn').addEventListener('click', function() {
+                confirmDelete('agent', id);
+            });
+            
+            // Update stats
+            updatePartnerStats();
+        }
+        
+        function updateAgentInTable(id, firstName, lastName, regId, countryCode, commission, association, company, address, mobile, telephone, email, website, notes) {
+            const row = document.querySelector(`.edit-agent-btn[data-id="${id}"]`)?.closest('tr');
+            if (!row) return;
+            
+            const countryName = getCountryName(countryCode);
+            const fullName = `${firstName} ${lastName}`;
+            
+            // Update row data
+            row.querySelector('td:nth-child(2) strong').textContent = fullName;
+            if (company) {
+                row.querySelector('td:nth-child(2) small').textContent = company;
+            }
+            row.querySelector('td:nth-child(3) .badge').textContent = regId;
+            row.querySelector('td:nth-child(4) .badge').textContent = countryName;
+            row.querySelector('td:nth-child(5)').textContent = association || '-';
+            row.querySelector('td:nth-child(6)').textContent = commission + '%';
+        }
+        
+        // Utility functions
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+        
+        function getCountryName(code) {
+            const countries = {
+                'LK': 'Sri Lanka',
+                'US': 'USA',
+                'UK': 'UK',
+                'IN': 'India',
+                'CN': 'China',
+                'AE': 'UAE',
+                'AU': 'Australia'
+            };
+            return countries[code] || code;
+        }
+        
+        function getCountryCode(name) {
+            const countries = {
+                'Sri Lanka': 'LK',
+                'USA': 'US',
+                'UK': 'UK',
+                'India': 'IN',
+                'China': 'CN',
+                'UAE': 'AE',
+                'Australia': 'AU'
+            };
+            return countries[name] || name;
+        }
+    </script>
+
+
+<!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+
+    <!-- Include JavaScript -->
+    <script src="js/include.js"></script>
+     <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>

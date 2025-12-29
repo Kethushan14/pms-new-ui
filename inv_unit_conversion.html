@@ -1,0 +1,2074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Conversion - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/inv_unit_co.css">
+
+     
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-exchange-alt me-2"></i>Unit Conversion Management
+                                </h1>
+                                <p class="card-text text-muted mb-0">Manage and maintain unit conversion factors</p>
+                                <small class="text-muted">Total Conversions: <span class="fw-bold">32</span> • Active: <span class="text-success fw-bold">28</span> • System: <span class="text-info fw-bold">4</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addConversionModal">
+                                    <i class="fas fa-plus-circle me-1"></i> New Unit Conversion
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unit Conversion Search Card -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-search me-2"></i>Unit Conversion</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-end">
+                            <div class="col-md-5">
+                                <label for="fromUnitSearch" class="form-label">From</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-arrow-right"></i></span>
+                                    <select class="form-select" id="fromUnitSearch">
+                                        <option value="">Select From Unit</option>
+                                        <option value="kg">Kilogram (kg)</option>
+                                        <option value="g">Gram (g)</option>
+                                        <option value="lb">Pound (lb)</option>
+                                        <option value="m">Meter (m)</option>
+                                        <option value="cm">Centimeter (cm)</option>
+                                        <option value="in">Inch (in)</option>
+                                        <option value="l">Liter (l)</option>
+                                        <option value="ml">Milliliter (ml)</option>
+                                        <option value="gal">Gallon (gal)</option>
+                                        <option value="°C">Celsius (°C)</option>
+                                        <option value="°F">Fahrenheit (°F)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <label for="toUnitSearch" class="form-label">To</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-arrow-left"></i></span>
+                                    <select class="form-select" id="toUnitSearch">
+                                        <option value="">Select To Unit</option>
+                                        <option value="kg">Kilogram (kg)</option>
+                                        <option value="g">Gram (g)</option>
+                                        <option value="lb">Pound (lb)</option>
+                                        <option value="m">Meter (m)</option>
+                                        <option value="cm">Centimeter (cm)</option>
+                                        <option value="in">Inch (in)</option>
+                                        <option value="l">Liter (l)</option>
+                                        <option value="ml">Milliliter (ml)</option>
+                                        <option value="gal">Gallon (gal)</option>
+                                        <option value="°C">Celsius (°C)</option>
+                                        <option value="°F">Fahrenheit (°F)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex align-items-end">
+                                <div class="d-flex gap-2 w-100">
+                                    <button class="btn btn-primary flex-fill" id="searchConversionsBtn">
+                                        <i class="fas fa-search me-1"></i> Search
+                                    </button>
+                                    <button class="btn btn-outline-secondary flex-fill" id="resetConversionSearchBtn">
+                                        <i class="fas fa-redo me-1"></i> All
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unit Conversions List -->
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-list me-2"></i>Unit Conversions List</h5>
+                            <div class="d-flex">
+                                <div class="btn-group me-2" role="group">
+                                    <button type="button" class="btn btn-sm btn-outline-primary active" data-filter="all">All</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="length">Length</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="weight">Weight</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="volume">Volume</button>
+                                </div>
+                                <button class="btn btn-sm btn-success" id="exportConversionsBtn">
+                                    <i class="fas fa-download me-1"></i> Export
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th width="50">#</th>
+                                        <th>From</th>
+                                        <th>To</th>
+                                        <th>Measurement</th>
+                                        <th>Conversion Factor</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="conversionsTableBody">
+                                    <!-- Conversion 1 -->
+                                    <tr class="conversion-row" data-measurement="weight" data-status="active">
+                                        <td>1</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="conversion-icon conversion-icon-weight me-2">
+                                                    <i class="fas fa-weight-hanging"></i>
+                                                </div>
+                                                <span class="fw-bold">Kilogram (kg)</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="conversion-icon conversion-icon-weight me-2">
+                                                    <i class="fas fa-weight"></i>
+                                                </div>
+                                                <span class="fw-bold">Gram (g)</span>
+                                            </div>
+                                        </td>
+                                        <td>Weight</td>
+                                        <td>
+                                            <span class="conversion-factor">1 kg = 1000 g</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-conversion" data-id="1">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-conversion" data-id="1">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-conversion" data-id="1">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Conversion 2 -->
+                                    <tr class="conversion-row" data-measurement="weight" data-status="active">
+                                        <td>2</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="conversion-icon conversion-icon-weight me-2">
+                                                    <i class="fas fa-weight-hanging"></i>
+                                                </div>
+                                                <span class="fw-bold">Pound (lb)</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="conversion-icon conversion-icon-weight me-2">
+                                                    <i class="fas fa-weight"></i>
+                                                </div>
+                                                <span class="fw-bold">Kilogram (kg)</span>
+                                            </div>
+                                        </td>
+                                        <td>Weight</td>
+                                        <td>
+                                            <span class="conversion-factor">1 lb = 0.453592 kg</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-conversion" data-id="2">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-conversion" data-id="2">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-conversion" data-id="2">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Conversion 3 -->
+                                    <tr class="conversion-row" data-measurement="length" data-status="active">
+                                        <td>3</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="conversion-icon conversion-icon-length me-2">
+                                                    <i class="fas fa-ruler"></i>
+                                                </div>
+                                                <span class="fw-bold">Meter (m)</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="conversion-icon conversion-icon-length me-2">
+                                                    <i class="fas fa-ruler-combined"></i>
+                                                </div>
+                                                <span class="fw-bold">Centimeter (cm)</span>
+                                            </div>
+                                        </td>
+                                        <td>Length</td>
+                                        <td>
+                                            <span class="conversion-factor">1 m = 100 cm</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-conversion" data-id="3">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-conversion" data-id="3">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-conversion" data-id="3">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Conversion 4 -->
+                                    <tr class="conversion-row" data-measurement="length" data-status="active">
+                                        <td>4</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="conversion-icon conversion-icon-length me-2">
+                                                    <i class="fas fa-ruler"></i>
+                                                </div>
+                                                <span class="fw-bold">Inch (in)</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="conversion-icon conversion-icon-length me-2">
+                                                    <i class="fas fa-ruler-combined"></i>
+                                                </div>
+                                                <span class="fw-bold">Centimeter (cm)</span>
+                                            </div>
+                                        </td>
+                                        <td>Length</td>
+                                        <td>
+                                            <span class="conversion-factor">1 in = 2.54 cm</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-conversion" data-id="4">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-conversion" data-id="4">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-conversion" data-id="4">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Conversion 5 -->
+                                    <tr class="conversion-row" data-measurement="volume" data-status="active">
+                                        <td>5</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="conversion-icon conversion-icon-volume me-2">
+                                                    <i class="fas fa-wine-bottle"></i>
+                                                </div>
+                                                <span class="fw-bold">Liter (l)</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="conversion-icon conversion-icon-volume me-2">
+                                                    <i class="fas fa-flask"></i>
+                                                </div>
+                                                <span class="fw-bold">Milliliter (ml)</span>
+                                            </div>
+                                        </td>
+                                        <td>Volume</td>
+                                        <td>
+                                            <span class="conversion-factor">1 l = 1000 ml</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-conversion" data-id="5">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-conversion" data-id="5">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-conversion" data-id="5">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Conversion 6 -->
+                                    <tr class="conversion-row" data-measurement="volume" data-status="active">
+                                        <td>6</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="conversion-icon conversion-icon-volume me-2">
+                                                    <i class="fas fa-wine-bottle"></i>
+                                                </div>
+                                                <span class="fw-bold">Gallon (gal)</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="conversion-icon conversion-icon-volume me-2">
+                                                    <i class="fas fa-flask"></i>
+                                                </div>
+                                                <span class="fw-bold">Liter (l)</span>
+                                            </div>
+                                        </td>
+                                        <td>Volume</td>
+                                        <td>
+                                            <span class="conversion-factor">1 gal = 3.78541 l</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-conversion" data-id="6">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-conversion" data-id="6">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-conversion" data-id="6">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Conversion 7 -->
+                                    <tr class="conversion-row" data-measurement="temperature" data-status="system">
+                                        <td>7</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="conversion-icon conversion-icon-temperature me-2">
+                                                    <i class="fas fa-thermometer-half"></i>
+                                                </div>
+                                                <span class="fw-bold">Celsius (°C)</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="conversion-icon conversion-icon-temperature me-2">
+                                                    <i class="fas fa-thermometer-full"></i>
+                                                </div>
+                                                <span class="fw-bold">Fahrenheit (°F)</span>
+                                            </div>
+                                        </td>
+                                        <td>Temperature</td>
+                                        <td>
+                                            <span class="conversion-factor">°F = (°C × 9/5) + 32</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">System</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-conversion" data-id="7">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-secondary" disabled>
+                                                    <i class="fas fa-lock"></i>
+                                                </button>
+                                                <button class="btn btn-outline-secondary" disabled>
+                                                    <i class="fas fa-lock"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Conversion 8 -->
+                                    <tr class="conversion-row" data-measurement="area" data-status="active">
+                                        <td>8</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="conversion-icon conversion-icon-area me-2">
+                                                    <i class="fas fa-border-all"></i>
+                                                </div>
+                                                <span class="fw-bold">Square Meter (m²)</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="conversion-icon conversion-icon-area me-2">
+                                                    <i class="fas fa-square"></i>
+                                                </div>
+                                                <span class="fw-bold">Square Foot (ft²)</span>
+                                            </div>
+                                        </td>
+                                        <td>Area</td>
+                                        <td>
+                                            <span class="conversion-factor">1 m² = 10.7639 ft²</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-conversion" data-id="8">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-conversion" data-id="8">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-conversion" data-id="8">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted">Showing 8 of 32 conversions</span>
+                            </div>
+                            <nav aria-label="Conversions pagination">
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Unit Conversion Information -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Unit Conversion Information</h5>
+                            <button class="btn btn-sm btn-primary" id="newConversionBtn">
+                                <i class="fas fa-plus me-1"></i> New Unit Conversion
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="conversion-section">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="fromUnit" class="form-label required-field">From</label>
+                                    <select class="form-select" id="fromUnit">
+                                        <option value="">Select</option>
+                                        <option value="kg">Kilogram (kg)</option>
+                                        <option value="g">Gram (g)</option>
+                                        <option value="lb">Pound (lb)</option>
+                                        <option value="oz">Ounce (oz)</option>
+                                        <option value="m">Meter (m)</option>
+                                        <option value="cm">Centimeter (cm)</option>
+                                        <option value="mm">Millimeter (mm)</option>
+                                        <option value="in">Inch (in)</option>
+                                        <option value="ft">Foot (ft)</option>
+                                        <option value="l">Liter (l)</option>
+                                        <option value="ml">Milliliter (ml)</option>
+                                        <option value="gal">Gallon (gal)</option>
+                                        <option value="qt">Quart (qt)</option>
+                                        <option value="°C">Celsius (°C)</option>
+                                        <option value="°F">Fahrenheit (°F)</option>
+                                        <option value="m²">Square Meter (m²)</option>
+                                        <option value="ft²">Square Foot (ft²)</option>
+                                        <option value="piece">Piece</option>
+                                        <option value="dozen">Dozen</option>
+                                        <option value="case">Case</option>
+                                        <option value="box">Box</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="toUnit" class="form-label required-field">To</label>
+                                    <select class="form-select" id="toUnit">
+                                        <option value="">Select</option>
+                                        <option value="kg">Kilogram (kg)</option>
+                                        <option value="g">Gram (g)</option>
+                                        <option value="lb">Pound (lb)</option>
+                                        <option value="oz">Ounce (oz)</option>
+                                        <option value="m">Meter (m)</option>
+                                        <option value="cm">Centimeter (cm)</option>
+                                        <option value="mm">Millimeter (mm)</option>
+                                        <option value="in">Inch (in)</option>
+                                        <option value="ft">Foot (ft)</option>
+                                        <option value="l">Liter (l)</option>
+                                        <option value="ml">Milliliter (ml)</option>
+                                        <option value="gal">Gallon (gal)</option>
+                                        <option value="qt">Quart (qt)</option>
+                                        <option value="°C">Celsius (°C)</option>
+                                        <option value="°F">Fahrenheit (°F)</option>
+                                        <option value="m²">Square Meter (m²)</option>
+                                        <option value="ft²">Square Foot (ft²)</option>
+                                        <option value="piece">Piece</option>
+                                        <option value="dozen">Dozen</option>
+                                        <option value="case">Case</option>
+                                        <option value="box">Box</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="measurementType" class="form-label required-field">Measurement</label>
+                                    <select class="form-select" id="measurementType">
+                                        <option value="">Select Measurement Type</option>
+                                        <option value="weight">Weight</option>
+                                        <option value="length">Length</option>
+                                        <option value="volume">Volume</option>
+                                        <option value="temperature">Temperature</option>
+                                        <option value="area">Area</option>
+                                        <option value="count">Count</option>
+                                        <option value="custom">Custom</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="conversionFactor" class="form-label required-field">Conversion Factor</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">1</span>
+                                        <input type="text" class="form-control" id="fromUnitLabel" placeholder="From Unit" readonly>
+                                        <span class="input-group-text">=</span>
+                                        <input type="number" class="form-control" id="conversionFactor" step="0.000001" placeholder="Factor">
+                                        <input type="text" class="form-control" id="toUnitLabel" placeholder="To Unit" readonly>
+                                    </div>
+                                    <small class="text-muted">Enter the conversion factor (1 From Unit = X To Units)</small>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="conversionDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="conversionDescription" rows="3" placeholder="Enter description for this unit conversion..."></textarea>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="conversionStatus" class="form-label">Status</label>
+                                    <select class="form-select" id="conversionStatus">
+                                        <option value="active" selected>Active</option>
+                                        <option value="inactive">Inactive</option>
+                                        <option value="system">System</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="decimalPlaces" class="form-label">Decimal Places</label>
+                                    <select class="form-select" id="decimalPlaces">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2" selected>2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <!-- Action Buttons -->
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-between gap-2">
+                                        <button class="btn btn-secondary w-50" id="clearConversionFormBtn">
+                                            <i class="fas fa-broom me-1"></i> Clear
+                                        </button>
+                                        <div class="d-flex gap-2 w-50">
+                                            <button class="btn btn-danger flex-fill" id="deleteConversionBtn">
+                                                <i class="fas fa-trash me-1"></i> Delete
+                                            </button>
+                                            <button class="btn btn-success flex-fill" id="saveConversionBtn">
+                                                <i class="fas fa-save me-1"></i> Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Conversion Calculator -->
+                        <div class="conversion-calculator mt-4">
+                            <h6 class="text-primary mb-3">Quick Conversion Calculator</h6>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="calcFromValue" class="form-label">From Value</label>
+                                    <input type="number" class="form-control" id="calcFromValue" value="1" step="0.01">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="calcFromUnit" class="form-label">From Unit</label>
+                                    <select class="form-select" id="calcFromUnit">
+                                        <option value="kg">kg</option>
+                                        <option value="g">g</option>
+                                        <option value="lb">lb</option>
+                                        <option value="m">m</option>
+                                        <option value="cm">cm</option>
+                                        <option value="l">l</option>
+                                        <option value="ml">ml</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="calcToUnit" class="form-label">To Unit</label>
+                                    <select class="form-select" id="calcToUnit">
+                                        <option value="g">g</option>
+                                        <option value="kg">kg</option>
+                                        <option value="lb">lb</option>
+                                        <option value="cm">cm</option>
+                                        <option value="m">m</option>
+                                        <option value="ml">ml</option>
+                                        <option value="l">l</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3 d-flex align-items-end">
+                                    <button class="btn btn-primary w-100" id="calculateConversionBtn">
+                                        <i class="fas fa-calculator me-1"></i> Calculate
+                                    </button>
+                                </div>
+                                <div class="col-12">
+                                    <div class="alert alert-info">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span>Result:</span>
+                                            <strong id="conversionResult">1 kg = 1000 g</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Measurement Categories -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-layer-group me-2"></i>Measurement Categories</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Weight Category -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card conversion-card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="conversion-icon conversion-icon-weight me-3">
+                                                <i class="fas fa-weight-hanging"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1">Weight</h5>
+                                                <small class="text-muted">Mass measurements</small>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Kilogram (kg)</small>
+                                                <small class="text-muted">Base Unit</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Gram (g)</small>
+                                                <small class="text-success">1 kg = 1000 g</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Pound (lb)</small>
+                                                <small class="text-success">1 kg = 2.20462 lb</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <small>Ounce (oz)</small>
+                                                <small class="text-success">1 lb = 16 oz</small>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-primary">4 Conversions</span>
+                                            <button class="btn btn-sm btn-outline-primary">View All</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Length Category -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card conversion-card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="conversion-icon conversion-icon-length me-3">
+                                                <i class="fas fa-ruler"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1">Length</h5>
+                                                <small class="text-muted">Distance measurements</small>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Meter (m)</small>
+                                                <small class="text-muted">Base Unit</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Centimeter (cm)</small>
+                                                <small class="text-success">1 m = 100 cm</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Millimeter (mm)</small>
+                                                <small class="text-success">1 m = 1000 mm</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <small>Inch (in)</small>
+                                                <small class="text-success">1 m = 39.3701 in</small>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-primary">5 Conversions</span>
+                                            <button class="btn btn-sm btn-outline-primary">View All</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Volume Category -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card conversion-card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="conversion-icon conversion-icon-volume me-3">
+                                                <i class="fas fa-wine-bottle"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1">Volume</h5>
+                                                <small class="text-muted">Capacity measurements</small>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Liter (l)</small>
+                                                <small class="text-muted">Base Unit</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Milliliter (ml)</small>
+                                                <small class="text-success">1 l = 1000 ml</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Gallon (gal)</small>
+                                                <small class="text-success">1 gal = 3.78541 l</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <small>Quart (qt)</small>
+                                                <small class="text-success">1 gal = 4 qt</small>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-primary">6 Conversions</span>
+                                            <button class="btn btn-sm btn-outline-primary">View All</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Add Conversion Modal -->
+    <div class="modal fade" id="addConversionModal" tabindex="-1" aria-labelledby="addConversionModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="addConversionModalLabel">
+                        <i class="fas fa-exchange-alt me-2"></i>New Unit Conversion
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="newFromUnit" class="form-label required-field">From</label>
+                            <select class="form-select" id="newFromUnit" required>
+                                <option value="">Select</option>
+                                <option value="kg">Kilogram (kg)</option>
+                                <option value="g">Gram (g)</option>
+                                <option value="lb">Pound (lb)</option>
+                                <option value="oz">Ounce (oz)</option>
+                                <option value="m">Meter (m)</option>
+                                <option value="cm">Centimeter (cm)</option>
+                                <option value="mm">Millimeter (mm)</option>
+                                <option value="in">Inch (in)</option>
+                                <option value="ft">Foot (ft)</option>
+                                <option value="l">Liter (l)</option>
+                                <option value="ml">Milliliter (ml)</option>
+                                <option value="gal">Gallon (gal)</option>
+                                <option value="qt">Quart (qt)</option>
+                                <option value="piece">Piece</option>
+                                <option value="dozen">Dozen</option>
+                                <option value="case">Case</option>
+                                <option value="box">Box</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newToUnit" class="form-label required-field">To</label>
+                            <select class="form-select" id="newToUnit" required>
+                                <option value="">Select</option>
+                                <option value="kg">Kilogram (kg)</option>
+                                <option value="g">Gram (g)</option>
+                                <option value="lb">Pound (lb)</option>
+                                <option value="oz">Ounce (oz)</option>
+                                <option value="m">Meter (m)</option>
+                                <option value="cm">Centimeter (cm)</option>
+                                <option value="mm">Millimeter (mm)</option>
+                                <option value="in">Inch (in)</option>
+                                <option value="ft">Foot (ft)</option>
+                                <option value="l">Liter (l)</option>
+                                <option value="ml">Milliliter (ml)</option>
+                                <option value="gal">Gallon (gal)</option>
+                                <option value="qt">Quart (qt)</option>
+                                <option value="piece">Piece</option>
+                                <option value="dozen">Dozen</option>
+                                <option value="case">Case</option>
+                                <option value="box">Box</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newMeasurementType" class="form-label required-field">Measurement</label>
+                            <select class="form-select" id="newMeasurementType" required>
+                                <option value="">Select Measurement Type</option>
+                                <option value="weight">Weight</option>
+                                <option value="length">Length</option>
+                                <option value="volume">Volume</option>
+                                <option value="temperature">Temperature</option>
+                                <option value="area">Area</option>
+                                <option value="count">Count</option>
+                                <option value="custom">Custom</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newConversionFactor" class="form-label required-field">Conversion Factor</label>
+                            <input type="number" class="form-control" id="newConversionFactor" step="0.000001" placeholder="e.g., 1000" required>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="newConversionDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="newConversionDescription" rows="3" placeholder="Enter description for this unit conversion..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveNewConversion">Save Conversion</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteConversionModal" tabindex="-1" aria-labelledby="deleteConversionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteConversionModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Confirm Delete
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this unit conversion?</p>
+                    <p class="text-danger"><strong>This action cannot be undone.</strong></p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="confirmConversionDelete">
+                        <label class="form-check-label" for="confirmConversionDelete">
+                            I understand that this will permanently delete the unit conversion
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmConversionDeleteBtn" disabled>Delete Conversion</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+     <script src="js/include.js"></script>
+
+    
+    <script>
+        // Unit Conversion Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize with first conversion selected
+            selectConversion(1);
+            
+            // Update unit labels when selections change
+            document.getElementById('fromUnit').addEventListener('change', updateUnitLabels);
+            document.getElementById('toUnit').addEventListener('change', updateUnitLabels);
+            
+            // Filter buttons
+            document.querySelectorAll('[data-filter]').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('[data-filter]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    filterConversions(filter);
+                });
+            });
+            
+            // View conversion
+            document.querySelectorAll('.view-conversion').forEach(button => {
+                button.addEventListener('click', function() {
+                    const conversionId = parseInt(this.dataset.id);
+                    selectConversion(conversionId);
+                });
+            });
+            
+            // Edit conversion
+            document.querySelectorAll('.edit-conversion').forEach(button => {
+                button.addEventListener('click', function() {
+                    const conversionId = parseInt(this.dataset.id);
+                    editConversion(conversionId);
+                });
+            });
+            
+            // Delete conversion
+            document.querySelectorAll('.delete-conversion').forEach(button => {
+                button.addEventListener('click', function() {
+                    const conversionId = parseInt(this.dataset.id);
+                    showDeleteConversionModal(conversionId);
+                });
+            });
+            
+            // Search conversions
+            document.getElementById('searchConversionsBtn').addEventListener('click', searchConversions);
+            
+            // Reset search
+            document.getElementById('resetConversionSearchBtn').addEventListener('click', resetConversionSearch);
+            
+            // New conversion button
+            document.getElementById('newConversionBtn').addEventListener('click', function() {
+                document.getElementById('addConversionModal').classList.add('show');
+                document.getElementById('addConversionModal').style.display = 'block';
+                document.body.classList.add('modal-open');
+                document.body.style.overflow = 'hidden';
+                document.body.style.paddingRight = '17px';
+                document.getElementById('addConversionModal').focus();
+            });
+            
+            // Save conversion button
+            document.getElementById('saveConversionBtn').addEventListener('click', saveConversion);
+            
+            // Delete conversion button
+            document.getElementById('deleteConversionBtn').addEventListener('click', function() {
+                const conversionId = document.getElementById('saveConversionBtn').dataset.id;
+                if (conversionId) {
+                    showDeleteConversionModal(parseInt(conversionId));
+                } else {
+                    showAlert('Please select a conversion first', 'warning');
+                }
+            });
+            
+            // Clear form button
+            document.getElementById('clearConversionFormBtn').addEventListener('click', clearConversionForm);
+            
+            // Save new conversion from modal
+            document.getElementById('saveNewConversion').addEventListener('click', saveNewConversion);
+            
+            // Confirm delete checkbox
+            document.getElementById('confirmConversionDelete').addEventListener('change', function() {
+                document.getElementById('confirmConversionDeleteBtn').disabled = !this.checked;
+            });
+            
+            // Confirm delete button
+            document.getElementById('confirmConversionDeleteBtn').addEventListener('click', deleteConversion);
+            
+            // Export conversions
+            document.getElementById('exportConversionsBtn').addEventListener('click', exportConversions);
+            
+            // Calculator functionality
+            document.getElementById('calculateConversionBtn').addEventListener('click', calculateConversion);
+            
+            // Update calculator when units change
+            document.getElementById('calcFromUnit').addEventListener('change', updateCalculator);
+            document.getElementById('calcToUnit').addEventListener('change', updateCalculator);
+            document.getElementById('calcFromValue').addEventListener('input', updateCalculator);
+        });
+        
+        function selectConversion(conversionId) {
+            const conversionData = getConversionData(conversionId);
+            
+            if (!conversionData) {
+                showAlert('Conversion not found', 'warning');
+                return;
+            }
+            
+            // Populate the form with conversion data
+            document.getElementById('fromUnit').value = conversionData.fromUnit;
+            document.getElementById('toUnit').value = conversionData.toUnit;
+            document.getElementById('measurementType').value = conversionData.measurement;
+            document.getElementById('conversionFactor').value = conversionData.factor;
+            document.getElementById('conversionDescription').value = conversionData.description;
+            document.getElementById('conversionStatus').value = conversionData.status;
+            document.getElementById('decimalPlaces').value = conversionData.decimalPlaces;
+            
+            // Update unit labels
+            updateUnitLabels();
+            
+            // Set the conversion ID on save button
+            document.getElementById('saveConversionBtn').dataset.id = conversionId;
+            
+            // Highlight the selected row
+            document.querySelectorAll('.conversion-row').forEach(row => {
+                row.classList.remove('table-active');
+                if (parseInt(row.querySelector('.view-conversion').dataset.id) === conversionId) {
+                    row.classList.add('table-active');
+                }
+            });
+            
+            showAlert(`Loaded conversion: ${conversionData.fromUnit} to ${conversionData.toUnit}`, 'success');
+        }
+        
+        function getConversionData(conversionId) {
+            const conversionsData = {
+                1: {
+                    fromUnit: 'kg',
+                    toUnit: 'g',
+                    measurement: 'weight',
+                    factor: 1000,
+                    description: 'Kilogram to Gram conversion',
+                    status: 'active',
+                    decimalPlaces: 2
+                },
+                2: {
+                    fromUnit: 'lb',
+                    toUnit: 'kg',
+                    measurement: 'weight',
+                    factor: 0.453592,
+                    description: 'Pound to Kilogram conversion',
+                    status: 'active',
+                    decimalPlaces: 6
+                },
+                3: {
+                    fromUnit: 'm',
+                    toUnit: 'cm',
+                    measurement: 'length',
+                    factor: 100,
+                    description: 'Meter to Centimeter conversion',
+                    status: 'active',
+                    decimalPlaces: 2
+                },
+                4: {
+                    fromUnit: 'in',
+                    toUnit: 'cm',
+                    measurement: 'length',
+                    factor: 2.54,
+                    description: 'Inch to Centimeter conversion',
+                    status: 'active',
+                    decimalPlaces: 2
+                },
+                5: {
+                    fromUnit: 'l',
+                    toUnit: 'ml',
+                    measurement: 'volume',
+                    factor: 1000,
+                    description: 'Liter to Milliliter conversion',
+                    status: 'active',
+                    decimalPlaces: 2
+                },
+                6: {
+                    fromUnit: 'gal',
+                    toUnit: 'l',
+                    measurement: 'volume',
+                    factor: 3.78541,
+                    description: 'Gallon to Liter conversion',
+                    status: 'active',
+                    decimalPlaces: 5
+                },
+                7: {
+                    fromUnit: '°C',
+                    toUnit: '°F',
+                    measurement: 'temperature',
+                    factor: 0, // Special case for formula
+                    description: 'Celsius to Fahrenheit conversion (formula: °F = (°C × 9/5) + 32)',
+                    status: 'system',
+                    decimalPlaces: 2
+                },
+                8: {
+                    fromUnit: 'm²',
+                    toUnit: 'ft²',
+                    measurement: 'area',
+                    factor: 10.7639,
+                    description: 'Square Meter to Square Foot conversion',
+                    status: 'active',
+                    decimalPlaces: 4
+                }
+            };
+            
+            return conversionsData[conversionId] || null;
+        }
+        
+        function updateUnitLabels() {
+            const fromUnit = document.getElementById('fromUnit').value;
+            const toUnit = document.getElementById('toUnit').value;
+            
+            // Get unit display names
+            const unitNames = {
+                'kg': 'kg', 'g': 'g', 'lb': 'lb', 'oz': 'oz',
+                'm': 'm', 'cm': 'cm', 'mm': 'mm', 'in': 'in', 'ft': 'ft',
+                'l': 'l', 'ml': 'ml', 'gal': 'gal', 'qt': 'qt',
+                '°C': '°C', '°F': '°F',
+                'm²': 'm²', 'ft²': 'ft²',
+                'piece': 'piece', 'dozen': 'dozen', 'case': 'case', 'box': 'box'
+            };
+            
+            document.getElementById('fromUnitLabel').value = unitNames[fromUnit] || fromUnit;
+            document.getElementById('toUnitLabel').value = unitNames[toUnit] || toUnit;
+        }
+        
+        function editConversion(conversionId) {
+            selectConversion(conversionId);
+            showAlert(`Editing conversion #${conversionId}`, 'info');
+        }
+        
+        function filterConversions(filter) {
+            const rows = document.querySelectorAll('.conversion-row');
+            
+            rows.forEach(row => {
+                const measurement = row.dataset.measurement;
+                let show = true;
+                
+                if (filter !== 'all') {
+                    if (filter !== measurement) show = false;
+                }
+                
+                row.style.display = show ? '' : 'none';
+            });
+            
+            // Update count
+            const visibleCount = document.querySelectorAll('.conversion-row[style=""]').length;
+            const totalCount = rows.length;
+            document.querySelector('.card-footer .text-muted').textContent = 
+                `Showing ${visibleCount} of ${totalCount} conversions`;
+        }
+        
+        function searchConversions() {
+            const fromSearch = document.getElementById('fromUnitSearch').value;
+            const toSearch = document.getElementById('toUnitSearch').value;
+            
+            const rows = document.querySelectorAll('.conversion-row');
+            let visibleCount = 0;
+            
+            rows.forEach(row => {
+                const fromText = row.querySelector('td:nth-child(2) .fw-bold').textContent.toLowerCase();
+                const toText = row.querySelector('td:nth-child(3) .fw-bold').textContent.toLowerCase();
+                
+                let show = true;
+                
+                // Apply search filters
+                if (fromSearch && !fromText.includes(fromSearch.toLowerCase())) show = false;
+                if (toSearch && !toText.includes(toSearch.toLowerCase())) show = false;
+                
+                row.style.display = show ? '' : 'none';
+                if (show) visibleCount++;
+            });
+            
+            // Update count
+            document.querySelector('.card-footer .text-muted').textContent = 
+                `Showing ${visibleCount} of ${rows.length} conversions`;
+        }
+        
+        function resetConversionSearch() {
+            document.getElementById('fromUnitSearch').value = '';
+            document.getElementById('toUnitSearch').value = '';
+            
+            // Show all rows
+            document.querySelectorAll('.conversion-row').forEach(row => {
+                row.style.display = '';
+            });
+            
+            // Reset filter buttons
+            document.querySelectorAll('[data-filter]').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector('[data-filter="all"]').classList.add('active');
+            
+            // Update count
+            const rows = document.querySelectorAll('.conversion-row');
+            document.querySelector('.card-footer .text-muted').textContent = 
+                `Showing ${rows.length} of ${rows.length} conversions`;
+        }
+        
+        function saveConversion() {
+            const conversionId = document.getElementById('saveConversionBtn').dataset.id;
+            const fromUnit = document.getElementById('fromUnit').value;
+            const toUnit = document.getElementById('toUnit').value;
+            const measurement = document.getElementById('measurementType').value;
+            const factor = document.getElementById('conversionFactor').value;
+            
+            // Validate required fields
+            if (!fromUnit || !toUnit || !measurement || !factor) {
+                showAlert('Please fill in all required fields (*)', 'warning');
+                return;
+            }
+            
+            if (fromUnit === toUnit) {
+                showAlert('From and To units cannot be the same', 'warning');
+                return;
+            }
+            
+            // Check if this is a new conversion or existing
+            const existingRow = document.querySelector(`.conversion-row[data-id="${conversionId}"]`);
+            
+            if (existingRow) {
+                // Update existing conversion
+                updateConversionRow(existingRow, {
+                    fromUnit: fromUnit,
+                    toUnit: toUnit,
+                    measurement: measurement,
+                    factor: parseFloat(factor),
+                    description: document.getElementById('conversionDescription').value,
+                    status: document.getElementById('conversionStatus').value
+                });
+                
+                showAlert(`Conversion #${conversionId} updated successfully`, 'success');
+            } else {
+                // Add new conversion
+                addNewConversionToTable({
+                    fromUnit: fromUnit,
+                    toUnit: toUnit,
+                    measurement: measurement,
+                    factor: parseFloat(factor),
+                    description: document.getElementById('conversionDescription').value,
+                    status: document.getElementById('conversionStatus').value
+                });
+                
+                showAlert(`New conversion added successfully`, 'success');
+            }
+        }
+        
+        function updateConversionRow(row, data) {
+            // Update from unit
+            const fromUnitText = row.querySelector('td:nth-child(2) .fw-bold');
+            fromUnitText.textContent = getUnitDisplayName(data.fromUnit);
+            
+            // Update to unit
+            const toUnitText = row.querySelector('td:nth-child(3) .fw-bold');
+            toUnitText.textContent = getUnitDisplayName(data.toUnit);
+            
+            // Update measurement
+            row.querySelector('td:nth-child(4)').textContent = data.measurement.charAt(0).toUpperCase() + data.measurement.slice(1);
+            
+            // Update conversion factor
+            const factorSpan = row.querySelector('.conversion-factor');
+            factorSpan.textContent = `1 ${getUnitShortName(data.fromUnit)} = ${data.factor} ${getUnitShortName(data.toUnit)}`;
+            
+            // Update status
+            const statusBadge = row.querySelector('td:nth-child(6) .badge');
+            statusBadge.textContent = data.status.charAt(0).toUpperCase() + data.status.slice(1);
+            statusBadge.className = `badge bg-${getStatusColor(data.status)}`;
+            
+            // Update data attributes
+            row.dataset.measurement = data.measurement;
+            row.dataset.status = data.status;
+        }
+        
+        function addNewConversionToTable(data) {
+            const tableBody = document.getElementById('conversionsTableBody');
+            const rowCount = tableBody.rows.length + 1;
+            const iconClass = getMeasurementIconClass(data.measurement);
+            
+            const newRow = document.createElement('tr');
+            newRow.className = 'conversion-row';
+            newRow.dataset.measurement = data.measurement;
+            newRow.dataset.status = data.status;
+            newRow.dataset.id = Date.now(); // Generate unique ID
+            
+            newRow.innerHTML = `
+                <td>${rowCount}</td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="conversion-icon ${iconClass} me-2">
+                            <i class="${getMeasurementIcon(data.measurement)}"></i>
+                        </div>
+                        <span class="fw-bold">${getUnitDisplayName(data.fromUnit)}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="conversion-icon ${iconClass} me-2">
+                            <i class="${getMeasurementIcon(data.measurement)}"></i>
+                        </div>
+                        <span class="fw-bold">${getUnitDisplayName(data.toUnit)}</span>
+                    </div>
+                </td>
+                <td>${data.measurement.charAt(0).toUpperCase() + data.measurement.slice(1)}</td>
+                <td>
+                    <span class="conversion-factor">1 ${getUnitShortName(data.fromUnit)} = ${data.factor} ${getUnitShortName(data.toUnit)}</span>
+                </td>
+                <td>
+                    <span class="badge bg-${getStatusColor(data.status)}">
+                        ${data.status.charAt(0).toUpperCase() + data.status.slice(1)}
+                    </span>
+                </td>
+                <td>
+                    <div class="btn-group btn-group-sm table-actions">
+                        <button class="btn btn-outline-primary view-conversion" data-id="${newRow.dataset.id}">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-outline-warning edit-conversion" data-id="${newRow.dataset.id}">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-outline-danger delete-conversion" data-id="${newRow.dataset.id}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Add event listeners to new buttons
+            newRow.querySelector('.view-conversion').addEventListener('click', function() {
+                // For new rows, we'll just populate the form
+                populateFormFromRow(newRow);
+            });
+            
+            newRow.querySelector('.edit-conversion').addEventListener('click', function() {
+                populateFormFromRow(newRow);
+                showAlert(`Editing new conversion`, 'info');
+            });
+            
+            newRow.querySelector('.delete-conversion').addEventListener('click', function() {
+                showDeleteConversionModal(newRow.dataset.id);
+            });
+            
+            // Update count
+            document.querySelector('.card-footer .text-muted').textContent = 
+                `Showing ${rowCount} of ${rowCount} conversions`;
+        }
+        
+        function populateFormFromRow(row) {
+            const fromUnitText = row.querySelector('td:nth-child(2) .fw-bold').textContent;
+            const toUnitText = row.querySelector('td:nth-child(3) .fw-bold').textContent;
+            const measurement = row.querySelector('td:nth-child(4)').textContent.toLowerCase();
+            const factorText = row.querySelector('.conversion-factor').textContent;
+            
+            // Extract factor from text (e.g., "1 kg = 1000 g")
+            const factorMatch = factorText.match(/1\s+\w+\s+=\s+([\d.]+)\s+\w+/);
+            const factor = factorMatch ? factorMatch[1] : '';
+            
+            // Extract unit codes from display names
+            const fromUnit = getUnitCodeFromDisplayName(fromUnitText);
+            const toUnit = getUnitCodeFromDisplayName(toUnitText);
+            
+            document.getElementById('fromUnit').value = fromUnit;
+            document.getElementById('toUnit').value = toUnit;
+            document.getElementById('measurementType').value = measurement;
+            document.getElementById('conversionFactor').value = factor;
+            document.getElementById('conversionStatus').value = row.dataset.status;
+            
+            // Update unit labels
+            updateUnitLabels();
+            
+            // Set the conversion ID on save button
+            document.getElementById('saveConversionBtn').dataset.id = row.dataset.id;
+            
+            // Highlight the row
+            document.querySelectorAll('.conversion-row').forEach(r => {
+                r.classList.remove('table-active');
+            });
+            row.classList.add('table-active');
+        }
+        
+        function clearConversionForm() {
+            document.getElementById('fromUnit').value = '';
+            document.getElementById('toUnit').value = '';
+            document.getElementById('measurementType').value = '';
+            document.getElementById('conversionFactor').value = '';
+            document.getElementById('conversionDescription').value = '';
+            document.getElementById('conversionStatus').value = 'active';
+            document.getElementById('decimalPlaces').value = '2';
+            
+            // Clear unit labels
+            document.getElementById('fromUnitLabel').value = '';
+            document.getElementById('toUnitLabel').value = '';
+            
+            // Remove conversion ID from save button
+            delete document.getElementById('saveConversionBtn').dataset.id;
+            
+            // Remove highlight from rows
+            document.querySelectorAll('.conversion-row').forEach(row => {
+                row.classList.remove('table-active');
+            });
+            
+            showAlert('Form has been cleared', 'info');
+        }
+        
+        function saveNewConversion() {
+            const newFromUnit = document.getElementById('newFromUnit').value;
+            const newToUnit = document.getElementById('newToUnit').value;
+            const newMeasurementType = document.getElementById('newMeasurementType').value;
+            const newConversionFactor = document.getElementById('newConversionFactor').value;
+            
+            // Validate required fields
+            if (!newFromUnit || !newToUnit || !newMeasurementType || !newConversionFactor) {
+                showAlert('Please fill in all required fields (*)', 'warning');
+                return;
+            }
+            
+            if (newFromUnit === newToUnit) {
+                showAlert('From and To units cannot be the same', 'warning');
+                return;
+            }
+            
+            // Check if conversion already exists
+            const existingConversion = checkIfConversionExists(newFromUnit, newToUnit);
+            if (existingConversion) {
+                showAlert(`Conversion from ${newFromUnit} to ${newToUnit} already exists`, 'warning');
+                return;
+            }
+            
+            // Add to table
+            addNewConversionToTable({
+                fromUnit: newFromUnit,
+                toUnit: newToUnit,
+                measurement: newMeasurementType,
+                factor: parseFloat(newConversionFactor),
+                description: document.getElementById('newConversionDescription').value,
+                status: 'active'
+            });
+            
+            // Also populate the form
+            document.getElementById('fromUnit').value = newFromUnit;
+            document.getElementById('toUnit').value = newToUnit;
+            document.getElementById('measurementType').value = newMeasurementType;
+            document.getElementById('conversionFactor').value = newConversionFactor;
+            document.getElementById('conversionDescription').value = document.getElementById('newConversionDescription').value;
+            
+            // Update unit labels
+            updateUnitLabels();
+            
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('addConversionModal'));
+            modal.hide();
+            
+            // Reset modal form
+            document.getElementById('newFromUnit').value = '';
+            document.getElementById('newToUnit').value = '';
+            document.getElementById('newMeasurementType').value = '';
+            document.getElementById('newConversionFactor').value = '';
+            document.getElementById('newConversionDescription').value = '';
+            
+            showAlert(`New unit conversion created successfully`, 'success');
+        }
+        
+        function checkIfConversionExists(fromUnit, toUnit) {
+            const rows = document.querySelectorAll('.conversion-row');
+            for (const row of rows) {
+                const rowFromUnit = getUnitCodeFromDisplayName(row.querySelector('td:nth-child(2) .fw-bold').textContent);
+                const rowToUnit = getUnitCodeFromDisplayName(row.querySelector('td:nth-child(3) .fw-bold').textContent);
+                
+                if (rowFromUnit === fromUnit && rowToUnit === toUnit) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        function showDeleteConversionModal(conversionId) {
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteConversionModal'));
+            document.getElementById('confirmConversionDeleteBtn').dataset.conversionId = conversionId;
+            deleteModal.show();
+        }
+        
+        function deleteConversion() {
+            const conversionId = document.getElementById('confirmConversionDeleteBtn').dataset.conversionId;
+            
+            // Find and remove the row
+            const row = document.querySelector(`.conversion-row[data-id="${conversionId}"]`);
+            if (row) {
+                row.remove();
+                showAlert(`Unit conversion has been deleted`, 'danger');
+                
+                // Clear the form if the deleted conversion was selected
+                if (document.getElementById('saveConversionBtn').dataset.id === conversionId) {
+                    clearConversionForm();
+                }
+            }
+            
+            // Close the modal
+            const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteConversionModal'));
+            deleteModal.hide();
+            
+            // Reset the checkbox
+            document.getElementById('confirmConversionDelete').checked = false;
+            document.getElementById('confirmConversionDeleteBtn').disabled = true;
+            
+            // Update count and renumber rows
+            renumberConversionRows();
+        }
+        
+        function renumberConversionRows() {
+            const rows = document.querySelectorAll('.conversion-row');
+            rows.forEach((row, index) => {
+                row.querySelector('td:first-child').textContent = index + 1;
+            });
+            
+            document.querySelector('.card-footer .text-muted').textContent = 
+                `Showing ${rows.length} of ${rows.length} conversions`;
+        }
+        
+        function exportConversions() {
+            // In a real application, this would generate a CSV or Excel file
+            showAlert('Exporting unit conversions data...', 'info');
+            
+            // Simulate export
+            setTimeout(() => {
+                showAlert('Unit conversions data exported successfully', 'success');
+            }, 1000);
+        }
+        
+        function calculateConversion() {
+            const fromValue = parseFloat(document.getElementById('calcFromValue').value) || 0;
+            const fromUnit = document.getElementById('calcFromUnit').value;
+            const toUnit = document.getElementById('calcToUnit').value;
+            
+            // Get conversion factor (in real app, would look up from database)
+            const conversionFactors = {
+                'kg-g': 1000,
+                'g-kg': 0.001,
+                'kg-lb': 2.20462,
+                'lb-kg': 0.453592,
+                'm-cm': 100,
+                'cm-m': 0.01,
+                'l-ml': 1000,
+                'ml-l': 0.001
+            };
+            
+            const key = `${fromUnit}-${toUnit}`;
+            const factor = conversionFactors[key];
+            
+            if (factor !== undefined) {
+                const result = fromValue * factor;
+                document.getElementById('conversionResult').textContent = 
+                    `${fromValue} ${fromUnit} = ${result.toFixed(2)} ${toUnit}`;
+            } else {
+                document.getElementById('conversionResult').textContent = 
+                    `Conversion not available for ${fromUnit} to ${toUnit}`;
+            }
+        }
+        
+        function updateCalculator() {
+            // Auto-calculate when values change
+            calculateConversion();
+        }
+        
+        // Helper functions
+        function getUnitDisplayName(unitCode) {
+            const unitMap = {
+                'kg': 'Kilogram (kg)',
+                'g': 'Gram (g)',
+                'lb': 'Pound (lb)',
+                'oz': 'Ounce (oz)',
+                'm': 'Meter (m)',
+                'cm': 'Centimeter (cm)',
+                'mm': 'Millimeter (mm)',
+                'in': 'Inch (in)',
+                'ft': 'Foot (ft)',
+                'l': 'Liter (l)',
+                'ml': 'Milliliter (ml)',
+                'gal': 'Gallon (gal)',
+                'qt': 'Quart (qt)',
+                '°C': 'Celsius (°C)',
+                '°F': 'Fahrenheit (°F)',
+                'm²': 'Square Meter (m²)',
+                'ft²': 'Square Foot (ft²)',
+                'piece': 'Piece',
+                'dozen': 'Dozen',
+                'case': 'Case',
+                'box': 'Box'
+            };
+            return unitMap[unitCode] || unitCode;
+        }
+        
+        function getUnitShortName(unitCode) {
+            const shortMap = {
+                'kg': 'kg', 'g': 'g', 'lb': 'lb', 'oz': 'oz',
+                'm': 'm', 'cm': 'cm', 'mm': 'mm', 'in': 'in', 'ft': 'ft',
+                'l': 'l', 'ml': 'ml', 'gal': 'gal', 'qt': 'qt',
+                '°C': '°C', '°F': '°F',
+                'm²': 'm²', 'ft²': 'ft²',
+                'piece': 'piece', 'dozen': 'dozen', 'case': 'case', 'box': 'box'
+            };
+            return shortMap[unitCode] || unitCode;
+        }
+        
+        function getUnitCodeFromDisplayName(displayName) {
+            // Extract unit code from display name (e.g., "Kilogram (kg)" -> "kg")
+            const match = displayName.match(/\(([^)]+)\)/);
+            return match ? match[1] : displayName.toLowerCase();
+        }
+        
+        function getMeasurementIcon(measurement) {
+            const icons = {
+                'weight': 'fas fa-weight-hanging',
+                'length': 'fas fa-ruler',
+                'volume': 'fas fa-wine-bottle',
+                'temperature': 'fas fa-thermometer-half',
+                'area': 'fas fa-border-all',
+                'count': 'fas fa-calculator',
+                'custom': 'fas fa-exchange-alt'
+            };
+            return icons[measurement] || 'fas fa-exchange-alt';
+        }
+        
+        function getMeasurementIconClass(measurement) {
+            const classes = {
+                'weight': 'conversion-icon-weight',
+                'length': 'conversion-icon-length',
+                'volume': 'conversion-icon-volume',
+                'temperature': 'conversion-icon-temperature',
+                'area': 'conversion-icon-area',
+                'count': 'conversion-icon-weight', // fallback
+                'custom': 'conversion-icon-volume' // fallback
+            };
+            return classes[measurement] || 'conversion-icon-weight';
+        }
+        
+        function getStatusColor(status) {
+            const colors = {
+                'active': 'success',
+                'inactive': 'warning',
+                'system': 'info'
+            };
+            return colors[status] || 'secondary';
+        }
+        
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

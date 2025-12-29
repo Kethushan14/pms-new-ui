@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today Arrivals Details - Ovia PMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+
+     
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-sign-in-alt me-2"></i>Today's Arrivals
+                                </h1>
+                                <p class="card-text text-muted mb-0">Manage guest arrivals and check-in processes for today</p>
+                                <small class="text-muted">Check-in time: 2:00 PM • Expected Arrivals: <span id="arrivalCount">24</span> guests</small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-success me-2" id="bulkCheckIn">
+                                    <i class="fas fa-user-check me-1"></i> Bulk Check-in
+                                </button>
+                                <button class="btn btn-info" id="sendWelcome">
+                                    <i class="fas fa-envelope me-1"></i> Send Welcome
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="row mb-4">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="bg-success bg-opacity-10 p-3 rounded-circle d-inline-block mb-3">
+                            <i class="fas fa-check-circle fa-2x text-success"></i>
+                        </div>
+                        <h3 class="text-success">8</h3>
+                        <p class="text-muted mb-0">Already Checked-in</p>
+                        <small class="text-success">On time arrivals</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="bg-warning bg-opacity-10 p-3 rounded-circle d-inline-block mb-3">
+                            <i class="fas fa-clock fa-2x text-warning"></i>
+                        </div>
+                        <h3 class="text-warning">12</h3>
+                        <p class="text-muted mb-0">Pending Arrivals</p>
+                        <small class="text-info">Expected today</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="bg-primary bg-opacity-10 p-3 rounded-circle d-inline-block mb-3">
+                            <i class="fas fa-user-plus fa-2x text-primary"></i>
+                        </div>
+                        <h3 class="text-primary">4</h3>
+                        <p class="text-muted mb-0">VIP Arrivals</p>
+                        <small class="text-warning">Special attention</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="bg-info bg-opacity-10 p-3 rounded-circle d-inline-block mb-3">
+                            <i class="fas fa-plane-arrival fa-2x text-info"></i>
+                        </div>
+                        <h3 class="text-info">6</h3>
+                        <p class="text-muted mb-0">Airport Pickups</p>
+                        <small class="text-primary">Transport arranged</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Arrival Schedule -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-calendar-alt me-2"></i>Arrival Schedule (Today)</h5>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-outline-success active" data-time="morning">Morning (6AM-12PM)</button>
+                                <button class="btn btn-sm btn-outline-success" data-time="afternoon">Afternoon (12PM-6PM)</button>
+                                <button class="btn btn-sm btn-outline-success" data-time="evening">Evening (6PM-12AM)</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Morning Arrivals -->
+                            <div class="col-md-4 mb-3">
+                                <h6 class="text-success mb-3"><i class="fas fa-sun me-1"></i> Morning Arrivals</h6>
+                                <div class="arrival-item">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div>
+                                            <strong>Room 105</strong>
+                                            <small class="d-block text-muted">Thomas Anderson</small>
+                                        </div>
+                                        <span class="badge bg-success">9:00 AM</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small><i class="fas fa-plane me-1"></i> Flight AA245</small>
+                                        <button class="btn btn-sm btn-outline-success">Check In</button>
+                                    </div>
+                                </div>
+                                <div class="arrival-item">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div>
+                                            <strong>Room 110</strong>
+                                            <small class="d-block text-muted">Jessica Parker</small>
+                                        </div>
+                                        <span class="badge bg-success">10:30 AM</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small><i class="fas fa-car me-1"></i> Self drive</small>
+                                        <button class="btn btn-sm btn-outline-primary">Checked</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Afternoon Arrivals -->
+                            <div class="col-md-4 mb-3">
+                                <h6 class="text-primary mb-3"><i class="fas fa-cloud-sun me-1"></i> Afternoon Arrivals</h6>
+                                <div class="arrival-item">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div>
+                                            <strong>Suite 205</strong>
+                                            <small class="d-block text-muted">William Johnson</small>
+                                        </div>
+                                        <span class="badge bg-primary">2:00 PM</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small><i class="fas fa-plane me-1"></i> Flight BA178</small>
+                                        <button class="btn btn-sm btn-outline-success">Check In</button>
+                                    </div>
+                                </div>
+                                <div class="arrival-item">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div>
+                                            <strong>Room 215</strong>
+                                            <small class="d-block text-muted">Sophia Williams</small>
+                                        </div>
+                                        <span class="badge bg-primary">4:30 PM</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small><i class="fas fa-train me-1"></i> Train arrival</small>
+                                        <button class="btn btn-sm btn-outline-warning">Pending</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Evening Arrivals -->
+                            <div class="col-md-4 mb-3">
+                                <h6 class="text-info mb-3"><i class="fas fa-moon me-1"></i> Evening Arrivals</h6>
+                                <div class="arrival-item">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div>
+                                            <strong>Suite 301</strong>
+                                            <small class="d-block text-muted">Robert Chen (VIP)</small>
+                                        </div>
+                                        <span class="badge bg-info">7:00 PM</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small><i class="fas fa-plane me-1"></i> Private jet</small>
+                                        <button class="btn btn-sm btn-outline-success">Check In</button>
+                                    </div>
+                                </div>
+                                <div class="arrival-item">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div>
+                                            <strong>Room 120</strong>
+                                            <small class="d-block text-muted">Michael Brown</small>
+                                        </div>
+                                        <span class="badge bg-info">9:00 PM</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <small><i class="fas fa-car me-1"></i> Airport pickup</small>
+                                        <button class="btn btn-sm btn-outline-success">Check In</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Arrival List -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-list-check me-2"></i>Today's Arrival List</h5>
+                            <div>
+                                <span class="badge bg-success me-2">Arrived: 8</span>
+                                <span class="badge bg-warning me-2">Pending: 12</span>
+                                <span class="badge bg-info">VIP: 4</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="selectAllArrivals">
+                                            </div>
+                                        </th>
+                                        <th>Guest Name</th>
+                                        <th>Room</th>
+                                        <th>Arrival Time</th>
+                                        <th>Duration</th>
+                                        <th>Booking Source</th>
+                                        <th>Special Requests</th>
+                                        <th>Arrival Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input arrival-checkbox" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="avatar-sm bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3">
+                                                    TA
+                                                </div>
+                                                <div>
+                                                    <strong>Thomas Anderson</strong><br>
+                                                    <small class="text-muted">ID: G-00301</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-light text-dark">Room 105</span><br>
+                                            <small class="text-muted">Standard Room</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">9:00 AM</span><br>
+                                            <small class="text-muted">Flight AA245</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">3 Nights</span><br>
+                                            <small class="text-muted">Dec 20-23</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-primary">Booking.com</span><br>
+                                            <small class="text-muted">Direct booking</small>
+                                        </td>
+                                        <td>
+                                            <small>Early check-in<br>Non-smoking</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Arrived</span><br>
+                                            <small>9:05 AM</small>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn btn-sm btn-success">
+                                                    <i class="fas fa-check"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-info">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-warning">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input arrival-checkbox" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="avatar-sm bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3">
+                                                    WJ
+                                                </div>
+                                                <div>
+                                                    <strong>William Johnson</strong><br>
+                                                    <small class="text-muted">VIP Member</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-light text-dark">Suite 205</span><br>
+                                            <small class="text-muted">Executive Suite</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-primary">2:00 PM</span><br>
+                                            <small class="text-muted">Flight BA178</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">5 Nights</span><br>
+                                            <small class="text-muted">Dec 20-25</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Direct</span><br>
+                                            <small class="text-muted">Hotel website</small>
+                                        </td>
+                                        <td>
+                                            <small>VIP treatment<br>Champagne<br>Airport pickup</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-warning">Expected</span><br>
+                                            <small>On time</small>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-sign-in-alt"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-info">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-warning">
+                                                    <i class="fas fa-clock"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input arrival-checkbox" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="avatar-sm bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3">
+                                                    SW
+                                                </div>
+                                                <div>
+                                                    <strong>Sophia Williams</strong><br>
+                                                    <small class="text-muted">ID: G-00303</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-light text-dark">Room 215</span><br>
+                                            <small class="text-muted">Deluxe Room</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-primary">4:30 PM</span><br>
+                                            <small class="text-muted">Train arrival</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">2 Nights</span><br>
+                                            <small class="text-muted">Dec 20-22</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">Travel Agent</span><br>
+                                            <small class="text-muted">Sun Tours</small>
+                                        </td>
+                                        <td>
+                                            <small>Adjoining room<br>High floor</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-secondary">Pending</span><br>
+                                            <small>Not arrived</small>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-sign-in-alt"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-info">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-secondary">
+                                                    <i class="fas fa-phone"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input arrival-checkbox" type="checkbox">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="avatar-sm bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3">
+                                                    RC
+                                                </div>
+                                                <div>
+                                                    <strong>Robert Chen</strong><br>
+                                                    <small class="text-muted">VIP - Diamond</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-light text-dark">Suite 301</span><br>
+                                            <small class="text-muted">Presidential Suite</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">7:00 PM</span><br>
+                                            <small class="text-muted">Private jet</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">7 Nights</span><br>
+                                            <small class="text-muted">Dec 20-27</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-warning">Corporate</span><br>
+                                            <small class="text-muted">TechCorp Inc.</small>
+                                        </td>
+                                        <td>
+                                            <small>Private check-in<br>Butler service<br>Limo transfer</small>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">VIP Pending</span><br>
+                                            <small>Special handling</small>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button class="btn btn-sm btn-primary">
+                                                    <i class="fas fa-sign-in-alt"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-info">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-success">
+                                                    <i class="fas fa-star"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <nav aria-label="Page navigation" class="mt-4">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="row mt-4">
+            <div class="col-lg-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-chart-pie me-2"></i>Arrival Distribution by Source</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Direct Booking</span>
+                                        <span class="text-primary">8 Guests</span>
+                                    </div>
+                                    <div class="progress" style="height: 10px;">
+                                        <div class="progress-bar bg-primary" style="width: 33%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Booking.com</span>
+                                        <span class="text-success">6 Guests</span>
+                                    </div>
+                                    <div class="progress" style="height: 10px;">
+                                        <div class="progress-bar bg-success" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Travel Agent</span>
+                                        <span class="text-warning">5 Guests</span>
+                                    </div>
+                                    <div class="progress" style="height: 10px;">
+                                        <div class="progress-bar bg-warning" style="width: 21%"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between mb-1">
+                                        <span>Corporate</span>
+                                        <span class="text-info">5 Guests</span>
+                                    </div>
+                                    <div class="progress" style="height: 10px;">
+                                        <div class="progress-bar bg-info" style="width: 21%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="text-center">
+                                    <div class="mb-3">
+                                        <h2 class="text-success">24</h2>
+                                        <p class="text-muted mb-0">Total Arrivals</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h4 class="text-primary">33%</h4>
+                                        <p class="text-muted mb-0">Direct Bookings</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <h4 class="text-warning">17%</h4>
+                                        <p class="text-muted mb-0">VIP Guests</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-bell me-2"></i>Arrival Preparation Tasks</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-timeline">
+                            <div class="activity-item">
+                                <div class="activity-icon bg-primary">
+                                    <i class="fas fa-bed"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h6 class="mb-1">Room Preparation</h6>
+                                    <p class="mb-1 small">Suite 205 - VIP amenities to be placed</p>
+                                    <small class="text-muted">Due: 1:00 PM</small>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon bg-success">
+                                    <i class="fas fa-car"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h6 class="mb-1">Airport Pickup</h6>
+                                    <p class="mb-1 small">Flight BA178 - Limo arranged for Mr. Johnson</p>
+                                    <small class="text-muted">Pickup: 1:30 PM</small>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon bg-warning">
+                                    <i class="fas fa-gift"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h6 class="mb-1">Special Requests</h6>
+                                    <p class="mb-1 small">Room 105 - Early check-in approved</p>
+                                    <small class="text-muted">Completed</small>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon bg-info">
+                                    <i class="fas fa-champagne-glasses"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h6 class="mb-1">Welcome Amenities</h6>
+                                    <p class="mb-1 small">Suite 301 - Champagne & fruit basket</p>
+                                    <small class="text-muted">Due: 6:00 PM</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Check-in Modal -->
+    <div class="modal fade" id="checkinModal" tabindex="-1" aria-labelledby="checkinModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="checkinModalLabel">
+                        <i class="fas fa-sign-in-alt me-2"></i>Process Check-in
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Guest Information</h6>
+                            <div class="mb-3">
+                                <label class="form-label">Guest Name</label>
+                                <input type="text" class="form-control" value="William Johnson" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Room Number</label>
+                                <input type="text" class="form-control" value="Suite 205" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Arrival Date</label>
+                                <input type="text" class="form-control" value="Today, Dec 20, 2024" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Booking Details</h6>
+                            <div class="mb-3">
+                                <label class="form-label">Booking Reference</label>
+                                <input type="text" class="form-control" value="BK-20567" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Duration</label>
+                                <input type="text" class="form-control" value="5 Nights (Dec 20-25)" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Total Amount</label>
+                                <input type="text" class="form-control" value="$1,250.00" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Payment Method</label>
+                        <select class="form-select">
+                            <option selected>Select payment method</option>
+                            <option value="cash">Cash</option>
+                            <option value="card">Credit/Debit Card</option>
+                            <option value="online">Online Payment</option>
+                            <option value="corporate">Corporate Account</option>
+                        </select>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="idCheck">
+                        <label class="form-check-label" for="idCheck">
+                            ID verification completed
+                        </label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="depositCheck">
+                        <label class="form-check-label" for="depositCheck">
+                            Security deposit collected
+                        </label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="welcomeCheck" checked>
+                        <label class="form-check-label" for="welcomeCheck">
+                            Provide welcome packet
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success">Complete Check-in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+     <script src="js/include.js"></script>
+
+    <script>
+        // Time filter buttons
+        document.querySelectorAll('[data-time]').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('[data-time]').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                const time = this.dataset.time;
+                // In a real app, you would filter the arrival items by time
+                console.log('Filtering arrivals by:', time);
+            });
+        });
+        
+        // Update arrival count
+        function updateArrivalCount() {
+            const count = Math.floor(Math.random() * 5) + 22; // Random between 22-26
+            document.getElementById('arrivalCount').textContent = count;
+        }
+        
+        updateArrivalCount();
+        setInterval(updateArrivalCount, 30000); // Update every 30 seconds
+        
+        // Select all arrivals checkbox
+        document.getElementById('selectAllArrivals').addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('.arrival-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+        });
+        
+        // Bulk check-in button
+        document.getElementById('bulkCheckIn').addEventListener('click', function() {
+            const selectedCount = document.querySelectorAll('.arrival-checkbox:checked').length;
+            if (selectedCount > 0) {
+                alert(`Processing check-in for ${selectedCount} guests...`);
+                // In real app, this would trigger bulk check-in process
+            } else {
+                alert('Please select at least one guest for bulk check-in.');
+            }
+        });
+        
+        // Send welcome messages
+        document.getElementById('sendWelcome').addEventListener('click', function() {
+            alert('Welcome messages sent to all pending arrivals!');
+        });
+    </script>
+</body>
+</html>

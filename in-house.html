@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In House Guests - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+</head>
+<body>
+       
+<!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+      
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>  
+       
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-users me-2"></i>In House Guests Details
+                                </h1>
+                                <p class="card-text text-muted mb-0">Detailed view of all currently staying guests at Grand Horizon Hotel</p>
+                                <small class="text-muted" id="lastUpdated">Last Updated: December 20, 2025 at 06:23:28 AM</small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-success" id="refreshDataBtn">
+                                    <i class="fas fa-sync-alt me-1"></i> Refresh
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card stat-card bg-primary text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="stat-number">18</h2>
+                                <p class="stat-label mb-0">Extended Stays</p>
+                                <small class="stat-change">+3 from yesterday</small>
+                            </div>
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-plus fa-3x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card bg-warning text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="stat-number">12</h2>
+                                <p class="stat-label mb-0">VIP Guests</p>
+                                <small class="stat-change">Premium services</small>
+                            </div>
+                            <div class="stat-icon">
+                                <i class="fas fa-crown fa-3x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card bg-info text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="stat-number">8</h2>
+                                <p class="stat-label mb-0">Special Events</p>
+                                <small class="stat-change">Birthdays/Anniversaries</small>
+                            </div>
+                            <div class="stat-icon">
+                                <i class="fas fa-birthday-cake fa-3x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card bg-danger text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="stat-number">24</h2>
+                                <p class="stat-label mb-0">Active Requests</p>
+                                <small class="stat-change">Pending services</small>
+                            </div>
+                            <div class="stat-icon">
+                                <i class="fas fa-bell fa-3x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Tabs -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs" id="inHouseTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="checkin-tab" data-bs-toggle="tab" data-bs-target="#checkin" type="button" role="tab">
+                                    <i class="fas fa-sign-in-alt me-2"></i>Check-In Information
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="room-tab" data-bs-toggle="tab" data-bs-target="#room" type="button" role="tab">
+                                    <i class="fas fa-bed me-2"></i>Room Selection
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="services-tab" data-bs-toggle="tab" data-bs-target="#services" type="button" role="tab">
+                                    <i class="fas fa-concierge-bell me-2"></i>Services
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="billing-tab" data-bs-toggle="tab" data-bs-target="#billing" type="button" role="tab">
+                                    <i class="fas fa-calculator me-2"></i>Billing & Payments
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="list-tab" data-bs-toggle="tab" data-bs-target="#list" type="button" role="tab">
+                                    <i class="fas fa-list me-2"></i>Current Guests List
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content" id="inHouseTabContent">
+                            
+                            <!-- Tab 1: Check-In Information -->
+                            <div class="tab-pane fade show active" id="checkin" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-12 mb-4">
+                                        <h5 class="mb-3 text-primary">Check-In Information</h5>
+                                        <div class="row">
+                                            <div class="col-md-4 mb-3">
+                                                <label class="form-label">Last Name:</label>
+                                                <input type="text" class="form-control" id="lastNameSearch" placeholder="Enter last name">
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label class="form-label">Room ID:</label>
+                                                <input type="text" class="form-control" id="roomIdSearch" placeholder="Enter room number">
+                                            </div>
+                                            <div class="col-md-4 mb-3 d-flex align-items-end">
+                                                <button class="btn btn-primary w-100" id="searchGuestBtn">
+                                                    <i class="fas fa-search me-1"></i> Search
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-hover">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th>Rooms</th>
+                                                        <th>K</th>
+                                                        <th>Res. No</th>
+                                                        <th>Last Name</th>
+                                                        <th>First Name</th>
+                                                        <th>Check-In</th>
+                                                        <th>Check-Out</th>
+                                                        <th>Adults</th>
+                                                        <th>Children</th>
+                                                        <th>Reservation Status</th>
+                                                        <th>Number of Nights</th>
+                                                        <th>Number of Rooms</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Room 101</td>
+                                                        <td><input type="checkbox" class="form-check-input"></td>
+                                                        <td><span class="badge bg-info">RES20241215001</span></td>
+                                                        <td>Smith</td>
+                                                        <td>John</td>
+                                                        <td>Dec 15, 2024</td>
+                                                        <td>Dec 20, 2024</td>
+                                                        <td>2</td>
+                                                        <td>0</td>
+                                                        <td><span class="badge bg-success">Checked In</span></td>
+                                                        <td>5</td>
+                                                        <td>1</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Room 102</td>
+                                                        <td><input type="checkbox" class="form-check-input"></td>
+                                                        <td><span class="badge bg-info">RES20241216002</span></td>
+                                                        <td>Johnson</td>
+                                                        <td>Sarah</td>
+                                                        <td>Dec 16, 2024</td>
+                                                        <td>Dec 22, 2024</td>
+                                                        <td>1</td>
+                                                        <td>1</td>
+                                                        <td><span class="badge bg-success">Checked In</span></td>
+                                                        <td>6</td>
+                                                        <td>1</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Suite 201</td>
+                                                        <td><input type="checkbox" class="form-check-input"></td>
+                                                        <td><span class="badge bg-info">RES20241214003</span></td>
+                                                        <td>Williams</td>
+                                                        <td>Robert</td>
+                                                        <td>Dec 14, 2024</td>
+                                                        <td>Dec 21, 2024</td>
+                                                        <td>2</td>
+                                                        <td>2</td>
+                                                        <td><span class="badge bg-success">Checked In</span></td>
+                                                        <td>7</td>
+                                                        <td>1</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Room 205</td>
+                                                        <td><input type="checkbox" class="form-check-input"></td>
+                                                        <td><span class="badge bg-info">RES20241217004</span></td>
+                                                        <td>Brown</td>
+                                                        <td>Emily</td>
+                                                        <td>Dec 17, 2024</td>
+                                                        <td>Dec 19, 2024</td>
+                                                        <td>1</td>
+                                                        <td>0</td>
+                                                        <td><span class="badge bg-success">Checked In</span></td>
+                                                        <td>2</td>
+                                                        <td>1</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tab 2: Room Selection -->
+                            <div class="tab-pane fade" id="room" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-12 mb-4">
+                                        <h5 class="mb-3 text-primary">Room Selection</h5>
+                                        <div class="row">
+                                            <div class="col-md-3 mb-3">
+                                                <label class="form-label">Category</label>
+                                                <select class="form-select" id="roomCategory">
+                                                    <option value="">Select</option>
+                                                    <option value="standard">Standard</option>
+                                                    <option value="deluxe">Deluxe</option>
+                                                    <option value="suite">Suite</option>
+                                                    <option value="presidential">Presidential Suite</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2 mb-3">
+                                                <label class="form-label">From</label>
+                                                <input type="date" class="form-control" id="roomFromDate" value="2024-12-20">
+                                            </div>
+                                            <div class="col-md-2 mb-3">
+                                                <label class="form-label">Room</label>
+                                                <select class="form-select" id="roomNumber">
+                                                    <option value="">Select</option>
+                                                    <option value="101">101</option>
+                                                    <option value="102">102</option>
+                                                    <option value="103">103</option>
+                                                    <option value="201">201</option>
+                                                    <option value="202">202</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2 mb-3">
+                                                <label class="form-label">To</label>
+                                                <input type="date" class="form-control" id="roomToDate" value="2024-12-25">
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label class="form-label">Room Type</label>
+                                                <select class="form-select" id="roomType">
+                                                    <option value="">Select</option>
+                                                    <option value="single">Single</option>
+                                                    <option value="double">Double</option>
+                                                    <option value="twin">Twin</option>
+                                                    <option value="family">Family</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2 mb-3">
+                                                <label class="form-label">Discount %</label>
+                                                <input type="number" class="form-control" id="roomDiscount" value="0" min="0" max="100">
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label class="form-label">Meal Plan</label>
+                                                <select class="form-select" id="mealPlan">
+                                                    <option value="">Select</option>
+                                                    <option value="breakfast">Breakfast Only</option>
+                                                    <option value="halfboard">Half Board</option>
+                                                    <option value="fullboard">Full Board</option>
+                                                    <option value="allinclusive">All Inclusive</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2 mb-3 d-flex align-items-end">
+                                                <button class="btn btn-primary w-100" id="addRoomBtn">
+                                                    <i class="fas fa-plus me-1"></i> Add
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Extra Person Charges -->
+                                        <div class="row mt-4">
+                                            <div class="col-md-12">
+                                                <h6 class="mb-3 text-primary">Extra Person Charges</h6>
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <thead class="table-light">
+                                                            <tr>
+                                                                <th>Extra Person Charges</th>
+                                                                <th>Rate</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Extra Adult</td>
+                                                                <td>$50.00 per night</td>
+                                                                <td>
+                                                                    <button class="btn btn-sm btn-outline-primary">
+                                                                        <i class="fas fa-edit"></i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Extra Child (5-12 years)</td>
+                                                                <td>$25.00 per night</td>
+                                                                <td>
+                                                                    <button class="btn btn-sm btn-outline-primary">
+                                                                        <i class="fas fa-edit"></i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Added Rooms -->
+                                        <div class="row mt-4">
+                                            <div class="col-md-12">
+                                                <h6 class="mb-3 text-primary">Added Rooms:</h6>
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <thead class="table-light">
+                                                            <tr>
+                                                                <th>Room</th>
+                                                                <th>R.T.</th>
+                                                                <th>M.D</th>
+                                                                <th>From</th>
+                                                                <th>To</th>
+                                                                <th>Total</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="addedRoomsTable">
+                                                            <!-- Added rooms will appear here -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tab 3: Services -->
+                            <div class="tab-pane fade" id="services" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-12 mb-4">
+                                        <h5 class="mb-3 text-primary">Add Services</h5>
+                                        <div class="row">
+                                            <div class="col-md-3 mb-3">
+                                                <label class="form-label">Service Code</label>
+                                                <select class="form-select" id="serviceCode">
+                                                    <option value="">Select</option>
+                                                    <option value="SRV001">SRV001 - Spa Treatment</option>
+                                                    <option value="SRV002">SRV002 - Laundry</option>
+                                                    <option value="SRV003">SRV003 - Room Service</option>
+                                                    <option value="SRV004">SRV004 - Airport Transfer</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label class="form-label">Service Name</label>
+                                                <select class="form-select" id="serviceName">
+                                                    <option value="">Select</option>
+                                                    <option value="spa">Spa Treatment</option>
+                                                    <option value="laundry">Laundry Service</option>
+                                                    <option value="roomservice">Room Service</option>
+                                                    <option value="transfer">Airport Transfer</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label class="form-label">Department</label>
+                                                <select class="form-select" id="serviceDepartment">
+                                                    <option value="">Select</option>
+                                                    <option value="spa">Spa</option>
+                                                    <option value="housekeeping">Housekeeping</option>
+                                                    <option value="food">Food & Beverage</option>
+                                                    <option value="transport">Transportation</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 mb-3">
+                                                <label class="form-label">Service Category</label>
+                                                <select class="form-select" id="serviceCategory">
+                                                    <option value="">Select</option>
+                                                    <option value="wellness">Wellness</option>
+                                                    <option value="cleaning">Cleaning</option>
+                                                    <option value="dining">Dining</option>
+                                                    <option value="transport">Transportation</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label class="form-label">Service Sub Category</label>
+                                                <select class="form-select" id="serviceSubCategory">
+                                                    <option value="">Select</option>
+                                                    <option value="massage">Massage</option>
+                                                    <option value="laundry">Laundry</option>
+                                                    <option value="dinner">Dinner</option>
+                                                    <option value="pickup">Pickup Service</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2 mb-3 d-flex align-items-end">
+                                                <button class="btn btn-primary w-100" id="addServiceBtn">
+                                                    <i class="fas fa-plus me-1"></i> Add
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Services Table -->
+                                        <div class="row mt-4">
+                                            <div class="col-md-12">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <thead class="table-light">
+                                                            <tr>
+                                                                <th>Service Code</th>
+                                                                <th>Service</th>
+                                                                <th>Sales Price</th>
+                                                                <th>Serv.Code</th>
+                                                                <th>Serv. Name</th>
+                                                                <th>Qty.</th>
+                                                                <th>Amount</th>
+                                                                <th>Total Amount</th>
+                                                                <th>Remarks</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="servicesTableBody">
+                                                            <!-- Services will be added here -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Added Services -->
+                                        <div class="row mt-4">
+                                            <div class="col-md-12">
+                                                <h6 class="mb-3 text-primary">Added Services:</h6>
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <thead class="table-light">
+                                                            <tr>
+                                                                <th>Serv.Code</th>
+                                                                <th>Serv. Name</th>
+                                                                <th>Qty.</th>
+                                                                <th>Amount</th>
+                                                                <th>Total Amount</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="addedServicesTable">
+                                                            <!-- Added services will appear here -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tab 4: Billing & Payments -->
+                            <div class="tab-pane fade" id="billing" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 class="mb-4 text-primary">Billing & Payments</h5>
+                                        
+                                        <!-- Balance Summary -->
+                                        <div class="row mb-4">
+                                            <div class="col-md-6">
+                                                <div class="card">
+                                                    <div class="card-header bg-light">
+                                                        <h6 class="mb-0">Balance Summary</h6>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row mb-2">
+                                                            <div class="col-8">
+                                                                <span>Sub Total</span>
+                                                            </div>
+                                                            <div class="col-4 text-end">
+                                                                <strong>$1,250.00</strong>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-2">
+                                                            <div class="col-8">
+                                                                <span>Advance Paid</span>
+                                                            </div>
+                                                            <div class="col-4 text-end">
+                                                                <strong class="text-success">$750.00</strong>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-2">
+                                                            <div class="col-8">
+                                                                <span>Tax (10%)</span>
+                                                            </div>
+                                                            <div class="col-4 text-end">
+                                                                <strong>$125.00</strong>
+                                                            </div>
+                                                        </div>
+                                                        <hr>
+                                                        <div class="row mb-2">
+                                                            <div class="col-8">
+                                                                <span>Total (Tax Inc.)</span>
+                                                            </div>
+                                                            <div class="col-4 text-end">
+                                                                <strong>$1,375.00</strong>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-8">
+                                                                <span class="h5">Balance Due</span>
+                                                            </div>
+                                                            <div class="col-4 text-end">
+                                                                <strong class="h5 text-danger">$625.00</strong>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Add Payments -->
+                                            <div class="col-md-6">
+                                                <div class="card">
+                                                    <div class="card-header bg-light">
+                                                        <h6 class="mb-0">Add Payments</h6>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-md-6 mb-3">
+                                                                <label class="form-label">Receipt No</label>
+                                                                <input type="text" class="form-control" id="receiptNo" value="RCPT20241220001" readonly>
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label class="form-label">Payment Type</label>
+                                                                <select class="form-select" id="paymentType">
+                                                                    <option value="cash">Cash</option>
+                                                                    <option value="creditcard">Credit Card</option>
+                                                                    <option value="debitcard">Debit Card</option>
+                                                                    <option value="banktransfer">Bank Transfer</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label class="form-label">Amount Balance</label>
+                                                                <input type="text" class="form-control" id="amountBalance" value="$625.00" readonly>
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label class="form-label">Amount</label>
+                                                                <input type="number" class="form-control" id="paymentAmount" placeholder="0.00" min="0" step="0.01">
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label class="form-label">Currency Type</label>
+                                                                <select class="form-select" id="currencyType">
+                                                                    <option value="USD" selected>USD</option>
+                                                                    <option value="EUR">EUR</option>
+                                                                    <option value="GBP">GBP</option>
+                                                                    <option value="LKR">LKR</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label class="form-label">Added Date</label>
+                                                                <input type="date" class="form-control" id="paymentDate" value="2025-12-20">
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="d-flex gap-2">
+                                                                    <button class="btn btn-primary" id="addPaymentBtn">
+                                                                        <i class="fas fa-plus me-1"></i> Add
+                                                                    </button>
+                                                                    <button class="btn btn-outline-secondary" id="printReceiptBtn">
+                                                                        <i class="fas fa-print me-1"></i> Print
+                                                                    </button>
+                                                                    <button class="btn btn-outline-danger" id="resetPaymentBtn">
+                                                                        <i class="fas fa-redo me-1"></i> Reset
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Payments List -->
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h6 class="mb-3 text-primary">Payments:</h6>
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <thead class="table-light">
+                                                            <tr>
+                                                                <th>Receipt No</th>
+                                                                <th>Payment Type</th>
+                                                                <th>Date</th>
+                                                                <th>Amount</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="paymentsTable">
+                                                            <tr>
+                                                                <td>RCPT20241215001</td>
+                                                                <td><span class="badge bg-success">Cash</span></td>
+                                                                <td>Dec 15, 2024</td>
+                                                                <td class="text-success">$750.00</td>
+                                                                <td>
+                                                                    <button class="btn btn-sm btn-outline-primary">
+                                                                        <i class="fas fa-eye"></i>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Tab 5: Current Guests List -->
+                            <div class="tab-pane fade" id="list" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5 class="mb-4 text-primary">Current Guests List</h5>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-hover">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th>Guest Name</th>
+                                                        <th>Room</th>
+                                                        <th>Check-in</th>
+                                                        <th>Check-out</th>
+                                                        <th>Duration</th>
+                                                        <th>Status</th>
+                                                        <th>Bill Amount</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>John Smith</strong><br>
+                                                            <small class="text-muted">ID: G-00123</small>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge bg-primary">Room 101</span><br>
+                                                            <small class="text-muted">Deluxe Suite</small>
+                                                        </td>
+                                                        <td>
+                                                            Dec 15, 2024<br>
+                                                            <small class="text-muted">2:00 PM</small>
+                                                        </td>
+                                                        <td>
+                                                            Dec 20, 2024<br>
+                                                            <small class="text-muted">11:00 AM</small>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge bg-info">5 Nights</span><br>
+                                                            <small class="text-muted">2 days left</small>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge bg-success">Checked in</span><br>
+                                                            <small class="text-muted">No requests</small>
+                                                        </td>
+                                                        <td>
+                                                            <strong>$1,250.00</strong><br>
+                                                            <small class="text-success">Paid: $750</small>
+                                                        </td>
+                                                        <td>
+                                                            <div class="btn-group btn-group-sm">
+                                                                <button class="btn btn-outline-primary view-guest-btn" data-id="G-00123">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </button>
+                                                                <button class="btn btn-outline-warning edit-guest-btn" data-id="G-00123">
+                                                                    <i class="fas fa-edit"></i>
+                                                                </button>
+                                                                <button class="btn btn-outline-danger checkout-guest-btn" data-id="G-00123">
+                                                                    <i class="fas fa-sign-out-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>Sarah Johnson</strong><br>
+                                                            <small class="text-muted">ID: G-00124</small>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge bg-primary">Room 102</span><br>
+                                                            <small class="text-muted">Standard Room</small>
+                                                        </td>
+                                                        <td>
+                                                            Dec 16, 2024<br>
+                                                            <small class="text-muted">3:00 PM</small>
+                                                        </td>
+                                                        <td>
+                                                            Dec 22, 2024<br>
+                                                            <small class="text-muted">11:00 AM</small>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge bg-info">6 Nights</span><br>
+                                                            <small class="text-muted">2 days left</small>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge bg-success">Checked in</span><br>
+                                                            <small class="text-warning">1 pending request</small>
+                                                        </td>
+                                                        <td>
+                                                            <strong>$900.00</strong><br>
+                                                            <small class="text-success">Paid: $500</small>
+                                                        </td>
+                                                        <td>
+                                                            <div class="btn-group btn-group-sm">
+                                                                <button class="btn btn-outline-primary view-guest-btn" data-id="G-00124">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </button>
+                                                                <button class="btn btn-outline-warning edit-guest-btn" data-id="G-00124">
+                                                                    <i class="fas fa-edit"></i>
+                                                                </button>
+                                                                <button class="btn btn-outline-danger checkout-guest-btn" data-id="G-00124">
+                                                                    <i class="fas fa-sign-out-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <strong>Robert Williams</strong><br>
+                                                            <small class="text-muted">ID: G-00125</small>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge bg-warning">Suite 201</span><br>
+                                                            <small class="text-muted">Executive Suite</small>
+                                                        </td>
+                                                        <td>
+                                                            Dec 14, 2024<br>
+                                                            <small class="text-muted">1:00 PM</small>
+                                                        </td>
+                                                        <td>
+                                                            Dec 21, 2024<br>
+                                                            <small class="text-muted">11:00 AM</small>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge bg-info">7 Nights</span><br>
+                                                            <small class="text-muted">1 day left</small>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge bg-success">Checked in</span><br>
+                                                            <small class="text-muted">VIP Guest</small>
+                                                        </td>
+                                                        <td>
+                                                            <strong>$2,100.00</strong><br>
+                                                            <small class="text-success">Paid: $1,500</small>
+                                                        </td>
+                                                        <td>
+                                                            <div class="btn-group btn-group-sm">
+                                                                <button class="btn btn-outline-primary view-guest-btn" data-id="G-00125">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </button>
+                                                                <button class="btn btn-outline-warning edit-guest-btn" data-id="G-00125">
+                                                                    <i class="fas fa-edit"></i>
+                                                                </button>
+                                                                <button class="btn btn-outline-danger checkout-guest-btn" data-id="G-00125">
+                                                                    <i class="fas fa-sign-out-alt"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Check In Button Section -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="row g-3">
+                                    <div class="col-auto">
+                                        <label class="form-label">Date</label>
+                                        <input type="date" class="form-control" id="checkInDate" value="2025-12-20">
+                                    </div>
+                                    <div class="col-auto">
+                                        <label class="form-label">Time</label>
+                                        <input type="time" class="form-control" id="checkInTime" value="06:25:09">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-outline-secondary" id="saveCheckInBtn">
+                                    <i class="fas fa-save me-1"></i> Save
+                                </button>
+                                <button class="btn btn-success" id="checkInBtn">
+                                    <i class="fas fa-sign-in-alt me-1"></i> Check In
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Guest Details Modal -->
+    <div class="modal fade" id="guestDetailsModal" tabindex="-1" aria-labelledby="guestDetailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="guestDetailsModalLabel">
+                        <i class="fas fa-user-circle me-2"></i>Guest Details
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="mb-3 text-primary">Personal Information</h6>
+                            <div class="mb-3">
+                                <label class="form-label">Full Name</label>
+                                <p class="form-control-static"><strong>John Smith</strong></p>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Guest ID</label>
+                                <p class="form-control-static">G-00123</p>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Passport Number</label>
+                                <p class="form-control-static">AB1234567</p>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Nationality</label>
+                                <p class="form-control-static">American</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="mb-3 text-primary">Stay Information</h6>
+                            <div class="mb-3">
+                                <label class="form-label">Room</label>
+                                <p class="form-control-static">Room 101 - Deluxe Suite</p>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Check-in</label>
+                                <p class="form-control-static">Dec 15, 2024 at 2:00 PM</p>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Check-out</label>
+                                <p class="form-control-static">Dec 20, 2024 at 11:00 AM</p>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Duration</label>
+                                <p class="form-control-static">5 Nights (2 days remaining)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <h6 class="mb-3 text-primary">Billing Summary</h6>
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Room Charges (5 nights)</td>
+                                            <td>$1,000.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Service Charges</td>
+                                            <td>$250.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tax (10%)</td>
+                                            <td>$125.00</td>
+                                        </tr>
+                                        <tr class="table-active">
+                                            <td><strong>Total Amount</strong></td>
+                                            <td><strong>$1,375.00</strong></td>
+                                        </tr>
+                                        <tr class="table-success">
+                                            <td><strong>Amount Paid</strong></td>
+                                            <td><strong>$750.00</strong></td>
+                                        </tr>
+                                        <tr class="table-danger">
+                                            <td><strong>Balance Due</strong></td>
+                                            <td><strong>$625.00</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Print Invoice</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        // In House Guests Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize last updated time
+            updateLastUpdatedTime();
+            
+            // Refresh data button
+            document.getElementById('refreshDataBtn').addEventListener('click', function() {
+                refreshData();
+            });
+            
+            // Search guest button
+            document.getElementById('searchGuestBtn').addEventListener('click', function() {
+                searchGuest();
+            });
+            
+            // Add room button
+            document.getElementById('addRoomBtn').addEventListener('click', function() {
+                addRoom();
+            });
+            
+            // Add service button
+            document.getElementById('addServiceBtn').addEventListener('click', function() {
+                addService();
+            });
+            
+            // Add payment button
+            document.getElementById('addPaymentBtn').addEventListener('click', function() {
+                addPayment();
+            });
+            
+            // Print receipt button
+            document.getElementById('printReceiptBtn').addEventListener('click', function() {
+                printReceipt();
+            });
+            
+            // Reset payment button
+            document.getElementById('resetPaymentBtn').addEventListener('click', function() {
+                resetPaymentForm();
+            });
+            
+            // Save check-in button
+            document.getElementById('saveCheckInBtn').addEventListener('click', function() {
+                saveCheckIn();
+            });
+            
+            // Check-in button
+            document.getElementById('checkInBtn').addEventListener('click', function() {
+                checkInGuest();
+            });
+            
+            // View guest buttons
+            document.querySelectorAll('.view-guest-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const guestId = this.dataset.id;
+                    viewGuestDetails(guestId);
+                });
+            });
+            
+            // Edit guest buttons
+            document.querySelectorAll('.edit-guest-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const guestId = this.dataset.id;
+                    editGuest(guestId);
+                });
+            });
+            
+            // Checkout guest buttons
+            document.querySelectorAll('.checkout-guest-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const guestId = this.dataset.id;
+                    checkoutGuest(guestId);
+                });
+            });
+            
+            // Tab change event
+            document.querySelectorAll('#inHouseTabs button').forEach(tab => {
+                tab.addEventListener('shown.bs.tab', function(event) {
+                    const activeTab = event.target.getAttribute('data-bs-target');
+                    handleTabChange(activeTab);
+                });
+            });
+            
+            // Initialize sample data
+            initializeSampleData();
+        });
+        
+        function updateLastUpdatedTime() {
+            const now = new Date();
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            const formattedDate = now.toLocaleDateString('en-US', options);
+            document.getElementById('lastUpdated').textContent = `Last Updated: ${formattedDate}`;
+        }
+        
+        function refreshData() {
+            // Show loading state
+            const refreshBtn = document.getElementById('refreshDataBtn');
+            const originalText = refreshBtn.innerHTML;
+            refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Refreshing...';
+            refreshBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Update last updated time
+                updateLastUpdatedTime();
+                
+                // Show success message
+                showAlert('Data refreshed successfully', 'success');
+                
+                // Restore button
+                refreshBtn.innerHTML = originalText;
+                refreshBtn.disabled = false;
+            }, 1500);
+        }
+        
+        function searchGuest() {
+            const lastName = document.getElementById('lastNameSearch').value.trim();
+            const roomId = document.getElementById('roomIdSearch').value.trim();
+            
+            if (!lastName && !roomId) {
+                showAlert('Please enter last name or room ID to search', 'warning');
+                return;
+            }
+            
+            // In a real application, you would make an API call here
+            // For now, we'll just show a message
+            showAlert(`Searching for guest with Last Name: ${lastName || 'N/A'}, Room ID: ${roomId || 'N/A'}`, 'info');
+            
+            // Highlight matching rows in the table
+            const rows = document.querySelectorAll('#checkin table tbody tr');
+            rows.forEach(row => {
+                const rowLastName = row.cells[3].textContent.trim().toLowerCase();
+                const rowRoom = row.cells[0].textContent.trim().toLowerCase();
+                
+                if ((lastName && rowLastName.includes(lastName.toLowerCase())) || 
+                    (roomId && rowRoom.includes(roomId.toLowerCase()))) {
+                    row.classList.add('table-info');
+                    setTimeout(() => row.classList.remove('table-info'), 3000);
+                }
+            });
+        }
+        
+        function addRoom() {
+            const category = document.getElementById('roomCategory').value;
+            const room = document.getElementById('roomNumber').value;
+            const roomType = document.getElementById('roomType').value;
+            const fromDate = document.getElementById('roomFromDate').value;
+            const toDate = document.getElementById('roomToDate').value;
+            const discount = document.getElementById('roomDiscount').value;
+            const mealPlan = document.getElementById('mealPlan').value;
+            
+            if (!category || !room || !roomType || !fromDate || !toDate) {
+                showAlert('Please fill in all required fields for room selection', 'warning');
+                return;
+            }
+            
+            // Calculate nights
+            const from = new Date(fromDate);
+            const to = new Date(toDate);
+            const nights = Math.ceil((to - from) / (1000 * 60 * 60 * 24));
+            
+            if (nights <= 0) {
+                showAlert('Check-out date must be after check-in date', 'warning');
+                return;
+            }
+            
+            // Calculate total (simplified)
+            const baseRate = getRoomRate(category, roomType);
+            const discountAmount = (baseRate * nights * discount) / 100;
+            const mealPlanCost = getMealPlanCost(mealPlan, nights);
+            const total = (baseRate * nights) - discountAmount + mealPlanCost;
+            
+            // Add to added rooms table
+            const tableBody = document.getElementById('addedRoomsTable');
+            const newRow = document.createElement('tr');
+            
+            newRow.innerHTML = `
+                <td>Room ${room}</td>
+                <td>${roomType}</td>
+                <td>${mealPlan || 'None'}</td>
+                <td>${formatDate(fromDate)}</td>
+                <td>${formatDate(toDate)}</td>
+                <td>$${total.toFixed(2)}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-danger remove-room-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Add event listener to remove button
+            newRow.querySelector('.remove-room-btn').addEventListener('click', function() {
+                this.closest('tr').remove();
+                showAlert('Room removed from selection', 'info');
+            });
+            
+            // Clear form
+            document.getElementById('roomCategory').value = '';
+            document.getElementById('roomNumber').value = '';
+            document.getElementById('roomType').value = '';
+            document.getElementById('roomDiscount').value = '0';
+            document.getElementById('mealPlan').value = '';
+            
+            showAlert(`Room ${room} added successfully`, 'success');
+        }
+        
+        function addService() {
+            const serviceCode = document.getElementById('serviceCode').value;
+            const serviceName = document.getElementById('serviceName').value;
+            const department = document.getElementById('serviceDepartment').value;
+            const category = document.getElementById('serviceCategory').value;
+            const subCategory = document.getElementById('serviceSubCategory').value;
+            
+            if (!serviceCode || !serviceName) {
+                showAlert('Please select service code and name', 'warning');
+                return;
+            }
+            
+            // Get price based on service
+            const price = getServicePrice(serviceCode);
+            const qty = 1;
+            const total = price * qty;
+            
+            // Add to services table
+            const tableBody = document.getElementById('servicesTableBody');
+            const newRow = document.createElement('tr');
+            
+            newRow.innerHTML = `
+                <td>${serviceCode}</td>
+                <td>${getServiceNameFromCode(serviceCode)}</td>
+                <td>$${price.toFixed(2)}</td>
+                <td>${serviceCode}</td>
+                <td>${serviceName}</td>
+                <td>
+                    <input type="number" class="form-control form-control-sm" value="${qty}" min="1" style="width: 70px;">
+                </td>
+                <td>$${price.toFixed(2)}</td>
+                <td>$${total.toFixed(2)}</td>
+                <td>
+                    <input type="text" class="form-control form-control-sm" placeholder="Remarks">
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-outline-primary add-to-services-btn">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Add event listener to add button
+            newRow.querySelector('.add-to-services-btn').addEventListener('click', function() {
+                const row = this.closest('tr');
+                const servCode = row.cells[0].textContent;
+                const servName = row.cells[1].textContent;
+                const servQty = row.cells[5].querySelector('input').value;
+                const servAmount = parseFloat(row.cells[6].textContent.replace('$', ''));
+                const servTotal = servAmount * servQty;
+                
+                addToServicesTable(servCode, servName, servQty, servAmount, servTotal);
+            });
+            
+            // Clear form
+            document.getElementById('serviceCode').value = '';
+            document.getElementById('serviceName').value = '';
+            document.getElementById('serviceDepartment').value = '';
+            document.getElementById('serviceCategory').value = '';
+            document.getElementById('serviceSubCategory').value = '';
+            
+            showAlert(`Service ${serviceName} added`, 'success');
+        }
+        
+        function addToServicesTable(servCode, servName, qty, amount, total) {
+            const tableBody = document.getElementById('addedServicesTable');
+            const newRow = document.createElement('tr');
+            
+            newRow.innerHTML = `
+                <td>${servCode}</td>
+                <td>${servName}</td>
+                <td>${qty}</td>
+                <td>$${amount.toFixed(2)}</td>
+                <td>$${total.toFixed(2)}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-danger remove-service-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Add event listener to remove button
+            newRow.querySelector('.remove-service-btn').addEventListener('click', function() {
+                this.closest('tr').remove();
+            });
+            
+            showAlert(`Service ${servName} added to guest bill`, 'success');
+        }
+        
+        function addPayment() {
+            const paymentType = document.getElementById('paymentType').value;
+            const amount = parseFloat(document.getElementById('paymentAmount').value);
+            const currency = document.getElementById('currencyType').value;
+            const date = document.getElementById('paymentDate').value;
+            
+            if (!amount || amount <= 0) {
+                showAlert('Please enter a valid payment amount', 'warning');
+                return;
+            }
+            
+            // Generate receipt number
+            const receiptNo = `RCPT${new Date().getFullYear()}${String(new Date().getMonth()+1).padStart(2, '0')}${String(new Date().getDate()).padStart(2, '0')}${String(Math.floor(Math.random()*900)+100)}`;
+            
+            // Add to payments table
+            const tableBody = document.getElementById('paymentsTable');
+            const newRow = document.createElement('tr');
+            
+            newRow.innerHTML = `
+                <td>${receiptNo}</td>
+                <td><span class="badge bg-success">${paymentType.charAt(0).toUpperCase() + paymentType.slice(1)}</span></td>
+                <td>${formatDate(date)}</td>
+                <td class="text-success">$${amount.toFixed(2)}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-primary view-payment-btn">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Update receipt number
+            document.getElementById('receiptNo').value = `RCPT${new Date().getFullYear()}${String(new Date().getMonth()+1).padStart(2, '0')}${String(new Date().getDate()+1).padStart(2, '0')}${String(Math.floor(Math.random()*900)+100)}`;
+            
+            // Clear amount field
+            document.getElementById('paymentAmount').value = '';
+            
+            showAlert(`Payment of $${amount.toFixed(2)} added successfully`, 'success');
+        }
+        
+        function printReceipt() {
+            // In a real application, this would generate a printable receipt
+            showAlert('Opening print dialog...', 'info');
+            
+            // Simulate print dialog
+            setTimeout(() => {
+                window.print();
+            }, 500);
+        }
+        
+        function resetPaymentForm() {
+            document.getElementById('paymentAmount').value = '';
+            document.getElementById('paymentDate').value = '2025-12-20';
+            showAlert('Payment form reset', 'info');
+        }
+        
+        function saveCheckIn() {
+            const date = document.getElementById('checkInDate').value;
+            const time = document.getElementById('checkInTime').value;
+            
+            showAlert(`Check-in details saved: ${formatDate(date)} at ${time}`, 'success');
+        }
+        
+        function checkInGuest() {
+            // In a real application, this would process the check-in
+            showAlert('Processing guest check-in...', 'info');
+            
+            // Simulate check-in process
+            setTimeout(() => {
+                showAlert('Guest checked in successfully!', 'success');
+                
+                // Update stats
+                updateStatsAfterCheckIn();
+            }, 2000);
+        }
+        
+        function viewGuestDetails(guestId) {
+            // In a real application, you would fetch guest details from an API
+            // For now, we'll just show the modal
+            const guestDetailsModal = new bootstrap.Modal(document.getElementById('guestDetailsModal'));
+            guestDetailsModal.show();
+            
+            // Update modal title
+            document.getElementById('guestDetailsModalLabel').innerHTML = `<i class="fas fa-user-circle me-2"></i>Guest Details - ${guestId}`;
+        }
+        
+        function editGuest(guestId) {
+            showAlert(`Editing guest: ${guestId}`, 'info');
+            // In a real application, you would redirect to edit page or open edit modal
+        }
+        
+        function checkoutGuest(guestId) {
+            if (confirm(`Are you sure you want to check out guest ${guestId}?`)) {
+                showAlert(`Processing check-out for guest: ${guestId}`, 'info');
+                
+                // Simulate check-out process
+                setTimeout(() => {
+                    showAlert(`Guest ${guestId} checked out successfully!`, 'success');
+                }, 1500);
+            }
+        }
+        
+        function handleTabChange(activeTab) {
+            // You can add tab-specific logic here
+            console.log(`Tab changed to: ${activeTab}`);
+        }
+        
+        function initializeSampleData() {
+            // Add some sample rooms
+            const sampleRooms = [
+                { room: '103', type: 'Single', meal: 'Breakfast Only', from: '2024-12-20', to: '2024-12-22', total: '300.00' },
+                { room: '202', type: 'Double', meal: 'Half Board', from: '2024-12-20', to: '2024-12-25', total: '750.00' }
+            ];
+            
+            const roomsTable = document.getElementById('addedRoomsTable');
+            sampleRooms.forEach(room => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>Room ${room.room}</td>
+                    <td>${room.type}</td>
+                    <td>${room.meal}</td>
+                    <td>${formatDate(room.from)}</td>
+                    <td>${formatDate(room.to)}</td>
+                    <td>$${room.total}</td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-danger remove-room-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </td>
+                `;
+                roomsTable.appendChild(row);
+                
+                // Add event listener
+                row.querySelector('.remove-room-btn').addEventListener('click', function() {
+                    this.closest('tr').remove();
+                });
+            });
+            
+            // Add some sample services
+            const sampleServices = [
+                { code: 'SRV001', name: 'Spa Treatment', qty: 1, amount: '120.00', total: '120.00' },
+                { code: 'SRV003', name: 'Room Service', qty: 2, amount: '35.00', total: '70.00' }
+            ];
+            
+            const servicesTable = document.getElementById('addedServicesTable');
+            sampleServices.forEach(service => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${service.code}</td>
+                    <td>${service.name}</td>
+                    <td>${service.qty}</td>
+                    <td>$${service.amount}</td>
+                    <td>$${service.total}</td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-danger remove-service-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </td>
+                `;
+                servicesTable.appendChild(row);
+                
+                // Add event listener
+                row.querySelector('.remove-service-btn').addEventListener('click', function() {
+                    this.closest('tr').remove();
+                });
+            });
+        }
+        
+        function updateStatsAfterCheckIn() {
+            // Update the stats numbers
+            const extendedStaysElement = document.querySelector('.stat-card.bg-primary .stat-number');
+            const currentExtendedStays = parseInt(extendedStaysElement.textContent);
+            extendedStaysElement.textContent = (currentExtendedStays + 1).toString();
+            
+            const activeRequestsElement = document.querySelector('.stat-card.bg-danger .stat-number');
+            const currentActiveRequests = parseInt(activeRequestsElement.textContent);
+            activeRequestsElement.textContent = (currentActiveRequests + 1).toString();
+        }
+        
+        // Utility functions
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+        
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return date.toLocaleDateString('en-US', options);
+        }
+        
+        function getRoomRate(category, type) {
+            // Simplified room rates
+            const rates = {
+                'standard': { 'single': 100, 'double': 150, 'twin': 150, 'family': 200 },
+                'deluxe': { 'single': 150, 'double': 200, 'twin': 200, 'family': 250 },
+                'suite': { 'single': 200, 'double': 300, 'twin': 300, 'family': 400 },
+                'presidential': { 'single': 500, 'double': 600, 'twin': 600, 'family': 800 }
+            };
+            
+            return rates[category]?.[type] || 100;
+        }
+        
+        function getMealPlanCost(mealPlan, nights) {
+            const costs = {
+                'breakfast': 20,
+                'halfboard': 50,
+                'fullboard': 80,
+                'allinclusive': 120
+            };
+            
+            return (costs[mealPlan] || 0) * nights;
+        }
+        
+        function getServicePrice(serviceCode) {
+            const prices = {
+                'SRV001': 120.00, // Spa Treatment
+                'SRV002': 25.00,  // Laundry
+                'SRV003': 35.00,  // Room Service
+                'SRV004': 60.00   // Airport Transfer
+            };
+            
+            return prices[serviceCode] || 0;
+        }
+        
+        function getServiceNameFromCode(serviceCode) {
+            const names = {
+                'SRV001': 'Spa Treatment',
+                'SRV002': 'Laundry Service',
+                'SRV003': 'Room Service',
+                'SRV004': 'Airport Transfer'
+            };
+            
+            return names[serviceCode] || 'Unknown Service';
+        }
+    </script>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+
+    <!-- Include JavaScript -->
+    <script src="js/include.js"></script>
+     <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

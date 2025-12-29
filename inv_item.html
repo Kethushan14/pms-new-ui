@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Management - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/inv_item.css">
+   
+
+     
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-box me-2"></i>Item Management
+                                </h1>
+                                <p class="card-text text-muted mb-0">Manage inventory items and stock details</p>
+                                <small class="text-muted">Total Items: <span class="fw-bold">187</span> • In Stock: <span class="text-success fw-bold">162</span> • Low Stock: <span class="text-warning fw-bold">18</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addItemModal">
+                                    <i class="fas fa-plus-circle me-1"></i> Add New Item
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item Information -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0">
+                            <i class="fas fa-box-open me-2"></i>Item Information
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-3">
+                                <label for="itemCodeSearch" class="form-label">Code</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="itemCodeSearch" placeholder="Enter Code">
+                                    <span class="input-group-text bg-warning text-dark">
+                                        <i class="fas fa-hashtag"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="itemNameSearch" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="itemNameSearch" placeholder="Enter Item Name">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="subCategorySelect" class="form-label">Sub Category</label>
+                                <select class="form-select" id="subCategorySelect">
+                                    <option value="">Select Sub Category</option>
+                                    <option value="SUB001">Breakfast Items</option>
+                                    <option value="SUB002">Beverages</option>
+                                    <option value="K>5">Disinfectants</option>
+                                    <option value="SUB004">Bathroom Supplies</option>
+                                    <option value="SUB005">Writing Materials</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="supplierSelect" class="form-label">Supplier</label>
+                                <select class="form-select" id="supplierSelect">
+                                    <option value="">Select Supplier</option>
+                                    <option value="SUP001">Food Distributors Ltd.</option>
+                                    <option value="SUP002">Beverage Supply Co.</option>
+                                    <option value="SUP003">Cleaning Solutions Inc.</option>
+                                    <option value="SUP004">Hotel Amenities Corp.</option>
+                                    <option value="SUP005">Office Supplies Plus</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="searchItem" class="form-label">Search</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="searchItem" placeholder="Search items...">
+                                    <button class="btn btn-warning" type="button">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Filter</label>
+                                <select class="form-select" id="itemFilter">
+                                    <option value="all">All Items</option>
+                                    <option value="in_stock">In Stock Only</option>
+                                    <option value="low_stock">Low Stock</option>
+                                    <option value="out_of_stock">Out of Stock</option>
+                                    <option value="food">Food Items</option>
+                                    <option value="cleaning">Cleaning Items</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Item Table -->
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th width="50">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="selectAllItems">
+                                            </div>
+                                        </th>
+                                        <th>Code</th>
+                                        <th>Name</th>
+                                        <th>Sub Category</th>
+                                        <th>Supplier</th>
+                                        <th>Cost</th>
+                                        <th>Stock</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="itemTableBody">
+                                    <!-- Item Row 1 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input item-checkbox" type="checkbox" data-id="ITM001">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-primary item-code">ITM001</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="item-icon bg-primary text-white">
+                                                    <i class="fas fa-coffee"></i>
+                                                </div>
+                                                <div>
+                                                    <strong>Premium Coffee Beans</strong>
+                                                    <div class="text-muted small">Arabica, 1kg pack</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Beverages</span>
+                                        </td>
+                                        <td>
+                                            <span class="supplier-badge">Beverage Supply Co.</span>
+                                        </td>
+                                        <td>
+                                            <span class="cost-badge">$24.99</span>
+                                        </td>
+                                        <td>
+                                            <span class="stock-indicator stock-medium"></span> 42 units
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary edit-item" data-id="ITM001">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-item" data-id="ITM001">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                                <button class="btn btn-outline-info view-details" data-id="ITM001">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Item Row 2 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input item-checkbox" type="checkbox" data-id="ITM002">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success item-code">ITM002</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="item-icon bg-success text-white">
+                                                    <i class="fas fa-bread-slice"></i>
+                                                </div>
+                                                <div>
+                                                    <strong>Whole Wheat Bread</strong>
+                                                    <div class="text-muted small">Sliced, 500g</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-primary">Breakfast Items</span>
+                                        </td>
+                                        <td>
+                                            <span class="supplier-badge">Food Distributors Ltd.</span>
+                                        </td>
+                                        <td>
+                                            <span class="cost-badge">$3.49</span>
+                                        </td>
+                                        <td>
+                                            <span class="stock-indicator stock-high"></span> 85 units
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary edit-item" data-id="ITM002">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-item" data-id="ITM002">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                                <button class="btn btn-outline-info view-details" data-id="ITM002">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Item Row 3 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input item-checkbox" type="checkbox" data-id="K<5">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-warning item-code">K<5</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="item-icon bg-warning text-white">
+                                                    <i class="fas fa-spray-can"></i>
+                                                </div>
+                                                <div>
+                                                    <strong>Multi-surface Cleaner</strong>
+                                                    <div class="text-muted small">1L bottle</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-warning">Disinfectants</span>
+                                        </td>
+                                        <td>
+                                            <span class="supplier-badge">Cleaning Solutions Inc.</span>
+                                        </td>
+                                        <td>
+                                            <span class="cost-badge">$8.99</span>
+                                        </td>
+                                        <td>
+                                            <span class="stock-indicator stock-low"></span> 7 units
+                                            <span class="badge bg-danger ms-1">Low</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-warning">Reorder</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary edit-item" data-id="K<5">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-item" data-id="K<5">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                                <button class="btn btn-outline-info view-details" data-id="K<5">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Item Row 4 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input item-checkbox" type="checkbox" data-id="ITM004">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info item-code">ITM004</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="item-icon bg-info text-white">
+                                                    <i class="fas fa-toilet-paper"></i>
+                                                </div>
+                                                <div>
+                                                    <strong>Premium Toilet Paper</strong>
+                                                    <div class="text-muted small">2-ply, 12 rolls</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">Bathroom Supplies</span>
+                                        </td>
+                                        <td>
+                                            <span class="supplier-badge">Hotel Amenities Corp.</span>
+                                        </td>
+                                        <td>
+                                            <span class="cost-badge">$12.99</span>
+                                        </td>
+                                        <td>
+                                            <span class="stock-indicator stock-medium"></span> 28 units
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary edit-item" data-id="ITM004">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-item" data-id="ITM004">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                                <button class="btn btn-outline-info view-details" data-id="ITM004">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Item Row 5 -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input item-checkbox" type="checkbox" data-id="ITM005">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-secondary item-code">ITM005</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="item-icon bg-secondary text-white">
+                                                    <i class="fas fa-pen"></i>
+                                                </div>
+                                                <div>
+                                                    <strong>Ballpoint Pens</strong>
+                                                    <div class="text-muted small">Black, pack of 12</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-secondary">Writing Materials</span>
+                                        </td>
+                                        <td>
+                                            <span class="supplier-badge">Office Supplies Plus</span>
+                                        </td>
+                                        <td>
+                                            <span class="cost-badge">$4.99</span>
+                                        </td>
+                                        <td>
+                                            <span class="stock-indicator stock-out"></span> 0 units
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-danger">Out of Stock</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary edit-item" data-id="ITM005">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-item" data-id="ITM005">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                                <button class="btn btn-outline-info view-details" data-id="ITM005">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item Details Section -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-info-circle me-2 text-primary"></i>Item Details
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="text-primary">Add New Item</h5>
+                                    <button class="btn btn-outline-secondary" id="clearItemFormBtn">
+                                        <i class="fas fa-redo me-1"></i> Clear Form
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="stockCode" class="form-label">
+                                        <i class="fas fa-hashtag me-1 text-primary"></i>Stock Code *
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="stockCode" placeholder="Enter unique item code">
+                                        <button class="btn btn-outline-primary" type="button" id="generateStockCodeBtn">
+                                            <i class="fas fa-sync-alt"></i> Generate
+                                        </button>
+                                    </div>
+                                    <div class="form-text">Unique identifier for the item</div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="stockName" class="form-label">
+                                        <i class="fas fa-tag me-1 text-primary"></i>Stock Name *
+                                    </label>
+                                    <input type="text" class="form-control" id="stockName" placeholder="Enter item name">
+                                    <div class="form-text">Descriptive name for the item</div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="itemDescription" class="form-label">
+                                        <i class="fas fa-align-left me-1 text-primary"></i>Description
+                                    </label>
+                                    <textarea class="form-control" id="itemDescription" rows="3" placeholder="Enter item description..."></textarea>
+                                    <div class="form-text">Detailed description of the item</div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="itemSubCategory" class="form-label">
+                                        <i class="fas fa-sitemap me-1 text-primary"></i>Sub Category *
+                                    </label>
+                                    <select class="form-select" id="itemSubCategory">
+                                        <option value="">Select Sub Category</option>
+                                        <option value="SUB001">Breakfast Items</option>
+                                        <option value="SUB002">Beverages</option>
+                                        <option value="K>5">Disinfectants</option>
+                                        <option value="SUB004">Bathroom Supplies</option>
+                                        <option value="SUB005">Writing Materials</option>
+                                        <option value="SUB006">Lunch Items</option>
+                                        <option value="SUB007">Dinner Items</option>
+                                        <option value="SUB008">Snacks</option>
+                                    </select>
+                                    <div class="form-text">Select the sub-category for this item</div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="itemSupplier" class="form-label">
+                                        <i class="fas fa-truck me-1 text-primary"></i>Supplier *
+                                    </label>
+                                    <select class="form-select" id="itemSupplier">
+                                        <option value="">Select Supplier</option>
+                                        <option value="SUP001">Food Distributors Ltd.</option>
+                                        <option value="SUP002">Beverage Supply Co.</option>
+                                        <option value="SUP003">Cleaning Solutions Inc.</option>
+                                        <option value="SUP004">Hotel Amenities Corp.</option>
+                                        <option value="SUP005">Office Supplies Plus</option>
+                                        <option value="SUP006">Fresh Produce Market</option>
+                                        <option value="SUP007">Meat & Poultry Suppliers</option>
+                                        <option value="SUP008">Dairy Products Inc.</option>
+                                    </select>
+                                    <div class="form-text">Select the supplier for this item</div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="currencyType" class="form-label">
+                                        <i class="fas fa-money-bill-wave me-1 text-primary"></i>Currency Type
+                                    </label>
+                                    <select class="form-select" id="currencyType">
+                                        <option value="USD">US Dollar ($)</option>
+                                        <option value="EUR">Euro (€)</option>
+                                        <option value="GBP">British Pound (£)</option>
+                                        <option value="JPY">Japanese Yen (¥)</option>
+                                        <option value="AUD">Australian Dollar (A$)</option>
+                                        <option value="CAD">Canadian Dollar (C$)</option>
+                                        <option value="LKR">Sri Lankan Rupee (Rs)</option>
+                                    </select>
+                                    <div class="form-text">Select currency for pricing</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Additional Item Information -->
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="unitCost" class="form-label">
+                                            <i class="fas fa-dollar-sign me-1 text-primary"></i>Unit Cost *
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="number" class="form-control" id="unitCost" min="0" step="0.01" placeholder="0.00">
+                                        </div>
+                                        <div class="form-text">Cost per unit</div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="sellingPrice" class="form-label">
+                                            <i class="fas fa-tags me-1 text-primary"></i>Selling Price
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="number" class="form-control" id="sellingPrice" min="0" step="0.01" placeholder="0.00">
+                                        </div>
+                                        <div class="form-text">Selling price per unit</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="currentStock" class="form-label">
+                                            <i class="fas fa-boxes me-1 text-primary"></i>Current Stock
+                                        </label>
+                                        <input type="number" class="form-control" id="currentStock" min="0" value="0">
+                                        <div class="form-text">Current quantity in stock</div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="minStock" class="form-label">
+                                            <i class="fas fa-exclamation-triangle me-1 text-primary"></i>Min Stock Level
+                                        </label>
+                                        <input type="number" class="form-control" id="minStock" min="0" value="10">
+                                        <div class="form-text">Minimum stock level before reorder</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="mb-3">
+                                    <label for="itemStatus" class="form-label">
+                                        <i class="fas fa-toggle-on me-1 text-primary"></i>Status
+                                    </label>
+                                    <select class="form-select" id="itemStatus">
+                                        <option value="active">Active</option>
+                                        <option value="inactive">Inactive</option>
+                                        <option value="discontinued">Discontinued</option>
+                                        <option value="pending">Pending Review</option>
+                                    </select>
+                                    <div class="form-text">Current status of the item</div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="itemType" class="form-label">
+                                        <i class="fas fa-list-alt me-1 text-primary"></i>Item Type
+                                    </label>
+                                    <select class="form-select" id="itemType">
+                                        <option value="consumable">Consumable</option>
+                                        <option value="non_consumable">Non-Consumable</option>
+                                        <option value="perishable">Perishable</option>
+                                        <option value="equipment">Equipment</option>
+                                        <option value="raw_material">Raw Material</option>
+                                        <option value="finished_good">Finished Good</option>
+                                    </select>
+                                    <div class="form-text">Type of item</div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="unitOfMeasure" class="form-label">
+                                        <i class="fas fa-balance-scale me-1 text-primary"></i>Unit of Measure
+                                    </label>
+                                    <select class="form-select" id="unitOfMeasure">
+                                        <option value="piece">Piece</option>
+                                        <option value="kg">Kilogram (kg)</option>
+                                        <option value="g">Gram (g)</option>
+                                        <option value="liter">Liter (L)</option>
+                                        <option value="ml">Milliliter (ml)</option>
+                                        <option value="pack">Pack</option>
+                                        <option value="box">Box</option>
+                                        <option value="carton">Carton</option>
+                                        <option value="roll">Roll</option>
+                                        <option value="bottle">Bottle</option>
+                                    </select>
+                                    <div class="form-text">Unit of measurement for this item</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-end gap-2">
+                                    <button class="btn btn-outline-secondary" id="resetItemBtn">
+                                        <i class="fas fa-redo me-1"></i> Reset
+                                    </button>
+                                    <button class="btn btn-danger" id="deleteItemBtn">
+                                        <i class="fas fa-trash me-1"></i> Delete
+                                    </button>
+                                    <button class="btn btn-success" id="saveItemBtn">
+                                        <i class="fas fa-save me-1"></i> Save
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Add Item Modal -->
+    <div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="addItemModalLabel">
+                        <i class="fas fa-plus-circle me-2"></i>Add New Item
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="newStockCode" class="form-label">Stock Code *</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="newStockCode" placeholder="e.g., ITM001" required>
+                                <button class="btn btn-outline-primary" type="button" id="autoGenerateStockCode">
+                                    <i class="fas fa-magic"></i> Auto
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newStockName" class="form-label">Stock Name *</label>
+                            <input type="text" class="form-control" id="newStockName" placeholder="Enter item name" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newSubCategory" class="form-label">Sub Category *</label>
+                            <select class="form-select" id="newSubCategory" required>
+                                <option value="">Select Sub Category</option>
+                                <option value="SUB001">Breakfast Items</option>
+                                <option value="SUB002">Beverages</option>
+                                <option value="K>5">Disinfectants</option>
+                                <option value="SUB004">Bathroom Supplies</option>
+                                <option value="SUB005">Writing Materials</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newSupplier" class="form-label">Supplier *</label>
+                            <select class="form-select" id="newSupplier" required>
+                                <option value="">Select Supplier</option>
+                                <option value="SUP001">Food Distributors Ltd.</option>
+                                <option value="SUP002">Beverage Supply Co.</option>
+                                <option value="SUP003">Cleaning Solutions Inc.</option>
+                                <option value="SUP004">Hotel Amenities Corp.</option>
+                                <option value="SUP005">Office Supplies Plus</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newCurrencyType" class="form-label">Currency Type</label>
+                            <select class="form-select" id="newCurrencyType">
+                                <option value="USD">US Dollar ($)</option>
+                                <option value="EUR">Euro (€)</option>
+                                <option value="GBP">British Pound (£)</option>
+                                <option value="LKR">Sri Lankan Rupee (Rs)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newUnitCost" class="form-label">Unit Cost *</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="newUnitCost" min="0" step="0.01" placeholder="0.00" required>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="newItemDesc" class="form-label">Description</label>
+                            <textarea class="form-control" id="newItemDesc" rows="3" placeholder="Brief description of this item"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveNewItemBtn">Save Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteItemModal" tabindex="-1" aria-labelledby="deleteItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteItemModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Confirm Delete
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this item?</p>
+                    <p class="text-danger"><strong>Warning: This will remove the item from inventory!</strong></p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="confirmItemDelete">
+                        <label class="form-check-label" for="confirmItemDelete">
+                            I understand this action cannot be undone
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmItemDeleteBtn" disabled>Delete Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/include.js"></script>
+
+    
+    <script>
+        // Item Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select all items checkbox
+            document.getElementById('selectAllItems').addEventListener('change', function() {
+                const checkboxes = document.querySelectorAll('.item-checkbox');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+            
+            // Edit item buttons
+            document.querySelectorAll('.edit-item').forEach(button => {
+                button.addEventListener('click', function() {
+                    const itemId = this.dataset.id;
+                    loadItemDetails(itemId);
+                });
+            });
+            
+            // Delete item buttons
+            document.querySelectorAll('.delete-item').forEach(button => {
+                button.addEventListener('click', function() {
+                    const itemId = this.dataset.id;
+                    showDeleteItemModal(itemId);
+                });
+            });
+            
+            // View details buttons
+            document.querySelectorAll('.view-details').forEach(button => {
+                button.addEventListener('click', function() {
+                    const itemId = this.dataset.id;
+                    viewItemDetails(itemId);
+                });
+            });
+            
+            // Generate code button
+            document.getElementById('generateStockCodeBtn').addEventListener('click', function() {
+                generateStockCode();
+            });
+            
+            // Save item button
+            document.getElementById('saveItemBtn').addEventListener('click', function() {
+                saveItem();
+            });
+            
+            // Delete item button
+            document.getElementById('deleteItemBtn').addEventListener('click', function() {
+                const stockCode = document.getElementById('stockCode').value;
+                if (stockCode) {
+                    showDeleteItemModal(stockCode);
+                }
+            });
+            
+            // Reset item button
+            document.getElementById('resetItemBtn').addEventListener('click', function() {
+                resetItemForm();
+            });
+            
+            // Clear form button
+            document.getElementById('clearItemFormBtn').addEventListener('click', function() {
+                resetItemForm();
+            });
+            
+            // Save new item button
+            document.getElementById('saveNewItemBtn').addEventListener('click', function() {
+                saveNewItem();
+            });
+            
+            // Auto generate code in modal
+            document.getElementById('autoGenerateStockCode').addEventListener('click', function() {
+                generateModalStockCode();
+            });
+            
+            // Confirm delete checkbox
+            document.getElementById('confirmItemDelete').addEventListener('change', function() {
+                document.getElementById('confirmItemDeleteBtn').disabled = !this.checked;
+            });
+            
+            // Confirm delete button
+            document.getElementById('confirmItemDeleteBtn').addEventListener('click', function() {
+                deleteItem();
+            });
+            
+            // Search functionality
+            document.getElementById('itemCodeSearch').addEventListener('input', filterItems);
+            document.getElementById('itemNameSearch').addEventListener('input', filterItems);
+            document.getElementById('searchItem').addEventListener('input', filterItems);
+            document.getElementById('subCategorySelect').addEventListener('change', filterItems);
+            document.getElementById('supplierSelect').addEventListener('change', filterItems);
+            document.getElementById('itemFilter').addEventListener('change', filterItems);
+        });
+        
+        function loadItemDetails(itemId) {
+            // Sample item data
+            const itemData = {
+                'ITM001': {
+                    code: 'ITM001',
+                    name: 'Premium Coffee Beans',
+                    description: 'Arabica coffee beans, 1kg pack',
+                    subCategory: 'SUB002',
+                    supplier: 'SUP002',
+                    currencyType: 'USD',
+                    unitCost: 24.99,
+                    sellingPrice: 39.99,
+                    currentStock: 42,
+                    minStock: 15,
+                    status: 'active',
+                    itemType: 'perishable',
+                    unitOfMeasure: 'kg'
+                },
+                'ITM002': {
+                    code: 'ITM002',
+                    name: 'Whole Wheat Bread',
+                    description: 'Sliced whole wheat bread, 500g',
+                    subCategory: 'SUB001',
+                    supplier: 'SUP001',
+                    currencyType: 'USD',
+                    unitCost: 3.49,
+                    sellingPrice: 6.99,
+                    currentStock: 85,
+                    minStock: 20,
+                    status: 'active',
+                    itemType: 'perishable',
+                    unitOfMeasure: 'piece'
+                },
+                'K<5': {
+                    code: 'K<5',
+                    name: 'Multi-surface Cleaner',
+                    description: 'All-purpose cleaner, 1L bottle',
+                    subCategory: 'K>5',
+                    supplier: 'SUP003',
+                    currencyType: 'USD',
+                    unitCost: 8.99,
+                    sellingPrice: 14.99,
+                    currentStock: 7,
+                    minStock: 10,
+                    status: 'active',
+                    itemType: 'consumable',
+                    unitOfMeasure: 'liter'
+                },
+                'ITM004': {
+                    code: 'ITM004',
+                    name: 'Premium Toilet Paper',
+                    description: '2-ply toilet paper, 12 rolls',
+                    subCategory: 'SUB004',
+                    supplier: 'SUP004',
+                    currencyType: 'USD',
+                    unitCost: 12.99,
+                    sellingPrice: 19.99,
+                    currentStock: 28,
+                    minStock: 25,
+                    status: 'active',
+                    itemType: 'consumable',
+                    unitOfMeasure: 'pack'
+                },
+                'ITM005': {
+                    code: 'ITM005',
+                    name: 'Ballpoint Pens',
+                    description: 'Black ballpoint pens, pack of 12',
+                    subCategory: 'SUB005',
+                    supplier: 'SUP005',
+                    currencyType: 'USD',
+                    unitCost: 4.99,
+                    sellingPrice: 9.99,
+                    currentStock: 0,
+                    minStock: 15,
+                    status: 'inactive',
+                    itemType: 'consumable',
+                    unitOfMeasure: 'pack'
+                }
+            };
+            
+            const data = itemData[itemId] || itemData['ITM001'];
+            
+            // Populate the form with item data
+            document.getElementById('stockCode').value = data.code;
+            document.getElementById('stockName').value = data.name;
+            document.getElementById('itemDescription').value = data.description;
+            document.getElementById('itemSubCategory').value = data.subCategory;
+            document.getElementById('itemSupplier').value = data.supplier;
+            document.getElementById('currencyType').value = data.currencyType;
+            document.getElementById('unitCost').value = data.unitCost;
+            document.getElementById('sellingPrice').value = data.sellingPrice;
+            document.getElementById('currentStock').value = data.currentStock;
+            document.getElementById('minStock').value = data.minStock;
+            document.getElementById('itemStatus').value = data.status;
+            document.getElementById('itemType').value = data.itemType;
+            document.getElementById('unitOfMeasure').value = data.unitOfMeasure;
+            
+            // Show success message
+            showAlert(`Loaded item ${itemId} details`, 'success');
+        }
+        
+        function showDeleteItemModal(itemId) {
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteItemModal'));
+            document.getElementById('confirmItemDeleteBtn').dataset.itemId = itemId;
+            deleteModal.show();
+        }
+        
+        function deleteItem() {
+            const itemId = document.getElementById('confirmItemDeleteBtn').dataset.itemId;
+            
+            // In a real application, you would send a delete request to your API
+            // For now, we'll just show a message
+            showAlert(`Item ${itemId} has been deleted`, 'danger');
+            
+            // Close the modal
+            const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteItemModal'));
+            deleteModal.hide();
+            
+            // Reset the checkbox
+            document.getElementById('confirmItemDelete').checked = false;
+            document.getElementById('confirmItemDeleteBtn').disabled = true;
+            
+            // Remove the row from the table
+            const row = document.querySelector(`.item-checkbox[data-id="${itemId}"]`)?.closest('tr');
+            if (row) {
+                row.remove();
+            }
+            
+            // Reset the form
+            resetItemForm();
+        }
+        
+        function saveItem() {
+            const stockCode = document.getElementById('stockCode').value;
+            const stockName = document.getElementById('stockName').value;
+            const subCategory = document.getElementById('itemSubCategory').value;
+            const supplier = document.getElementById('itemSupplier').value;
+            
+            if (!stockCode || !stockName || !subCategory || !supplier) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            // In a real application, you would send an update request to your API
+            // For now, we'll just show a message
+            showAlert(`Item ${stockCode} (${stockName}) saved successfully`, 'success');
+            
+            // Update the table row if it exists
+            const row = document.querySelector(`.item-checkbox[data-id="${stockCode}"]`)?.closest('tr');
+            if (row) {
+                updateItemRow(row, stockCode, stockName, subCategory, supplier);
+            } else {
+                // Add new row to table
+                addItemToTable(stockCode, stockName, subCategory, supplier);
+            }
+        }
+        
+        function saveNewItem() {
+            const stockCode = document.getElementById('newStockCode').value;
+            const stockName = document.getElementById('newStockName').value;
+            const subCategory = document.getElementById('newSubCategory').value;
+            const supplier = document.getElementById('newSupplier').value;
+            const unitCost = document.getElementById('newUnitCost').value;
+            
+            if (!stockCode || !stockName || !subCategory || !supplier || !unitCost) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            // Add to table
+            addItemToTable(stockCode, stockName, subCategory, supplier);
+            
+            // Close the modal
+            const addModal = bootstrap.Modal.getInstance(document.getElementById('addItemModal'));
+            addModal.hide();
+            
+            // Reset the modal form
+            document.getElementById('newStockCode').value = '';
+            document.getElementById('newStockName').value = '';
+            document.getElementById('newSubCategory').value = '';
+            document.getElementById('newSupplier').value = '';
+            document.getElementById('newCurrencyType').value = 'USD';
+            document.getElementById('newUnitCost').value = '';
+            document.getElementById('newItemDesc').value = '';
+            
+            showAlert(`New item ${stockName} added successfully`, 'success');
+        }
+        
+        function addItemToTable(code, name, subCategoryId, supplierId) {
+            const tableBody = document.getElementById('itemTableBody');
+            const newRow = document.createElement('tr');
+            
+            // Get form values
+            const description = document.getElementById('itemDescription').value || 
+                              document.getElementById('newItemDesc').value ||
+                              'No description provided';
+            const unitCost = document.getElementById('unitCost').value || 
+                            document.getElementById('newUnitCost').value || 
+                            0;
+            const sellingPrice = document.getElementById('sellingPrice').value || 0;
+            const currentStock = document.getElementById('currentStock').value || 0;
+            const minStock = document.getElementById('minStock').value || 10;
+            const status = document.getElementById('itemStatus').value || 'active';
+            const itemType = document.getElementById('itemType').value || 'consumable';
+            const unitOfMeasure = document.getElementById('unitOfMeasure').value || 'piece';
+            
+            // Get sub-category and supplier info
+            const subCategoryInfo = getSubCategoryInfo(subCategoryId);
+            const supplierInfo = getSupplierInfo(supplierId);
+            
+            // Determine stock indicator
+            const stockLevel = parseInt(currentStock);
+            let stockIndicatorClass = 'stock-out';
+            let stockIndicatorText = 'Out of Stock';
+            
+            if (stockLevel > minStock * 2) {
+                stockIndicatorClass = 'stock-high';
+                stockIndicatorText = 'High';
+            } else if (stockLevel > minStock) {
+                stockIndicatorClass = 'stock-medium';
+                stockIndicatorText = 'Medium';
+            } else if (stockLevel > 0) {
+                stockIndicatorClass = 'stock-low';
+                stockIndicatorText = 'Low';
+            }
+            
+            // Choose icon based on item name
+            const icon = getItemIcon(name);
+            const iconClass = getItemIconClass(name);
+            
+            newRow.innerHTML = `
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input item-checkbox" type="checkbox" data-id="${code}">
+                    </div>
+                </td>
+                <td>
+                    <span class="badge ${getColorForCode(code)} item-code">${code}</span>
+                </td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="item-icon ${iconClass} text-white">
+                            <i class="fas fa-${icon}"></i>
+                        </div>
+                        <div>
+                            <strong>${name}</strong>
+                            <div class="text-muted small">${getItemTypeDisplay(itemType)} • ${unitOfMeasure}</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <span class="badge ${subCategoryInfo.color}">${subCategoryInfo.name}</span>
+                </td>
+                <td>
+                    <span class="supplier-badge">${supplierInfo.name}</span>
+                </td>
+                <td>
+                    <span class="cost-badge">$${parseFloat(unitCost).toFixed(2)}</span>
+                </td>
+                <td>
+                    <span class="stock-indicator ${stockIndicatorClass}"></span> ${currentStock} units
+                    ${stockLevel < minStock && stockLevel > 0 ? '<span class="badge bg-danger ms-1">Low</span>' : ''}
+                    ${stockLevel === 0 ? '<span class="badge bg-danger ms-1">Out</span>' : ''}
+                </td>
+                <td>
+                    <span class="badge ${getStatusColor(status)}">${status.charAt(0).toUpperCase() + status.slice(1)}</span>
+                </td>
+                <td>
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-outline-primary edit-item" data-id="${code}">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-outline-danger delete-item" data-id="${code}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <button class="btn btn-outline-info view-details" data-id="${code}">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Add event listeners to new buttons
+            newRow.querySelector('.edit-item').addEventListener('click', function() {
+                loadItemDetails(this.dataset.id);
+            });
+            
+            newRow.querySelector('.delete-item').addEventListener('click', function() {
+                showDeleteItemModal(this.dataset.id);
+            });
+            
+            newRow.querySelector('.view-details').addEventListener('click', function() {
+                viewItemDetails(this.dataset.id);
+            });
+        }
+        
+        function updateItemRow(row, code, name, subCategoryId, supplierId) {
+            // Get form values
+            const description = document.getElementById('itemDescription').value;
+            const unitCost = document.getElementById('unitCost').value || 0;
+            const sellingPrice = document.getElementById('sellingPrice').value || 0;
+            const currentStock = document.getElementById('currentStock').value || 0;
+            const minStock = document.getElementById('minStock').value || 10;
+            const status = document.getElementById('itemStatus').value || 'active';
+            const itemType = document.getElementById('itemType').value || 'consumable';
+            const unitOfMeasure = document.getElementById('unitOfMeasure').value || 'piece';
+            
+            // Get sub-category and supplier info
+            const subCategoryInfo = getSubCategoryInfo(subCategoryId);
+            const supplierInfo = getSupplierInfo(supplierId);
+            
+            // Determine stock indicator
+            const stockLevel = parseInt(currentStock);
+            let stockIndicatorClass = 'stock-out';
+            
+            if (stockLevel > minStock * 2) {
+                stockIndicatorClass = 'stock-high';
+            } else if (stockLevel > minStock) {
+                stockIndicatorClass = 'stock-medium';
+            } else if (stockLevel > 0) {
+                stockIndicatorClass = 'stock-low';
+            }
+            
+            // Update row content
+            row.querySelector('td:nth-child(2) .badge').textContent = code;
+            
+            const nameCell = row.querySelector('td:nth-child(3)');
+            nameCell.querySelector('strong').textContent = name;
+            nameCell.querySelector('.text-muted').textContent = `${getItemTypeDisplay(itemType)} • ${unitOfMeasure}`;
+            
+            row.querySelector('td:nth-child(4) .badge').textContent = subCategoryInfo.name;
+            row.querySelector('td:nth-child(4) .badge').className = `badge ${subCategoryInfo.color}`;
+            
+            row.querySelector('td:nth-child(5) .supplier-badge').textContent = supplierInfo.name;
+            
+            row.querySelector('td:nth-child(6) .cost-badge').textContent = `$${parseFloat(unitCost).toFixed(2)}`;
+            
+            const stockCell = row.querySelector('td:nth-child(7)');
+            const stockIndicator = stockCell.querySelector('.stock-indicator');
+            stockIndicator.className = `stock-indicator ${stockIndicatorClass}`;
+            
+            // Update low stock badge
+            const lowStockBadge = stockCell.querySelector('.badge.bg-danger');
+            if (stockLevel < minStock && stockLevel > 0 && !lowStockBadge) {
+                stockCell.querySelector('span:nth-child(2)').insertAdjacentHTML('afterend', ' <span class="badge bg-danger ms-1">Low</span>');
+            } else if (stockLevel >= minStock && lowStockBadge) {
+                lowStockBadge.remove();
+            }
+            
+            // Update out of stock badge
+            const outStockBadge = stockCell.querySelector('.badge.bg-danger:last-child');
+            if (stockLevel === 0 && !outStockBadge) {
+                stockCell.querySelector('span:nth-child(2)').insertAdjacentHTML('afterend', ' <span class="badge bg-danger ms-1">Out</span>');
+            } else if (stockLevel > 0 && outStockBadge) {
+                outStockBadge.remove();
+            }
+            
+            stockCell.querySelector('span:nth-child(2)').textContent = `${currentStock} units`;
+            
+            const statusCell = row.querySelector('td:nth-child(8) .badge');
+            statusCell.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+            statusCell.className = `badge ${getStatusColor(status)}`;
+            
+            // Update buttons data-id
+            row.querySelectorAll('.edit-item, .delete-item, .view-details').forEach(btn => {
+                btn.dataset.id = code;
+            });
+        }
+        
+        function resetItemForm() {
+            document.getElementById('stockCode').value = '';
+            document.getElementById('stockName').value = '';
+            document.getElementById('itemDescription').value = '';
+            document.getElementById('itemSubCategory').value = '';
+            document.getElementById('itemSupplier').value = '';
+            document.getElementById('currencyType').value = 'USD';
+            document.getElementById('unitCost').value = '';
+            document.getElementById('sellingPrice').value = '';
+            document.getElementById('currentStock').value = 0;
+            document.getElementById('minStock').value = 10;
+            document.getElementById('itemStatus').value = 'active';
+            document.getElementById('itemType').value = 'consumable';
+            document.getElementById('unitOfMeasure').value = 'piece';
+            
+            showAlert('Form has been reset', 'info');
+        }
+        
+        function generateStockCode() {
+            const prefix = 'ITM';
+            const randomNum = Math.floor(Math.random() * 900) + 100;
+            document.getElementById('stockCode').value = `${prefix}${randomNum}`;
+        }
+        
+        function generateModalStockCode() {
+            const prefix = 'ITM';
+            const randomNum = Math.floor(Math.random() * 900) + 100;
+            document.getElementById('newStockCode').value = `${prefix}${randomNum}`;
+        }
+        
+        function viewItemDetails(itemId) {
+            showAlert(`Viewing details for item ${itemId}`, 'info');
+            // In a real application, you would show a detailed view modal
+        }
+        
+        function filterItems() {
+            const searchCode = document.getElementById('itemCodeSearch').value.toLowerCase();
+            const searchName = document.getElementById('itemNameSearch').value.toLowerCase();
+            const searchTerm = document.getElementById('searchItem').value.toLowerCase();
+            const subCategoryFilter = document.getElementById('subCategorySelect').value;
+            const supplierFilter = document.getElementById('supplierSelect').value;
+            const filterValue = document.getElementById('itemFilter').value;
+            
+            const rows = document.querySelectorAll('#itemTableBody tr');
+            
+            rows.forEach(row => {
+                const rowCode = row.querySelector('td:nth-child(2) .badge').textContent.toLowerCase();
+                const rowName = row.querySelector('td:nth-child(3) strong').textContent.toLowerCase();
+                const rowSubCategory = row.querySelector('td:nth-child(4) .badge').textContent.toLowerCase();
+                const rowSupplier = row.querySelector('td:nth-child(5) .supplier-badge').textContent.toLowerCase();
+                const rowStock = row.querySelector('td:nth-child(7) span:nth-child(2)').textContent.toLowerCase();
+                
+                let show = true;
+                
+                // Apply search filters
+                if (searchCode && !rowCode.includes(searchCode)) show = false;
+                if (searchName && !rowName.includes(searchName)) show = false;
+                if (searchTerm && !rowCode.includes(searchTerm) && !rowName.includes(searchTerm)) {
+                    show = false;
+                }
+                
+                // Apply category filter
+                if (subCategoryFilter && !rowSubCategory.includes(getSubCategoryName(subCategoryFilter).toLowerCase())) {
+                    show = false;
+                }
+                
+                // Apply supplier filter
+                if (supplierFilter && !rowSupplier.includes(getSupplierName(supplierFilter).toLowerCase())) {
+                    show = false;
+                }
+                
+                // Apply filter
+                if (filterValue !== 'all') {
+                    if (filterValue === 'in_stock' && rowStock.includes('out')) show = false;
+                    if (filterValue === 'low_stock' && !rowStock.includes('low')) show = false;
+                    if (filterValue === 'out_of_stock' && !rowStock.includes('out')) show = false;
+                    if (filterValue === 'food' && !rowSubCategory.includes('food') && !rowSubCategory.includes('beverage') && !rowSubCategory.includes('breakfast')) show = false;
+                    if (filterValue === 'cleaning' && !rowSubCategory.includes('clean') && !rowSubCategory.includes('disinfect')) show = false;
+                }
+                
+                row.style.display = show ? '' : 'none';
+            });
+        }
+        
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+        
+        function getColorForCode(code) {
+            const colors = ['primary', 'success', 'warning', 'info', 'danger', 'secondary'];
+            let hash = 0;
+            for (let i = 0; i < code.length; i++) {
+                hash = code.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            return colors[Math.abs(hash) % colors.length];
+        }
+        
+        function getSubCategoryInfo(subCategoryId) {
+            const subCategories = {
+                'SUB001': { name: 'Breakfast Items', color: 'bg-primary' },
+                'SUB002': { name: 'Beverages', color: 'bg-success' },
+                'K>5': { name: 'Disinfectants', color: 'bg-warning' },
+                'SUB004': { name: 'Bathroom Supplies', color: 'bg-info' },
+                'SUB005': { name: 'Writing Materials', color: 'bg-secondary' },
+                'SUB006': { name: 'Lunch Items', color: 'bg-primary' },
+                'SUB007': { name: 'Dinner Items', color: 'bg-success' },
+                'SUB008': { name: 'Snacks', color: 'bg-warning' }
+            };
+            return subCategories[subCategoryId] || { name: 'Unknown Sub-Category', color: 'bg-secondary' };
+        }
+        
+        function getSubCategoryName(subCategoryId) {
+            const subCategories = {
+                'SUB001': 'Breakfast Items',
+                'SUB002': 'Beverages',
+                'K>5': 'Disinfectants',
+                'SUB004': 'Bathroom Supplies',
+                'SUB005': 'Writing Materials'
+            };
+            return subCategories[subCategoryId] || 'Unknown';
+        }
+        
+        function getSupplierInfo(supplierId) {
+            const suppliers = {
+                'SUP001': { name: 'Food Distributors Ltd.', color: 'bg-primary' },
+                'SUP002': { name: 'Beverage Supply Co.', color: 'bg-success' },
+                'SUP003': { name: 'Cleaning Solutions Inc.', color: 'bg-warning' },
+                'SUP004': { name: 'Hotel Amenities Corp.', color: 'bg-info' },
+                'SUP005': { name: 'Office Supplies Plus', color: 'bg-secondary' },
+                'SUP006': { name: 'Fresh Produce Market', color: 'bg-success' },
+                'SUP007': { name: 'Meat & Poultry Suppliers', color: 'bg-danger' },
+                'SUP008': { name: 'Dairy Products Inc.', color: 'bg-info' }
+            };
+            return suppliers[supplierId] || { name: 'Unknown Supplier', color: 'bg-secondary' };
+        }
+        
+        function getSupplierName(supplierId) {
+            const suppliers = {
+                'SUP001': 'Food Distributors Ltd.',
+                'SUP002': 'Beverage Supply Co.',
+                'SUP003': 'Cleaning Solutions Inc.',
+                'SUP004': 'Hotel Amenities Corp.',
+                'SUP005': 'Office Supplies Plus'
+            };
+            return suppliers[supplierId] || 'Unknown';
+        }
+        
+        function getItemIcon(name) {
+            const nameLower = name.toLowerCase();
+            if (nameLower.includes('coffee') || nameLower.includes('tea')) return 'coffee';
+            if (nameLower.includes('bread') || nameLower.includes('toast')) return 'bread-slice';
+            if (nameLower.includes('clean') || nameLower.includes('disinfect') || nameLower.includes('spray')) return 'spray-can';
+            if (nameLower.includes('toilet') || nameLower.includes('paper') || nameLower.includes('bathroom')) return 'toilet-paper';
+            if (nameLower.includes('pen') || nameLower.includes('pencil') || nameLower.includes('writing')) return 'pen';
+            if (nameLower.includes('milk') || nameLower.includes('cream')) return 'glass-whiskey';
+            if (nameLower.includes('sugar') || nameLower.includes('salt') || nameLower.includes('spice')) return 'mortar-pestle';
+            if (nameLower.includes('fruit') || nameLower.includes('apple') || nameLower.includes('banana')) return 'apple-alt';
+            if (nameLower.includes('vegetable') || nameLower.includes('carrot') || nameLower.includes('tomato')) return 'carrot';
+            if (nameLower.includes('meat') || nameLower.includes('chicken') || nameLower.includes('beef')) return 'drumstick-bite';
+            if (nameLower.includes('fish') || nameLower.includes('seafood')) return 'fish';
+            if (nameLower.includes('egg')) return 'egg';
+            if (nameLower.includes('cheese')) return 'cheese';
+            if (nameLower.includes('soap') || nameLower.includes('shampoo') || nameLower.includes('conditioner')) return 'soap';
+            if (nameLower.includes('towel') || nameLower.includes('linen')) return 'tshirt';
+            return 'box';
+        }
+        
+        function getItemIconClass(name) {
+            const nameLower = name.toLowerCase();
+            if (nameLower.includes('coffee') || nameLower.includes('tea')) return 'bg-primary';
+            if (nameLower.includes('bread') || nameLower.includes('toast')) return 'bg-success';
+            if (nameLower.includes('clean') || nameLower.includes('disinfect') || nameLower.includes('spray')) return 'bg-warning';
+            if (nameLower.includes('toilet') || nameLower.includes('paper') || nameLower.includes('bathroom')) return 'bg-info';
+            if (nameLower.includes('pen') || nameLower.includes('pencil') || nameLower.includes('writing')) return 'bg-secondary';
+            if (nameLower.includes('milk') || nameLower.includes('cream')) return 'bg-light text-dark';
+            if (nameLower.includes('fruit') || nameLower.includes('vegetable')) return 'bg-success';
+            if (nameLower.includes('meat') || nameLower.includes('fish')) return 'bg-danger';
+            return 'bg-secondary';
+        }
+        
+        function getItemTypeDisplay(type) {
+            const typeMap = {
+                'consumable': 'Consumable',
+                'non_consumable': 'Non-Consumable',
+                'perishable': 'Perishable',
+                'equipment': 'Equipment',
+                'raw_material': 'Raw Material',
+                'finished_good': 'Finished Good'
+            };
+            return typeMap[type] || 'Consumable';
+        }
+        
+        function getStatusColor(status) {
+            const colors = {
+                'active': 'bg-success',
+                'inactive': 'bg-secondary',
+                'discontinued': 'bg-danger',
+                'pending': 'bg-warning'
+            };
+            return colors[status] || 'bg-secondary';
+        }
+    </script>
+</body>
+</html>

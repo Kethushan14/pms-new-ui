@@ -1,0 +1,2268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Account - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+
+     
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-wallet me-2"></i>Main Account Management
+                                </h1>
+                                <p class="card-text text-muted mb-0">Manage main accounts, balances, and financial classifications</p>
+                                <small class="text-muted">Total Main Accounts: <span class="fw-bold">15</span> • Active: <span class="text-success fw-bold">14</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-primary" id="addNewMainAccountBtn">
+                                    <i class="fas fa-plus-circle me-1"></i> Add New Main Account
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="row mb-4">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card quick-stat-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h6 class="card-subtitle mb-2 text-muted">Total Balance</h6>
+                                <h2 class="metric-number text-primary">$250,450</h2>
+                                <p class="card-text text-muted small">All main accounts</p>
+                            </div>
+                            <div class="bg-primary bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-dollar-sign fa-2x text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card quick-stat-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h6 class="card-subtitle mb-2 text-muted">Asset Accounts</h6>
+                                <h2 class="metric-number text-success">5</h2>
+                                <p class="card-text text-muted small">Active accounts</p>
+                            </div>
+                            <div class="bg-success bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-building fa-2x text-success"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card quick-stat-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h6 class="card-subtitle mb-2 text-muted">Liability Accounts</h6>
+                                <h2 class="metric-number text-warning">3</h2>
+                                <p class="card-text text-muted small">Active accounts</p>
+                            </div>
+                            <div class="bg-warning bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-hand-holding-usd fa-2x text-warning"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card quick-stat-card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <h6 class="card-subtitle mb-2 text-muted">Revenue Accounts</h6>
+                                <h2 class="metric-number text-info">4</h2>
+                                <p class="card-text text-muted small">Active accounts</p>
+                            </div>
+                            <div class="bg-info bg-opacity-10 p-3 rounded-circle">
+                                <i class="fas fa-chart-line fa-2x text-info"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Account Cards -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h5 class="mb-3"><i class="fas fa-credit-card me-2"></i>Main Account Overview</h5>
+                <div class="row" id="mainAccountCards">
+                    <!-- Asset Accounts -->
+                    <div class="col-xl-4 col-md-6 mb-4">
+                        <div class="card account-card border-left-primary">
+                            <div class="account-card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="account-type-badge badge-asset mb-2">Asset</span>
+                                        <h5 class="mb-0">Cash Account</h5>
+                                    </div>
+                                    <div class="text-end">
+                                        <span class="badge bg-success">Active</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="account-card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <small class="text-muted">Code</small>
+                                        <h6 class="mb-0">MA-001</h6>
+                                    </div>
+                                    <div class="text-end">
+                                        <small class="text-muted">Category</small>
+                                        <h6 class="mb-0">Current Assets</h6>
+                                    </div>
+                                </div>
+                                <div class="account-balance text-primary">
+                                    $45,250.00
+                                </div>
+                                <p class="text-muted small mb-3">Primary cash account for daily hotel operations</p>
+                                <div class="account-actions">
+                                    <button class="btn btn-sm btn-outline-primary view-main-account" data-id="MA-001">
+                                        <i class="fas fa-eye me-1"></i> View
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-warning edit-main-account" data-id="MA-001">
+                                        <i class="fas fa-edit me-1"></i> Edit
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger delete-main-account" data-id="MA-001">
+                                        <i class="fas fa-trash me-1"></i> Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bank Account -->
+                    <div class="col-xl-4 col-md-6 mb-4">
+                        <div class="card account-card border-left-primary">
+                            <div class="account-card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="account-type-badge badge-asset mb-2">Asset</span>
+                                        <h5 class="mb-0">Bank Account</h5>
+                                    </div>
+                                    <div class="text-end">
+                                        <span class="badge bg-success">Active</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="account-card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <small class="text-muted">Code</small>
+                                        <h6 class="mb-0">MA-002</h6>
+                                    </div>
+                                    <div class="text-end">
+                                        <small class="text-muted">Category</small>
+                                        <h6 class="mb-0">Current Assets</h6>
+                                    </div>
+                                </div>
+                                <div class="account-balance text-primary">
+                                    $125,800.00
+                                </div>
+                                <p class="text-muted small mb-3">Commercial Bank business account</p>
+                                <div class="account-actions">
+                                    <button class="btn btn-sm btn-outline-primary view-main-account" data-id="MA-002">
+                                        <i class="fas fa-eye me-1"></i> View
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-warning edit-main-account" data-id="MA-002">
+                                        <i class="fas fa-edit me-1"></i> Edit
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger delete-main-account" data-id="MA-002">
+                                        <i class="fas fa-trash me-1"></i> Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Accounts Receivable -->
+                    <div class="col-xl-4 col-md-6 mb-4">
+                        <div class="card account-card border-left-primary">
+                            <div class="account-card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="account-type-badge badge-asset mb-2">Asset</span>
+                                        <h5 class="mb-0">Accounts Receivable</h5>
+                                    </div>
+                                    <div class="text-end">
+                                        <span class="badge bg-success">Active</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="account-card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <small class="text-muted">Code</small>
+                                        <h6 class="mb-0">MA-003</h6>
+                                    </div>
+                                    <div class="text-end">
+                                        <small class="text-muted">Category</small>
+                                        <h6 class="mb-0">Current Assets</h6>
+                                    </div>
+                                </div>
+                                <div class="account-balance text-primary">
+                                    $35,400.00
+                                </div>
+                                <p class="text-muted small mb-3">Outstanding guest payments</p>
+                                <div class="account-actions">
+                                    <button class="btn btn-sm btn-outline-primary view-main-account" data-id="MA-003">
+                                        <i class="fas fa-eye me-1"></i> View
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-warning edit-main-account" data-id="MA-003">
+                                        <i class="fas fa-edit me-1"></i> Edit
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger delete-main-account" data-id="MA-003">
+                                        <i class="fas fa-trash me-1"></i> Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Accounts Payable -->
+                    <div class="col-xl-4 col-md-6 mb-4">
+                        <div class="card account-card border-left-warning">
+                            <div class="account-card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="account-type-badge badge-liability mb-2">Liability</span>
+                                        <h5 class="mb-0">Accounts Payable</h5>
+                                    </div>
+                                    <div class="text-end">
+                                        <span class="badge bg-success">Active</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="account-card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <small class="text-muted">Code</small>
+                                        <h6 class="mb-0">MA-004</h6>
+                                    </div>
+                                    <div class="text-end">
+                                        <small class="text-muted">Category</small>
+                                        <h6 class="mb-0">Current Liabilities</h6>
+                                    </div>
+                                </div>
+                                <div class="account-balance text-warning">
+                                    $28,500.00
+                                </div>
+                                <p class="text-muted small mb-3">Outstanding vendor payments</p>
+                                <div class="account-actions">
+                                    <button class="btn btn-sm btn-outline-primary view-main-account" data-id="MA-004">
+                                        <i class="fas fa-eye me-1"></i> View
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-warning edit-main-account" data-id="MA-004">
+                                        <i class="fas fa-edit me-1"></i> Edit
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger delete-main-account" data-id="MA-004">
+                                        <i class="fas fa-trash me-1"></i> Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Room Revenue -->
+                    <div class="col-xl-4 col-md-6 mb-4">
+                        <div class="card account-card border-left-success">
+                            <div class="account-card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="account-type-badge badge-income mb-2">Income</span>
+                                        <h5 class="mb-0">Room Revenue</h5>
+                                    </div>
+                                    <div class="text-end">
+                                        <span class="badge bg-success">Active</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="account-card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <small class="text-muted">Code</small>
+                                        <h6 class="mb-0">MA-005</h6>
+                                    </div>
+                                    <div class="text-end">
+                                        <small class="text-muted">Category</small>
+                                        <h6 class="mb-0">Operating Revenue</h6>
+                                    </div>
+                                </div>
+                                <div class="account-balance text-success">
+                                    $85,200.00
+                                </div>
+                                <p class="text-muted small mb-3">Accommodation income</p>
+                                <div class="account-actions">
+                                    <button class="btn btn-sm btn-outline-primary view-main-account" data-id="MA-005">
+                                        <i class="fas fa-eye me-1"></i> View
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-warning edit-main-account" data-id="MA-005">
+                                        <i class="fas fa-edit me-1"></i> Edit
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger delete-main-account" data-id="MA-005">
+                                        <i class="fas fa-trash me-1"></i> Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Salary & Wages -->
+                    <div class="col-xl-4 col-md-6 mb-4">
+                        <div class="card account-card border-left-danger">
+                            <div class="account-card-header">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="account-type-badge badge-expense mb-2">Expense</span>
+                                        <h5 class="mb-0">Salary & Wages</h5>
+                                    </div>
+                                    <div class="text-end">
+                                        <span class="badge bg-success">Active</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="account-card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <small class="text-muted">Code</small>
+                                        <h6 class="mb-0">MA-006</h6>
+                                    </div>
+                                    <div class="text-end">
+                                        <small class="text-muted">Category</small>
+                                        <h6 class="mb-0">Operating Expenses</h6>
+                                    </div>
+                                </div>
+                                <div class="account-balance text-danger">
+                                    $42,300.00
+                                </div>
+                                <p class="text-muted small mb-3">Employee compensation</p>
+                                <div class="account-actions">
+                                    <button class="btn btn-sm btn-outline-primary view-main-account" data-id="MA-006">
+                                        <i class="fas fa-eye me-1"></i> View
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-warning edit-main-account" data-id="MA-006">
+                                        <i class="fas fa-edit me-1"></i> Edit
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger delete-main-account" data-id="MA-006">
+                                        <i class="fas fa-trash me-1"></i> Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search and Filter Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label class="form-label">Account Code</label>
+                                <input type="text" class="form-control" placeholder="Enter Account Code" id="accountCodeSearch">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Account Name</label>
+                                <input type="text" class="form-control" placeholder="Search Account Name" id="accountNameSearch">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Account Type</label>
+                                <select class="form-select" id="accountTypeFilter">
+                                    <option value="">All Types</option>
+                                    <option value="Asset">Asset</option>
+                                    <option value="Liability">Liability</option>
+                                    <option value="Equity">Equity</option>
+                                    <option value="Income">Income</option>
+                                    <option value="Expense">Expense</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Account Category</label>
+                                <select class="form-select" id="accountCategoryFilter">
+                                    <option value="">All Categories</option>
+                                    <option value="Current Assets">Current Assets</option>
+                                    <option value="Fixed Assets">Fixed Assets</option>
+                                    <option value="Current Liabilities">Current Liabilities</option>
+                                    <option value="Long-term Liabilities">Long-term Liabilities</option>
+                                    <option value="Operating Revenue">Operating Revenue</option>
+                                    <option value="Operating Expenses">Operating Expenses</option>
+                                </select>
+                            </div>
+                            <div class="col-md-9">
+                                <label class="form-label">Search</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search main accounts by code, name or description...">
+                                    <button class="btn btn-primary" type="button" id="searchAccountsBtn">
+                                        <i class="fas fa-search"></i> Search
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-3 d-flex align-items-end">
+                                <button class="btn btn-outline-secondary w-100" id="resetFiltersBtn">
+                                    <i class="fas fa-redo me-1"></i> Reset Filters
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Account Table -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-list me-2"></i>All Main Accounts</h5>
+                            <div class="d-flex">
+                                <div class="btn-group me-2" role="group">
+                                    <button type="button" class="btn btn-sm btn-outline-primary active" data-filter="all">All</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="asset">Asset</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="liability">Liability</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="income">Income</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="expense">Expense</button>
+                                </div>
+                                <button class="btn btn-sm btn-success" id="exportAccountsBtn">
+                                    <i class="fas fa-download me-1"></i> Export
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0 main-account-table">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th width="50">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="selectAllAccounts">
+                                            </div>
+                                        </th>
+                                        <th>Code</th>
+                                        <th>Account Name</th>
+                                        <th>Account Type</th>
+                                        <th>Account Category</th>
+                                        <th>Current Balance</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="mainAccountTableBody">
+                                    <!-- Asset Accounts -->
+                                    <tr class="table-group-divider">
+                                        <td colspan="8" class="bg-light">
+                                            <strong><i class="fas fa-building me-2"></i> Asset Accounts</strong>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Cash Account -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input account-checkbox" type="checkbox" data-id="MA-001">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-primary">MA-001</span>
+                                        </td>
+                                        <td>
+                                            <strong>Cash Account</strong>
+                                            <small class="d-block text-muted">Primary cash account</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-type-badge badge-asset">Asset</span>
+                                        </td>
+                                        <td>Current Assets</td>
+                                        <td>
+                                            <strong class="text-success">$45,250.00</strong>
+                                        </td>
+                                        <td>
+                                            <span class="account-status-badge badge-active">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-main-account-table" data-id="MA-001">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-main-account-table" data-id="MA-001">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-main-account-table" data-id="MA-001">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Bank Account -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input account-checkbox" type="checkbox" data-id="MA-002">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-primary">MA-002</span>
+                                        </td>
+                                        <td>
+                                            <strong>Bank Account</strong>
+                                            <small class="d-block text-muted">Commercial Bank</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-type-badge badge-asset">Asset</span>
+                                        </td>
+                                        <td>Current Assets</td>
+                                        <td>
+                                            <strong class="text-success">$125,800.00</strong>
+                                        </td>
+                                        <td>
+                                            <span class="account-status-badge badge-active">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-main-account-table" data-id="MA-002">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-main-account-table" data-id="MA-002">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-main-account-table" data-id="MA-002">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Accounts Receivable -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input account-checkbox" type="checkbox" data-id="MA-003">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-primary">MA-003</span>
+                                        </td>
+                                        <td>
+                                            <strong>Accounts Receivable</strong>
+                                            <small class="d-block text-muted">Guest receivables</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-type-badge badge-asset">Asset</span>
+                                        </td>
+                                        <td>Current Assets</td>
+                                        <td>
+                                            <strong class="text-success">$35,400.00</strong>
+                                        </td>
+                                        <td>
+                                            <span class="account-status-badge badge-active">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-main-account-table" data-id="MA-003">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-main-account-table" data-id="MA-003">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-main-account-table" data-id="MA-003">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Liability Accounts -->
+                                    <tr class="table-group-divider">
+                                        <td colspan="8" class="bg-light">
+                                            <strong><i class="fas fa-hand-holding-usd me-2"></i> Liability Accounts</strong>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Accounts Payable -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input account-checkbox" type="checkbox" data-id="MA-004">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-primary">MA-004</span>
+                                        </td>
+                                        <td>
+                                            <strong>Accounts Payable</strong>
+                                            <small class="d-block text-muted">Vendor payables</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-type-badge badge-liability">Liability</span>
+                                        </td>
+                                        <td>Current Liabilities</td>
+                                        <td>
+                                            <strong class="text-warning">$28,500.00</strong>
+                                        </td>
+                                        <td>
+                                            <span class="account-status-badge badge-active">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-main-account-table" data-id="MA-004">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-main-account-table" data-id="MA-004">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-main-account-table" data-id="MA-004">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Income Accounts -->
+                                    <tr class="table-group-divider">
+                                        <td colspan="8" class="bg-light">
+                                            <strong><i class="fas fa-chart-line me-2"></i> Income Accounts</strong>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Room Revenue -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input account-checkbox" type="checkbox" data-id="MA-005">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-primary">MA-005</span>
+                                        </td>
+                                        <td>
+                                            <strong>Room Revenue</strong>
+                                            <small class="d-block text-muted">Accommodation income</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-type-badge badge-income">Income</span>
+                                        </td>
+                                        <td>Operating Revenue</td>
+                                        <td>
+                                            <strong class="text-info">$85,200.00</strong>
+                                        </td>
+                                        <td>
+                                            <span class="account-status-badge badge-active">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-main-account-table" data-id="MA-005">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-main-account-table" data-id="MA-005">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-main-account-table" data-id="MA-005">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Expense Accounts -->
+                                    <tr class="table-group-divider">
+                                        <td colspan="8" class="bg-light">
+                                            <strong><i class="fas fa-file-invoice-dollar me-2"></i> Expense Accounts</strong>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Salary & Wages -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input account-checkbox" type="checkbox" data-id="MA-006">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-primary">MA-006</span>
+                                        </td>
+                                        <td>
+                                            <strong>Salary & Wages</strong>
+                                            <small class="d-block text-muted">Employee compensation</small>
+                                        </td>
+                                        <td>
+                                            <span class="account-type-badge badge-expense">Expense</span>
+                                        </td>
+                                        <td>Operating Expenses</td>
+                                        <td>
+                                            <strong class="text-danger">$42,300.00</strong>
+                                        </td>
+                                        <td>
+                                            <span class="account-status-badge badge-active">Active</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm">
+                                                <button class="btn btn-outline-primary view-main-account-table" data-id="MA-006">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-main-account-table" data-id="MA-006">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-main-account-table" data-id="MA-006">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted">Showing 6 of 15 main accounts</span>
+                            </div>
+                            <nav aria-label="Main account pagination">
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Account Details Section -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-edit me-2"></i>Main Account Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="main-account-form-section">
+                            <div class="form-section-header">
+                                <h6 class="text-primary mb-0">Add New Main Account / Edit Account Details</h6>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h6 class="mb-3 text-primary">Basic Information</h6>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="mainAccountCode" class="form-label">Account Code *</label>
+                                            <input type="text" class="form-control" id="mainAccountCode" placeholder="e.g., MA-001">
+                                            <small class="text-muted">Unique identifier for the main account</small>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="mainAccountName" class="form-label">Account Name *</label>
+                                            <input type="text" class="form-control" id="mainAccountName" placeholder="e.g., Cash Account">
+                                            <small class="text-muted">Display name of the main account</small>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="mainAccountType" class="form-label">Account Type *</label>
+                                            <select class="form-select" id="mainAccountType">
+                                                <option value="">Select Account Type</option>
+                                                <option value="Asset">Asset</option>
+                                                <option value="Liability">Liability</option>
+                                                <option value="Equity">Equity</option>
+                                                <option value="Income">Income</option>
+                                                <option value="Expense">Expense</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="mainAccountCategory" class="form-label">Account Category *</label>
+                                            <select class="form-select" id="mainAccountCategory">
+                                                <option value="">Select Category</option>
+                                                <option value="Current Assets">Current Assets</option>
+                                                <option value="Fixed Assets">Fixed Assets</option>
+                                                <option value="Current Liabilities">Current Liabilities</option>
+                                                <option value="Long-term Liabilities">Long-term Liabilities</option>
+                                                <option value="Owner's Equity">Owner's Equity</option>
+                                                <option value="Operating Revenue">Operating Revenue</option>
+                                                <option value="Non-operating Revenue">Non-operating Revenue</option>
+                                                <option value="Operating Expenses">Operating Expenses</option>
+                                                <option value="Non-operating Expenses">Non-operating Expenses</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="openingBalance" class="form-label">Opening Balance</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">$</span>
+                                                <input type="number" class="form-control" id="openingBalance" placeholder="0.00" step="0.01">
+                                            </div>
+                                            <small class="text-muted">Initial balance when account created</small>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="currentBalance" class="form-label">Current Balance</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">$</span>
+                                                <input type="number" class="form-control" id="currentBalance" placeholder="0.00" step="0.01" readonly>
+                                            </div>
+                                            <small class="text-muted">Automatically calculated</small>
+                                        </div>
+                                        <div class="col-12 mb-3">
+                                            <label for="mainAccountDescription" class="form-label">Description</label>
+                                            <textarea class="form-control" id="mainAccountDescription" rows="3" placeholder="Enter account description..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-6">
+                                    <h6 class="mb-3 text-primary">Additional Information</h6>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="mainAccountStatus" class="form-label">Status</label>
+                                            <select class="form-select" id="mainAccountStatus">
+                                                <option value="Active" selected>Active</option>
+                                                <option value="Inactive">Inactive</option>
+                                                <option value="Archived">Archived</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="accountCurrency" class="form-label">Currency</label>
+                                            <select class="form-select" id="accountCurrency">
+                                                <option value="USD" selected>USD ($)</option>
+                                                <option value="LKR">LKR (රු)</option>
+                                                <option value="EUR">EUR (€)</option>
+                                                <option value="GBP">GBP (£)</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="taxRate" class="form-label">Tax Rate (%)</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" id="taxRate" placeholder="0" min="0" max="100" step="0.01">
+                                                <span class="input-group-text">%</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="createdDate" class="form-label">Created Date</label>
+                                            <input type="date" class="form-control" id="createdDate">
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="accountManager" class="form-label">Account Manager</label>
+                                            <select class="form-select" id="accountManager">
+                                                <option value="">Select Manager</option>
+                                                <option value="AJ">Admin Johnson</option>
+                                                <option value="SM">Sarah Miller</option>
+                                                <option value="RK">Robert King</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="department" class="form-label">Department</label>
+                                            <select class="form-select" id="department">
+                                                <option value="">Select Department</option>
+                                                <option value="Finance">Finance</option>
+                                                <option value="Operations">Operations</option>
+                                                <option value="Sales">Sales</option>
+                                                <option value="Management">Management</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <h6 class="mb-3 mt-4 text-primary">Account Properties</h6>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="isDefaultAccount">
+                                                <label class="form-check-label" for="isDefaultAccount">
+                                                    Default Account
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="allowNegativeBalance">
+                                                <label class="form-check-label" for="allowNegativeBalance">
+                                                    Allow Negative Balance
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="requireApproval">
+                                                <label class="form-check-label" for="requireApproval">
+                                                    Require Approval
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="includeInReports">
+                                                <label class="form-check-label" for="includeInReports">
+                                                    Include in Reports
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="allowAutoReconciliation">
+                                                <label class="form-check-label" for="allowAutoReconciliation">
+                                                    Auto Reconciliation
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="trackTransactions">
+                                                <label class="form-check-label" for="trackTransactions">
+                                                    Track Transactions
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Transaction History -->
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <h6 class="mb-3 text-primary">Recent Transactions</h6>
+                                    <div class="table-responsive">
+                                        <table class="table table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Transaction ID</th>
+                                                    <th>Description</th>
+                                                    <th>Debit</th>
+                                                    <th>Credit</th>
+                                                    <th>Balance</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="transactionHistory">
+                                                <tr>
+                                                    <td>2024-03-15</td>
+                                                    <td><span class="badge bg-info">TRX-001245</span></td>
+                                                    <td>Guest payment - Room 305</td>
+                                                    <td class="text-success">$450.00</td>
+                                                    <td class="text-muted">-</td>
+                                                    <td>$45,250.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2024-03-14</td>
+                                                    <td><span class="badge bg-info">TRX-001244</span></td>
+                                                    <td>Supplier payment - Food supplies</td>
+                                                    <td class="text-muted">-</td>
+                                                    <td class="text-danger">$1,250.00</td>
+                                                    <td>$44,800.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2024-03-13</td>
+                                                    <td><span class="badge bg-info">TRX-001243</span></td>
+                                                    <td>Guest payment - Room 201</td>
+                                                    <td class="text-success">$650.00</td>
+                                                    <td class="text-muted">-</td>
+                                                    <td>$46,050.00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Action Buttons -->
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-end gap-2">
+                                        <button class="btn btn-outline-secondary" id="resetMainAccountFormBtn">
+                                            <i class="fas fa-redo me-1"></i> Reset Form
+                                        </button>
+                                        <button class="btn btn-danger" id="deleteMainAccountBtn">
+                                            <i class="fas fa-trash me-1"></i> Delete Account
+                                        </button>
+                                        <button class="btn btn-success" id="saveMainAccountBtn">
+                                            <i class="fas fa-save me-1"></i> Save Account
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Accounts Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Add Main Account Modal -->
+    <div class="modal fade" id="addMainAccountModal" tabindex="-1" aria-labelledby="addMainAccountModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="addMainAccountModalLabel">
+                        <i class="fas fa-plus-circle me-2"></i>Add New Main Account
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="newMainAccountCode" class="form-label">Account Code *</label>
+                            <input type="text" class="form-control" id="newMainAccountCode" required>
+                            <small class="text-muted">Auto-generated: <span id="autoGeneratedMainAccountCode">MA-015</span></small>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newMainAccountName" class="form-label">Account Name *</label>
+                            <input type="text" class="form-control" id="newMainAccountName" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newMainAccountType" class="form-label">Account Type *</label>
+                            <select class="form-select" id="newMainAccountType" required>
+                                <option value="">Select Account Type</option>
+                                <option value="Asset">Asset</option>
+                                <option value="Liability">Liability</option>
+                                <option value="Equity">Equity</option>
+                                <option value="Income">Income</option>
+                                <option value="Expense">Expense</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newMainAccountCategory" class="form-label">Account Category *</label>
+                            <select class="form-select" id="newMainAccountCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="Current Assets">Current Assets</option>
+                                <option value="Fixed Assets">Fixed Assets</option>
+                                <option value="Current Liabilities">Current Liabilities</option>
+                                <option value="Long-term Liabilities">Long-term Liabilities</option>
+                                <option value="Owner's Equity">Owner's Equity</option>
+                                <option value="Operating Revenue">Operating Revenue</option>
+                                <option value="Non-operating Revenue">Non-operating Revenue</option>
+                                <option value="Operating Expenses">Operating Expenses</option>
+                                <option value="Non-operating Expenses">Non-operating Expenses</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newOpeningBalance" class="form-label">Opening Balance</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="newOpeningBalance" placeholder="0.00" step="0.01">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="newMainAccountDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="newMainAccountDescription" rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveNewMainAccount">Save Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteMainAccountModal" tabindex="-1" aria-labelledby="deleteMainAccountModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteMainAccountModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Confirm Main Account Deletion
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this main account?</p>
+                    <p class="text-danger"><strong>Warning: Deleting this account will affect all transactions linked to it.</strong></p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="confirmMainAccountDelete">
+                        <label class="form-check-label" for="confirmMainAccountDelete">
+                            I understand the consequences of deleting this account
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmMainAccountDeleteBtn" disabled>Delete Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Main Account Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize with sample account data
+            let currentAccountId = null;
+            
+            // Select all accounts checkbox
+            document.getElementById('selectAllAccounts').addEventListener('change', function() {
+                const checkboxes = document.querySelectorAll('.account-checkbox');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+            
+            // Filter buttons
+            document.querySelectorAll('[data-filter]').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('[data-filter]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    filterMainAccounts(filter);
+                });
+            });
+            
+            // View account details from cards
+            document.querySelectorAll('.view-main-account').forEach(button => {
+                button.addEventListener('click', function() {
+                    const accountId = this.dataset.id;
+                    loadMainAccountDetails(accountId);
+                });
+            });
+            
+            // Edit account from cards
+            document.querySelectorAll('.edit-main-account').forEach(button => {
+                button.addEventListener('click', function() {
+                    const accountId = this.dataset.id;
+                    editMainAccount(accountId);
+                });
+            });
+            
+            // Delete account from cards
+            document.querySelectorAll('.delete-main-account').forEach(button => {
+                button.addEventListener('click', function() {
+                    const accountId = this.dataset.id;
+                    showDeleteMainAccountModal(accountId);
+                });
+            });
+            
+            // View account details from table
+            document.querySelectorAll('.view-main-account-table').forEach(button => {
+                button.addEventListener('click', function() {
+                    const accountId = this.dataset.id;
+                    loadMainAccountDetails(accountId);
+                });
+            });
+            
+            // Edit account from table
+            document.querySelectorAll('.edit-main-account-table').forEach(button => {
+                button.addEventListener('click', function() {
+                    const accountId = this.dataset.id;
+                    editMainAccount(accountId);
+                });
+            });
+            
+            // Delete account from table
+            document.querySelectorAll('.delete-main-account-table').forEach(button => {
+                button.addEventListener('click', function() {
+                    const accountId = this.dataset.id;
+                    showDeleteMainAccountModal(accountId);
+                });
+            });
+            
+            // Add new account button
+            document.getElementById('addNewMainAccountBtn').addEventListener('click', function() {
+                showAddMainAccountModal();
+            });
+            
+            // Reset filters
+            document.getElementById('resetFiltersBtn').addEventListener('click', function() {
+                resetFilters();
+            });
+            
+            // Search button
+            document.getElementById('searchAccountsBtn').addEventListener('click', function() {
+                searchMainAccounts();
+            });
+            
+            // Save account button
+            document.getElementById('saveMainAccountBtn').addEventListener('click', function() {
+                saveMainAccount();
+            });
+            
+            // Delete account button
+            document.getElementById('deleteMainAccountBtn').addEventListener('click', function() {
+                if (currentAccountId) {
+                    showDeleteMainAccountModal(currentAccountId);
+                } else {
+                    showAlert('No account selected', 'warning');
+                }
+            });
+            
+            // Reset form button
+            document.getElementById('resetMainAccountFormBtn').addEventListener('click', function() {
+                resetMainAccountForm();
+            });
+            
+            // Save new account from modal
+            document.getElementById('saveNewMainAccount').addEventListener('click', function() {
+                saveNewMainAccountFromModal();
+            });
+            
+            // Confirm delete checkbox
+            document.getElementById('confirmMainAccountDelete').addEventListener('change', function() {
+                document.getElementById('confirmMainAccountDeleteBtn').disabled = !this.checked;
+            });
+            
+            // Confirm delete button
+            document.getElementById('confirmMainAccountDeleteBtn').addEventListener('click', function() {
+                deleteMainAccount();
+            });
+            
+            // Export accounts button
+            document.getElementById('exportAccountsBtn').addEventListener('click', function() {
+                exportMainAccounts();
+            });
+            
+            // Search functionality
+            document.getElementById('accountCodeSearch').addEventListener('input', filterMainAccounts);
+            document.getElementById('accountNameSearch').addEventListener('input', filterMainAccounts);
+            document.getElementById('accountTypeFilter').addEventListener('change', filterMainAccounts);
+            document.getElementById('accountCategoryFilter').addEventListener('change', filterMainAccounts);
+            
+            // Auto-generate account code
+            document.getElementById('newMainAccountCode').addEventListener('focus', function() {
+                if (!this.value) {
+                    this.value = document.getElementById('autoGeneratedMainAccountCode').textContent;
+                }
+            });
+            
+            // Load first account details by default
+            if (document.querySelector('.view-main-account')) {
+                document.querySelector('.view-main-account').click();
+            }
+        });
+        
+        function filterMainAccounts(filter = 'all') {
+            const accountCode = document.getElementById('accountCodeSearch').value.toLowerCase();
+            const accountName = document.getElementById('accountNameSearch').value.toLowerCase();
+            const accountType = document.getElementById('accountTypeFilter').value;
+            const accountCategory = document.getElementById('accountCategoryFilter').value;
+            
+            const rows = document.querySelectorAll('#mainAccountTableBody tr');
+            let visibleCount = 0;
+            
+            rows.forEach(row => {
+                // Skip group divider rows
+                if (row.classList.contains('table-group-divider')) {
+                    return;
+                }
+                
+                const rowAccountCode = row.querySelector('td:nth-child(2) .badge')?.textContent.toLowerCase() || '';
+                const rowAccountName = row.querySelector('td:nth-child(3) strong')?.textContent.toLowerCase() || '';
+                const rowAccountType = row.querySelector('td:nth-child(4) span')?.textContent || '';
+                const rowAccountCategory = row.querySelector('td:nth-child(5)')?.textContent || '';
+                
+                let show = true;
+                
+                // Apply search filters
+                if (accountCode && !rowAccountCode.includes(accountCode)) show = false;
+                if (accountName && !rowAccountName.includes(accountName)) show = false;
+                if (accountType && rowAccountType !== accountType) show = false;
+                if (accountCategory && rowAccountCategory !== accountCategory) show = false;
+                
+                // Apply type filter from buttons
+                if (filter !== 'all') {
+                    if (filter === 'asset' && rowAccountType !== 'Asset') show = false;
+                    if (filter === 'liability' && rowAccountType !== 'Liability') show = false;
+                    if (filter === 'income' && rowAccountType !== 'Income') show = false;
+                    if (filter === 'expense' && rowAccountType !== 'Expense') show = false;
+                    if (filter === 'equity' && rowAccountType !== 'Equity') show = false;
+                }
+                
+                if (show) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            // Update showing count
+            document.querySelector('.card-footer span.text-muted').textContent = `Showing ${visibleCount} of 15 main accounts`;
+        }
+        
+        function searchMainAccounts() {
+            const searchTerm = document.querySelector('.input-group input').value.toLowerCase();
+            
+            if (!searchTerm) {
+                filterMainAccounts('all');
+                return;
+            }
+            
+            const rows = document.querySelectorAll('#mainAccountTableBody tr');
+            let visibleCount = 0;
+            
+            rows.forEach(row => {
+                // Skip group divider rows
+                if (row.classList.contains('table-group-divider')) {
+                    return;
+                }
+                
+                const rowAccountCode = row.querySelector('td:nth-child(2) .badge')?.textContent.toLowerCase() || '';
+                const rowAccountName = row.querySelector('td:nth-child(3) strong')?.textContent.toLowerCase() || '';
+                const rowDescription = row.querySelector('td:nth-child(3) small')?.textContent.toLowerCase() || '';
+                
+                const show = rowAccountCode.includes(searchTerm) || 
+                            rowAccountName.includes(searchTerm) || 
+                            rowDescription.includes(searchTerm);
+                
+                if (show) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            // Update showing count
+            document.querySelector('.card-footer span.text-muted').textContent = `Showing ${visibleCount} matching accounts`;
+            
+            showAlert(`Found ${visibleCount} accounts matching "${searchTerm}"`, 'info');
+        }
+        
+        function resetFilters() {
+            document.getElementById('accountCodeSearch').value = '';
+            document.getElementById('accountNameSearch').value = '';
+            document.getElementById('accountTypeFilter').value = '';
+            document.getElementById('accountCategoryFilter').value = '';
+            document.querySelector('.input-group input').value = '';
+            
+            // Reset filter buttons
+            document.querySelectorAll('[data-filter]').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector('[data-filter="all"]').classList.add('active');
+            
+            filterMainAccounts('all');
+        }
+        
+        function loadMainAccountDetails(accountId) {
+            currentAccountId = accountId;
+            
+            // In a real application, you would fetch account data from an API
+            const accountData = getMainAccountData(accountId);
+            
+            // Populate the form with account data
+            document.getElementById('mainAccountCode').value = accountData.accountCode;
+            document.getElementById('mainAccountName').value = accountData.accountName;
+            document.getElementById('mainAccountType').value = accountData.accountType;
+            document.getElementById('mainAccountCategory').value = accountData.accountCategory;
+            document.getElementById('openingBalance').value = accountData.openingBalance;
+            document.getElementById('currentBalance').value = accountData.currentBalance;
+            document.getElementById('mainAccountDescription').value = accountData.description;
+            document.getElementById('mainAccountStatus').value = accountData.status;
+            document.getElementById('accountCurrency').value = accountData.currency;
+            document.getElementById('taxRate').value = accountData.taxRate;
+            document.getElementById('createdDate').value = accountData.createdDate;
+            document.getElementById('accountManager').value = accountData.accountManager;
+            document.getElementById('department').value = accountData.department;
+            
+            // Set checkboxes
+            document.getElementById('isDefaultAccount').checked = accountData.isDefaultAccount;
+            document.getElementById('allowNegativeBalance').checked = accountData.allowNegativeBalance;
+            document.getElementById('requireApproval').checked = accountData.requireApproval;
+            document.getElementById('includeInReports').checked = accountData.includeInReports;
+            document.getElementById('allowAutoReconciliation').checked = accountData.allowAutoReconciliation;
+            document.getElementById('trackTransactions').checked = accountData.trackTransactions;
+            
+            // Update form header
+            document.querySelector('.form-section-header h6').textContent = `Edit Main Account: ${accountData.accountCode} - ${accountData.accountName}`;
+            
+            showAlert(`Loaded account ${accountId} details`, 'success');
+        }
+        
+        function editMainAccount(accountId) {
+            loadMainAccountDetails(accountId);
+            showAlert(`Editing account ${accountId}`, 'info');
+        }
+        
+        function showAddMainAccountModal() {
+            // Generate new account code
+            const nextCode = 'MA-' + (15 + Math.floor(Math.random() * 10)).toString().padStart(3, '0');
+            document.getElementById('autoGeneratedMainAccountCode').textContent = nextCode;
+            document.getElementById('newMainAccountCode').value = nextCode;
+            
+            // Reset modal form
+            document.getElementById('newMainAccountName').value = '';
+            document.getElementById('newMainAccountType').value = '';
+            document.getElementById('newMainAccountCategory').value = '';
+            document.getElementById('newOpeningBalance').value = '';
+            document.getElementById('newMainAccountDescription').value = '';
+            
+            // Show modal
+            const addModal = new bootstrap.Modal(document.getElementById('addMainAccountModal'));
+            addModal.show();
+        }
+        
+        function showDeleteMainAccountModal(accountId) {
+            const accountData = getMainAccountData(accountId);
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteMainAccountModal'));
+            
+            // Update modal message with account details
+            document.querySelector('#deleteMainAccountModal .modal-body p').textContent = 
+                `Are you sure you want to delete main account "${accountData.accountName}" (${accountData.accountCode})?`;
+            
+            document.getElementById('confirmMainAccountDeleteBtn').dataset.accountId = accountId;
+            deleteModal.show();
+        }
+        
+        function deleteMainAccount() {
+            const accountId = document.getElementById('confirmMainAccountDeleteBtn').dataset.accountId;
+            const accountData = getMainAccountData(accountId);
+            
+            // In a real application, you would send a delete request to your API
+            showAlert(`Main account ${accountId} (${accountData.accountName}) has been deleted`, 'danger');
+            
+            // Close the modal
+            const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteMainAccountModal'));
+            deleteModal.hide();
+            
+            // Reset the checkbox
+            document.getElementById('confirmMainAccountDelete').checked = false;
+            document.getElementById('confirmMainAccountDeleteBtn').disabled = true;
+            
+            // Remove the row from the table
+            const tableRow = document.querySelector(`.account-checkbox[data-id="${accountId}"]`)?.closest('tr');
+            if (tableRow) {
+                tableRow.remove();
+            }
+            
+            // Remove the card
+            const card = document.querySelector(`.view-main-account[data-id="${accountId}"]`)?.closest('.account-card');
+            if (card) {
+                card.remove();
+            }
+            
+            // Reset the form if this was the current account
+            if (currentAccountId === accountId) {
+                resetMainAccountForm();
+                currentAccountId = null;
+            }
+        }
+        
+        function saveMainAccount() {
+            if (!currentAccountId) {
+                showAlert('No account selected to update', 'warning');
+                return;
+            }
+            
+            // Get form data
+            const accountData = {
+                accountCode: document.getElementById('mainAccountCode').value,
+                accountName: document.getElementById('mainAccountName').value,
+                accountType: document.getElementById('mainAccountType').value,
+                accountCategory: document.getElementById('mainAccountCategory').value,
+                openingBalance: document.getElementById('openingBalance').value,
+                currentBalance: document.getElementById('currentBalance').value,
+                description: document.getElementById('mainAccountDescription').value,
+                status: document.getElementById('mainAccountStatus').value,
+                currency: document.getElementById('accountCurrency').value,
+                taxRate: document.getElementById('taxRate').value,
+                createdDate: document.getElementById('createdDate').value,
+                accountManager: document.getElementById('accountManager').value,
+                department: document.getElementById('department').value,
+                isDefaultAccount: document.getElementById('isDefaultAccount').checked,
+                allowNegativeBalance: document.getElementById('allowNegativeBalance').checked,
+                requireApproval: document.getElementById('requireApproval').checked,
+                includeInReports: document.getElementById('includeInReports').checked,
+                allowAutoReconciliation: document.getElementById('allowAutoReconciliation').checked,
+                trackTransactions: document.getElementById('trackTransactions').checked
+            };
+            
+            // Validate required fields
+            if (!accountData.accountCode || !accountData.accountName || !accountData.accountType || !accountData.accountCategory) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            // In a real application, you would send an update request to your API
+            showAlert(`Main account ${accountData.accountCode} (${accountData.accountName}) updated successfully`, 'success');
+            
+            // Update the table row
+            const tableRow = document.querySelector(`.account-checkbox[data-id="${currentAccountId}"]`)?.closest('tr');
+            if (tableRow) {
+                tableRow.querySelector('td:nth-child(2) .badge').textContent = accountData.accountCode;
+                tableRow.querySelector('td:nth-child(3) strong').textContent = accountData.accountName;
+                
+                // Update account type badge
+                const typeBadge = tableRow.querySelector('td:nth-child(4) span');
+                typeBadge.textContent = accountData.accountType;
+                typeBadge.className = `account-type-badge badge-${accountData.accountType.toLowerCase()}`;
+                
+                tableRow.querySelector('td:nth-child(5)').textContent = accountData.accountCategory;
+                tableRow.querySelector('td:nth-child(6) strong').textContent = `$${parseFloat(accountData.currentBalance).toFixed(2)}`;
+                tableRow.querySelector('td:nth-child(6) strong').className = getBalanceColorClass(accountData.accountType);
+                
+                // Update status badge
+                const statusBadge = tableRow.querySelector('td:nth-child(7) span');
+                statusBadge.textContent = accountData.status;
+                statusBadge.className = `account-status-badge badge-${accountData.status.toLowerCase()}`;
+                
+                // Update description in small text
+                const descriptionElement = tableRow.querySelector('td:nth-child(3) small');
+                if (descriptionElement) {
+                    descriptionElement.textContent = accountData.description || 'No description';
+                }
+            }
+            
+            // Update the card
+            const card = document.querySelector(`.view-main-account[data-id="${currentAccountId}"]`)?.closest('.account-card');
+            if (card) {
+                card.querySelector('.account-card-header h5').textContent = accountData.accountName;
+                card.querySelector('.account-type-badge').textContent = accountData.accountType;
+                card.querySelector('.account-type-badge').className = `account-type-badge badge-${accountData.accountType.toLowerCase()}`;
+                card.querySelector('.account-card-body h6:nth-child(1)').textContent = accountData.accountCode;
+                card.querySelector('.account-card-body h6:nth-child(2)').textContent = accountData.accountCategory;
+                card.querySelector('.account-balance').textContent = `$${parseFloat(accountData.currentBalance).toFixed(2)}`;
+                card.querySelector('.account-balance').className = `account-balance ${getBalanceColorClass(accountData.accountType)}`;
+                card.querySelector('.text-muted.small').textContent = accountData.description || 'No description';
+            }
+        }
+        
+        function saveNewMainAccountFromModal() {
+            // Get form data
+            const accountData = {
+                accountCode: document.getElementById('newMainAccountCode').value,
+                accountName: document.getElementById('newMainAccountName').value,
+                accountType: document.getElementById('newMainAccountType').value,
+                accountCategory: document.getElementById('newMainAccountCategory').value,
+                openingBalance: document.getElementById('newOpeningBalance').value || '0.00',
+                description: document.getElementById('newMainAccountDescription').value
+            };
+            
+            // Validate required fields
+            if (!accountData.accountCode || !accountData.accountName || !accountData.accountType || !accountData.accountCategory) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            // Generate a new account ID
+            const newAccountId = accountData.accountCode;
+            
+            // In a real application, you would send this to your API
+            // For now, we'll add it to the table and cards
+            
+            // Add to table
+            const tableBody = document.getElementById('mainAccountTableBody');
+            
+            // Determine where to insert (before the appropriate group divider)
+            let insertBeforeElement = null;
+            const accountType = accountData.accountType;
+            const groupDividers = tableBody.querySelectorAll('.table-group-divider');
+            
+            for (let i = 0; i < groupDividers.length; i++) {
+                const divider = groupDividers[i];
+                const dividerText = divider.textContent.toLowerCase();
+                
+                if ((accountType === 'Asset' && dividerText.includes('asset')) ||
+                    (accountType === 'Liability' && dividerText.includes('liability')) ||
+                    (accountType === 'Income' && dividerText.includes('income')) ||
+                    (accountType === 'Expense' && dividerText.includes('expense'))) {
+                    
+                    // Find the next group divider or end of table
+                    let nextElement = divider.nextElementSibling;
+                    while (nextElement && !nextElement.classList.contains('table-group-divider')) {
+                        nextElement = nextElement.nextElementSibling;
+                    }
+                    insertBeforeElement = nextElement;
+                    break;
+                }
+            }
+            
+            // If no matching group found, insert at end
+            if (!insertBeforeElement) {
+                insertBeforeElement = null;
+            }
+            
+            const newRow = document.createElement('tr');
+            const balanceColorClass = getBalanceColorClass(accountData.accountType);
+            
+            newRow.innerHTML = `
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input account-checkbox" type="checkbox" data-id="${newAccountId}">
+                    </div>
+                </td>
+                <td><span class="badge bg-primary">${accountData.accountCode}</span></td>
+                <td>
+                    <strong>${accountData.accountName}</strong>
+                    <small class="d-block text-muted">${accountData.description || 'No description'}</small>
+                </td>
+                <td>
+                    <span class="account-type-badge badge-${accountData.accountType.toLowerCase()}">${accountData.accountType}</span>
+                </td>
+                <td>${accountData.accountCategory}</td>
+                <td>
+                    <strong class="${balanceColorClass}">$${parseFloat(accountData.openingBalance).toFixed(2)}</strong>
+                </td>
+                <td>
+                    <span class="account-status-badge badge-active">Active</span>
+                </td>
+                <td>
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-outline-primary view-main-account-table" data-id="${newAccountId}">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-outline-warning edit-main-account-table" data-id="${newAccountId}">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-outline-danger delete-main-account-table" data-id="${newAccountId}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            `;
+            
+            if (insertBeforeElement) {
+                tableBody.insertBefore(newRow, insertBeforeElement);
+            } else {
+                tableBody.appendChild(newRow);
+            }
+            
+            // Add to cards
+            const cardsContainer = document.getElementById('mainAccountCards');
+            const newCard = document.createElement('div');
+            newCard.className = 'col-xl-4 col-md-6 mb-4';
+            newCard.innerHTML = `
+                <div class="card account-card border-left-${getBorderColorClass(accountData.accountType)}">
+                    <div class="account-card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="account-type-badge badge-${accountData.accountType.toLowerCase()} mb-2">${accountData.accountType}</span>
+                                <h5 class="mb-0">${accountData.accountName}</h5>
+                            </div>
+                            <div class="text-end">
+                                <span class="badge bg-success">Active</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="account-card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <small class="text-muted">Code</small>
+                                <h6 class="mb-0">${accountData.accountCode}</h6>
+                            </div>
+                            <div class="text-end">
+                                <small class="text-muted">Category</small>
+                                <h6 class="mb-0">${accountData.accountCategory}</h6>
+                            </div>
+                        </div>
+                        <div class="account-balance ${balanceColorClass}">
+                            $${parseFloat(accountData.openingBalance).toFixed(2)}
+                        </div>
+                        <p class="text-muted small mb-3">${accountData.description || 'No description'}</p>
+                        <div class="account-actions">
+                            <button class="btn btn-sm btn-outline-primary view-main-account" data-id="${newAccountId}">
+                                <i class="fas fa-eye me-1"></i> View
+                            </button>
+                            <button class="btn btn-sm btn-outline-warning edit-main-account" data-id="${newAccountId}">
+                                <i class="fas fa-edit me-1"></i> Edit
+                            </button>
+                            <button class="btn btn-sm btn-outline-danger delete-main-account" data-id="${newAccountId}">
+                                <i class="fas fa-trash me-1"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            cardsContainer.appendChild(newCard);
+            
+            // Add event listeners to new buttons
+            newRow.querySelector('.view-main-account-table').addEventListener('click', function() {
+                loadMainAccountDetails(this.dataset.id);
+            });
+            
+            newRow.querySelector('.edit-main-account-table').addEventListener('click', function() {
+                editMainAccount(this.dataset.id);
+            });
+            
+            newRow.querySelector('.delete-main-account-table').addEventListener('click', function() {
+                showDeleteMainAccountModal(this.dataset.id);
+            });
+            
+            newCard.querySelector('.view-main-account').addEventListener('click', function() {
+                loadMainAccountDetails(this.dataset.id);
+            });
+            
+            newCard.querySelector('.edit-main-account').addEventListener('click', function() {
+                editMainAccount(this.dataset.id);
+            });
+            
+            newCard.querySelector('.delete-main-account').addEventListener('click', function() {
+                showDeleteMainAccountModal(this.dataset.id);
+            });
+            
+            // Close the modal
+            const addModal = bootstrap.Modal.getInstance(document.getElementById('addMainAccountModal'));
+            addModal.hide();
+            
+            // Reset the form
+            document.getElementById('newMainAccountCode').value = '';
+            document.getElementById('newMainAccountName').value = '';
+            document.getElementById('newMainAccountType').value = '';
+            document.getElementById('newMainAccountCategory').value = '';
+            document.getElementById('newOpeningBalance').value = '';
+            document.getElementById('newMainAccountDescription').value = '';
+            
+            showAlert(`New main account ${accountData.accountName} added successfully`, 'success');
+            
+            // Load the new account details
+            loadMainAccountDetails(newAccountId);
+        }
+        
+        function resetMainAccountForm() {
+            document.getElementById('mainAccountCode').value = '';
+            document.getElementById('mainAccountName').value = '';
+            document.getElementById('mainAccountType').value = '';
+            document.getElementById('mainAccountCategory').value = '';
+            document.getElementById('openingBalance').value = '';
+            document.getElementById('currentBalance').value = '';
+            document.getElementById('mainAccountDescription').value = '';
+            document.getElementById('mainAccountStatus').value = 'Active';
+            document.getElementById('accountCurrency').value = 'USD';
+            document.getElementById('taxRate').value = '';
+            document.getElementById('createdDate').value = '';
+            document.getElementById('accountManager').value = '';
+            document.getElementById('department').value = '';
+            
+            // Reset checkboxes
+            document.getElementById('isDefaultAccount').checked = false;
+            document.getElementById('allowNegativeBalance').checked = false;
+            document.getElementById('requireApproval').checked = false;
+            document.getElementById('includeInReports').checked = false;
+            document.getElementById('allowAutoReconciliation').checked = false;
+            document.getElementById('trackTransactions').checked = false;
+            
+            // Update form header
+            document.querySelector('.form-section-header h6').textContent = 'Add New Main Account / Edit Account Details';
+            
+            currentAccountId = null;
+            
+            showAlert('Main account form has been reset', 'info');
+        }
+        
+        function exportMainAccounts() {
+            // In a real application, this would generate and download a CSV/Excel file
+            showAlert('Exporting main accounts data... This would download a CSV file in a real application.', 'info');
+            
+            // Simulate download
+            setTimeout(() => {
+                showAlert('Main accounts exported successfully', 'success');
+            }, 1000);
+        }
+        
+        function getMainAccountData(accountId) {
+            // Sample account data - in a real app, this would come from an API
+            const accounts = {
+                'MA-001': {
+                    accountCode: 'MA-001',
+                    accountName: 'Cash Account',
+                    accountType: 'Asset',
+                    accountCategory: 'Current Assets',
+                    openingBalance: '0.00',
+                    currentBalance: '45250.00',
+                    description: 'Primary cash account for daily hotel operations',
+                    status: 'Active',
+                    currency: 'USD',
+                    taxRate: '0',
+                    createdDate: '2024-01-15',
+                    accountManager: 'AJ',
+                    department: 'Finance',
+                    isDefaultAccount: true,
+                    allowNegativeBalance: false,
+                    requireApproval: false,
+                    includeInReports: true,
+                    allowAutoReconciliation: true,
+                    trackTransactions: true
+                },
+                'MA-002': {
+                    accountCode: 'MA-002',
+                    accountName: 'Bank Account',
+                    accountType: 'Asset',
+                    accountCategory: 'Current Assets',
+                    openingBalance: '0.00',
+                    currentBalance: '125800.00',
+                    description: 'Commercial Bank business account',
+                    status: 'Active',
+                    currency: 'USD',
+                    taxRate: '0',
+                    createdDate: '2024-01-15',
+                    accountManager: 'AJ',
+                    department: 'Finance',
+                    isDefaultAccount: false,
+                    allowNegativeBalance: true,
+                    requireApproval: true,
+                    includeInReports: true,
+                    allowAutoReconciliation: true,
+                    trackTransactions: true
+                },
+                'MA-003': {
+                    accountCode: 'MA-003',
+                    accountName: 'Accounts Receivable',
+                    accountType: 'Asset',
+                    accountCategory: 'Current Assets',
+                    openingBalance: '0.00',
+                    currentBalance: '35400.00',
+                    description: 'Outstanding guest payments',
+                    status: 'Active',
+                    currency: 'USD',
+                    taxRate: '0',
+                    createdDate: '2024-01-15',
+                    accountManager: 'AJ',
+                    department: 'Finance',
+                    isDefaultAccount: false,
+                    allowNegativeBalance: true,
+                    requireApproval: false,
+                    includeInReports: true,
+                    allowAutoReconciliation: false,
+                    trackTransactions: true
+                }
+            };
+            
+            return accounts[accountId] || accounts['MA-001'];
+        }
+        
+        function getBalanceColorClass(accountType) {
+            switch(accountType) {
+                case 'Asset': return 'text-success';
+                case 'Liability': return 'text-warning';
+                case 'Income': return 'text-info';
+                case 'Expense': return 'text-danger';
+                case 'Equity': return 'text-secondary';
+                default: return 'text-dark';
+            }
+        }
+        
+        function getBorderColorClass(accountType) {
+            switch(accountType) {
+                case 'Asset': return 'primary';
+                case 'Liability': return 'warning';
+                case 'Income': return 'success';
+                case 'Expense': return 'danger';
+                case 'Equity': return 'secondary';
+                default: return 'dark';
+            }
+        }
+        
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+    </script>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+
+    <!-- Include JavaScript -->
+    <script src="js/include.js"></script>
+     <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

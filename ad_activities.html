@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+     <link rel="stylesheet" href="css/header.css">
+
+      
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-hiking me-2"></i>Activities Management
+                                </h1>
+                                <p class="card-text text-muted mb-0">Manage hotel activities, tours, and recreational services</p>
+                                <small class="text-muted">Total Activities: <span class="fw-bold">18</span> • Active: <span class="text-success fw-bold">15</span> • Inactive: <span class="text-warning fw-bold">3</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-primary" id="addNewActivityBtn">
+                                    <i class="fas fa-plus-circle me-1"></i> Add New Activity
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity Detail Form Section -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="activities-header">
+                            <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Activity Detail</h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="activities-form-section">
+                            <form id="activityForm">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="activityName" class="form-label">Activity Name</label>
+                                        <input type="text" class="form-control" id="activityName" placeholder="Enter activity name">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="activityType" class="form-label">Activity Type</label>
+                                        <select class="form-select" id="activityType">
+                                            <option value="">Select Activity Type</option>
+                                            <option value="adventure">Adventure</option>
+                                            <option value="cultural">Cultural</option>
+                                            <option value="water_sports">Water Sports</option>
+                                            <option value="wildlife">Wildlife</option>
+                                            <option value="relaxation">Relaxation</option>
+                                            <option value="sightseeing">Sightseeing</option>
+                                            <option value="fitness">Fitness</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="distance" class="form-label">Distance (KM)</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" id="distance" placeholder="0" min="0" step="0.1">
+                                            <span class="input-group-text">KM</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="totalPaxCount" class="form-label">Total Pax Count</label>
+                                        <input type="number" class="form-control" id="totalPaxCount" placeholder="0" min="1">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="perPersonRate" class="form-label">Per Person Rate ($)</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="number" class="form-control" id="perPersonRate" placeholder="0.00" min="0" step="0.01">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Hidden ID for editing -->
+                                <input type="hidden" id="activityId" value="">
+                                
+                                <!-- Action Buttons -->
+                                <div class="d-flex justify-content-end gap-3">
+                                    <button type="button" class="btn btn-outline-secondary" id="resetActivityBtn">
+                                        <i class="fas fa-redo me-1"></i> RESET
+                                    </button>
+                                    <button type="submit" class="btn btn-success" id="addActivityBtn">
+                                        <i class="fas fa-plus-circle me-1"></i> ADD ACTIVITY
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activities List Section -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-list me-2"></i>Activity Detail</h5>
+                            <div class="pagination-indicator">
+                                <span class="text-muted">Showing <span id="activitiesCount">0</span> activities</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0 activities-table">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Activity Type</th>
+                                        <th>Type</th>
+                                        <th>Pax</th>
+                                        <th>Distance (KM)</th>
+                                        <th>Per Person Rate</th>
+                                        <th class="table-actions">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="activitiesTableBody">
+                                    <!-- Activity rows will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted">Total Activities: <span id="totalActivitiesCount">0</span></span>
+                            </div>
+                            <nav aria-label="Activities pagination">
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/include.js"></script>
+     <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+
+
+    
+    <script>
+        // Activities Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sample activities data
+            const activities = [
+                { id: 1, name: 'Dolphin Watching', type: 'wildlife', subType: 'boat_tour', 
+                  distance: 15.5, totalPax: 20, perPersonRate: 45.00, status: 'active', 
+                  description: 'Early morning dolphin watching tour' },
+                { id: 2, name: 'Kite Surfing', type: 'water_sports', subType: 'extreme', 
+                  distance: 0, totalPax: 10, perPersonRate: 75.00, status: 'active', 
+                  description: 'Kite surfing lessons for beginners' },
+                { id: 3, name: 'Cultural Village Tour', type: 'cultural', subType: 'sightseeing', 
+                  distance: 25.0, totalPax: 15, perPersonRate: 35.00, status: 'active', 
+                  description: 'Visit to local cultural village' },
+                { id: 4, name: 'Jungle Trekking', type: 'adventure', subType: 'hiking', 
+                  distance: 8.2, totalPax: 12, perPersonRate: 50.00, status: 'inactive', 
+                  description: 'Guided jungle trekking adventure' },
+                { id: 5, name: 'Sunset Yoga', type: 'relaxation', subType: 'fitness', 
+                  distance: 0, totalPax: 25, perPersonRate: 20.00, status: 'active', 
+                  description: 'Evening yoga session on the beach' },
+                { id: 6, name: 'Snorkeling Tour', type: 'water_sports', subType: 'exploration', 
+                  distance: 12.0, totalPax: 18, perPersonRate: 40.00, status: 'active', 
+                  description: 'Coral reef snorkeling adventure' }
+            ];
+            
+            // Initialize activities table
+            renderActivitiesTable(activities);
+            
+            // Form submission
+            document.getElementById('activityForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                saveActivity();
+            });
+            
+            // Reset button
+            document.getElementById('resetActivityBtn').addEventListener('click', function() {
+                resetActivityForm();
+            });
+            
+            // Add new activity button
+            document.getElementById('addNewActivityBtn').addEventListener('click', function() {
+                resetActivityForm();
+                document.getElementById('activityForm').scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Auto-calculate total price based on pax count and per person rate
+            document.getElementById('totalPaxCount').addEventListener('input', autoCalculateTotal);
+            document.getElementById('perPersonRate').addEventListener('input', autoCalculateTotal);
+        });
+        
+        function renderActivitiesTable(activities) {
+            const tbody = document.getElementById('activitiesTableBody');
+            tbody.innerHTML = '';
+            
+            if (activities.length === 0) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td colspan="7" class="text-center text-muted py-4">
+                        <i class="fas fa-hiking fa-2x mb-3"></i>
+                        <p class="mb-0">No activities found</p>
+                        <small>Add your first activity using the form above</small>
+                    </td>
+                `;
+                tbody.appendChild(row);
+                return;
+            }
+            
+            activities.forEach(activity => {
+                const typeBadgeClass = getActivityTypeClass(activity.type);
+                const typeText = getActivityTypeText(activity.type);
+                const subTypeText = getActivitySubTypeText(activity.subType);
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <strong>${activity.name}</strong>
+                        ${activity.description ? `<small class="d-block text-muted">${activity.description}</small>` : ''}
+                    </td>
+                    <td>
+                        <span class="type-badge badge ${typeBadgeClass}">${typeText}</span>
+                    </td>
+                    <td>
+                        <span class="badge bg-light text-dark">${subTypeText}</span>
+                    </td>
+                    <td>
+                        <span class="badge bg-info">${activity.totalPax} Pax</span>
+                    </td>
+                    <td class="distance-cell">
+                        ${activity.distance > 0 ? `${activity.distance} KM` : 'N/A'}
+                    </td>
+                    <td class="price-cell per-person-rate">
+                        $${activity.perPersonRate.toFixed(2)}
+                    </td>
+                    <td class="table-actions">
+                        <div class="btn-group btn-group-sm">
+                            <button class="btn btn-outline-primary edit-activity" data-id="${activity.id}">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-outline-danger delete-activity" data-id="${activity.id}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                            <button class="btn btn-outline-info view-activity" data-id="${activity.id}">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+            
+            // Update counts
+            document.getElementById('activitiesCount').textContent = activities.length;
+            document.getElementById('totalActivitiesCount').textContent = activities.length;
+            
+            // Add event listeners to edit buttons
+            document.querySelectorAll('.edit-activity').forEach(button => {
+                button.addEventListener('click', function() {
+                    const activityId = parseInt(this.dataset.id);
+                    editActivity(activityId);
+                });
+            });
+            
+            // Add event listeners to delete buttons
+            document.querySelectorAll('.delete-activity').forEach(button => {
+                button.addEventListener('click', function() {
+                    const activityId = parseInt(this.dataset.id);
+                    confirmDeleteActivity(activityId);
+                });
+            });
+            
+            // Add event listeners to view buttons
+            document.querySelectorAll('.view-activity').forEach(button => {
+                button.addEventListener('click', function() {
+                    const activityId = parseInt(this.dataset.id);
+                    viewActivity(activityId);
+                });
+            });
+        }
+        
+        function saveActivity() {
+            const activityId = document.getElementById('activityId').value;
+            const name = document.getElementById('activityName').value.trim();
+            const type = document.getElementById('activityType').value;
+            const distance = parseFloat(document.getElementById('distance').value) || 0;
+            const totalPax = parseInt(document.getElementById('totalPaxCount').value) || 0;
+            const perPersonRate = parseFloat(document.getElementById('perPersonRate').value) || 0;
+            
+            // Validation
+            if (!name || !type) {
+                showNotification('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            if (totalPax < 1) {
+                showNotification('Total Pax Count must be at least 1', 'warning');
+                return;
+            }
+            
+            if (perPersonRate <= 0) {
+                showNotification('Per Person Rate must be greater than 0', 'warning');
+                return;
+            }
+            
+            // Determine sub-type based on type
+            const subType = determineSubType(type);
+            
+            if (activityId) {
+                // Update existing activity
+                const activityIndex = window.activities.findIndex(a => a.id === parseInt(activityId));
+                if (activityIndex !== -1) {
+                    window.activities[activityIndex] = {
+                        ...window.activities[activityIndex],
+                        name,
+                        type,
+                        subType,
+                        distance,
+                        totalPax,
+                        perPersonRate,
+                        status: 'active'
+                    };
+                    
+                    showNotification(`Activity "${name}" updated successfully`, 'success');
+                }
+            } else {
+                // Add new activity
+                const newId = window.activities.length > 0 ? Math.max(...window.activities.map(a => a.id)) + 1 : 1;
+                window.activities.push({
+                    id: newId,
+                    name,
+                    type,
+                    subType,
+                    distance,
+                    totalPax,
+                    perPersonRate,
+                    status: 'active',
+                    description: ''
+                });
+                
+                showNotification(`Activity "${name}" added successfully`, 'success');
+            }
+            
+            // Refresh table
+            renderActivitiesTable(window.activities);
+            
+            // Reset form
+            resetActivityForm();
+        }
+        
+        function editActivity(activityId) {
+            const activity = window.activities.find(a => a.id === activityId);
+            if (!activity) return;
+            
+            document.getElementById('activityId').value = activity.id;
+            document.getElementById('activityName').value = activity.name;
+            document.getElementById('activityType').value = activity.type;
+            document.getElementById('distance').value = activity.distance || '';
+            document.getElementById('totalPaxCount').value = activity.totalPax || '';
+            document.getElementById('perPersonRate').value = activity.perPersonRate || '';
+            
+            // Change button text
+            document.getElementById('addActivityBtn').innerHTML = '<i class="fas fa-save me-1"></i> UPDATE ACTIVITY';
+            
+            // Scroll to form
+            document.getElementById('activityForm').scrollIntoView({ behavior: 'smooth' });
+            
+            // Show notification
+            showNotification(`Editing activity "${activity.name}"`, 'info');
+        }
+        
+        function viewActivity(activityId) {
+            const activity = window.activities.find(a => a.id === activityId);
+            if (!activity) return;
+            
+            // Calculate total price
+            const totalPrice = activity.totalPax * activity.perPersonRate;
+            
+            // Show activity details in an alert/modal
+            alert(`Activity Details:\n\n` +
+                  `Name: ${activity.name}\n` +
+                  `Type: ${getActivityTypeText(activity.type)}\n` +
+                  `Sub Type: ${getActivitySubTypeText(activity.subType)}\n` +
+                  `Distance: ${activity.distance > 0 ? activity.distance + ' KM' : 'N/A'}\n` +
+                  `Total Pax: ${activity.totalPax}\n` +
+                  `Per Person Rate: $${activity.perPersonRate.toFixed(2)}\n` +
+                  `Total Price: $${totalPrice.toFixed(2)}\n` +
+                  `Status: ${activity.status === 'active' ? 'Active' : 'Inactive'}\n` +
+                  `Description: ${activity.description || 'No description provided'}`);
+        }
+        
+        function resetActivityForm() {
+            document.getElementById('activityForm').reset();
+            document.getElementById('activityId').value = '';
+            document.getElementById('distance').value = '';
+            document.getElementById('totalPaxCount').value = '';
+            document.getElementById('perPersonRate').value = '';
+            
+            // Reset button text
+            document.getElementById('addActivityBtn').innerHTML = '<i class="fas fa-plus-circle me-1"></i> ADD ACTIVITY';
+        }
+        
+        function autoCalculateTotal() {
+            const totalPax = parseInt(document.getElementById('totalPaxCount').value) || 0;
+            const perPersonRate = parseFloat(document.getElementById('perPersonRate').value) || 0;
+            
+            if (totalPax > 0 && perPersonRate > 0) {
+                const totalPrice = totalPax * perPersonRate;
+                // You could display this total somewhere if needed
+                // For example: document.getElementById('totalPriceDisplay').textContent = `Total: $${totalPrice.toFixed(2)}`;
+            }
+        }
+        
+        function confirmDeleteActivity(activityId) {
+            const activity = window.activities.find(a => a.id === activityId);
+            if (!activity) return;
+            
+            if (confirm(`Are you sure you want to delete the activity "${activity.name}"?`)) {
+                deleteActivity(activityId);
+            }
+        }
+        
+        function deleteActivity(activityId) {
+            const activityIndex = window.activities.findIndex(a => a.id === activityId);
+            if (activityIndex !== -1) {
+                const activityName = window.activities[activityIndex].name;
+                window.activities.splice(activityIndex, 1);
+                
+                showNotification(`Activity "${activityName}" deleted successfully`, 'danger');
+                renderActivitiesTable(window.activities);
+                
+                // If we were editing this activity, reset the form
+                const currentActivityId = document.getElementById('activityId').value;
+                if (currentActivityId && parseInt(currentActivityId) === activityId) {
+                    resetActivityForm();
+                }
+            }
+        }
+        
+        function determineSubType(type) {
+            const subTypeMap = {
+                'adventure': 'hiking',
+                'cultural': 'sightseeing',
+                'water_sports': 'exploration',
+                'wildlife': 'observation',
+                'relaxation': 'wellness',
+                'sightseeing': 'tour',
+                'fitness': 'exercise',
+                'other': 'general'
+            };
+            return subTypeMap[type] || 'general';
+        }
+        
+        function getActivityTypeClass(type) {
+            switch(type) {
+                case 'adventure': return 'bg-danger';
+                case 'cultural': return 'bg-primary';
+                case 'water_sports': return 'bg-info';
+                case 'wildlife': return 'bg-success';
+                case 'relaxation': return 'bg-warning';
+                case 'sightseeing': return 'bg-purple';
+                case 'fitness': return 'bg-pink';
+                case 'other': return 'bg-secondary';
+                default: return 'bg-secondary';
+            }
+        }
+        
+        function getActivityTypeText(type) {
+            const typeMap = {
+                'adventure': 'Adventure',
+                'cultural': 'Cultural',
+                'water_sports': 'Water Sports',
+                'wildlife': 'Wildlife',
+                'relaxation': 'Relaxation',
+                'sightseeing': 'Sightseeing',
+                'fitness': 'Fitness',
+                'other': 'Other'
+            };
+            return typeMap[type] || type;
+        }
+        
+        function getActivitySubTypeText(subType) {
+            const subTypeMap = {
+                'boat_tour': 'Boat Tour',
+                'extreme': 'Extreme',
+                'sightseeing': 'Sightseeing',
+                'hiking': 'Hiking',
+                'fitness': 'Fitness',
+                'exploration': 'Exploration',
+                'observation': 'Observation',
+                'wellness': 'Wellness',
+                'tour': 'Tour',
+                'exercise': 'Exercise',
+                'general': 'General'
+            };
+            return subTypeMap[subType] || subType;
+        }
+        
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            notification.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            notification.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 3000);
+        }
+        
+        // Make data available globally for event handlers
+        window.activities = [
+            { id: 1, name: 'Dolphin Watching', type: 'wildlife', subType: 'boat_tour', 
+              distance: 15.5, totalPax: 20, perPersonRate: 45.00, status: 'active', 
+              description: 'Early morning dolphin watching tour' },
+            { id: 2, name: 'Kite Surfing', type: 'water_sports', subType: 'extreme', 
+              distance: 0, totalPax: 10, perPersonRate: 75.00, status: 'active', 
+              description: 'Kite surfing lessons for beginners' },
+            { id: 3, name: 'Cultural Village Tour', type: 'cultural', subType: 'sightseeing', 
+              distance: 25.0, totalPax: 15, perPersonRate: 35.00, status: 'active', 
+              description: 'Visit to local cultural village' },
+            { id: 4, name: 'Jungle Trekking', type: 'adventure', subType: 'hiking', 
+              distance: 8.2, totalPax: 12, perPersonRate: 50.00, status: 'inactive', 
+              description: 'Guided jungle trekking adventure' },
+            { id: 5, name: 'Sunset Yoga', type: 'relaxation', subType: 'fitness', 
+              distance: 0, totalPax: 25, perPersonRate: 20.00, status: 'active', 
+              description: 'Evening yoga session on the beach' },
+            { id: 6, name: 'Snorkeling Tour', type: 'water_sports', subType: 'exploration', 
+              distance: 12.0, totalPax: 18, perPersonRate: 40.00, status: 'active', 
+              description: 'Coral reef snorkeling adventure' }
+        ];
+    </script>
+</body>
+</html>

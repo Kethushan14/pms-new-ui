@@ -1,0 +1,264 @@
+/* Cancel Page Specific Styles */
+
+/* Cancellation Status Indicators */
+.cancelled-row {
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.cancelled-row:hover {
+    opacity: 1;
+    background-color: rgba(220, 53, 69, 0.05);
+}
+
+.cancelled-row td:first-child .badge {
+    background-color: #dc3545 !important;
+}
+
+/* Balance Summary Styles */
+.balance-summary {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+}
+
+.balance-summary div {
+    padding: 5px 0;
+    border-bottom: 1px dashed #dee2e6;
+}
+
+.balance-summary div:last-child {
+    border-bottom: none;
+    padding-top: 10px;
+    margin-top: 5px;
+    border-top: 2px solid #dee2e6;
+}
+
+/* Service Table Styles */
+.table-sm th {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: #f8f9fa;
+}
+
+.table-sm td {
+    font-size: 0.85rem;
+    vertical-align: middle;
+}
+
+/* Payment Status Badges */
+.badge.bg-success {
+    background-color: #198754 !important;
+}
+
+/* Form Control Focus States */
+.form-control:focus,
+.form-select:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+/* Card Header Styles */
+.card-header.bg-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+}
+
+.card-header.bg-primary {
+    background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+}
+
+/* Tab Navigation */
+.nav-tabs .nav-link {
+    color: #6c757d;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: none;
+    position: relative;
+}
+
+.nav-tabs .nav-link:hover {
+    color: #495057;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.nav-tabs .nav-link.active {
+    color: #dc3545;
+    background-color: white;
+    border-bottom: 3px solid #dc3545;
+}
+
+.nav-tabs .nav-link i {
+    margin-right: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .balance-summary {
+        font-size: 0.9rem;
+    }
+    
+    .table-responsive {
+        font-size: 0.85rem;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .nav-tabs,
+    .sidebar,
+    .user-status-panel,
+    .navbar,
+    footer,
+    .btn {
+        display: none !important;
+    }
+    
+    .card {
+        border: 1px solid #000 !important;
+        box-shadow: none !important;
+    }
+    
+    .card-header {
+        background-color: #f8f9fa !important;
+        color: #000 !important;
+        border-bottom: 2px solid #000 !important;
+    }
+}
+
+/* Animation for Cancellation */
+@keyframes pulseCancel {
+    0% {
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+    }
+}
+
+.pulse-cancel {
+    animation: pulseCancel 2s infinite;
+}
+
+/* Error Message Styling */
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* Status Indicator */
+.status-indicator.cancelled {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.status-indicator.cancelled::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+/* Highlight Important Fields */
+.required-field::after {
+    content: '*';
+    color: #dc3545;
+    margin-left: 2px;
+}
+
+/* Scrollable Sections */
+.scrollable-section {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Payment Summary */
+.payment-summary {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.payment-summary h6 {
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #dc3545;
+}
+
+/* Refund Calculation */
+.refund-calculation {
+    background-color: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 5px;
+    padding: 12px;
+    margin: 15px 0;
+}
+
+.refund-calculation h6 {
+    color: #856404;
+    font-weight: 600;
+}
+
+/* Cancellation Timeline */
+.cancellation-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.cancellation-timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #dc3545;
+}
+
+.cancellation-timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.cancellation-timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -22px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #dc3545;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px #dc3545;
+}

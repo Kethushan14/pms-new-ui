@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS & Billing - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+</head>
+<body>
+  
+    <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link active" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-cash-register me-2"></i>POS & Billing Management
+                                </h1>
+                                <p class="card-text text-muted mb-0">Manage point of sale orders, room service, and billing</p>
+                                <small class="text-muted" id="lastUpdated">Active Orders: <span class="fw-bold text-warning">5</span> • Today's Revenue: <span class="fw-bold text-success">$2,450</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-success" id="refreshDataBtn">
+                                    <i class="fas fa-sync-alt me-1"></i> Refresh
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- POS Overview -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card stat-card bg-primary text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="stat-number">5</h2>
+                                <p class="stat-label mb-0">Active Orders</p>
+                                <small class="stat-change">In progress</small>
+                            </div>
+                            <div class="stat-icon">
+                                <i class="fas fa-clock fa-3x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card bg-success text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="stat-number">$2,450</h2>
+                                <p class="stat-label mb-0">Today's Revenue</p>
+                                <small class="stat-change">+12% from yesterday</small>
+                            </div>
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line fa-3x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card bg-warning text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="stat-number">18</h2>
+                                <p class="stat-label mb-0">Table Reservations</p>
+                                <small class="stat-change">For today</small>
+                            </div>
+                            <div class="stat-icon">
+                                <i class="fas fa-utensils fa-3x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card stat-card bg-info text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h2 class="stat-number">42</h2>
+                                <p class="stat-label mb-0">Room Services</p>
+                                <small class="stat-change">Today's requests</small>
+                            </div>
+                            <div class="stat-icon">
+                                <i class="fas fa-concierge-bell fa-3x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Order Information Section -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-clipboard-list me-2"></i>Service Order Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- Service Type Selection -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="btn-group w-100" role="group">
+                                    <button type="button" class="btn btn-outline-primary active" id="roomsBtn">
+                                        <i class="fas fa-bed me-2"></i>Rooms
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary" id="tablesBtn">
+                                        <i class="fas fa-utensils me-2"></i>Tables
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary" id="takeAwayBtn">
+                                        <i class="fas fa-shopping-bag me-2"></i>Take Away
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Order Details Form -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Order No:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">OKCO</span>
+                                        <input type="text" class="form-control" id="orderNumber" value="09%" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Date:</label>
+                                    <input type="date" class="form-control" id="orderDate" value="2025-12-20">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Remarks Section -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Remarks</label>
+                                    <textarea class="form-control" id="orderRemarks" rows="2" placeholder="Enter any special instructions or remarks..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Service Selection -->
+                        <div class="row mb-4" id="serviceSelectionSection">
+                            <div class="col-md-4" id="roomSection">
+                                <div class="mb-3">
+                                    <label class="form-label">Room:</label>
+                                    <select class="form-select" id="roomSelect">
+                                        <option value="">Select Room</option>
+                                        <option value="101">101 - Standard Room</option>
+                                        <option value="102">102 - Standard Room</option>
+                                        <option value="103">103 - Standard Room</option>
+                                        <option value="104">104 - Standard Room</option>
+                                        <option value="105">105 - Deluxe Room</option>
+                                        <option value="201">201 - Suite</option>
+                                        <option value="202">202 - Suite</option>
+                                        <option value="203">203 - Suite</option>
+                                        <option value="204">204 - Suite</option>
+                                        <option value="205">205 - Executive Suite</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 d-none" id="tableSection">
+                                <div class="mb-3">
+                                    <label class="form-label">Table:</label>
+                                    <select class="form-select" id="tableSelect">
+                                        <option value="">Select Table</option>
+                                        <option value="1">Table 1 (2 persons)</option>
+                                        <option value="2">Table 2 (2 persons)</option>
+                                        <option value="3">Table 3 (4 persons)</option>
+                                        <option value="4">Table 4 (4 persons)</option>
+                                        <option value="5">Table 5 (6 persons)</option>
+                                        <option value="6">Table 6 (6 persons)</option>
+                                        <option value="7">Table 7 (8 persons)</option>
+                                        <option value="8">Table 8 (VIP)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 d-none" id="takeAwaySection">
+                                <div class="mb-3">
+                                    <label class="form-label">Take Away:</label>
+                                    <input type="text" class="form-control" id="takeAwayCustomer" placeholder="Customer name">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Service and Quantity -->
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Service</label>
+                                    <select class="form-select" id="serviceSelect">
+                                        <option value="">Select Service</option>
+                                        <option value="breakfast">Breakfast Buffet - $25</option>
+                                        <option value="lunch">Lunch Special - $35</option>
+                                        <option value="dinner">Dinner Package - $45</option>
+                                        <option value="room_service">Room Service - $15</option>
+                                        <option value="mini_bar">Mini Bar Refill - $40</option>
+                                        <option value="laundry">Laundry Service - $20</option>
+                                        <option value="spa">Spa Treatment - $80</option>
+                                        <option value="pool">Pool Access - $15</option>
+                                        <option value="wifi">WiFi Premium - $10</option>
+                                        <option value="parking">Valet Parking - $25</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Quantity</label>
+                                    <div class="input-group">
+                                        <button class="btn btn-outline-secondary" type="button" id="decreaseQty">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <input type="number" class="form-control text-center" id="serviceQty" value="1" min="1" max="99">
+                                        <button class="btn btn-outline-secondary" type="button" id="increaseQty">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Add Button -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100" id="addServiceBtn">
+                                    <i class="fas fa-plus me-2"></i>Add Service to Order
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Unit Price and Discount -->
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Unit Price:</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">$</span>
+                                        <input type="number" class="form-control" id="unitPrice" value="25.00" step="0.01" min="0">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Discount: (%)</label>
+                                    <input type="number" class="form-control" id="discountPercent" value="0" min="0" max="100">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Currency Selection -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label class="form-label">Select Currency Type:</label>
+                                    <select class="form-select" id="currencyType">
+                                        <option value="USD" selected>USD - US Dollar</option>
+                                        <option value="EUR">EUR - Euro</option>
+                                        <option value="GBP">GBP - British Pound</option>
+                                        <option value="LKR">LKR - Sri Lankan Rupee</option>
+                                        <option value="INR">INR - Indian Rupee</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Order Items Section -->
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-shopping-cart me-2"></i>Order Items</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="orderItemsTable">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Service</th>
+                                        <th width="80">Qty</th>
+                                        <th width="100">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="orderItemsBody">
+                                    <!-- Order items will be added here -->
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="2" class="text-end"><strong>Subtotal:</strong></td>
+                                        <td><strong id="subtotalAmount">$0.00</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end"><strong>Discount:</strong></td>
+                                        <td><strong id="discountAmount">$0.00</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="text-end"><strong>Tax (10%):</strong></td>
+                                        <td><strong id="taxAmount">$0.00</strong></td>
+                                    </tr>
+                                    <tr class="table-primary">
+                                        <td colspan="2" class="text-end"><strong>TOTAL:</strong></td>
+                                        <td><strong id="totalAmount">$0.00</strong></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        
+                        <!-- Order Actions -->
+                        <div class="d-grid gap-2 mt-4">
+                            <button class="btn btn-success btn-lg" id="processOrderBtn">
+                                <i class="fas fa-check-circle me-2"></i>Process Order
+                            </button>
+                            <button class="btn btn-outline-secondary" id="clearOrderBtn">
+                                <i class="fas fa-trash me-2"></i>Clear Order
+                            </button>
+                            <button class="btn btn-outline-primary" id="saveOrderBtn">
+                                <i class="fas fa-save me-2"></i>Save as Draft
+                            </button>
+                        </div>
+                        
+                        <!-- Payment Information -->
+                        <div class="mt-4">
+                            <h6 class="mb-3 text-primary">Payment Method</h6>
+                            <div class="btn-group w-100" role="group">
+                                <button type="button" class="btn btn-outline-success active" data-payment="cash">
+                                    <i class="fas fa-money-bill-wave me-1"></i> Cash
+                                </button>
+                                <button type="button" class="btn btn-outline-primary" data-payment="card">
+                                    <i class="fas fa-credit-card me-1"></i> Card
+                                </button>
+                                <button type="button" class="btn btn-outline-info" data-payment="room">
+                                    <i class="fas fa-bed me-1"></i> Room
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Service Items Modal -->
+    <div class="modal fade" id="serviceItemsModal" tabindex="-1" aria-labelledby="serviceItemsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="serviceItemsModalLabel">
+                        <i class="fas fa-concierge-bell me-2"></i>Select Service Items
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Search services..." id="searchServices">
+                                <button class="btn btn-outline-primary" type="button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row" id="serviceItemsGrid">
+                        <!-- Service items will be populated here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="addSelectedServicesBtn">Add Selected</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Process Order Modal -->
+    <div class="modal fade" id="processOrderModal" tabindex="-1" aria-labelledby="processOrderModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title" id="processOrderModalLabel">
+                        <i class="fas fa-check-circle me-2"></i>Process Order
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Order Number</label>
+                        <input type="text" class="form-control" id="processOrderNumber" value="OKCO 09%" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Total Amount</label>
+                        <input type="text" class="form-control" id="processTotalAmount" value="$0.00" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Payment Method</label>
+                        <select class="form-select" id="processPaymentMethod">
+                            <option value="cash">Cash</option>
+                            <option value="credit_card">Credit Card</option>
+                            <option value="debit_card">Debit Card</option>
+                            <option value="room_charge">Room Charge</option>
+                            <option value="voucher">Voucher</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Amount Received</label>
+                        <input type="number" class="form-control" id="amountReceived" step="0.01" min="0" placeholder="Enter amount received">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Change</label>
+                        <input type="text" class="form-control" id="changeAmount" value="$0.00" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Notes</label>
+                        <textarea class="form-control" id="processNotes" rows="2" placeholder="Any additional notes..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" id="confirmProcessBtn">Process Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        // POS & Billing Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize variables
+            let orderItems = [];
+            let currentServiceType = 'rooms';
+            let currentPaymentMethod = 'cash';
+            
+            // Service type buttons
+            document.getElementById('roomsBtn').addEventListener('click', function() {
+                setServiceType('rooms');
+            });
+            
+            document.getElementById('tablesBtn').addEventListener('click', function() {
+                setServiceType('tables');
+            });
+            
+            document.getElementById('takeAwayBtn').addEventListener('click', function() {
+                setServiceType('takeaway');
+            });
+            
+            // Quantity controls
+            document.getElementById('increaseQty').addEventListener('click', function() {
+                const qtyInput = document.getElementById('serviceQty');
+                qtyInput.value = parseInt(qtyInput.value) + 1;
+            });
+            
+            document.getElementById('decreaseQty').addEventListener('click', function() {
+                const qtyInput = document.getElementById('serviceQty');
+                if (parseInt(qtyInput.value) > 1) {
+                    qtyInput.value = parseInt(qtyInput.value) - 1;
+                }
+            });
+            
+            // Add service button
+            document.getElementById('addServiceBtn').addEventListener('click', function() {
+                addServiceToOrder();
+            });
+            
+            // Service select change
+            document.getElementById('serviceSelect').addEventListener('change', function() {
+                updateUnitPriceBasedOnService();
+            });
+            
+            // Discount percentage change
+            document.getElementById('discountPercent').addEventListener('input', function() {
+                updateOrderSummary();
+            });
+            
+            // Currency type change
+            document.getElementById('currencyType').addEventListener('change', function() {
+                updateCurrency();
+            });
+            
+            // Payment method buttons
+            document.querySelectorAll('[data-payment]').forEach(button => {
+                button.addEventListener('click', function() {
+                    setPaymentMethod(this.dataset.payment);
+                });
+            });
+            
+            // Process order button
+            document.getElementById('processOrderBtn').addEventListener('click', function() {
+                processOrder();
+            });
+            
+            // Clear order button
+            document.getElementById('clearOrderBtn').addEventListener('click', function() {
+                clearOrder();
+            });
+            
+            // Save order button
+            document.getElementById('saveOrderBtn').addEventListener('click', function() {
+                saveOrderAsDraft();
+            });
+            
+            // Refresh data button
+            document.getElementById('refreshDataBtn').addEventListener('click', function() {
+                refreshPOSData();
+            });
+            
+            // Process modal amount received input
+            document.getElementById('amountReceived').addEventListener('input', function() {
+                calculateChange();
+            });
+            
+            // Confirm process button
+            document.getElementById('confirmProcessBtn').addEventListener('click', function() {
+                confirmProcessOrder();
+            });
+            
+            // Initialize
+            setServiceType('rooms');
+            updateOrderSummary();
+            generateOrderNumber();
+            
+            // Add sample items for demo
+            addSampleItems();
+        });
+        
+        function setServiceType(type) {
+            currentServiceType = type;
+            
+            // Update button states
+            document.getElementById('roomsBtn').classList.remove('active');
+            document.getElementById('tablesBtn').classList.remove('active');
+            document.getElementById('takeAwayBtn').classList.remove('active');
+            
+            // Show/hide sections
+            document.getElementById('roomSection').classList.add('d-none');
+            document.getElementById('tableSection').classList.add('d-none');
+            document.getElementById('takeAwaySection').classList.add('d-none');
+            
+            switch(type) {
+                case 'rooms':
+                    document.getElementById('roomsBtn').classList.add('active');
+                    document.getElementById('roomSection').classList.remove('d-none');
+                    break;
+                case 'tables':
+                    document.getElementById('tablesBtn').classList.add('active');
+                    document.getElementById('tableSection').classList.remove('d-none');
+                    break;
+                case 'takeaway':
+                    document.getElementById('takeAwayBtn').classList.add('active');
+                    document.getElementById('takeAwaySection').classList.remove('d-none');
+                    break;
+            }
+        }
+        
+        function setPaymentMethod(method) {
+            currentPaymentMethod = method;
+            
+            // Update button states
+            document.querySelectorAll('[data-payment]').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.querySelector(`[data-payment="${method}"]`).classList.add('active');
+        }
+        
+        function generateOrderNumber() {
+            // Generate a random order number for demo
+            const randomNum = Math.floor(Math.random() * 1000);
+            document.getElementById('orderNumber').value = randomNum.toString().padStart(3, '0');
+        }
+        
+        function updateUnitPriceBasedOnService() {
+            const serviceSelect = document.getElementById('serviceSelect');
+            const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
+            const optionText = selectedOption.text;
+            
+            // Extract price from option text
+            const priceMatch = optionText.match(/\$(\d+)/);
+            if (priceMatch) {
+                document.getElementById('unitPrice').value = priceMatch[1] + '.00';
+            }
+        }
+        
+        function addServiceToOrder() {
+            const serviceSelect = document.getElementById('serviceSelect');
+            const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
+            
+            if (!selectedOption.value) {
+                showAlert('Please select a service', 'warning');
+                return;
+            }
+            
+            const serviceName = selectedOption.text.split(' - ')[0];
+            const servicePrice = parseFloat(document.getElementById('unitPrice').value);
+            const serviceQty = parseInt(document.getElementById('serviceQty').value);
+            const discountPercent = parseFloat(document.getElementById('discountPercent').value);
+            
+            // Calculate discount amount
+            const discountAmount = (servicePrice * discountPercent) / 100;
+            const finalPrice = servicePrice - discountAmount;
+            const total = finalPrice * serviceQty;
+            
+            // Create service item
+            const serviceItem = {
+                id: Date.now(),
+                name: serviceName,
+                price: servicePrice,
+                quantity: serviceQty,
+                discount: discountAmount,
+                total: total
+            };
+            
+            // Add to order items
+            orderItems.push(serviceItem);
+            
+            // Update UI
+            updateOrderItemsTable();
+            updateOrderSummary();
+            
+            // Reset form
+            document.getElementById('serviceSelect').value = '';
+            document.getElementById('serviceQty').value = 1;
+            document.getElementById('unitPrice').value = '25.00';
+            document.getElementById('discountPercent').value = 0;
+            
+            showAlert(`Added ${serviceQty} x ${serviceName} to order`, 'success');
+        }
+        
+        function updateOrderItemsTable() {
+            const tbody = document.getElementById('orderItemsBody');
+            tbody.innerHTML = '';
+            
+            orderItems.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <div class="d-flex justify-content-between">
+                            <span>${item.name}</span>
+                            <small class="text-muted">$${item.price.toFixed(2)}</small>
+                        </div>
+                        <small class="text-muted">Discount: -$${item.discount.toFixed(2)} each</small>
+                    </td>
+                    <td>
+                        <div class="input-group input-group-sm">
+                            <button class="btn btn-outline-secondary btn-sm" type="button" onclick="updateItemQuantity(${index}, -1)">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input type="number" class="form-control form-control-sm text-center" 
+                                   value="${item.quantity}" min="1" 
+                                   onchange="updateItemQuantity(${index}, 0, this.value)">
+                            <button class="btn btn-outline-secondary btn-sm" type="button" onclick="updateItemQuantity(${index}, 1)">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>$${item.total.toFixed(2)}</span>
+                            <button class="btn btn-sm btn-outline-danger" onclick="removeOrderItem(${index})">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+        
+        function updateOrderSummary() {
+            let subtotal = 0;
+            let totalDiscount = 0;
+            
+            orderItems.forEach(item => {
+                subtotal += item.price * item.quantity;
+                totalDiscount += item.discount * item.quantity;
+            });
+            
+            const subtotalAfterDiscount = subtotal - totalDiscount;
+            const tax = subtotalAfterDiscount * 0.10; // 10% tax
+            const total = subtotalAfterDiscount + tax;
+            
+            // Update summary
+            document.getElementById('subtotalAmount').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('discountAmount').textContent = `-$${totalDiscount.toFixed(2)}`;
+            document.getElementById('taxAmount').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('totalAmount').textContent = `$${total.toFixed(2)}`;
+        }
+        
+        function updateCurrency() {
+            const currency = document.getElementById('currencyType').value;
+            const currencySymbol = getCurrencySymbol(currency);
+            
+            // Update all currency displays
+            document.querySelectorAll('#subtotalAmount, #discountAmount, #taxAmount, #totalAmount').forEach(element => {
+                const currentValue = element.textContent.replace(/[^\d.]/g, '');
+                element.textContent = `${currencySymbol}${currentValue}`;
+            });
+            
+            // Update unit price symbol
+            const unitPriceInput = document.getElementById('unitPrice');
+            const unitPriceGroup = unitPriceInput.parentElement;
+            unitPriceGroup.querySelector('.input-group-text').textContent = currencySymbol;
+        }
+        
+        function processOrder() {
+            if (orderItems.length === 0) {
+                showAlert('Please add at least one item to the order', 'warning');
+                return;
+            }
+            
+            // Get total amount
+            const totalAmount = document.getElementById('totalAmount').textContent;
+            
+            // Update modal values
+            document.getElementById('processOrderNumber').value = `OKCO ${document.getElementById('orderNumber').value}`;
+            document.getElementById('processTotalAmount').value = totalAmount;
+            document.getElementById('amountReceived').value = '';
+            document.getElementById('changeAmount').value = '$0.00';
+            document.getElementById('processNotes').value = '';
+            
+            // Show process modal
+            const processModal = new bootstrap.Modal(document.getElementById('processOrderModal'));
+            processModal.show();
+        }
+        
+        function calculateChange() {
+            const totalAmount = parseFloat(document.getElementById('processTotalAmount').value.replace(/[^\d.]/g, ''));
+            const amountReceived = parseFloat(document.getElementById('amountReceived').value) || 0;
+            
+            const change = amountReceived - totalAmount;
+            document.getElementById('changeAmount').value = change >= 0 ? `$${change.toFixed(2)}` : 'Insufficient';
+        }
+        
+        function confirmProcessOrder() {
+            const amountReceived = parseFloat(document.getElementById('amountReceived').value) || 0;
+            const totalAmount = parseFloat(document.getElementById('processTotalAmount').value.replace(/[^\d.]/g, ''));
+            
+            if (amountReceived < totalAmount) {
+                showAlert('Amount received is less than total amount', 'warning');
+                return;
+            }
+            
+            // Get order details
+            const orderNumber = document.getElementById('processOrderNumber').value;
+            const paymentMethod = document.getElementById('processPaymentMethod').value;
+            const notes = document.getElementById('processNotes').value;
+            
+            // Process the order (simulate API call)
+            showAlert(`Order ${orderNumber} processed successfully`, 'success');
+            
+            // Reset order
+            clearOrder();
+            generateOrderNumber();
+            
+            // Update stats
+            updatePOSStats();
+            
+            // Close modal
+            const processModal = bootstrap.Modal.getInstance(document.getElementById('processOrderModal'));
+            processModal.hide();
+        }
+        
+        function clearOrder() {
+            if (orderItems.length === 0) {
+                showAlert('Order is already empty', 'info');
+                return;
+            }
+            
+            if (confirm('Are you sure you want to clear the current order?')) {
+                orderItems = [];
+                updateOrderItemsTable();
+                updateOrderSummary();
+                showAlert('Order cleared successfully', 'success');
+            }
+        }
+        
+        function saveOrderAsDraft() {
+            if (orderItems.length === 0) {
+                showAlert('Cannot save empty order', 'warning');
+                return;
+            }
+            
+            const orderData = {
+                orderNumber: `OKCO ${document.getElementById('orderNumber').value}`,
+                date: document.getElementById('orderDate').value,
+                serviceType: currentServiceType,
+                room: document.getElementById('roomSelect').value,
+                table: document.getElementById('tableSelect').value,
+                takeAway: document.getElementById('takeAwayCustomer').value,
+                remarks: document.getElementById('orderRemarks').value,
+                items: orderItems,
+                subtotal: document.getElementById('subtotalAmount').textContent,
+                discount: document.getElementById('discountAmount').textContent,
+                tax: document.getElementById('taxAmount').textContent,
+                total: document.getElementById('totalAmount').textContent,
+                currency: document.getElementById('currencyType').value,
+                status: 'draft'
+            };
+            
+            // In a real application, this would be an API call
+            console.log('Saving order as draft:', orderData);
+            
+            showAlert('Order saved as draft successfully', 'success');
+        }
+        
+        function refreshPOSData() {
+            const refreshBtn = document.getElementById('refreshDataBtn');
+            const originalText = refreshBtn.innerHTML;
+            refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Refreshing...';
+            refreshBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                updatePOSStats();
+                showAlert('POS data refreshed successfully', 'success');
+                
+                // Restore button
+                refreshBtn.innerHTML = originalText;
+                refreshBtn.disabled = false;
+            }, 1500);
+        }
+        
+        function updatePOSStats() {
+            // Update stats with random values for demo
+            const activeOrders = Math.floor(Math.random() * 10) + 1;
+            const todaysRevenue = Math.floor(Math.random() * 5000) + 1000;
+            const tableReservations = Math.floor(Math.random() * 30) + 10;
+            const roomServices = Math.floor(Math.random() * 50) + 20;
+            
+            document.querySelector('.stat-card.bg-primary .stat-number').textContent = activeOrders;
+            document.querySelector('.stat-card.bg-success .stat-number').textContent = `$${todaysRevenue}`;
+            document.querySelector('.stat-card.bg-warning .stat-number').textContent = tableReservations;
+            document.querySelector('.stat-card.bg-info .stat-number').textContent = roomServices;
+            
+            // Update header
+            document.querySelector('#lastUpdated .text-warning').textContent = activeOrders;
+            document.querySelector('#lastUpdated .text-success').textContent = `$${todaysRevenue}`;
+        }
+        
+        function addSampleItems() {
+            // Add some sample items for demo
+            if (orderItems.length === 0) {
+                orderItems = [
+                    {
+                        id: 1,
+                        name: 'Breakfast Buffet',
+                        price: 25.00,
+                        quantity: 2,
+                        discount: 0,
+                        total: 50.00
+                    },
+                    {
+                        id: 2,
+                        name: 'Room Service',
+                        price: 15.00,
+                        quantity: 1,
+                        discount: 1.50,
+                        total: 13.50
+                    },
+                    {
+                        id: 3,
+                        name: 'Spa Treatment',
+                        price: 80.00,
+                        quantity: 1,
+                        discount: 8.00,
+                        total: 72.00
+                    }
+                ];
+                
+                updateOrderItemsTable();
+                updateOrderSummary();
+            }
+        }
+        
+        // Global functions for table operations
+        function updateItemQuantity(index, change, newValue = null) {
+            if (newValue !== null) {
+                orderItems[index].quantity = parseInt(newValue) || 1;
+            } else {
+                orderItems[index].quantity += change;
+                if (orderItems[index].quantity < 1) {
+                    orderItems[index].quantity = 1;
+                }
+            }
+            
+            // Recalculate total
+            orderItems[index].total = (orderItems[index].price - orderItems[index].discount) * orderItems[index].quantity;
+            
+            updateOrderItemsTable();
+            updateOrderSummary();
+        }
+        
+        function removeOrderItem(index) {
+            if (confirm('Remove this item from order?')) {
+                orderItems.splice(index, 1);
+                updateOrderItemsTable();
+                updateOrderSummary();
+                showAlert('Item removed from order', 'success');
+            }
+        }
+        
+        // Utility functions
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+        
+        function getCurrencySymbol(currencyCode) {
+            const symbols = {
+                'USD': '$',
+                'EUR': '€',
+                'GBP': '£',
+                'LKR': 'Rs',
+                'INR': '₹'
+            };
+            return symbols[currencyCode] || '$';
+        }
+    </script>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+
+    <!-- Include JavaScript -->
+    <script src="js/include.js"></script>
+     <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
