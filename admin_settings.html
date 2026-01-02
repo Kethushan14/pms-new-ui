@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Tiers Management - Ovia PMS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/admin_tier.css">
+
+     
+ 
+ </head>
+<body>
+ 
+ 
+ <!-- Clean Minimal Header -->
+    <!-- Header will be loaded here -->
+    <div data-include="header.html"></div>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
+<!--
+<div class="sidebar-header">
+    <div class="d-flex align-items-center">
+        <div class="flex-shrink-0"></div>
+    </div>
+</div>
+-->
+
+
+        
+        <!-- Current Status Section -->
+        <div class="sidebar-status">
+            <h6 class="sidebar-section-title">Current Status:</h6>
+            <div class="status-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOnline" checked>
+                    <label class="form-check-label" for="statusOnline">
+                        <span class="status-dot online-dot"></span> Online
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusAway">
+                    <label class="form-check-label" for="statusAway">
+                        <span class="status-dot away-dot"></span> Away
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="currentStatus" id="statusOffline">
+                    <label class="form-check-label" for="statusOffline">
+                        <span class="status-dot offline-dot"></span> Offline
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="sidebar-quick-stats">
+            <div class="row g-2">
+                <div class="col-6">
+                    <a href="messages.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">2</span>
+                                <small>Messages</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a href="friends.html" class="text-decoration-none">
+                        <div class="quick-stat-item">
+                            <i class="fas fa-users text-success"></i>
+                            <div class="quick-stat-info">
+                                <span class="count">6</span>
+                                <small>Friends</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Menu -->
+        <div class="sidebar-menu">
+            <h6 class="sidebar-section-title">Navigation Menu</h6>
+            <ul class="nav flex-column" id="mainMenu">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span class="nav-icon"><i class="fas fa-home"></i></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link " href="profile.html">
+                        <span class="nav-icon"><i class="fas fa-user"></i></span>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                
+                <!-- Reservations (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reservations">
+                        <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
+                        <span>Reservations</span>
+                        <span class="badge bg-primary ms-auto">12</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
+                    </ul>
+                </li>
+                
+                <!-- In House -->
+                <li class="nav-item">
+                    <a class="nav-link" href="in-house.html">
+                        <span class="nav-icon"><i class="fas fa-users"></i></span>
+                        <span>In House</span>
+                        <span class="badge bg-success ms-auto">42</span>
+                    </a>
+                </li>
+                
+                <!-- Check Outs (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="check-outs">
+                        <span class="nav-icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span>Check Outs</span>
+                        <span class="badge bg-warning ms-auto">18</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Rooms -->
+                <li class="nav-item">
+                    <a class="nav-link" href="rooms.html">
+                        <span class="nav-icon"><i class="fas fa-bed"></i></span>
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                
+                <!-- House Keeping -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
+                        <span class="nav-icon"><i class="fas fa-broom"></i></span>
+                        <span>House Keeping</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
+                </li>
+                
+                <!-- POS -->
+                <li class="nav-item">
+                    <a class="nav-link" href="pos_billing.html">
+                        <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
+                        <span>POS & Billing</span>
+                    </a>
+                </li>
+                
+                <!-- Receipt -->
+                <li class="nav-item">
+                    <a class="nav-link" href="receipt.html">
+                        <span class="nav-icon"><i class="fas fa-file-invoice"></i></span>
+                        <span>Receipt</span>
+                    </a>
+                </li>
+                
+                <!-- Partners (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="partners">
+                        <span class="nav-icon"><i class="fas fa-handshake"></i></span>
+                        <span>Partners</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Accounts (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="accounts">
+                        <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                        <span>Accounts</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="account.html" data-subsection="account">Account</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Reports (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="reports">
+                        <span class="nav-icon"><i class="fas fa-chart-bar"></i></span>
+                        <span>Reports</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
+                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Inventory (with dropdown) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="inventory">
+                        <span class="nav-icon"><i class="fas fa-boxes"></i></span>
+                        <span>Inventory</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Admin (with dropdown - extensive) -->
+                <li class="nav-item has-submenu">
+                    <a class="nav-link active" href="#" data-section="admin">
+                        <span class="nav-icon"><i class="fas fa-users-cog"></i></span>
+                        <span>Admin</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
+                    </ul>
+                </li>
+                
+                <!-- Settings -->
+                <li class="nav-item">
+                    <a class="nav-link" href="settings.html">
+                        <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Quick Settings -->
+        <div class="sidebar-settings">
+            <h6 class="sidebar-section-title">Quick Settings</h6>
+            <div class="quick-settings-list">
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="notificationsSwitch" checked>
+                    <label class="form-check-label" for="notificationsSwitch">
+                        <i class="fas fa-bell me-2"></i>Notifications
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="autoSaveSwitch">
+                    <label class="form-check-label" for="autoSaveSwitch">
+                        <i class="fas fa-save me-2"></i>Auto Save
+                    </label>
+                </div>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+                    <label class="form-check-label" for="darkModeSwitch">
+                        <i class="fas fa-moon me-2"></i>Dark Mode
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Help Section -->
+        <div class="px-4 py-3 border-top">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-headset fa-2x text-primary"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h6 class="mb-1">Need Help?</h6>
+                    <p class="mb-0 small text-muted">Contact support 24/7</p>
+                    <a href="help.html" class="small">Get Help <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h1 class="card-title h3 mb-2 text-primary">
+                                    <i class="fas fa-crown me-2"></i>Agent Tiers Management
+                                </h1>
+                                <p class="card-text text-muted mb-0">Manage travel agent commission tiers and discounts</p>
+                                <small class="text-muted">Total Tiers: <span class="fw-bold">8</span> • Active: <span class="text-success fw-bold">6</span> • Average Discount: <span class="text-info fw-bold">15%</span></small>
+                            </div>
+                            <div class="d-flex">
+                                <a href="index.html" class="btn btn-outline-primary me-2">
+                                    <i class="fas fa-arrow-left me-1"></i> Back to Dashboard
+                                </a>
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTierModal">
+                                    <i class="fas fa-plus-circle me-1"></i> Add New Tier
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tier Search Card -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-search me-2"></i>Agent Tiers</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-end">
+                            <div class="col-md-5">
+                                <label for="tierCodeSearch" class="form-label">Code</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-code"></i></span>
+                                    <input type="text" class="form-control" id="tierCodeSearch" placeholder="Enter tier code...">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <label for="tierNameSearch" class="form-label">Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                                    <input type="text" class="form-control" id="tierNameSearch" placeholder="Enter tier name...">
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex align-items-end">
+                                <div class="d-flex gap-2 w-100">
+                                    <button class="btn btn-primary flex-fill" id="searchTiersBtn">
+                                        <i class="fas fa-search me-1"></i> Search
+                                    </button>
+                                    <button class="btn btn-outline-secondary flex-fill" id="resetTierSearchBtn">
+                                        <i class="fas fa-redo me-1"></i> All
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tiers List and Information -->
+        <div class="row mb-4">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-list me-2"></i>Tiers List</h5>
+                            <div class="d-flex">
+                                <div class="btn-group me-2" role="group">
+                                    <button type="button" class="btn btn-sm btn-outline-primary active" data-filter="all">All</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="active">Active</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-filter="inactive">Inactive</button>
+                                </div>
+                                <button class="btn btn-sm btn-success" id="exportTiersBtn">
+                                    <i class="fas fa-download me-1"></i> Export
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th width="50">#</th>
+                                        <th>Code</th>
+                                        <th>Name</th>
+                                        <th>Discount (%)</th>
+                                        <th>Status</th>
+                                        <th>Agents</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tiersTableBody">
+                                    <!-- Tier 1 -->
+                                    <tr class="tier-row" data-status="active" data-discount="20">
+                                        <td>1</td>
+                                        <td>
+                                            <span class="badge bg-primary">TIER001</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="tier-icon tier-icon-premium me-2">
+                                                    <i class="fas fa-crown"></i>
+                                                </div>
+                                                <div>
+                                                    <span class="fw-bold">Premium Partner</span>
+                                                    <small class="d-block text-muted">Top performing agents</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="discount-badge bg-success text-white">20%</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">12</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-tier" data-id="TIER001">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-tier" data-id="TIER001">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-tier" data-id="TIER001">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Tier 2 -->
+                                    <tr class="tier-row" data-status="active" data-discount="15">
+                                        <td>2</td>
+                                        <td>
+                                            <span class="badge bg-primary">TIER002</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="tier-icon tier-icon-gold me-2">
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                                <div>
+                                                    <span class="fw-bold">Gold Partner</span>
+                                                    <small class="d-block text-muted">High volume agents</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="discount-badge bg-warning text-white">15%</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">24</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-tier" data-id="TIER002">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-tier" data-id="TIER002">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-tier" data-id="TIER002">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Tier 3 -->
+                                    <tr class="tier-row" data-status="active" data-discount="10">
+                                        <td>3</td>
+                                        <td>
+                                            <span class="badge bg-primary">TIER003</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="tier-icon tier-icon-silver me-2">
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                </div>
+                                                <div>
+                                                    <span class="fw-bold">Silver Partner</span>
+                                                    <small class="d-block text-muted">Medium volume agents</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="discount-badge bg-secondary text-white">10%</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">38</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-tier" data-id="TIER003">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-tier" data-id="TIER003">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-tier" data-id="TIER003">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Tier 4 -->
+                                    <tr class="tier-row" data-status="active" data-discount="5">
+                                        <td>4</td>
+                                        <td>
+                                            <span class="badge bg-primary">TIER004</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="tier-icon tier-icon-bronze me-2">
+                                                    <i class="fas fa-award"></i>
+                                                </div>
+                                                <div>
+                                                    <span class="fw-bold">Bronze Partner</span>
+                                                    <small class="d-block text-muted">Entry level agents</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="discount-badge bg-danger text-white">5%</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">45</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-tier" data-id="TIER004">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-tier" data-id="TIER004">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-tier" data-id="TIER004">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Tier 5 -->
+                                    <tr class="tier-row" data-status="active" data-discount="3">
+                                        <td>5</td>
+                                        <td>
+                                            <span class="badge bg-primary">TIER005</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="tier-icon tier-icon-standard me-2">
+                                                    <i class="fas fa-user-tie"></i>
+                                                </div>
+                                                <div>
+                                                    <span class="fw-bold">Standard Agent</span>
+                                                    <small class="d-block text-muted">Basic commission level</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="discount-badge bg-primary text-white">3%</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-info">62</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-tier" data-id="TIER005">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-tier" data-id="TIER005">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-tier" data-id="TIER005">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Tier 6 -->
+                                    <tr class="tier-row" data-status="inactive" data-discount="0">
+                                        <td>6</td>
+                                        <td>
+                                            <span class="badge bg-secondary">TIER006</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="tier-icon tier-icon-standard me-2" style="background: #6c757d;">
+                                                    <i class="fas fa-user-times"></i>
+                                                </div>
+                                                <div>
+                                                    <span class="fw-bold">Trial Agent</span>
+                                                    <small class="d-block text-muted">No commission trial</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="discount-badge bg-dark text-white">0%</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-warning">Inactive</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-secondary">0</span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group btn-group-sm table-actions">
+                                                <button class="btn btn-outline-primary view-tier" data-id="TIER006">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button class="btn btn-outline-warning edit-tier" data-id="TIER006">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                                <button class="btn btn-outline-danger delete-tier" data-id="TIER006">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted">Showing 6 of 8 tiers</span>
+                            </div>
+                            <nav aria-label="Tiers pagination">
+                                <ul class="pagination pagination-sm mb-0">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tier Information -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Tier Information</h5>
+                            <button class="btn btn-sm btn-primary" id="addNewTierBtn">
+                                <i class="fas fa-plus me-1"></i> Add New Tier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="tier-section">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <label for="tierCode" class="form-label required-field">Tier Code *</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-code"></i></span>
+                                        <input type="text" class="form-control" id="tierCode" placeholder="Enter tier code (e.g., TIER001)">
+                                    </div>
+                                    <small class="text-muted">Unique identifier for the tier</small>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="tierName" class="form-label required-field">Name *</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-tag"></i></span>
+                                        <input type="text" class="form-control" id="tierName" placeholder="Enter tier name">
+                                    </div>
+                                    <small class="text-muted">Display name of the tier</small>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="tierDescription" class="form-label">Description</label>
+                                    <textarea class="form-control" id="tierDescription" rows="3" placeholder="Enter tier description..."></textarea>
+                                    <small class="text-muted">Detailed description of the tier</small>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="tierDiscount" class="form-label required-field">Discount (%) *</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-percentage"></i></span>
+                                        <input type="number" class="form-control" id="tierDiscount" placeholder="0.00" min="0" max="100" step="0.01">
+                                    </div>
+                                    <small class="text-muted">Commission percentage for this tier</small>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="tierStatus" class="form-label">Status</label>
+                                    <select class="form-select" id="tierStatus">
+                                        <option value="active" selected>Active</option>
+                                        <option value="inactive">Inactive</option>
+                                        <option value="archived">Archived</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="minBookings" class="form-label">Min. Bookings/Month</label>
+                                    <input type="number" class="form-control" id="minBookings" placeholder="0" min="0">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="minRevenue" class="form-label">Min. Revenue/Month ($)</label>
+                                    <input type="number" class="form-control" id="minRevenue" placeholder="0.00" min="0" step="0.01">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="requiresApproval">
+                                        <label class="form-check-label" for="requiresApproval">
+                                            Requires Approval
+                                        </label>
+                                        <small class="text-muted d-block">Agents need approval to join this tier</small>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="autoPromotion">
+                                        <label class="form-check-label" for="autoPromotion">
+                                            Auto Promotion
+                                        </label>
+                                        <small class="text-muted d-block">Automatically promote agents when they meet criteria</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Action Buttons -->
+                            <div class="row mt-4">
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-between gap-2">
+                                        <button class="btn btn-secondary w-50" id="clearTierFormBtn">
+                                            <i class="fas fa-broom me-1"></i> Clear
+                                        </button>
+                                        <div class="d-flex gap-2 w-50">
+                                            <button class="btn btn-danger flex-fill" id="deleteTierBtn">
+                                                <i class="fas fa-trash me-1"></i> Delete
+                                            </button>
+                                            <button class="btn btn-success flex-fill" id="saveTierBtn">
+                                                <i class="fas fa-save me-1"></i> Save
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Tier Statistics -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h6 class="text-primary mb-3">Tier Statistics</h6>
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <div class="card bg-light">
+                                            <div class="card-body p-3 text-center">
+                                                <h4 class="text-primary mb-1">8</h4>
+                                                <small class="text-muted">Total Tiers</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <div class="card bg-light">
+                                            <div class="card-body p-3 text-center">
+                                                <h4 class="text-success mb-1">6</h4>
+                                                <small class="text-muted">Active Tiers</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card bg-light">
+                                            <div class="card-body p-3 text-center">
+                                                <h4 class="text-info mb-1">181</h4>
+                                                <small class="text-muted">Total Agents</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="card bg-light">
+                                            <div class="card-body p-3 text-center">
+                                                <h4 class="text-warning mb-1">15%</h4>
+                                                <small class="text-muted">Avg. Discount</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agent Distribution by Tier -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-chart-pie me-2"></i>Agent Distribution by Tier</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Premium Tier -->
+                            <div class="col-md-3 mb-4">
+                                <div class="card tier-card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="tier-icon tier-icon-premium me-3">
+                                                <i class="fas fa-crown"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1">Premium</h5>
+                                                <small class="text-muted">Top 5% of agents</small>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Agents:</small>
+                                                <small class="text-primary">12</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Discount:</small>
+                                                <small class="text-success">20%</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <small>Revenue:</small>
+                                                <small class="text-info">$45,200</small>
+                                            </div>
+                                        </div>
+                                        <div class="progress mb-3" style="height: 8px;">
+                                            <div class="progress-bar bg-success" style="width: 20%"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-success">Active</span>
+                                            <button class="btn btn-sm btn-outline-primary view-agents-btn" data-tier="premium">
+                                                View Agents
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Gold Tier -->
+                            <div class="col-md-3 mb-4">
+                                <div class="card tier-card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="tier-icon tier-icon-gold me-3">
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1">Gold</h5>
+                                                <small class="text-muted">Top 15% of agents</small>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Agents:</small>
+                                                <small class="text-primary">24</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Discount:</small>
+                                                <small class="text-success">15%</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <small>Revenue:</small>
+                                                <small class="text-info">$68,500</small>
+                                            </div>
+                                        </div>
+                                        <div class="progress mb-3" style="height: 8px;">
+                                            <div class="progress-bar bg-warning" style="width: 30%"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-success">Active</span>
+                                            <button class="btn btn-sm btn-outline-primary view-agents-btn" data-tier="gold">
+                                                View Agents
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Silver Tier -->
+                            <div class="col-md-3 mb-4">
+                                <div class="card tier-card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="tier-icon tier-icon-silver me-3">
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1">Silver</h5>
+                                                <small class="text-muted">Top 35% of agents</small>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Agents:</small>
+                                                <small class="text-primary">38</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Discount:</small>
+                                                <small class="text-success">10%</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <small>Revenue:</small>
+                                                <small class="text-info">$52,300</small>
+                                            </div>
+                                        </div>
+                                        <div class="progress mb-3" style="height: 8px;">
+                                            <div class="progress-bar bg-secondary" style="width: 25%"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-success">Active</span>
+                                            <button class="btn btn-sm btn-outline-primary view-agents-btn" data-tier="silver">
+                                                View Agents
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Bronze Tier -->
+                            <div class="col-md-3 mb-4">
+                                <div class="card tier-card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="tier-icon tier-icon-bronze me-3">
+                                                <i class="fas fa-award"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-1">Bronze</h5>
+                                                <small class="text-muted">Remaining agents</small>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Agents:</small>
+                                                <small class="text-primary">45</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-1">
+                                                <small>Discount:</small>
+                                                <small class="text-success">5%</small>
+                                            </div>
+                                            <div class="d-flex justify-content-between">
+                                                <small>Revenue:</small>
+                                                <small class="text-info">$31,800</small>
+                                            </div>
+                                        </div>
+                                        <div class="progress mb-3" style="height: 8px;">
+                                            <div class="progress-bar bg-danger" style="width: 15%"></div>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="badge bg-success">Active</span>
+                                            <button class="btn btn-sm btn-outline-primary view-agents-btn" data-tier="bronze">
+                                                View Agents
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        <i class="fas fa-hotel text-primary me-1"></i> 
+                        <strong>Ovia PMS Admin Module</strong> v4.5 • Location: Kalpitiya
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0 text-muted">
+                        &copy; 2025 Ovia Property Management System. All rights reserved.
+                        <span class="ms-2">User: <strong>admin</strong> | Status: <span class="text-success">Online</span></span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Add Tier Modal -->
+    <div class="modal fade" id="addTierModal" tabindex="-1" aria-labelledby="addTierModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="addTierModalLabel">
+                        <i class="fas fa-plus-circle me-2"></i>Add New Tier
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="newTierCode" class="form-label required-field">Tier Code *</label>
+                            <input type="text" class="form-control" id="newTierCode" placeholder="Enter tier code (e.g., TIER001)" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newTierName" class="form-label required-field">Name *</label>
+                            <input type="text" class="form-control" id="newTierName" placeholder="Enter tier name" required>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label for="newTierDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="newTierDescription" rows="3" placeholder="Enter tier description..."></textarea>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newTierDiscount" class="form-label required-field">Discount (%) *</label>
+                            <input type="number" class="form-control" id="newTierDiscount" placeholder="0.00" min="0" max="100" step="0.01" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="newTierStatus" class="form-label">Status</label>
+                            <select class="form-select" id="newTierStatus">
+                                <option value="active" selected>Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="archived">Archived</option>
+                            </select>
+                        </div>
+                        <div class="col-12 mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="newRequiresApproval">
+                                <label class="form-check-label" for="newRequiresApproval">
+                                    Requires Approval
+                                </label>
+                                <small class="text-muted d-block">Agents need approval to join this tier</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="saveNewTier">Save Tier</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteTierModal" tabindex="-1" aria-labelledby="deleteTierModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="deleteTierModalLabel">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Confirm Delete
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this tier?</p>
+                    <p class="text-danger"><strong>Note: If agents are assigned to this tier, they will be moved to Standard tier.</strong></p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="confirmDeleteTier">
+                        <label class="form-check-label" for="confirmDeleteTier">
+                            I understand that this will permanently delete the tier
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteTierBtn" disabled>Delete Tier</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/include.js"></script>
+    
+    <script>
+        // Agent Tiers Management Script
+        document.addEventListener('DOMContentLoaded', function() {
+            // Search functionality
+            document.getElementById('searchTiersBtn').addEventListener('click', searchTiers);
+            document.getElementById('resetTierSearchBtn').addEventListener('click', resetTierSearch);
+            
+            // Filter buttons
+            document.querySelectorAll('[data-filter]').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('[data-filter]').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    filterTiers(filter);
+                });
+            });
+            
+            // View tier details
+            document.querySelectorAll('.view-tier').forEach(button => {
+                button.addEventListener('click', function() {
+                    const tierCode = this.dataset.id;
+                    loadTierDetails(tierCode);
+                });
+            });
+            
+            // Edit tier
+            document.querySelectorAll('.edit-tier').forEach(button => {
+                button.addEventListener('click', function() {
+                    const tierCode = this.dataset.id;
+                    editTier(tierCode);
+                });
+            });
+            
+            // Delete tier
+            document.querySelectorAll('.delete-tier').forEach(button => {
+                button.addEventListener('click', function() {
+                    const tierCode = this.dataset.id;
+                    showDeleteTierModal(tierCode);
+                });
+            });
+            
+            // Add new tier button
+            document.getElementById('addNewTierBtn').addEventListener('click', function() {
+                const addTierModal = new bootstrap.Modal(document.getElementById('addTierModal'));
+                addTierModal.show();
+            });
+            
+            // Save new tier
+            document.getElementById('saveNewTier').addEventListener('click', saveNewTier);
+            
+            // Clear form button
+            document.getElementById('clearTierFormBtn').addEventListener('click', clearTierForm);
+            
+            // Delete tier button
+            document.getElementById('deleteTierBtn').addEventListener('click', function() {
+                const tierCode = document.getElementById('tierCode').value;
+                if (tierCode) {
+                    showDeleteTierModal(tierCode);
+                } else {
+                    showAlert('Please select a tier first', 'warning');
+                }
+            });
+            
+            // Save tier button
+            document.getElementById('saveTierBtn').addEventListener('click', saveTier);
+            
+            // Confirm delete checkbox
+            document.getElementById('confirmDeleteTier').addEventListener('change', function() {
+                document.getElementById('confirmDeleteTierBtn').disabled = !this.checked;
+            });
+            
+            // Confirm delete button
+            document.getElementById('confirmDeleteTierBtn').addEventListener('click', deleteTier);
+            
+            // Export tiers
+            document.getElementById('exportTiersBtn').addEventListener('click', exportTiers);
+            
+            // View agents buttons
+            document.querySelectorAll('.view-agents-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const tier = this.dataset.tier;
+                    viewAgentsByTier(tier);
+                });
+            });
+        });
+        
+        function searchTiers() {
+            const tierCode = document.getElementById('tierCodeSearch').value.toLowerCase();
+            const tierName = document.getElementById('tierNameSearch').value.toLowerCase();
+            
+            const rows = document.querySelectorAll('.tier-row');
+            
+            rows.forEach(row => {
+                const rowTierCode = row.querySelector('td:nth-child(2) .badge').textContent.toLowerCase();
+                const rowTierName = row.querySelector('td:nth-child(3) .fw-bold').textContent.toLowerCase();
+                
+                let show = true;
+                
+                if (tierCode && !rowTierCode.includes(tierCode)) show = false;
+                if (tierName && !rowTierName.includes(tierName)) show = false;
+                
+                row.style.display = show ? '' : 'none';
+            });
+        }
+        
+        function resetTierSearch() {
+            document.getElementById('tierCodeSearch').value = '';
+            document.getElementById('tierNameSearch').value = '';
+            
+            const rows = document.querySelectorAll('.tier-row');
+            rows.forEach(row => {
+                row.style.display = '';
+            });
+            
+            // Reset filter buttons
+            document.querySelectorAll('[data-filter]').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector('[data-filter="all"]').classList.add('active');
+        }
+        
+        function filterTiers(filter = 'all') {
+            const rows = document.querySelectorAll('.tier-row');
+            
+            rows.forEach(row => {
+                const status = row.dataset.status;
+                
+                if (filter === 'all') {
+                    row.style.display = '';
+                } else if (filter === status) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+        
+        function loadTierDetails(tierCode) {
+            // In a real application, you would fetch tier data from an API
+            // For now, we'll use sample data based on tierCode
+            
+            const tierData = {
+                'TIER001': {
+                    code: 'TIER001',
+                    name: 'Premium Partner',
+                    description: 'Top performing agents with highest commission rates. Reserved for agents with consistent high volume bookings.',
+                    discount: '20',
+                    status: 'active',
+                    minBookings: '50',
+                    minRevenue: '10000',
+                    requiresApproval: true,
+                    autoPromotion: false
+                },
+                'TIER002': {
+                    code: 'TIER002',
+                    name: 'Gold Partner',
+                    description: 'High volume agents with good track record. Eligible for premium commission rates.',
+                    discount: '15',
+                    status: 'active',
+                    minBookings: '30',
+                    minRevenue: '5000',
+                    requiresApproval: true,
+                    autoPromotion: true
+                },
+                'TIER003': {
+                    code: 'TIER003',
+                    name: 'Silver Partner',
+                    description: 'Medium volume agents with regular bookings. Standard commission rates apply.',
+                    discount: '10',
+                    status: 'active',
+                    minBookings: '15',
+                    minRevenue: '2000',
+                    requiresApproval: false,
+                    autoPromotion: true
+                },
+                'TIER004': {
+                    code: 'TIER004',
+                    name: 'Bronze Partner',
+                    description: 'Entry level agents. Basic commission rates with growth potential.',
+                    discount: '5',
+                    status: 'active',
+                    minBookings: '5',
+                    minRevenue: '500',
+                    requiresApproval: false,
+                    autoPromotion: true
+                },
+                'TIER005': {
+                    code: 'TIER005',
+                    name: 'Standard Agent',
+                    description: 'Basic commission level for all new agents.',
+                    discount: '3',
+                    status: 'active',
+                    minBookings: '0',
+                    minRevenue: '0',
+                    requiresApproval: false,
+                    autoPromotion: false
+                },
+                'TIER006': {
+                    code: 'TIER006',
+                    name: 'Trial Agent',
+                    description: 'No commission trial period for new agents.',
+                    discount: '0',
+                    status: 'inactive',
+                    minBookings: '0',
+                    minRevenue: '0',
+                    requiresApproval: false,
+                    autoPromotion: false
+                }
+            };
+            
+            const data = tierData[tierCode] || tierData['TIER001'];
+            
+            // Populate the form with tier data
+            document.getElementById('tierCode').value = data.code;
+            document.getElementById('tierName').value = data.name;
+            document.getElementById('tierDescription').value = data.description;
+            document.getElementById('tierDiscount').value = data.discount;
+            document.getElementById('tierStatus').value = data.status;
+            document.getElementById('minBookings').value = data.minBookings;
+            document.getElementById('minRevenue').value = data.minRevenue;
+            document.getElementById('requiresApproval').checked = data.requiresApproval;
+            document.getElementById('autoPromotion').checked = data.autoPromotion;
+            
+            // Show success message
+            showAlert(`Loaded tier ${tierCode} details`, 'success');
+        }
+        
+        function editTier(tierCode) {
+            loadTierDetails(tierCode);
+            showAlert(`Editing tier ${tierCode}`, 'info');
+        }
+        
+        function showDeleteTierModal(tierCode) {
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteTierModal'));
+            document.getElementById('confirmDeleteTierBtn').dataset.tierCode = tierCode;
+            deleteModal.show();
+        }
+        
+        function deleteTier() {
+            const tierCode = document.getElementById('confirmDeleteTierBtn').dataset.tierCode;
+            
+            // In a real application, you would send a delete request to your API
+            // For now, we'll just show a message
+            showAlert(`Tier ${tierCode} has been deleted. Agents reassigned to Standard tier.`, 'danger');
+            
+            // Close the modal
+            const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteTierModal'));
+            deleteModal.hide();
+            
+            // Reset the checkbox
+            document.getElementById('confirmDeleteTier').checked = false;
+            document.getElementById('confirmDeleteTierBtn').disabled = true;
+            
+            // Remove the row from the table
+            const row = document.querySelector(`.delete-tier[data-id="${tierCode}"]`)?.closest('tr');
+            if (row) {
+                row.remove();
+            }
+            
+            // Reset the form
+            clearTierForm();
+        }
+        
+        function saveTier() {
+            const tierCode = document.getElementById('tierCode').value;
+            const tierName = document.getElementById('tierName').value;
+            const tierDiscount = document.getElementById('tierDiscount').value;
+            
+            if (!tierCode || !tierName || !tierDiscount) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            // In a real application, you would send an update request to your API
+            // For now, we'll just show a message
+            showAlert(`Tier ${tierCode} (${tierName}) saved successfully`, 'success');
+            
+            // Update the table row if it exists
+            const row = document.querySelector(`.view-tier[data-id="${tierCode}"]`)?.closest('tr');
+            if (row) {
+                row.querySelector('td:nth-child(2) .badge').textContent = tierCode;
+                row.querySelector('td:nth-child(3) .fw-bold').textContent = tierName;
+                
+                // Update discount badge
+                const discountBadge = row.querySelector('.discount-badge');
+                discountBadge.textContent = tierDiscount + '%';
+                discountBadge.className = `discount-badge ${getDiscountColor(tierDiscount)} text-white`;
+                row.dataset.discount = tierDiscount;
+                
+                // Update status badge
+                const status = document.getElementById('tierStatus').value;
+                const statusBadge = row.querySelector('td:nth-child(5) .badge');
+                statusBadge.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+                statusBadge.className = `badge ${getStatusColor(status)}`;
+                row.dataset.status = status;
+                
+                // Update agents count if needed
+                const agentsCount = row.querySelector('td:nth-child(6) .badge');
+                if (status === 'inactive') {
+                    agentsCount.textContent = '0';
+                    agentsCount.className = 'badge bg-secondary';
+                }
+            }
+        }
+        
+        function saveNewTier() {
+            const tierCode = document.getElementById('newTierCode').value;
+            const tierName = document.getElementById('newTierName').value;
+            const tierDiscount = document.getElementById('newTierDiscount').value;
+            
+            if (!tierCode || !tierName || !tierDiscount) {
+                showAlert('Please fill in all required fields', 'warning');
+                return;
+            }
+            
+            // Check if tier code already exists
+            const existingRow = document.querySelector(`.view-tier[data-id="${tierCode}"]`);
+            if (existingRow) {
+                showAlert(`Tier code ${tierCode} already exists`, 'warning');
+                return;
+            }
+            
+            // In a real application, you would send this to your API
+            // For now, we'll add it to the table
+            const tableBody = document.getElementById('tiersTableBody');
+            const newRow = document.createElement('tr');
+            
+            const status = document.getElementById('newTierStatus').value;
+            const description = document.getElementById('newTierDescription').value;
+            const requiresApproval = document.getElementById('newRequiresApproval').checked;
+            
+            // Determine the icon class based on discount
+            const iconClass = getIconClassForDiscount(tierDiscount);
+            const icon = getIconForTier(tierName);
+            
+            newRow.className = 'tier-row';
+            newRow.dataset.status = status;
+            newRow.dataset.discount = tierDiscount;
+            
+            newRow.innerHTML = `
+                <td>${tableBody.children.length + 1}</td>
+                <td><span class="badge bg-primary">${tierCode}</span></td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="tier-icon ${iconClass} me-2">
+                            <i class="${icon}"></i>
+                        </div>
+                        <div>
+                            <span class="fw-bold">${tierName}</span>
+                            <small class="d-block text-muted">${description || 'No description provided'}</small>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <span class="discount-badge ${getDiscountColor(tierDiscount)} text-white">
+                        ${tierDiscount}%
+                    </span>
+                </td>
+                <td><span class="badge ${getStatusColor(status)}">${status.charAt(0).toUpperCase() + status.slice(1)}</span></td>
+                <td><span class="badge ${status === 'active' ? 'bg-info' : 'bg-secondary'}">0</span></td>
+                <td>
+                    <div class="btn-group btn-group-sm table-actions">
+                        <button class="btn btn-outline-primary view-tier" data-id="${tierCode}">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-outline-warning edit-tier" data-id="${tierCode}">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-outline-danger delete-tier" data-id="${tierCode}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            `;
+            
+            tableBody.appendChild(newRow);
+            
+            // Add event listeners to new buttons
+            newRow.querySelector('.view-tier').addEventListener('click', function() {
+                loadTierDetails(this.dataset.id);
+            });
+            
+            newRow.querySelector('.edit-tier').addEventListener('click', function() {
+                editTier(this.dataset.id);
+            });
+            
+            newRow.querySelector('.delete-tier').addEventListener('click', function() {
+                showDeleteTierModal(this.dataset.id);
+            });
+            
+            // Close the modal
+            const addModal = bootstrap.Modal.getInstance(document.getElementById('addTierModal'));
+            addModal.hide();
+            
+            // Reset the form
+            document.getElementById('newTierCode').value = '';
+            document.getElementById('newTierName').value = '';
+            document.getElementById('newTierDescription').value = '';
+            document.getElementById('newTierDiscount').value = '';
+            document.getElementById('newTierStatus').value = 'active';
+            document.getElementById('newRequiresApproval').checked = false;
+            
+            // Load the new tier details
+            loadTierDetails(tierCode);
+            
+            showAlert(`New tier ${tierCode} added successfully`, 'success');
+        }
+        
+        function clearTierForm() {
+            document.getElementById('tierCode').value = '';
+            document.getElementById('tierName').value = '';
+            document.getElementById('tierDescription').value = '';
+            document.getElementById('tierDiscount').value = '';
+            document.getElementById('tierStatus').value = 'active';
+            document.getElementById('minBookings').value = '';
+            document.getElementById('minRevenue').value = '';
+            document.getElementById('requiresApproval').checked = false;
+            document.getElementById('autoPromotion').checked = false;
+            
+            showAlert('Form has been cleared', 'info');
+        }
+        
+        function exportTiers() {
+            // In a real application, you would generate and download a CSV/Excel file
+            showAlert('Tiers exported successfully', 'success');
+        }
+        
+        function viewAgentsByTier(tier) {
+            // In a real application, you would navigate to agents page filtered by tier
+            showAlert(`Redirecting to agents in ${tier.charAt(0).toUpperCase() + tier.slice(1)} tier`, 'info');
+        }
+        
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Add to body
+            document.body.appendChild(alertDiv);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 3000);
+        }
+        
+        function getDiscountColor(discount) {
+            const discountValue = parseFloat(discount);
+            if (discountValue >= 15) return 'bg-success';
+            if (discountValue >= 10) return 'bg-warning';
+            if (discountValue >= 5) return 'bg-danger';
+            if (discountValue > 0) return 'bg-primary';
+            return 'bg-dark';
+        }
+        
+        function getStatusColor(status) {
+            const colors = {
+                'active': 'bg-success',
+                'inactive': 'bg-warning',
+                'archived': 'bg-secondary'
+            };
+            return colors[status] || 'bg-secondary';
+        }
+        
+        function getIconClassForDiscount(discount) {
+            const discountValue = parseFloat(discount);
+            if (discountValue >= 20) return 'tier-icon-premium';
+            if (discountValue >= 15) return 'tier-icon-gold';
+            if (discountValue >= 10) return 'tier-icon-silver';
+            if (discountValue >= 5) return 'tier-icon-bronze';
+            return 'tier-icon-standard';
+        }
+        
+        function getIconForTier(tierName) {
+            const tierLower = tierName.toLowerCase();
+            if (tierLower.includes('premium')) return 'fas fa-crown';
+            if (tierLower.includes('gold')) return 'fas fa-star';
+            if (tierLower.includes('silver')) return 'fas fa-star-half-alt';
+            if (tierLower.includes('bronze')) return 'fas fa-award';
+            return 'fas fa-user-tie';
+        }
+    </script>
+</body>
+</html>
