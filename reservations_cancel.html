@@ -35,7 +35,7 @@
 </div>
 -->
         
-        <!-- Current Status Section -->
+       <!-- Current Status Section -->
         <div class="sidebar-status">
             <h6 class="sidebar-section-title">Current Status:</h6>
             <div class="status-options">
@@ -64,7 +64,7 @@
         <div class="sidebar-quick-stats">
             <div class="row g-2">
                 <div class="col-6">
-                    <a href="messages.html" class="text-decoration-none">
+                    <a href="messages_guest.html" class="text-decoration-none">
                         <div class="quick-stat-item">
                             <i class="fas fa-envelope text-primary"></i>
                             <div class="quick-stat-info">
@@ -102,32 +102,31 @@
                 
                 <!-- Profile -->
                 <li class="nav-item">
-                    <a class="nav-link" href="profile.html">
+                    <a class="nav-link " href="profile.html">
                         <span class="nav-icon"><i class="fas fa-user"></i></span>
                         <span>Profile</span>
                     </a>
                 </li>
                 
                 <!-- Reservations (with dropdown) -->
-                <li class="nav-item has-submenu active">
+                <li class="nav-item has-submenu">
                     <a class="nav-link active" href="#" data-section="reservations">
                         <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
                         <span>Reservations</span>
                         <span class="badge bg-primary ms-auto">12</span>
                         <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
                     </a>
-                    <ul class="submenu show">
+                    <ul class="submenu">
                         <li><a href="reservations.html" data-subsection="reservations-list">Reservations</a></li>
-                        <li><a href="reservations-reserved.html" data-subsection="reserved">Reserved</a></li>
-                        <li><a href="reservations-cancel.html" data-subsection="cancel" class="active">Cancel</a></li>
-                        <li><a href="reservations-history.html" data-subsection="history">History</a></li>
-                        <li><a href="today-arrivals.html" data-subsection="arrivals">Today Arrivals</a></li>
+                        <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
+                        <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
+                        <li><a href="reservations_history.html" data-subsection="history">History</a></li>
                     </ul>
                 </li>
                 
                 <!-- In House -->
                 <li class="nav-item">
-                    <a class="nav-link" href="in-house-guests.html">
+                    <a class="nav-link" href="in-house.html">
                         <span class="nav-icon"><i class="fas fa-users"></i></span>
                         <span>In House</span>
                         <span class="badge bg-success ms-auto">42</span>
@@ -143,8 +142,8 @@
                         <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="check-outs.html" data-subsection="check-out">Check Out</a></li>
-                        <li><a href="receipt-checkout.html" data-subsection="receipt-checkout">Receipt</a></li>
+                        <li><a href="check_outs.html" data-subsection="check-out">Check Out</a></li>
+                        <li><a href="checkout_receipt.html" data-subsection="receipt-checkout">Receipt</a></li>
                     </ul>
                 </li>
                 
@@ -157,17 +156,22 @@
                 </li>
                 
                 <!-- House Keeping -->
-                <li class="nav-item">
-                    <a class="nav-link" href="housekeeping.html">
+                <li class="nav-item has-submenu">
+                    <a class="nav-link" href="#" data-section="house-keeping">
                         <span class="nav-icon"><i class="fas fa-broom"></i></span>
                         <span>House Keeping</span>
-                        <span class="badge bg-warning ms-auto">3</span>
+                        <span class="badge bg-warning ms-auto">19</span>
+                        <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
                     </a>
+                    <ul class="submenu">
+                        <li><a href="house_keeping.html" data-subsection="house-keeping">House Keeping</a></li>
+                        <li><a href="ho_mini_bar.html" data-subsection="mini-bar">Mini Bar</a></li>
+                    </ul>
                 </li>
                 
                 <!-- POS -->
                 <li class="nav-item">
-                    <a class="nav-link" href="billing.html">
+                    <a class="nav-link" href="pos_billing.html">
                         <span class="nav-icon"><i class="fas fa-cash-register"></i></span>
                         <span>POS & Billing</span>
                     </a>
@@ -189,8 +193,8 @@
                         <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="partners-list.html" data-subsection="partners-list">Partners</a></li>
-                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                        <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
+                        <li><a href="pa_travel_agent.html" data-subsection="travel-agent">Travel Agent</a></li>
                     </ul>
                 </li>
                 
@@ -203,18 +207,18 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="account.html" data-subsection="account">Account</a></li>
-                        <li><a href="account-category.html" data-subsection="account-category">Account Category</a></li>
-                        <li><a href="main-account.html" data-subsection="main-account">Main Account</a></li>
-                        <li><a href="general-ledger.html" data-subsection="general-ledger">General Ledger</a></li>
-                        <li><a href="bank-details.html" data-subsection="bank-details">Bank Details</a></li>
-                        <li><a href="bank-deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
-                        <li><a href="gl-report.html" data-subsection="gl-report">GL Report</a></li>
-                        <li><a href="journal-entries.html" data-subsection="journal-entries">Journal Entries</a></li>
-                        <li><a href="payments.html" data-subsection="payments">Payments</a></li>
-                        <li><a href="income-statement.html" data-subsection="income-statement">Income Statement</a></li>
-                        <li><a href="invoice-accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
-                        <li><a href="bank-reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
-                        <li><a href="cash-book.html" data-subsection="cash-book">Cash Book</a></li>
+                        <li><a href="ac_account_category.html" data-subsection="account-category">Account Category</a></li>
+                        <li><a href="ac_main_account.html" data-subsection="main-account">Main Account</a></li>
+                        <li><a href="ac_general_ledger.html" data-subsection="general-ledger">General Ledger</a></li>
+                        <li><a href="ac_bank_details.html" data-subsection="bank-details">Bank Details</a></li>
+                        <li><a href="ac_bank_deposits.html" data-subsection="bank-deposits">Bank Deposits</a></li>
+                        <li><a href="ac_gl_report.html" data-subsection="gl-report">GL Report</a></li>
+                        <li><a href="ac_journal_entries.html" data-subsection="journal-entries">Journal Entries</a></li>
+                        <li><a href="ac_payments.html" data-subsection="payments">Payments</a></li>
+                        <li><a href="ac_income_statement.html" data-subsection="income-statement">Income Statement</a></li>
+                        <li><a href="ac_invoice_accounts.html" data-subsection="invoice-accounts">Invoice</a></li>
+                        <li><a href="ac_bank_reconciliation.html" data-subsection="bank-reconciliation">Bank Reconciliation</a></li>
+                        <li><a href="ac_cash_book.html" data-subsection="cash-book">Cash Book</a></li>
                     </ul>
                 </li>
                 
@@ -227,11 +231,11 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
-                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
-                        <li><a href="revenue-reports.html" data-subsection="revenue-reports">Revenue</a></li>
-                        <li><a href="drs.html" data-subsection="drs">DRS</a></li>
-                        <li><a href="age-analysis-report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
-                        <li><a href="channel-management.html" data-subsection="channel-management">Channel Management</a></li>
+                        <li><a href="rep_occupancy_forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
+                        <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
+                        <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
+                        <li><a href="rep_channel_management.html" data-subsection="channel-management">Channel Management</a></li>
                     </ul>
                 </li>
                 
@@ -244,18 +248,26 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="inventory.html" data-subsection="inventory-list">Inventory</a></li>
-                        <li><a href="department.html" data-subsection="department">Department</a></li>
-                        <li><a href="category.html" data-subsection="category">Category</a></li>
-                        <li><a href="sub-category.html" data-subsection="sub-category">Sub Category</a></li>
-                        <li><a href="item.html" data-subsection="item">Item</a></li>
-                        <li><a href="purchase-order.html" data-subsection="purchase-order">Purchase Order</a></li>
-                        <li><a href="crn.html" data-subsection="crn">CRN</a></li>
-                        <li><a href="suppliers.html" data-subsection="suppliers">Suppliers</a></li>
-                        <li><a href="unit-conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
-                        <li><a href="units.html" data-subsection="units">Units</a></li>
+                        <li><a href="inv_department.html" data-subsection="department">Department</a></li>
+                        <li><a href="inv_category.html" data-subsection="category">Category</a></li>
+                        <li><a href="inv_sub_category.html" data-subsection="sub-category">Sub Category</a></li>
+                        <li><a href="inv_item.html" data-subsection="item">Item</a></li>
+                        <li><a href="inv_purchase_order.html" data-subsection="purchase-order">Purchase Order</a></li>
+                        <li><a href="inv_crn.html" data-subsection="crn">CRN</a></li>
+                        <li><a href="inv_suppliers.html" data-subsection="suppliers">Suppliers</a></li>
+                        <li><a href="inv_unit_conversion.html" data-subsection="unit-conversion">Unit Conversion</a></li>
+                        <li><a href="inv_units.html" data-subsection="units">Units</a></li>
                     </ul>
                 </li>
                 
+                <!-- Channel -->
+                <li class="nav-item">
+                 <a class="nav-link" href="channel.html">
+                  <span class="nav-icon"><i class="fas fa-broadcast-tower"></i></span>
+                  <span>Channel</span>
+                   </a>
+                  </li>
+
                 <!-- Admin (with dropdown - extensive) -->
                 <li class="nav-item has-submenu">
                     <a class="nav-link" href="#" data-section="admin">
@@ -264,25 +276,25 @@
                         <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="admin-settings.html" data-subsection="admin-settings">Admin</a></li>
-                        <li><a href="admin-tier.html" data-subsection="admin-tier">Admin Tier</a></li>
-                        <li><a href="booking-source.html" data-subsection="booking-source">Booking Source</a></li>
-                        <li><a href="currency.html" data-subsection="currency">Currency</a></li>
-                        <li><a href="currency-conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
-                        <li><a href="groups.html" data-subsection="groups">Groups</a></li>
-                        <li><a href="location.html" data-subsection="location">Location</a></li>
-                        <li><a href="meal-plan.html" data-subsection="meal-plan">Meal Plan</a></li>
-                        <li><a href="rate-plan-category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
-                        <li><a href="rate-plane.html" data-subsection="rate-plane">Rate Plane</a></li>
-                        <li><a href="rate-category.html" data-subsection="rate-category">Rate Category</a></li>
-                        <li><a href="room-type.html" data-subsection="room-type">Room Type</a></li>
-                        <li><a href="rooms-admin.html" data-subsection="rooms-admin">Rooms</a></li>
-                        <li><a href="service-category.html" data-subsection="service-category">Service Category</a></li>
-                        <li><a href="services.html" data-subsection="services">Services</a></li>
-                        <li><a href="activities.html" data-subsection="activities">Activities</a></li>
-                        <li><a href="service-location.html" data-subsection="service-location">Service Location</a></li>
-                        <li><a href="tables.html" data-subsection="tables">Tables</a></li>
-                        <li><a href="users.html" data-subsection="users">Users</a></li>
+                        <li><a href="admin_settings.html" data-subsection="admin-settings">Admin</a></li>
+                        <li><a href="admin_tier.html" data-subsection="admin-tier">Admin Tier</a></li>
+                        <li><a href="ad_booking_source.html" data-subsection="booking-source">Booking Source</a></li>
+                        <li><a href="ad_currency.html" data-subsection="currency">Currency</a></li>
+                        <li><a href="ad_currency_conversion.html" data-subsection="currency-conversion">Currency Conversion</a></li>
+                        <li><a href="ad_groups.html" data-subsection="groups">Groups</a></li>
+                        <li><a href="ad_location.html" data-subsection="location">Location</a></li>
+                        <li><a href="ad_meal_plan.html" data-subsection="meal-plan">Meal Plan</a></li>
+                        <li><a href="ad_rate_plan_category.html" data-subsection="rate-plan-category">Rate Plan Category</a></li>
+                        <li><a href="ad_rate_plane.html" data-subsection="rate-plane">Rate Plane</a></li>
+                        <li><a href="ad_rate_category.html" data-subsection="rate-category">Rate Category</a></li>
+                        <li><a href="ad_room_type.html" data-subsection="room-type">Room Type</a></li>
+                        <li><a href="ad_rooms_admin.html" data-subsection="rooms-admin">Rooms</a></li>
+                        <li><a href="ad_service_category.html" data-subsection="service-category">Service Category</a></li>
+                        <li><a href="ad_services.html" data-subsection="services">Services</a></li>
+                        <li><a href="ad_activities.html" data-subsection="activities">Activities</a></li>
+                        <li><a href="ad_service_location.html" data-subsection="service-location">Service Location</a></li>
+                        <li><a href="ad_tables.html" data-subsection="tables">Tables</a></li>
+                        <li><a href="ad_users.html" data-subsection="users">Users</a></li>
                     </ul>
                 </li>
                 

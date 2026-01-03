@@ -1,183 +1,4 @@
-<!-- Clean Minimal Header -->
-    <header class="main-header">
-        <div class="container-fluid">
-            <div class="header-content">
-                <!-- Brand Section -->
-                <div class="brand-section">
-                    <button id="sidebarToggle" class="sidebar-toggle-btn me-3">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    
-                    <div class="brand-logo">
-                        <i class="fas fa-hotel"></i>
-                    </div>
-                    
-                    <div class="brand-text">
-                        <h1 class="brand-title">Ovia PMS</h1>
-                        <p class="brand-subtitle">Hotel Management System</p>
-                    </div>
-                </div>
-                
-                <!-- User Actions -->
-                <div class="user-actions">
-                    <!-- Messages -->
-                    <div class="position-relative">
-                        <a href="#" class="header-icon-btn" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-envelope"></i>
-                            <span class="notification-badge">2</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end p-0" style="width: 320px;">
-                            <div class="card border-0">
-                                <div class="card-header bg-primary text-white">
-                                    <h6 class="mb-0"><i class="fas fa-envelope me-2"></i>Messages</h6>
-                                </div>
-                                <div class="card-body p-0">
-                                    <div class="list-group list-group-flush">
-                                        <a href="messages.html" class="list-group-item list-group-item-action">
-                                            <div class="d-flex align-items-center">
-                                                <div class="flex-shrink-0">
-                                                    <i class="fas fa-user-circle text-primary fa-2x"></i>
-                                                </div>
-                                                <div class="flex-grow-1 ms-3">
-                                                    <h6 class="mb-1">Guest Feedback</h6>
-                                                    <p class="mb-1 small text-muted">Room service was excellent!</p>
-                                                    <small class="text-muted">5 min ago</small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a href="messages.html" class="list-group-item list-group-item-action">
-                                            <div class="d-flex align-items-center">
-                                                <div class="flex-shrink-0">
-                                                    <i class="fas fa-user-circle text-success fa-2x"></i>
-                                                </div>
-                                                <div class="flex-grow-1 ms-3">
-                                                    <h6 class="mb-1">Reservation Query</h6>
-                                                    <p class="mb-1 small text-muted">Need to extend stay by 2 days</p>
-                                                    <small class="text-muted">1 hour ago</small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Notifications -->
-                    <div class="position-relative">
-                        <a href="#" class="header-icon-btn" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-bell"></i>
-                            <span class="notification-badge">5</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end p-0" style="width: 320px;">
-                            <div class="card border-0">
-                                <div class="card-header bg-warning text-white">
-                                    <h6 class="mb-0"><i class="fas fa-bell me-2"></i>Notifications</h6>
-                                </div>
-                                <div class="card-body p-0">
-                                    <div class="list-group list-group-flush">
-                                        <a href="notifications.html" class="list-group-item list-group-item-action">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h6 class="mb-1">New Reservation</h6>
-                                                <small>5 min ago</small>
-                                            </div>
-                                            <p class="mb-1">Room 304 booked for 3 nights</p>
-                                        </a>
-                                        <a href="notifications.html" class="list-group-item list-group-item-action">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h6 class="mb-1">Check-out Reminder</h6>
-                                                <small>1 hour ago</small>
-                                            </div>
-                                            <p class="mb-1">Room 210 checking out today</p>
-                                        </a>
-                                        <a href="notifications.html" class="list-group-item list-group-item-action">
-                                            <div class="d-flex w-100 justify-content-between">
-                                                <h6 class="mb-1">Maintenance Request</h6>
-                                                <small>2 hours ago</small>
-                                            </div>
-                                            <p class="mb-1">AC issue reported in Room 105</p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- User Profile Dropdown -->
-                    <div class="dropdown">
-                        <div class="user-profile" role="button" data-bs-toggle="dropdown">
-                            <div class="user-avatar">AJ</div>
-                            <div class="user-info">
-                                <p class="user-name">Admin Johnson</p>
-                                <p class="user-role">Hotel Manager</p>
-                            </div>
-                            <i class="fas fa-chevron-down dropdown-arrow"></i>
-                        </div>
-                        <div class="dropdown-menu dropdown-menu-end">
-                            <div class="px-3 py-2">
-                                <h6 class="mb-2">Switch Role:</h6>
-                                <div class="user-role-selector">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="userRole" id="clientRole">
-                                        <label class="form-check-label" for="clientRole">
-                                            Client
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="userRole" id="editorRole">
-                                        <label class="form-check-label" for="editorRole">
-                                            Editor
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="userRole" id="adminRole" checked>
-                                        <label class="form-check-label" for="adminRole">
-                                            Admin
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="profile.html">
-                                <i class="fas fa-user me-2"></i>Profile
-                            </a>
-                            <a class="dropdown-item" href="settings.html">
-                                <i class="fas fa-cog me-2"></i>Settings
-                            </a>
-                            <a class="dropdown-item" href="help.html">
-                                <i class="fas fa-question-circle me-2"></i>Help
-                            </a>
-                            <a class="dropdown-item" href="friends.html">
-                                <i class="fas fa-users me-2"></i>Friends <span class="badge bg-primary ms-2">6</span>
-                            </a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" href="login.html" id="logoutBtn">
-                                <i class="fas fa-sign-out-alt me-2"></i>Logout
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Sidebar Overlay for Mobile -->
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
-    
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-    <!-- ❌ REMOVE THIS ENTIRE BLOCK -->
-<!--
-<div class="sidebar-header">
-    <div class="d-flex align-items-center">
-        <div class="flex-shrink-0"></div>
-    </div>
-</div>
--->
-
-
-        
-        <!-- Current Status Section -->
+<!-- Current Status Section -->
         <div class="sidebar-status">
             <h6 class="sidebar-section-title">Current Status:</h6>
             <div class="status-options">
@@ -206,7 +27,7 @@
         <div class="sidebar-quick-stats">
             <div class="row g-2">
                 <div class="col-6">
-                    <a href="messages.html" class="text-decoration-none">
+                    <a href="messages_guest.html" class="text-decoration-none">
                         <div class="quick-stat-item">
                             <i class="fas fa-envelope text-primary"></i>
                             <div class="quick-stat-info">
@@ -236,7 +57,7 @@
             <ul class="nav flex-column" id="mainMenu">
                 <!-- Home -->
                 <li class="nav-item">
-                    <a class="nav-link active" href="index.html">
+                    <a class="nav-link" href="index.html">
                         <span class="nav-icon"><i class="fas fa-home"></i></span>
                         <span>Home</span>
                     </a>
@@ -252,7 +73,7 @@
                 
                 <!-- Reservations (with dropdown) -->
                 <li class="nav-item has-submenu">
-                    <a class="nav-link" href="#" data-section="reservations">
+                    <a class="nav-link active" href="#" data-section="reservations">
                         <span class="nav-icon"><i class="fas fa-calendar-check"></i></span>
                         <span>Reservations</span>
                         <span class="badge bg-primary ms-auto">12</span>
@@ -263,7 +84,6 @@
                         <li><a href="reservations_reserved.html" data-subsection="reserved">Reserved</a></li>
                         <li><a href="reservations_cancel.html" data-subsection="cancel">Cancel</a></li>
                         <li><a href="reservations_history.html" data-subsection="history">History</a></li>
-                        <li><a href="today-arrivals.html" data-subsection="arrivals">Today Arrivals</a></li>
                     </ul>
                 </li>
                 
@@ -337,7 +157,7 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="partners.html" data-subsection="partners-list">Partners</a></li>
-                        <li><a href="travel-agent.html" data-subsection="travel-agent">Travel Agent</a></li>
+                        <li><a href="pa_travel_agent.html" data-subsection="travel-agent">Travel Agent</a></li>
                     </ul>
                 </li>
                 
@@ -374,7 +194,7 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="reports.html" data-subsection="reports-list">Reports</a></li>
-                        <li><a href="occupancy-forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
+                        <li><a href="rep_occupancy_forecast.html" data-subsection="occupancy-forecast">Occupancy Forecast</a></li>
                         <li><a href="rep_revenue_reports.html" data-subsection="revenue-reports">Revenue</a></li>
                         <li><a href="rep_drs.html" data-subsection="drs">DRS</a></li>
                         <li><a href="rep_age_analysis_report.html" data-subsection="age-analysis">Age Analysis Report</a></li>
@@ -403,6 +223,14 @@
                     </ul>
                 </li>
                 
+                <!-- Channel -->
+                <li class="nav-item">
+                 <a class="nav-link" href="channel.html">
+                  <span class="nav-icon"><i class="fas fa-broadcast-tower"></i></span>
+                  <span>Channel</span>
+                   </a>
+                  </li>
+
                 <!-- Admin (with dropdown - extensive) -->
                 <li class="nav-item has-submenu">
                     <a class="nav-link" href="#" data-section="admin">
