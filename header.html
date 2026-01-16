@@ -104,58 +104,85 @@
                 </div>
                 
                 <!-- User Profile Dropdown -->
-                <div class="dropdown">
-                    <div class="user-profile" role="button" data-bs-toggle="dropdown">
-                        <div class="user-avatar">AK</div>
-                        <div class="user-info">
-                            <p class="user-name">Admin Kethushan</p>
-                            <p class="user-role">Hotel Manager</p>
-                        </div>
-                        <i class="fas fa-chevron-down dropdown-arrow"></i>
-                    </div>
-                    <div class="dropdown-menu dropdown-menu-end">
-                        <div class="px-3 py-2">
-                            <h6 class="mb-2">Switch Role:</h6>
-                            <div class="user-role-selector">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="userRole" id="clientRole">
-                                    <label class="form-check-label" for="clientRole">
-                                        Client
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="userRole" id="editorRole">
-                                    <label class="form-check-label" for="editorRole">
-                                        Editor
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="userRole" id="adminRole" checked>
-                                    <label class="form-check-label" for="adminRole">
-                                        Admin
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="profile.html">
-                            <i class="fas fa-user me-2"></i>Profile
-                        </a>
-                        <a class="dropdown-item" href="settings.html">
-                            <i class="fas fa-cog me-2"></i>Settings
-                        </a>
-                        <a class="dropdown-item" href="help.html">
-                            <i class="fas fa-question-circle me-2"></i>Help
-                        </a>
-                        <a class="dropdown-item" href="friends.html">
-                            <i class="fas fa-users me-2"></i>Friends <span class="badge bg-primary ms-2">6</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" href="login.html" id="logoutBtn">
-                            <i class="fas fa-sign-out-alt me-2"></i>Logout
-                        </a>
-                    </div>
+<div class="dropdown">
+    <div class="user-profile" role="button" data-bs-toggle="dropdown">
+        <div class="user-avatar">AK</div>
+        <div class="user-info">
+            <p class="user-name">Admin Kethushan</p>
+            <p class="user-role">Hotel Manager</p>
+            <div class="location-badge" id="currentLocationBadge">New York</div>
+        </div>
+        <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </div>
+    <div class="dropdown-menu dropdown-menu-end">
+        <!-- Location Selector Section -->
+        <div class="px-3 py-2">
+            <h6 class="mb-2">Current Location:</h6>
+            <div class="location-selector mb-3">
+                <select class="form-select form-select-sm" id="locationSelect">
+                    <option value="newyork" data-db="ny_hotel_db">New York Hotel</option>
+                    <option value="london" data-db="london_hotel_db">London Hotel</option>
+                    <option value="paris" data-db="paris_hotel_db">Paris Hotel</option>
+                    <option value="tokyo" data-db="tokyo_hotel_db">Tokyo Hotel</option>
+                    <option value="dubai" data-db="dubai_hotel_db">Dubai Hotel</option>
+                </select>
+                <div class="form-text">Changing location will switch to the respective hotel's database</div>
+            </div>
+            
+            <!-- Database Connection Status -->
+            <div class="db-status mt-2">
+                <small class="text-muted">
+                    <i class="fas fa-database me-1"></i>
+                    Connected to: <span id="dbName" class="fw-bold">ny_hotel_db</span>
+                </small>
+            </div>
+        </div>
+        
+        <div class="dropdown-divider"></div>
+        
+        <!-- Role Selector Section -->
+        <div class="px-3 py-2">
+            <h6 class="mb-2">Switch Role:</h6>
+            <div class="user-role-selector">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="userRole" id="clientRole">
+                    <label class="form-check-label" for="clientRole">
+                        Client
+                    </label>
                 </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="userRole" id="editorRole">
+                    <label class="form-check-label" for="editorRole">
+                        Editor
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="userRole" id="adminRole" checked>
+                    <label class="form-check-label" for="adminRole">
+                        Admin
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="profile.html">
+            <i class="fas fa-user me-2"></i>Profile
+        </a>
+        <a class="dropdown-item" href="settings.html">
+            <i class="fas fa-cog me-2"></i>Settings
+        </a>
+        <a class="dropdown-item" href="help.html">
+            <i class="fas fa-question-circle me-2"></i>Help
+        </a>
+        <a class="dropdown-item" href="friends.html">
+            <i class="fas fa-users me-2"></i>Friends <span class="badge bg-primary ms-2">6</span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item text-danger" href="login.html" id="logoutBtn">
+            <i class="fas fa-sign-out-alt me-2"></i>Logout
+        </a>
+    </div>
+</div>
             </div>
         </div>
     </div>
